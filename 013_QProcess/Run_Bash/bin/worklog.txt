@@ -1,0 +1,4 @@
+總計 32
+-rwxr-xr-x 1 jash jash 26100 2012-08-15 09:42 Run_Bash
+-rw-r--r-- 1 jash jash     0 2012-08-16 04:14 worklog.txt
+-rwxrwxrwx 1 jash jash    32 2012-08-15 09:37 work.sh

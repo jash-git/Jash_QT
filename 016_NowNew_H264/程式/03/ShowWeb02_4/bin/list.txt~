@@ -1,0 +1,71 @@
+000_安裝.txt
+001_Question-Qt3 vs Qt4-setMainWidget.txt
+002_jashwriteQDevelop01_03.rar
+	├01字串和數字互換
+	├02使用Close()函數關閉視窗
+	├03使用QScrollBar改變QLineEdit數值並使用QLineEdit改變QScrollBar顯示位置
+003_StandardDialogs(Layout_button_lineedit_mapping sub object)01.rar
+	├使用關閉AP指令
+	├設定對話盒標題
+	├判斷USER選擇MESSAGEBOX內容
+	├改變顏色
+	├改變字型
+	├取的路徑
+004_UbuLinux_QDevelop_加減乘除程式.rar
+005_換ui資源檔隱藏和縮小視窗的Qt範例.zip
+	├換ui資源檔
+	├隱藏視窗
+	├縮小視窗
+006_新增資源檔來使用ICON圖.rar
+007_顯示中文和QMessageBox使用.rar
+008_ControlWindowSize.rar
+	├換ui資源檔
+	├縮小視窗
+	├最大視窗
+	├使用關閉AP指令
+	├使用對其功能使元件可依視窗改變大小(同交教學文件的影片)
+009_ControlWindowSize01.rar
+	├換ui資源檔
+	├縮小視窗
+	├最大視窗
+	├使用關閉AP指令
+	├使用對其功能使元件可依視窗改變大小(同交教學文件的影片)
+	├將換下的ui資源檔對應到新的類別(另外發現QDialog無法放大縮小)
+010_Create-deb-by-jash-at-2010-01-20.rar
+	├製作deb的教學文件
+	├製作deb的命令照片
+	├製作deb的結果檔案
+	├製作deb的原始檔案
+011_Qt_Mplayer
+012_Qt_OpenCV
+013_QProcess
+	├test_QProcess_01->單純呼叫Mplayer 播放影片
+	├test_QProcess_02->單純呼叫Mplayer 播放影片並等待程式執行完成關閉自己
+	├test_QProcess_03->呼叫SH檔執行轉檔並等待程式程式執行完成關閉自己
+	├callexe_01->呼叫單一執行檔，並用Timer來偵測呼叫的程式是否已結束
+	├CallAnyExe_01->可以自行定義呼叫程式，並取出相關回應訊息並顯示
+014_XML
+	├ReadXml01(QFile->Write File(txt))
+	├ReadXml02(QFile->Write File(txt)，目前所在目錄)
+015_ConverterWMV2Mp4
+	├ConverterWMV2Mp4_01(Read Xml、show XML)
+	├ConverterWMV2Mp4_02(已完成轉檔、WMV檔案未刪除)
+	├ConverterWMV2Mp4_03(QTimer觸發、WMV檔案刪除)
+	├ConverterWMV2Mp4_04(轉檔完成後關閉程式)
+	├ConverterWMV2Mp4_05(轉檔完成並呼叫FTP程式上傳list後關閉程式)
+016_NowNew_H264
+	├01(ConverterWMV2Mp4_04、NowNew_H264_Main_01)
+		├NowNew_H264_Main_01(偵測check.txt)
+	├02(ConverterWMV2Mp4_05、NowNew_H264_Main_02、QFtpUpload_04)
+		├(偵測check.txt、轉檔、傳送list.txt)
+017_ShowWeb
+	├ShowWeb01(單純顯示網頁)
+	├ShowWeb02(可填表單並送出，但還未判斷網址)
+	├ShowWeb02_1(湟仁表單)
+	├ShowWeb02_2(填資料換行)
+	├ShowWeb03(可填表單並送出，抓到網址並顯示)
+018_QFtpUpload
+	├QFtpUpload_01(手動登錄FTP://61.67.112.20和上傳一個檔案並在完成後結束程式)
+	├QFtpUpload_02(自動登錄FTP://61.67.112.20和上傳一個檔案並在完成後結束程式)
+	├QFtpUpload_03(自動上傳list.txt後，並完成顯示GOOGLE網頁後關閉程式)
+	├QFtpUpload_04(自動上傳list.txt和刪除list.txt，接下來完成顯示GOOGLE網頁後關閉程式)

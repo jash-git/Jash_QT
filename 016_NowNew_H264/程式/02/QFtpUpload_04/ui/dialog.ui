@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>276</width>
+    <height>243</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QPushButton" name="pushLogin">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>20</y>
+     <width>92</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Login</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushPutFile">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>20</y>
+     <width>92</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Put File</string>
+   </property>
+  </widget>
+  <widget class="QWebView" name="webView">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>50</y>
+     <width>271</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="url">
+    <url>
+     <string>about:blank</string>
+    </url>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebView</class>
+   <extends>QWidget</extends>
+   <header>QtWebKit/QWebView</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushLogin</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>slotLogin()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>45</x>
+     <y>33</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>122</x>
+     <y>35</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushPutFile</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>slotPut()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>165</x>
+     <y>33</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>122</x>
+     <y>35</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>webView</sender>
+   <signal>loadFinished(bool)</signal>
+   <receiver>Dialog</receiver>
+   <slot>slotwebloaded(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>135</x>
+     <y>140</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>137</x>
+     <y>121</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slotLogin()</slot>
+  <slot>slotPut()</slot>
+  <slot>slotwebloaded(bool)</slot>
+ </slots>
+</ui>

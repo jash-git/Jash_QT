@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>345</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLineEdit" name="lineEditFile">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>20</y>
+     <width>321</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>20</y>
+     <width>62</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>FilePath:</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButSelect">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>92</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Select File</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButAdd">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>50</y>
+     <width>92</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Add File</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="listWidgetFile">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>80</y>
+     <width>381</width>
+     <height>211</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButExe">
+   <property name="geometry">
+    <rect>
+     <x>290</x>
+     <y>300</y>
+     <width>92</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Exe</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButSelect</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>slotSelect()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>62</x>
+     <y>58</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>95</x>
+     <y>0</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButAdd</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>slotAdd()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>190</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>336</x>
+     <y>55</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButExe</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>slotExe()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>335</x>
+     <y>313</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>172</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slotAdd()</slot>
+  <slot>slotExe()</slot>
+  <slot>slotSelect()</slot>
+ </slots>
+</ui>

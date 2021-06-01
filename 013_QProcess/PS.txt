@@ -1,0 +1,14 @@
+test_QProcess_01->單純呼叫Mplayer 播放影片
+test_QProcess_02->單純呼叫Mplayer 播放影片並等待程式執行完成關閉自己
+test_QProcess_03->呼叫SH檔執行轉檔並等待程式程式執行完成關閉自己
+callexe_01->呼叫單一執行檔，並用Timer來偵測呼叫的程式是否已結束
+CallAnyExe_01->可以自行定義呼叫程式，並取出相關回應訊息並顯示
+Qprocess_get_send Data->和Qprocess的程式通訊，取得輸出果結果，送訊息給Qprocess
+Run_Bash->每天4點執行一次
+VLC_open_close ->兩個按鈕控制VLC開關(00->單純播影片 01->轉檔動作 重點在於 '' 引號要移除)
+Restart_Self 關閉和重啟自己
+GUI_tar [ 呼叫 setStandardOutputFile ]
+QPrc01 (手動測試QProcess執行VLC轉發UDP)
+QPrc02 (手動測試QProcess執行FFMPEG轉發UDP)
+Qproc_youtube(呼叫youtube-dl下載youtube並讀取進度，重點在於指定youtube-dl的完整路徑)
+Stream2MulticastGUI(利用QProcess呼叫VLC產生2Multicast訊號和執行killall vlc命令)

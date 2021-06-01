@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<appSetting>
+	<shscriptfile>/home/jash/test.sh</shscriptfile>
+	<wmvlistfile>/home/jash/listfile.txt</wmvlistfile>
+	<sourcepath>/home/jash/wmv/</sourcepath>
+	<endpath>/home/jash/mp4/</endpath>
+</appSetting>
