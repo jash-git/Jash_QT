@@ -1,0 +1,318 @@
+﻿//////////////////////////////////////////////////////////////
+//
+//檔案功能說明
+//
+/////////////////////////////////////////////////////////////
+//============================================================
+//
+//函數說明
+//
+//============================================================
+
+//----------------------------
+//區段程式碼功能說明
+//__XXXX_start
+
+
+//__XXXX_end
+//----------------------------
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+000_安裝.txt
+001_Question-Qt3 vs Qt4-setMainWidget.txt
+002_jashwriteQDevelop01_03.rar
+	├01QString字串和數字互換
+	├02使用Close()函數關閉視窗
+	├03使用QScrollBar改變QLineEdit數值並使用QLineEdit改變QScrollBar顯示位置
+003_StandardDialogs(Layout_button_lineedit_mapping sub object)01.rar
+	├使用關閉AP指令
+	├設定對話盒標題
+	├判斷USER選擇MESSAGEBOX內容
+	├改變顏色
+	├改變字型
+	├取的路徑
+004_UbuLinux_QDevelop_加減乘除程式.rar
+005_換ui資源檔隱藏和縮小視窗的Qt範例.zip
+	├換ui資源檔
+	├隱藏視窗
+	├縮小視窗
+006_新增資源檔來使用ICON圖.rar
+007_顯示中文和QMessageBox使用.rar
+008_ControlWindowSize.rar
+	├換ui資源檔
+	├縮小視窗
+	├最大視窗
+	├使用關閉AP指令
+	├使用對其功能使元件可依視窗改變大小(同交教學文件的影片)
+009_ControlWindowSize01.rar
+	├換ui資源檔
+	├縮小視窗
+	├最大視窗
+	├使用關閉AP指令
+	├使用對其功能使元件可依視窗改變大小(同交教學文件的影片)
+	├將換下的ui資源檔對應到新的類別(另外發現QDialog無法放大縮小)
+010_Create-deb-by-jash-at-2010-01-20.rar
+	├製作deb的教學文件
+	├製作deb的命令照片
+	├製作deb的結果檔案
+	├製作deb的原始檔案
+011_Qt_Mplayer
+012_Qt_OpenCV
+013_QProcess
+	├test_QProcess_01->單純呼叫Mplayer 播放影片
+	├test_QProcess_02->單純呼叫Mplayer 播放影片並等待程式執行完成關閉自己
+	├test_QProcess_03->呼叫SH檔執行轉檔並等待程式程式執行完成關閉自己
+	├callexe_01->呼叫單一執行檔，並用Timer來偵測呼叫的程式是否已結束
+	├CallAnyExe_01->可以自行定義呼叫程式，並取出相關回應訊息並顯示
+	├CreateandRunBashScript->產生Linux Script(寫檔案，改變檔案權限)，並執行Linux Script
+	├Qprocess_get_send Data->和Qprocess的程式通訊，取得輸出果結果，送訊息給Qprocess
+	├Restart_Self 關閉和重啟自己
+	├Run_Bash->每天4點執行一次
+	├QPrc01 (手動測試QProcess執行VLC轉發UDP)
+	├QPrc02 (手動測試QProcess執行FFMPEG轉發UDP)
+	├Qproc_youtube(呼叫youtube-dl下載youtube並讀取進度，重點在於指定youtube-dl的完整路徑)
+	├Stream2MulticastGUI(利用QProcess呼叫VLC產生2Multicast訊號和執行killall vlc命令)
+014_XML
+	├ReadXml01(QFile->Write File(產生文字紀錄檔))
+	├ReadXml02(QFile->Write File(產生文字紀錄檔)目前所在目錄)
+	├ReadXml03(搜尋Node，讀取兩層NodeList)
+	├文件(Qt讀取XML節點內的子節點，搜尋XML的節點01，XML讀寫_搜尋整合範例)
+015_ConverterWMV2Mp4
+	├ConverterWMV2Mp4_01(Read Xml、show XML)
+	├ConverterWMV2Mp4_02(已完成轉檔、WMV檔案未刪除)
+	├ConverterWMV2Mp4_03(QTimer觸發、WMV檔案刪除)
+	├ConverterWMV2Mp4_04(轉檔完成後關閉程式)
+	├ConverterWMV2Mp4_05(轉檔完成並呼叫FTP程式上傳list後關閉程式)
+016_NowNew_H264
+	├01(ConverterWMV2Mp4_04、NowNew_H264_Main_01)
+		├NowNew_H264_Main_01(偵測check.txt)
+	├02(ConverterWMV2Mp4_05、NowNew_H264_Main_02、QFtpUpload_04)
+		├(偵測check.txt、轉檔、傳送list.txt)
+	├03(ConverterWMV2Mp4_06、NowNew_H264_Main_02、ShowWeb02_4)
+	├04(ConverterWMV2Mp4_06、NowNew_H264_Main_03、ShowWeb02_5)
+		├(呼叫WebService)
+	├05(ConverterWMV2Mp4_07、SelectNowNews2MP4)->為了配合零星影片手動轉檔
+	├06(修改05，可以一次多個檔案，轉完要按OK)
+	├07(修改06，可以依照SH FILE檔名標示MP4的畫質)
+017_ShowWeb
+	├ShowWeb01(單純顯示網頁)
+	├ShowWeb02(可填表單並送出，但還未判斷網址)
+	├ShowWeb02_1(湟仁表單)
+	├ShowWeb02_2(填資料換行)
+	├ShowWeb02_3(將list.txt填入表單)
+	├ShowWeb03(可填表單並送出，抓到網址並顯示)
+	├ShowWeb04(存HTML)
+018_QFtpUpload
+	├QFtpUpload_01(手動登錄FTP://61.67.112.20和上傳一個檔案並在完成後結束程式)
+	├QFtpUpload_02(自動登錄FTP://61.67.112.20和上傳一個檔案並在完成後結束程式)
+	├QFtpUpload_03(自動上傳list.txt後，並完成顯示GOOGLE網頁後關閉程式)
+	├QFtpUpload_04(自動上傳list.txt和刪除list.txt，接下來完成顯示GOOGLE網頁後關閉程式)
+019_WebServiceThread
+	├WebServiceThread_01(使用ShowWeb_01來改，透過Thread來存取WebService)
+020_下載帶參數的網頁
+021_NowNewstoH264
+	├NowNewstoH264_01(下載帶參數的網頁，搜尋Node，讀取兩層NodeList)
+	├NowNewstoH264_02(改利用Timer1驅動下載網頁)
+	├NowNewstoH264_03(讀取XML並將讀取結果存到QStringList中)
+	├NowNewstoH264_04(修改下載帶參數的網頁類別)
+	├NowNewstoH264_05(修改下載帶參數的網頁的方式，從HTTP變成WEB瀏覽)
+	├NowNewstoH264_06(int->QString、QDate、Step control、顯示中文)
+	├NowNewstoH264_07(Thread、KeepLive)
+	├NowNewstoH264_08(Thread內容完成，並修改-變實際轉檔、清單模擬)
+	├NowNewstoH264_09(只差清單為模擬模式)
+	├NowNewstoH264_10(修正檔案路徑參考方式，從原本只看CONFIG檔案，修正還要外加清單中的路徑)(只差清單為模擬模式)
+	├NowNewstoH264_11(上線Real time)
+	├NowNewstoH264_11_Manual(為了補齊之前影片)
+	├NowNewstoH264_12_Manual(為了補齊之前影片，並防堵之前已轉過的重新轉檔)
+	├2010-07-08NowNewstoH264_11(線上版)(因為NOWNEWS檔案格式錯誤，所以新增H264檔案大小要大於0，才要呼叫系統上線)
+	├20100810NowNewstoH264_12(線上版)(新增200k、400k與smil檔案在指定目錄)
+	├20100816NowNewstoH264_13(線上版)(修改12版，刪除原始COPY的功能，並切換路徑到/home/chst01/mms2/smooth/下)
+	├20100907NowNewstoH264_14_模擬(修改13版，為了符合五種格式三個smil檔)
+	├20100909NowNewstoH264_14_實際(修改WEB API)
+	├20100909NowNewstoH264_15_實際(修改WEB API)
+	├20121226NOWNEWS H264(為了增加ipad的規格) (還有增加smil模擬程式)
+	├20130128NowNewsH264_Cmd(為了要補齊2012年NowNews的1240K影片(命令列模式程式)，已經測試完成『內含利用TIMER和狀態控制方法來讀取超大檔案技巧』，最後因為原始檔太差所以沒有上線)
+	├20140911NOWNEWS H264
+	├20141014NOWNEWS H264(為了移除WMV程式內URL還是開發版)
+022_QFileCopyDelete(Copy/Delete File API 範例)
+023_UBULinux開機自動執行程式資料
+024_Qhttp post
+025_Qt_Web混合應用
+026_QNetworkAccessManager POST
+027_ImageProcess_pro
+├ImageProcess01(單純秀圖，路徑固定)
+├ImageProcess02(單純秀圖，路徑用QFileDialog來選擇)
+├ImageProcess03(灰階影像處理)
+├ImageProcess04(ToolBar)
+├ImageProcess05(簡易直方圖)
+├ImageProcess06(正確直方圖)
+├ImageProcess07(固定值二值化，執行直方圖前先灰階)
+├ImageProcess08(可以透過Dialog設定二值化的門閥值)
+├ImageProcess09(可以呼叫多次二值化，但有演算法問題)
+├ImageProcess10(可以顯示中文，DockWidget，動態二值化，修正二值化演算法問題->每次先呼叫灰階)
+├ImageProcess11(獨立顯示R、G、B圖像，邊緣檢測->ㄧ、二階)
+├ImageProcess12(單純新增存檔功能)
+028_驅動程式
+029_DrawImage
+├在標籤上顯示QPixmap
+├把QPixmap當畫布，繪圖元件QPainter
+030_DialogCallDialog(對話盒呼叫對話盒並傳值)
+031_CreateSmilFile(寫文字檔，設定ANSI與UTF-8格式)
+032_AppleSmoothMp4_project(取得目前路徑，產生smil，產生BASH FILE並執行，PROCESS，執行緒thread，COPY_DELETE FILE)
+├01,前製作業
+├02,轉檔
+├03,產生smil
+├04,已經可以自動持續詢問轉檔(20100811_On_Line)
+├05,改04版，去除COPY/DELETE的動作，直接線上轉
+├AppleSmoothMp4_04_01(修改04新增防呆，用COPY/DELETE的動作，目前線上版)
+├AppleSmoothMp4_04_02(修改04_1，強制覆蓋以轉過的影片)
+├AppleSmoothMp4_04_03(修改04_2，新增轉檔參數和SMIL檔案數量)
+├AppleSmoothMp4_04_04(修改04_3，防堵重覆開始轉檔的時間)
+├AppleSmoothMp4_04_05(修改04_4，新增顯示轉檔INFO和詢問有如工作的計時器時間)
+├AppleSmoothMp4_04_06(修改04_5，修正WMV砍檔時間)
+├AppleSmoothMp4_04_07(修改04_6，修正路徑資料，改Tital，顯示時間，改網址不用IP而用Domain)
+├AppleSmoothMp4_04_08(修改04_7，新增KeepLive功能)
+├AppleSmoothMp4_04_09(修改04_8，新增KeepLive功能和偵測轉檔完成分開時間，新增建立目的路徑功能，修改64k批次檔讓視訊為0)
+├AppleSmoothMp4_04_10(修改04_9，修改成新的api-多種格式用）
+├AppleSmoothMp4_04_11(修改04_10，增加log紀錄）
+├AppleSmoothMp4_05_01(修改04_11，新增機器等級設定參數，和把WEB PORT改成8000來測試新WEB，取消smil產生程式)
+├AppleSmoothMp4_05_02(修改05_01，把WEB PORT改回80，正是上線)
+├AppleSmoothMp4_05_03(修改05_02，把偵測檔案大小的變數從long變成qint64，修補對應漏洞)
+├AppleSmoothMp4_05_04(修改05_03，把-threads 改成 0)
+├AppleSmoothMp4_05_05(修改05_04，將所有參數全部變成讀取檔案SH_sample.dat)
+033_DockWidget_project
+├01->QDockWidget和QWidget分別為獨立物件
+├02->QDockWidget為自訂的類別
+├03->UI與QWidget結合,單一繼承法,並將該QWidget變成DockWidget內容
+034_QWidget
+├testWidget01->UI與QWidget結合,直接使用法,且將模式定義為對話盒
+├testWidget02->UI與QWidget結合,單一繼承法,且將模式定義為對話盒
+
+035_testTextEdit(QTextEdit使用)
+036_test_QString_replace(字串內字元替換)
+037_Qt WebKit(JS和Qt通訊)
+038_Qt Month Calendar
+├MonthCalendar 4_4(單純用表格做顯示)
+├Calendar Widget Example4_6(專業的物件且支援事件)
+039_QtSQlite(重點：免安裝SQLite)
+040_h264Stream
+041_Qt_時間計算
+042_JL_Calendar project
+├JL_Calendar00(QTableWidget基本用法)
+├JL_Calendar01(QComboBox基本用法)
+├JL_Calendar02(QString char QByteArray互轉；QString相加組合；取得目前時間；判斷檔案是否存在；將SQlite資料顯示在QTableWidget中)
+├JL_Calendar03(透過GUI將資料寫入資料庫並顯示)
+├JL_Calendar04(用SSCANF拆解QString；透過GUI將資料修改資料庫)
+├JL_Calendar05(將SQLite資料匯出到XML檔案，建立UTF8的XML檔)
+├JL_Calendar06(加上TIMER，每30秒搜尋一次Switch=ON的資料透過QByteArray加上fprintf寫到檔案中)
+├JL_Calendar07(QDate->QString，按照Switch==ON與時間比較正確判斷是否該跳出提示訊息，並且在提示訊息後修改DB將ON改成OFF)
+043_QtGame
+044_Qt_vlc
+045_Qt_Capture_Movie
+├01.(TIMER+QPixmap實現桌面擷取)
+├02.(TIMER+QPixmap實現連續桌面擷取)
+├03.(QT_複製資料夾_刪除除非空資料夾，指定檔案儲存位置)
+├04.(時間日期做為檔名，呼叫轉檔BASH)
+046_純C++_Timer_CPU使用率(使用Qt整合開發環境編譯)
+047_Qt_AnyMovietoH264
+├Qt_AnyMovietoH264_01(實現FFMPEG截取影片資訊，產生和呼叫BASH，呼叫檔案對話盒，字串特定字元搜尋和截取，C++一次讀一行文字，控制元件顯示或隱藏，控制對話盒畫面大小)
+├Qt_AnyMovietoH264_02(sscanf分解CSV格式字串)
+├Qt_AnyMovietoH264_03(轉檔參數顯示)
+├Qt_AnyMovietoH264_04(產生轉檔BASH並呼叫轉檔)
+├Qt_AnyMovietoH264_05(利用Qprocess結束事件告知主程式被呼叫的程式以結束，利用readAllStandardOutput和readAllStandardError讀取FFMPEG的訊息[只要需要重新導向就必須使用上述止令才可以抓到訊息])
+048_Multithreading(QThread，Thread共用資料，TIMER)
+049_Linux_g++_xml(純C++讀取XML 使用Qt整合開發環境編譯，使用自製Makefile編譯，Makefile內含教學資料)
+050_Qt overlay image
+051_Qt_OpenGL
+052_Multicast_Playlist_project(中視直播/排播節目)
+├09 修正DB存取方式 只開一次 最後一筆之後停止TIMER動作
+├10 修正RunVLCInputBash 將原本的BASH 替換成直接呼叫VLC 實現直接控制
+├11 最後一筆之後停止TIMER動作並關閉DB和自己本身
+├12 修改StrData.replace("base","./Base.mp4");
+├13 修改
+	StrData.replace("smooth/","/m2/smooth/");
+	StrData.replace("c:\\Base_1240k.mp4","./Base.mp4");
+├14 新增 無XML清單的防呆函數
+├15 新增 XML參數 適用live-base清單
+├16 新增 將 LIVE 和 墊檔 的 VLC 參數分離
+├17 新增兩個參數讓程是可以任意設定呼叫VLC或FFMPEG、再標題列顯示目前程式所在路徑方便區別
+├18 直接破壞原本架構把原本RunVLCInputBash(int intswitch)函數改成直接呼教固定的ffmpeg_vlc.sh 不在呼叫VLC或FFMPEG
+├19 從18修正 為了解決跨天就死掉 另外系統時間要調整成24小時制
+├20 從19修正 新增啟始時間計算功能(int和QString互轉、SQLite使用)
+├21 從20修正 修正LIVE產生SH的功能 另外設定檔分成兩種(單一流和兩個流)
+053_Qt_console
+├Qt_ConsoleTimer00 (Console Timer +顯示目前時間YYYY-MM-dd HH:mm:ss	QString->QByteArray->cout輸出)
+├Qt_ConsoleTimer01 (Console Timer +紀錄目前時間YYYYMMddHHmmss		QString->QByteArray->fprintf寫檔紀錄)
+054_Qt_SMTP_Mail
+├Qt_gmail
+055_Qt_CGI_project
+├01_Qt_CGI
+	├01(Qt產生帶有當下時間的HTML，該網頁內嵌JAVASCRIPT除了持續更新上方顯示時間外，每隔10秒會從新載入自己一次)
+	├02(SERVER端寫紀錄檔)
+	├03(Get POST Data)
+	├04cgicc_project(自己撰寫的範例)(QDevelp增加外部函式庫的方法(libs -lcgicc)，使用cgicc函式庫實作 Get POST Data)
+056_Qt_service
+├方法1_OK(新增標準Linux Service的步驟，BASH內有 搜尋程序PID、刪除程序、sudo帶密碼 等技巧 )
+	├cpp_service ( 標準Linux Service C++步驟[有防止僵化]、Console Timer、QT語法的記錄檔語法 QFile::Append)
+├方法2_OK ( 修改/etc/init.d/rc.local 步驟，BASH內有 搜尋程序PID、刪除程序、sudo帶密碼 等技巧 )
+	├qt_service_main ( Console Timer、QT語法的記錄檔語法 QFile::Append、取得目前路徑、組合出目前路徑的下一層目錄 )
+057_Qt_thread_Socket
+	├01_NTP Server
+		├01(GUI版、單純查詢、無任何紀錄)
+		├02(GUI版、Server有兩個listenu一個為NTP[單純查詢、無任何紀錄 ] 另一個為GUIInfo[ fortune service概念 ])
+		├03(GUI版、Server有兩個listenu 一個為NTP[單純查詢、無任何紀錄 ]另一個為GUIInfo[ fortune service概念 查詢模式分成 1、2、4三種控制碼 ])
+		├04(GUI和Service版、Server有兩個listenu 一個為NTP[單純查詢、無任何紀錄 ]另一個為GUIInfo[ fortune service概念 查詢模式分成 1、2、4三種控制碼 ]、利用專案內共享記憶體技術來取得連線狀態)
+		├05(GUI和Service版、Server有兩個listenu 一個為NTP[單純查詢、無任何紀錄 ]另一個為GUIInfo[ fortune service概念 查詢模式分成 1、2、4三種控制碼 ]、利用專案內共享記憶體技術來取得連線狀態、log檔案)
+	├02_Qt_Socket_(fortune service)(Server功能就只有將Client送過來的訊息原封不動送回去、重點有[ Socket資料傳送接收(事件驅動)、thread利用exec()讓系統控制何時消失 ])
+	├重要文件(QThread 的 new Create 如何delete)
+058_voidrealms_Qt(網路服務範例)
+	├FTPPlugin	A FTP Server plugin for PluginService
+	├FTPTester	Full source to an FTP server written in C++ with Qt
+	├LauncherPlugin	A plugin that launches other programs for the PluginService
+	├PluginService	A Service written in C++ with QT that loads plugins
+	├TelnetPlugin	A Telnet plugin for the PluginService
+	├TelnetServer	A Telnet server written in C++ with QT
+	├VDrives	A C++ class that gets information about Windows logical drives and returns QT variable types.
+	├VQTConvert	A C++ class that converts data between native windows types and QT types.
+	├VRegsitry	A C++ class that allows read and write access to the windows registry using QT variable types
+	├VServices	A C++ class that gets information on and manages Windows services using QT variable types.
+059_Qt Web Server
+060_檔案搜尋
+061_NowNews_Streaming_project(NowNews 新聞排播)
+	├01(Qt_console_Timer、XML片單解析、產生SH、執行SH並等待結束-QThread+QProcess)
+062_Qt_PathFileNameAnaly (Linux路徑檔名拆解使用QString)
+063_Qt_CGI_WEB檔案上傳下載系統
+	├Qt_CGI_project(20130412)(index.cgi+top.cgi)
+	├Qt_CGI_project(20130416)(index.cgi+top.cgi+menu.cgi+introduction.cgi)
+	├Qt_CGI_project(20130425)(index.cgi+top.cgi+menu.cgi+introduction.cgi+selectfile.cgi+uploadfile.cgi)
+	├Qt_CGI_project(20130426)(index.cgi+top.cgi+menu.cgi+introduction.cgi+selectfile.cgi+uploadfile.cgi+filelist.cgi)
+064_Files2MulticastCmd_project_All(排播可插廣告)
+065_Linux 下找出特定Qt程式所使用的Qt函式庫並且一起複製到該Qt程式所在目錄（解決程式相依移植問題）
+066_用QMediaPlayer實現MP3音樂播放器
+├播放、暫停、停止、上一首、下一首、進度調節、列表迴圈、隨機播放、單曲迴圈、順序播放、音量調節、視窗移動、最小化到系統託盤、歌曲列表的顯示與隱藏以及批量導入等功能。
+067_Qt_OutlookBar
+068_Qt的的P2P聊天軟件實現
+999_文件
+├C++呼叫chmod-更改檔案權限
+├call bash file.txt
+├Linux刪除程序.txt
+├ubuntu-ffmpeg 轉檔
+├VirtualBox教學文件
+├C_GUI_Programming_with_Qt_4.chm
+├How To Create a Linux Desktop App In 14 Minutes For Beginners (Using QDevelop and Qt4.pdf
+├KDevelop_Qt Designer_2006.pdf
+├Linux窗口程序設計-Qt4精彩實例分析.pdf
+├qt41-class-chart.pdf
+├Qt4_2_wp_chinese_final.pdf
+├Qt4_Design_Patterns.chm
+├Qt4_mplayer.pdf
+├Qt_introduction.swf
+├Qt_JavaScript互動 .pdf
+├Qt_SOAP.pdf
+├Ubuntu 面板隱藏的簡易設定
+├Ubuntu自動啟動程式步驟.JPG
+├char 字串_ QByteArray字元陣列_QString字串間轉換.txt
+├QFile_應用.txt
+├Linux_USB_C++
+├linux sudo免密碼方法
