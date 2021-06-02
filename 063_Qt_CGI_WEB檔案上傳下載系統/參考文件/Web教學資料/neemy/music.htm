@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+<META NAME="Author" CONTENT="心靈版豬-WHY製作">
+<TITLE>背景音樂篇....</TITLE>
+</HEAD><center>
+<body bgcolor=f1f1dd LInk=blue aLInk=red vLInk=#87cefd BACKGROUND="100.gif" tppabs="http://neemy.com/html/pic/100.gif">
+
+<table border=0 width=96%>
+<TR><TD colspan=2><img SRC="logo.jpg" tppabs="http://neemy.com/html/html/logo.jpg" width=108 height=104 border=0 align="right" hspace=8 vspace=4>
+人家說帥哥配美女，好電影配好音樂，那你的網頁做的那麼好，要不要來一點背景音樂呢？<BR>目前網路上最常被用到的背景音樂檔案是midi檔，好處是容量小，其他像是mp3、raw雖然音質好，但是容量大且不是每台電腦都可以撥放，所以比較少用。版豬就介紹用midi的喔。
+</TD></TR></TABLE><P>
+
+<table border=1 cellspacing=1 cellpadding=3><tr><td>
+<img src="6.gif" tppabs="http://neemy.com/html/pic/6.gif" alt=趴趴熊也喜歡聽音樂 align=right><LI>最簡單的背景音樂呼叫法<br>
+&lt;EMBED SRC="音樂檔.mid"&gt;&lt;/EMBED&GT;---這個用法在任何瀏覽器都聽的到<BR><br>
+結果：<BR>
+<EMBED SRC="音樂.MID" tppabs="http://neemy.com/html/html/音樂.MID"></embed><BR><BR><BR>
+或是<P><BR>
+&lt;bgsound SRC="音樂檔.mid" LOOP="次數"&gt;&lt;/bgsound&GT;-----這個方法只有版本較新的瀏覽器聽的到(IE4↑)
+<P><P>
+覺得圖案太大嗎？沒關係，改成這樣就好啦：<br>
+&lt;EMBED SRC="音樂檔.mid" HEIGHT="45" WIDTH="70"&gt;&lt;/EMBED&GT;<BR>
+結果：<BR>
+<embed src="檔案.mid" tppabs="http://neemy.com/html/html/檔案.mid" HEIGHT="45" WIDTH="70"></embed><BR><BR>
+
+
+當然囉，如果你真的是要拿來作「背景音樂」，你就要用下面的語法<br><br>
+&lt;EMBED SRC="音樂檔.mid" autostart="true" HIDDEN="TRUE" LOOP="TRUE"&gt;&lt;/EMBED&GT;<br><br>
+<li>autostart="true"<BR>自動啟動
+<LI>HIDDEN="TRUE"<BR>隱藏撥放器
+<LI> LOOP="TRUE"<BR>撥放次數，TRUE代表無限次，1代表撥放一次，2代表兩次，以此類推。

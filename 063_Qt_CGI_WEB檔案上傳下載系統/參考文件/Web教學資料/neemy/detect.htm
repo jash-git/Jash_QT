@@ -1,0 +1,159 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+<META NAME="Author" CONTENT="心靈版豬-WHY製作">
+<TITLE>系統偵測</TITLE>
+</HEAD>
+
+<body bgcolor=f1f1dd LInk=blue aLInk=red vLInk=#87cefd BACKGROUND="100.gif" tppabs="http://neemy.com/html/pic/100.gif">
+<table width="90%" border="0" cellspacing="3" cellpadding="4" align="CENTER"><TR><TD>
+<img SRC="logo-1.jpg" tppabs="http://neemy.com/html/script/logo.jpg" width=108 height=104 border=0 align="right" hspace=2 vspace=4><b><BR>
+
+如何讓人家進來你的網頁就知道是否達到最佳的顯示效果呢？版豬告訴你如何做。蠻貼切的！版豬喜歡。</FONT>
+
+</TD></TR>
+<tr><td bgcolor=d3d4d5>
+<script language="javascript1.2">
+<!--
+document.write("您使用的瀏覽器是 "+navigator.appName+" "+navigator.appVersion);
+//-->
+</script><br>
+
+
+<script language="javascript1.2">
+<!--
+var vn="Microsoft Internet Explorer";//設定最佳瀏覽器
+var va=4;//設定瀏覽器版本
+if(navigator.appName!=vn||parseInt(navigator.appVersion)<va);
+document.write("您使用的瀏覽器是 "+navigator.appName+" "+navigator.appVersion);
+if(navigator.appName!=vn)document.write("，建議您改用 "+vn+" 瀏覽以得到最好瀏覽效果。");
+else
+if(parseInt(navigator.appVersion)<va)document.write("，版本太舊了，建議您儘快更新您的瀏覽器。");
+else document.write("，符合本站最佳瀏覽環境。");
+//-->
+</script>
+<BR>
+
+
+
+<script language="javascript1.2">
+<!--
+var s=800;//設定最佳螢幕解析度
+if(screen.width!=s);
+document.write("您的螢幕解析度是 "+screen.width+" * "+screen.height);
+if(screen.width!=s)document.write("，並非最佳解析度，建議您更換解析度。");
+else document.write("，符合本站最佳瀏覽環境。");
+//-->
+</script>
+<BR>
+
+
+<script language="javascript1.2">
+<!--
+var c, cv=16;//設定最佳顯示的顏色數目。
+if(cv!="Netscape")c=screen.colorDepth; else c=screen.pixelDepth;
+var cs=c;
+if(c==4)cs="4 位元 16 色";
+if(c==8)cs="8 位元 256 色";
+if(c==16)cs="16 位元高彩";
+if(c>16)cs=cs+" 位元全彩";
+if(c<cv);
+document.write("您的螢幕色彩度是 "+cs);
+if(c<cv)
+document.write("，太低了，本站的背景將會很難看，請調高您的色彩度。");
+else
+document.write("，符合本站最佳瀏覽環境。");
+//-->
+</script>
+<BR>
+
+
+<script language="javascript1.2">
+<!--
+document.write("您的瀏覽器支援 JavaScript，符合本站最佳瀏覽環境。");
+//-->
+</script>
+<noscript>
+您的瀏覽器不支援 JavaScript，請儘快更新您的瀏覽器。
+</noscript> 
+<BR></td></tr><tr><td>
+<BR><BR><BR><BR>
+你可以根據你想要讓使用者知道的方法選擇偵測的標籤。<BR>
+
+<b>單純偵測瀏覽器。</b><BR>
+&lt;script language="javascript1.2"&gt;<br>
+&lt;!--<br>
+document.write("您使用的瀏覽器是 "+navigator.appName+" "+navigator.appVersion);<br>
+//--&gt;<br>
+&lt;/script&gt;&lt;br&gt;<br>
+<br><BR>
+<b>單純偵測瀏覽器並提醒更改設定。<br></b>
+&lt;script language="javascript1.2"&gt;<br>
+&lt;!--<br>
+var vn="Microsoft Internet Explorer";//設定最佳瀏覽器<br>
+var va=4;//設定瀏覽器版本<br>
+if(navigator.appName!=vn||parseInt(navigator.appVersion)&lt;va);<br>
+document.write("您使用的瀏覽器是 "+navigator.appName+" "+navigator.appVersion);<br>
+if(navigator.appName!=vn)document.write("，建議您改用 "+vn+" 瀏覽以得到最好瀏覽效果。");<br>
+else<br>
+if(parseInt(navigator.appVersion)&lt;va)document.write("，版本太舊了，建議您儘快更新您的瀏覽器。");<br>
+else document.write("，符合本站最佳瀏覽環境。");<br>
+//--&gt;<br>
+&lt;/script&gt;<br>
+&lt;BR&gt;<br>
+<br><BR>
+<b>偵測最佳螢幕顯示的解析度<br></b>
+&lt;script language="javascript1.2"&gt;<br>
+&lt;!--<br>
+var s=800;//設定最佳螢幕解析度<br>
+if(screen.width!=s);<br>
+document.write("您的螢幕解析度是 "+screen.width+" * "+screen.height);<br>
+if(screen.width!=s)document.write("，並非最佳解析度，建議您更換解析度。");<br>
+else document.write("，符合本站最佳瀏覽環境。");<br>
+//--&gt;<br>
+&lt;/script&gt;<br>
+&lt;BR&gt;<br><BR>
+
+<b>偵測最佳螢幕顯示的顏色數目。<br></b>
+
+&lt;script language="javascript1.2"&gt;<br>
+&lt;!--<br>
+var c, cv=16;//設定最佳顯示的顏色數目。<br>
+if(cv!="Netscape")c=screen.colorDepth; else c=screen.pixelDepth;<br>
+var cs=c;<br>
+if(c==4)cs="4 位元 16 色";<br>
+if(c==8)cs="8 位元 256 色";<br>
+if(c==16)cs="16 位元高彩";<br>
+if(c&gt;16)cs=cs+" 位元全彩";<br>
+if(c&lt;cv);<br>
+document.write("您的螢幕色彩度是 "+cs);<br>
+if(c&lt;cv)<br>
+document.write("，太低了，本站的背景將會很難看，請調高您的色彩度。");<br>
+else<br>
+document.write("，符合本站最佳瀏覽環境。");<br>
+//--&gt;<br>
+&lt;/script&gt;<br>
+&lt;BR&gt;<br>
+<b>
+<br><BR>偵測是否能使用JavaScript<br></b>
+&lt;script language="javascript1.2"&gt;<br>
+&lt;!--<br>
+document.write("您的瀏覽器支援 JavaScript，符合本站最佳瀏覽環境。");<br>
+//--&gt;<br>
+&lt;/script&gt;<br>
+&lt;noscript&gt;<br>
+您的瀏覽器不支援 JavaScript，請儘快更新您的瀏覽器。<br>
+&lt;/noscript&gt; <br>
+&lt;BR&gt;<br>
+<br>
+<b>依照瀏覽器選擇進入的網址</B><br>
+&lt;script language="javascript"&gt;<br>
+&lt;!--<br>
+var vn="Microsoft Internet Explorer";<br>
+if(navigator.appName!=vn)<br>
+	document.write("&lt;meta http-equiv='refresh' content='0; url=進入netscape的網頁'&gt; ");<br>
+else<br>
+	document.write("&LT;meta http-equiv='refresh' content='0; url=進入IE的網頁'&gt; ");<br>
+//--><br>
+</script>
+</td></tr></table>

@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+<META NAME="Author" CONTENT="心靈版豬-WHY製作">
+<TITLE>防止偷圖</TITLE>
+</HEAD>
+
+<body bgcolor=f1f1dd LInk=blue aLInk=red vLInk=#87cefd BACKGROUND="100.gif" tppabs="http://neemy.com/html/pic/100.gif">
+<table width="90%" border="0" cellspacing="3" cellpadding="4" align="CENTER"><TR><TD>
+<img SRC="logo-1.jpg" tppabs="http://neemy.com/html/script/logo.jpg" width=108 height=104 border=0 align="right" hspace=2 vspace=4><b><BR>
+
+不希望別人欣賞你的網頁原始檔？或是不想讓別人複製你的圖片，用這個就對啦！
+</TD></TR>
+<tr><td bgcolor=f5f3f2>
+將下列的標籤複製並貼在&lt;/HEAD&gt;後面就可以囉，記得要緊貼在後面喔。
+<BR>
+
+&lt;script language="JavaScript1.1"&gt;<br>
+&lt;!-- Begin<br>
+      function right(e) {<br>
+      if (navigator.appName =='Netscape'&&<br>
+      (e.which ==3|| e.which ==2))<br>
+      return false;<br>
+      else if (navigator.appName == 'Microsoft Internet Explorer' &&<br>
+      (event.button == 2|| event.button ==3)) {<br>
+      alert("你想幹嘛？\n\n不可以偷圖喔！。");// \n 在這裡是代表換行的意思。<br>
+      return false;<br>
+      }<br>
+      return true;<br>
+      }<br>
+      document.onmousedown=right;<br>
+      if (document.layers) window.captureEvents(Event.MOUSEDOWN);<br>
+      window.onmousedown=right;<br>
+      //End --&gt;<br>
+&lt;/script&gt;<br>
+
+</td></tr>
+<tr><td bgcolor=lightgreen>進階使用-右鍵開啟<br>將下面的標籤複製到網頁中，放在&lt;BODY&gt;之後就可以啦。<BR><BR>
+&lt;script language="JavaScript"&gt;<br>
+<br>
+if (navigator.appName.indexOf("Internet Explorer") != -1) <br>
+document.onmousedown = noSourceExplorer;<br>
+<br>
+function noSourceExplorer()<br>
+{<br>
+if (event.button == 2 | event.button == 3)<br>
+{<br>
+window.open("欲開啟的網頁連結</font>")<br>
+}<br>
+}<br>
+&lt;/script&gt;<br>
+</table>

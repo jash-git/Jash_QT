@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<appSetting>
+<PlayListUrl><![CDATA[http://devpartner.tw-airnet.net/api/film_schedule_api.php?channel=1]]></PlayListUrl>
+<XMLFolderPath><![CDATA[smooth/]]></XMLFolderPath><!-- 要被替換的字串-->
+<ChangeFolderPath><![CDATA[/m5/]]></ChangeFolderPath><!-- 用來替換的字串-->
+</appSetting>

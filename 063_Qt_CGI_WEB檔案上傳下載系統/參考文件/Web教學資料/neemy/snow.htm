@@ -1,0 +1,228 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+<META NAME="Author" CONTENT="心靈版豬-WHY製作">
+<TITLE>雪花背景</TITLE>
+</HEAD>
+
+<body bgcolor=BLACK TEXT=WHITE link=blue alink=red vlink=#87cefd>
+<table width="90%" border="0" cellspacing="3" cellpadding="4" align="CENTER"><TR><TD>
+<img SRC="logo-1.jpg" tppabs="http://neemy.com/html/script/logo.jpg" width=108 height=104 border=0 align="right" hspace=2 vspace=4><b><BR>
+如果畫面有像雪花一樣輕輕飄落，那該是多漂亮的畫面啊。試試看喔。
+
+<style type="text/css">
+<!--
+td{font-size:12pt;line-height:25px}
+a{text-decoration:none;color:#339999}
+a:hover{text-decoration:underline;color:#FF9900}
+// -->
+</style>
+
+<SCRIPT>var Flag=0</SCRIPT>
+
+</head>
+
+
+
+<script language="JavaScript1.2"> /*
+Snow Effect Script
+Created and submitted by Altan d.o.o. (snow@altan.hr, http://www.altan.hr/snow/index.html)
+Permission granted to Dynamicdrive.com to feature script in archive
+For full source code and installation instructions to this script, visit http://dynamicdrive.com
+*/
+//Configure below to change URL path to the snow image
+var snowsrc="bg.gif"/*tpa=http://neemy.com/html/script/bg.gif*/
+// Configure below to change number of snow to render
+var no = 20;
+var ns4up = (document.layers) ? 1 : 0; // browser sniffer
+var ie4up = (document.all) ? 1 : 0;
+var dx, xp, yp; // coordinate and position variables
+var am, stx, sty; // amplitude and step variables
+var i, doc_width = 800, doc_height = 600;
+if (ns4up) {
+doc_width = self.innerWidth;
+doc_height = self.innerHeight;
+} else if (ie4up) {
+doc_width = document.body.clientWidth;
+doc_height = document.body.clientHeight;
+}
+dx = new Array();
+xp = new Array();
+yp = new Array();
+am = new Array();
+stx = new Array();
+sty = new Array();
+for (i = 0; i < no; ++ i) { 
+dx[i] = 0; // set coordinate variables
+xp[i] = Math.random()*(doc_width-50); // set position variables
+yp[i] = Math.random()*doc_height;
+am[i] = Math.random()*20; // set amplitude variables
+stx[i] = 0.02 + Math.random()/10; // set step variables
+sty[i] = 0.7 + Math.random(); // set step variables
+if (ns4up) { // set layers
+if (i == 0) {
+document.write("<layer name=\"dot"+ i +"\" left=\"15\" top=\"15\" visibility=\"show\"><a href=\"http://dynamicdrive.com//"><img src='"+snowsrc+"' border=\"0\"></a></layer>");
+} else {
+document.write("<layer name=\"dot"+ i +"\" left=\"15\" top=\"15\" visibility=\"show\"><img src='"+snowsrc+"' border=\"0\"></layer>");
+}
+} else if (ie4up) {
+if (i == 0) {
+document.write("<div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"><a href=\"http://dynamicdrive.com/"><img src='"+snowsrc+"' border=\"0\"></a></div>");
+} else {
+document.write("<div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"><img src='"+snowsrc+"' border=\"0\"></div>");
+}
+}
+}
+function snowNS() { // Netscape main animation function
+for (i = 0; i < no; ++ i) { // iterate for every dot
+yp[i] += sty[i];
+if (yp[i] > doc_height-50) {
+xp[i] = Math.random()*(doc_width-am[i]-30);
+yp[i] = 0;
+stx[i] = 0.02 + Math.random()/10;
+sty[i] = 0.7 + Math.random();
+doc_width = self.innerWidth;
+doc_height = self.innerHeight;
+}
+dx[i] += stx[i];
+document.layers["dot"+i].top = yp[i];
+document.layers["dot"+i].left = xp[i] + am[i]*Math.sin(dx[i]);
+}
+setTimeout("snowNS()", 10);
+}
+function snowIE() { // IE main animation function
+for (i = 0; i < no; ++ i) { // iterate for every dot
+yp[i] += sty[i];
+if (yp[i] > doc_height-50) {
+xp[i] = Math.random()*(doc_width-am[i]-30);
+yp[i] = 0;
+stx[i] = 0.02 + Math.random()/10;
+sty[i] = 0.7 + Math.random();
+doc_width = document.body.clientWidth;
+doc_height = document.body.clientHeight;
+}
+dx[i] += stx[i];
+document.all["dot"+i].style.pixelTop = yp[i];
+document.all["dot"+i].style.pixelLeft = xp[i] + am[i]*Math.sin(dx[i]);
+}
+setTimeout("snowIE()", 10);
+}
+
+if (ns4up) {
+snowNS();
+} else if (ie4up) {
+snowIE();
+}
+</script>
+ 
+
+
+</td></TR><TR><TD>把下面的程式碼複製到網頁就可以囉！如果影像用的炫，那很漂亮喔。<P>
+記得網頁開始一定要有 body 指令，要不然會出不來！！
+<BR><BR>
+&lt;SCRIPT&gt;var Flag=0&lt;/SCRIPT&gt;<BR>
+&lt;script language="JavaScript1.2"&gt;
+
+/*<BR>
+Snow Effect Script<BR>
+Created and submitted by Altan d.o.o. (snow@altan.hr,  http://www.altan.hr/snow/index.html)<BR>
+Permission granted to Dynamicdrive.com to feature script in archive<BR>
+For full source code and installation instructions to this script, visit http://dynamicdrive.com<BR>
+*/<BR>
+  
+
+  //Configure below to change URL path to the snow image<BR>
+  var snowsrc="snow.gif"<BR>
+  // 這邊輸入你的圖檔名稱Configure below to change number of snow to render<BR>
+  var no = 10;//設定飄雪密度。<BR>
+
+  var ns4up = (document.layers) ? 1 : 0;  // browser sniffer<BR>
+  var ie4up = (document.all) ? 1 : 0;<BR>
+
+  var dx, xp, yp;    // coordinate and position variables<BR>
+  var am, stx, sty;  // amplitude and step variables<BR>
+  var i, doc_width = 800, doc_height = 600;<BR>
+  
+  if (ns4up) {<BR>
+    doc_width = self.innerWidth;<BR>
+    doc_height = self.innerHeight;<BR>
+  } else if (ie4up) {<BR>
+    doc_width = document.body.clientWidth;<BR>
+    doc_height = document.body.clientHeight;<BR>
+  }<BR>
+
+  dx = new Array();<BR>
+  xp = new Array();<BR>
+  yp = new Array();<BR>
+  am = new Array();<BR>
+  stx = new Array();<BR>
+  sty = new Array();<BR>
+  
+  for (i = 0; i < no; ++ i) {  <BR>
+    dx[i] = 0;                        // set coordinate variables<BR>
+    xp[i] = Math.random()*(doc_width-50);  // set position variables<BR>
+    yp[i] = Math.random()*doc_height;<BR>
+    am[i] = Math.random()*20;         // set amplitude variables<BR>
+    stx[i] = 0.02 + Math.random()/10; // set step variables<BR>
+    sty[i] = 0.7 + Math.random();     // set step variables<BR>
+    if (ns4up) {                      // set layers<BR>
+      if (i == 0) {<BR>
+        document.write("&lt;layer name=\"dot"+ i +"\" left=\"15\" top=\"15\" visibility=\"show\"&gt;&lt;a href=\"http://dynamicdrive.com/\"&gt;&lt;img src='"+snowsrc+"' border=\"0\"&gt;&lt;/a&gt;&lt;/layer&gt;");<BR>
+      } else {<BR>
+        document.write("&lt;layer name=\"dot"+ i +"\" left=\"15\" top=\"15\" visibility=\"show\"&gt;&lt;img src='"+snowsrc+"' border=\"0\"&gt;&lt;/layer&gt;");<BR>
+      }<BR>
+    } else if (ie4up) {<BR>
+      if (i == 0) {<BR>
+        document.write("&lt;div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"&gt;&lt;a href=\"http://dynamicdrive.com\"&gt;&lt;img src='"+snowsrc+"' border=\"0\"&gt;&lt;/a&gt;&lt;/div&gt;");<BR>
+      } else {<BR>
+        document.write("&lt;div id=\"dot"+ i +"\" style=\"POSITION: absolute; Z-INDEX: "+ i +"; VISIBILITY: visible; TOP: 15px; LEFT: 15px;\"&gt;&lt;img src='"+snowsrc+"' border=\"0\"&gt;&lt;/div&gt;");<BR>
+      }<BR>
+    }<BR>
+  }<BR>
+  
+  function snowNS() {  // Netscape main animation function<BR>
+    for (i = 0; i < no; ++ i) {  // iterate for every dot<BR>
+      yp[i] += sty[i];<BR>
+      if (yp[i] > doc_height-50) {<BR>
+        xp[i] = Math.random()*(doc_width-am[i]-30);<BR>
+        yp[i] = 0;<BR>
+        stx[i] = 0.02 + Math.random()/10;<BR>
+        sty[i] = 0.7 + Math.random();<BR>
+        doc_width = self.innerWidth;<BR>
+        doc_height = self.innerHeight;<BR>
+      }<BR>
+      dx[i] += stx[i];<BR>
+      document.layers["dot"+i].top = yp[i];<BR>
+      document.layers["dot"+i].left = xp[i] + am[i]*Math.sin(dx[i]);<BR>
+    }<BR>
+    setTimeout("snowNS()", 10);<BR>
+  }<BR>
+
+  function snowIE() {  // IE main animation function<BR>
+    for (i = 0; i < no; ++ i) {  // iterate for every dot<BR>
+      yp[i] += sty[i];<BR>
+      if (yp[i] > doc_height-50) {<BR>
+        xp[i] = Math.random()*(doc_width-am[i]-30);<BR>
+        yp[i] = 0;<BR>
+        stx[i] = 0.02 + Math.random()/10;<BR>
+        sty[i] = 0.7 + Math.random();<BR>
+        doc_width = document.body.clientWidth;<BR>
+        doc_height = document.body.clientHeight;<BR>
+      }<BR>
+      dx[i] += stx[i];<BR>
+      document.all["dot"+i].style.pixelTop = yp[i];<BR>
+      document.all["dot"+i].style.pixelLeft = xp[i] + am[i]*Math.sin(dx[i]);<BR>
+    }<BR>
+    setTimeout("snowIE()", 10);<BR>
+  }<BR>
+<BR>
+  if (ns4up) {<BR>
+    snowNS();<BR>
+  } else if (ie4up) {<BR>
+    snowIE();<BR>
+  }<BR>
+
+&lt;/script&gt;<p>
+
+</TD></TR></TABLE></body>
+</htmL>

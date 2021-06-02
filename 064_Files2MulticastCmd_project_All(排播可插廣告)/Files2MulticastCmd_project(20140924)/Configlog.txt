@@ -1,0 +1,4 @@
+currentPath:	/home/chst01/Files2MulticastCmd_project/
+PlayListUrl	http://devpartner.tw-airnet.net/api/film_schedule_api.php?channel=1
+XMLFolderPath	smooth/
+ChangeFolderPath	/m5/

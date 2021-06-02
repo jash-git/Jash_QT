@@ -1,0 +1,2 @@
+sort --random-sort playlist.txt
+sprintf(cmd,"find %s -name \"*.mp4\" > /tmp/list;sort --random-sort /tmp/list >/tmp/playlist.txt",byteArray.data());

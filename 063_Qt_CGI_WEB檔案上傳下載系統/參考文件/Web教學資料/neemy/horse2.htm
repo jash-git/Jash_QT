@@ -1,0 +1,189 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+<META NAME="Author" CONTENT="心靈版豬-WHY製作">
+<TITLE>心靈點滴之簡單網頁教學-前言準備</TITLE>
+</HEAD>
+
+<body bgcolor=f1f1dd link=blue alink=red vlink=#87cefd OnLoad="Scroll();" >
+<table width="90%" border="0" cellspacing="3" cellpadding="4" align="CENTER"><TR><TD>
+<img SRC="logo-1.jpg" tppabs="http://neemy.com/html/script/logo.jpg" width=108 height=104 border=0 align="right" hspace=2 vspace=4><b><BR>
+<center><marquee width=400 height=10>這個是文字的跑馬燈喔，可以用在文件中喔！下面每種顏色的區域代表一種跑馬燈，你可以每種都試試看喔。</marquee>
+</FONT></TD></TR>
+<TR><TD BGCOLOR=AQUA>
+&LT;SCRIPT Language="JavaScript"&GT;<BR><BR>
+
+var msg="這是用JAVA Script 所做出來的跑馬燈，高興怎麼用就怎麼用！ ";<BR>
+var interval = 100;<BR>
+var space10="";<BR>
+var seq=0;<BR><BR>
+
+function Scroll() {<BR>
+document.tmForm.tmText.value = msg.substring(seq, msg.length) + space10 + msg.substring(0, msg.length);<BR>
+seq++;seq++;<BR>
+if ( seq &GT; msg.length ) { seq = 0 };<BR>
+window.setTimeout("Scroll();", interval );<BR>
+} <BR>
+<BR>
+&LT;/SCRIPT&GT;<BR>
+&LT;CENTER&GT;&LT;FORM Name=tmForm&GT;<BR>
+&LT;INPUT Type=Text Name=tmText Size=45&GT;<BR>
+&LT;/FORM&GT;&LT;/CENTER&GT;<BR>
+
+
+
+
+
+<TR><TD BGCOLOR=FFF00F>
+&LT;SCRIPT Language="JavaScript"&GT;<BR><BR>
+var msg="這是用JAVA Script 所做出來的跑馬燈，打字效果的！";<BR>
+var interval = 100;<BR>
+seq = 0;<BR><BR>
+function Scroll() {<BR>
+document.tmForm.tmText.value = msg.substring(0, seq+1);<BR>
+seq++;<BR>
+if ( seq &GT;= msg.length ) { seq = 0 };<BR>
+window.setTimeout("Scroll();", interval );<BR>
+} <BR>
+
+&LT;/SCRIPT&GT;<BR><BR>
+&LT;FORM Name=tmForm&GT; &LT;INPUT Type=Text Name=tmText Size=35&GT; &LT;/FORM&GT; <BR>
+
+
+<TR><TD BGCOLOR=00FF00>
+
+&LT;SCRIPT Language="JavaScript"&GT;<BR><BR>
+var msg="這是一個集大成的跑馬燈，除了打字效果外，還會移動喔！";<BR>
+var interval = 100;<BR>
+var space10=" ";<BR>
+var seq=0;<BR><BR>
+
+function Scroll1() {<BR>
+document.tmForm.tmText.value = msg.substring(0, seq+1);<BR>
+seq++;seq++;<BR>
+if ( seq &GT;= msg.length ) { seq = 0;<BR>
+window.setTimeout("Scroll2();", interval );<BR>
+}<BR>
+else<BR>
+window.setTimeout("Scroll1();", interval );<BR>
+} <BR>
+
+function Scroll2() {<BR>
+document.tmForm.tmText.value = msg.substring(seq, msg.length) + space10 + msg.substring(0, msg.length);<BR>
+seq++;seq++;<BR>
+if ( seq &GT; msg.length ) { seq = 0 };<BR>
+window.setTimeout("Scroll2();", interval );<BR>
+}<BR>
+
+&LT;/SCRIPT&GT;<BR>
+
+&LT;CENTER&GT;&LT;FORM Name=tmForm&GT;<BR>
+&LT;INPUT Type=Text Name=tmText Size=35&GT;<BR>
+&LT;/FORM&GT;&LT;/CENTER&GT;<BR>
+
+<tr><td bgcolor=f1f2ff>
+使用時只要將上面的程式碼複製，然貼在網頁中空白的地方(通常是貼在&LT;/HEAD&GT;下面)
+然後在&LT;BODY&GT;後面加上 OnLoad="Scroll();" 就可以啦！如下，<br>
+&lt;BODY</font> OnLoad="Scroll();" &gt;<P>
+當然啦，後面可以繼續加上背景、顏色...等等標籤，像這樣。<br>
+&lt;BODY</font> OnLoad="Scroll();" BGCOLOR="#FFFF00 BACKGROUND="BG.GIF" LINK="#FFFFDD" ALINK="RED" VLINK="PURPLE"&gt;<P>
+
+
+<tr><td bgcolor=00ff00>連狀態列也可以當走馬燈？有沒有搞錯！</td></tr>
+<tr><td bgcolor=00ff00>
+&lt;script LANGUAGE="JavaScript"&gt;<br>
+&lt;!--<br>
+isIE4 = (navigator.appVersion.charAt(0)&gt;=4 &&<br> (navigator.appVersion).indexOf("MSIE") != -1);<br>
+var m1= "標題列我動...動...動...</font>";<br>
+var m2= "";<br>
+var m3= "";<br>
+var m4= "";<br>
+var m5= "　　　　　";<br>
+var m6= "　　　　　";<br>
+var m7= "　　　　　";<br>
+var m8= "";<br>
+var msg=m1+m2+m3+m4+m5+m6+m7+m8;var msg=msg+msg;function titnimation() {<br>
+msg=msg.substring(2,msg.length)+msg.substring(0,2);   document.title = msg;}<br>
+if(isIE4)<br>
+{<br>
+setInterval("titnimation()",500);<br>
+}<br>
+//--&gt;<br>
+&lt;/script&gt;<br>
+
+<tr><td bgcolor=00c000>連圖案也一起來參一腳？太神奇了！</td></tr>
+<tr><td bgcolor=00c000>
+&lt;script language="JavaScript1.2"&gt;<br>
+&lt;!--<br>
+var marqueewidth=470</FONT>; // 跑馬燈的寬度（IE 中可用百分比，注意要加引號）<br>
+var marqueeheight=40</FONT>; // 跑馬燈的高度<br>
+var speed=6</FONT>; // 捲動速度（越大越快）<br> 
+var marqueecontents='&lt;IMG src="logo.gif" height=31 width=88 border=0&gt; 我連圖案都可以跑喔！</FONT>';  // 跑馬燈顯示的字串<br>
+<br>
+if (document.all) document.write('&lt;marquee scrollAmount='+speed+' style="width:'+marqueewidth+'"&gt;'+marqueecontents+'&lt;/marquee&gt;');<br>
+function regenerate() {window.location.reload();}<br>
+function regenerate2(){<br>
+   if (document.layers){<br>
+   setTimeout("window.onresize=regenerate",450);<br>
+   intializemarquee();<br>
+   }<br>
+}<br>
+function intializemarquee(){<br>
+   document.cmarquee01.document.cmarquee02.document.write('&lt;nobr&gt;'+marqueecontents+'&lt;/nobr&gt;');<br>
+   document.cmarquee01.document.cmarquee02.document.close();<br>
+   thelength=document.cmarquee01.document.cmarquee02.document.width;<br>
+   scrollit();<br>
+}<br>
+function scrollit(){<br>
+   if (document.cmarquee01.document.cmarquee02.left&gt;=thelength*(-1)){<br>
+   document.cmarquee01.document.cmarquee02.left-=speed;<br>
+   setTimeout("scrollit()",100);<br>
+   } else {<br>
+   document.cmarquee01.document.cmarquee02.left=marqueewidth;<br>
+   scrollit();<br>
+   }<br>
+}<br>
+window.onload=regenerate2;<br>
+//--&gt;<br>
+&lt;/script&gt;<br>
+&lt;ilayer width=&{marqueewidth}; height=&{marqueeheight}; name="cmarquee01"&gt;<br>
+&lt;layer name="cmarquee02"&gt;&lt;/layer&gt;<br>
+&lt;/ilayer&gt;<br>
+
+<script language="JavaScript1.2">
+<!--
+var marqueewidth=470; // 跑馬燈的寬度（IE 中可用百分比，注意要加引號）
+var marqueeheight=40; // 跑馬燈的高度
+var speed=6; // 捲動速度（越大越快）
+var marqueecontents='<IMG src="logo-1.jpg"/*tpa=http://neemy.com/html/script/logo.jpg*/ height=31 width=88 border=0>我連圖案都一起跑喔！'; // 跑馬燈顯示的字串
+
+if (document.all) document.write('<marquee scrollAmount='+speed+' style="width:'+marqueewidth+'">'+marqueecontents+'</marquee>');
+function regenerate() {window.location.reload();}
+function regenerate2(){
+if (document.layers){
+setTimeout("window.onresize=regenerate",450);
+intializemarquee();
+}
+}
+function intializemarquee(){
+document.cmarquee01.document.cmarquee02.document.write('<nobr>'+marqueecontents+'</nobr>');
+document.cmarquee01.document.cmarquee02.document.close();
+thelength=document.cmarquee01.document.cmarquee02.document.width;
+scrollit();
+}
+function scrollit(){
+if (document.cmarquee01.document.cmarquee02.left>=thelength*(-1)){
+document.cmarquee01.document.cmarquee02.left-=speed;
+setTimeout("scrollit()",100);
+} else {
+document.cmarquee01.document.cmarquee02.left=marqueewidth;
+scrollit();
+}
+}
+window.onload=regenerate2;
+//-->
+</script>
+<ilayer width=&{marqueewidth}; height=&{marqueeheight}; name="cmarquee01">
+<layer name="cmarquee02"></layer>
+</ilayer>
+</td></tr></table>

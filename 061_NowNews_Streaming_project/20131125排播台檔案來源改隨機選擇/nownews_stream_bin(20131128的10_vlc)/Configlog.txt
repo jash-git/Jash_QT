@@ -1,0 +1,5 @@
+currentPath:	/home/rootroot/nownews_stream_bin/
+PlayListUrl	http://xpe5tv.tw-airnet.net/api/vod/film_schedule_live.php?action=nownews
+Mp4Path	/m5/1000K/
+ffmpegvlc01	kill -9 `ps -ef|grep vlc|grep 224.8.8.119:11911|awk '{print $2}'`
+ffmpegvlc02	" --sout '#transcode{fps=29.97,venc=x264{keyint=90,profile=main,level=3,bframes=0,no-cabac,ref=1,no-mbtree,partitions=none,no-weightb,weightp=0,me=hex,subme=0,no-mixed-refs,no-8x8dct,trellis=0},vcodec=h264,vb=1200,width=704,height=480,deinterlace,acodec=mp2a,alang=eng,ab=128,channels=2,samplerate=48000}:standard{access=file,mux=ps,dst=-}' vlc://quit|cvlc - --sout-ts-pid-video=69 --sout-ts-pid-audio=68 --sout-transcode-alang=eng --sout-keep --sout '#transcode{fps=29.97,venc=x264{keyint=90,profile=main,level=3,bframes=0,no-cabac,ref=1,no-mbtree,partitions=none,no-weightb,weightp=0,me=hex,subme=0,no-mixed-refs,no-8x8dct,trellis=0},vcodec=h264,vb=1200,width=704,height=480,deinterlace,acodec=mp2a,alang=eng,ab=128,channels=2,samplerate=48000}:udp{mux=ts,dst=224.8.8.138:13841}' vlc://quit 

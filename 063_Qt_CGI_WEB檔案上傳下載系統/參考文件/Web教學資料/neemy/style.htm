@@ -1,0 +1,266 @@
+<html>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+<META NAME="Author" CONTENT="這裡可以寫入作者的名字">
+</head>
+<STYLE type=text/css>
+A:link {COLOR: #0000ff; FONT-SIZE: 12pt; TEXT-DECORATION: none}
+A:visited {COLOR: #0000ff; FONT-SIZE: 12pt; TEXT-DECORATION: none}
+A:hover {BACKGROUND-COLOR: red; COLOR: white; FONT-SIZE: 12pt; TEXT-DECORATION: none}
+PRE {BACKGROUND-COLOR: red; COLOR: white; FONT-SIZE: 12pt}
+</STYLE>
+<BODY BGCOLOR=FFFFDD  background="100.gif" tppabs="http://neemy.com/html/pic/100.gif"><center>
+<TABLE BORDER=0 CELLSPACING=10 CELLPADDING=10 WIDTH=95%><TR><TD>
+CSS是「Cascading Style Sheets」的縮寫，至於翻譯.....^_^，我不會翻ㄋㄟ，CSS好像是在IE3.0?的時
+候出現的，NETSCAPE好像要到4.0才有支援，有一個名詞不知道大家有沒有聽過，DHTML(Dynamic HTML)，
+好像是翻成動態網頁。顧名思義，就是讓你的網頁具有動態的效果。而DHTML正是包括了 HTML、CSS、
+JSCRIPT 三大原件的網頁標籤。CSS能幹嘛呢，說穿了，網路上常看到的連結變色就是一個非常好的例子
+；當然囉，他可以做的還多的咧，想研究的人自己去買本書來K吧(如果要買一本送版主我也不反對啦^_^)
+好啦，下面就舉幾個CSS的用法吧。<br></TD></TR></TABLE>
+
+<TABLE BORDER=1 CELLSPACING=3 width=95%>
+<TR><TD>
+通常CSS的標籤放在&LT;HEAD&GT;和&LT;/HEAD&GT;之間，一個網頁的開頭就像下面這樣。<br><br>
+
+&lt;html&gt;<br>
+&lt;HEAD&gt;<br>
+&lt;STYLE type=text/css&gt;<br>
+A:link {COLOR: #0000ff; FONT-SIZE: 12pt; TEXT-DECORATION: none}<br>
+A:visited {COLOR: #0000ff; FONT-SIZE: 12pt; TEXT-DECORATION: none}<br>
+A:hover {BACKGROUND-COLOR: red; COLOR: white; FONT-SIZE: 12pt; TEXT-DECORATION: none}<br>
+&lt;/STYLE&gt;&lt;/HEAD&gt;<br>
+&lt;BODY ........<br>
+
+</TD></TR>
+<TR><TD>
+至於用法型式呢？再這邊我舉一個簡單的例子好了。<br>
+假設我在&lt;HEAD&gt;和&lt;/HEAD&gt;之間，加上了下列這一段：<br>
+
+&lt;STYLE type=text/css&gt;<br>
+PRE {BACKGROUND-COLOR: red; COLOR: white}<br>
+&lt;/STYLE&gt;<br>
+
+現在如果我的文件中出現了&lt;PRE&gt;這個指令，那接下來的文字顯示就會像{ }中所描速的條件一樣，背景顏色為紅色，文字為白色。
+
+<PRE>就像這樣</pre>
+<BR><BR><BR>
+
+看出來了嗎？
+沒錯，簡單的CSS使用的方法就是這樣，組成的部分就是
+<ol>
+<li>設定CSS→ &lt;STYLE type=text/css&gt;
+<li>PRE →HTML指令(部分指令有點不同，像連結指令)
+<LI>宣示開始 → {
+<li>宣示內容 → BACKGROUND-COLOR: red; COLOR: white →宣示與宣示之間以 「 ; 」隔開，可以設定多重宣示。
+<LI>宣示結束 → }
+<LI>CSS結束  → &lt;/STYLE&gt;
+</OL>
+
+以下就是比較常見的使用方法啦！
+<OL><LI>連結變色：<BR>
+&lt;STYLE type=text/css&gt;<br>
+A:link {COLOR: #0000ff; FONT-SIZE: 12pt; TEXT-DECORATION: none}<br>
+A:visited {COLOR: #0000ff; FONT-SIZE: 12pt; TEXT-DECORATION: none}<br>
+A:hover {BACKGROUND-COLOR: red; COLOR: white; FONT-SIZE: 12pt; TEXT-DECORATION: none}<br>
+A:active {BACKGROUND-COLOR: blue; COLOR: lightgreen; FONT-SIZE: 12pt; TEXT-DECORATION: none}
+&lt;/STYLE&gt;<BR><BR>
+A 在HTML中是代表是連結的意思，至於link，就是連結的顏色；visited是參觀過的連結顏色；hover就是當滑鼠移過連結時文字的顏色；
+active就是你正在瀏覽的網頁連結。
+<BR><BR>
+
+另一個常用的地方就是在選項或是textarea的部分囉，就像下面這樣：<BR>
+一般常見的輸入表格之內，背景顏色是白色的，文字是黑色的，就像下面這樣：<BR>
+&LT;Input type=text value="輸入欄之內背景顏色為白色，文字顏色為黑色"&GT;&LT;/input&GT;<BR>
+<Input type=text value="輸入欄之內背景顏色為白色，文字顏色為黑色"></input><BR><BR>
+
+如果需要加入填寫表格的背景顏色，寫法如下：<BR>
+&LT;Input type=text style="background:BLUE" value="輸入欄之內有背景顏色"&GT;&LT;/input&GT;<BR>
+&LT;Input type=text style="background:0000FF" value="輸入欄之內有背景顏色"&GT;&LT;/input&GT;<BR>
+<Input type=text style="background:BLUE" value="輸入欄之內有背景顏色"></input><BR>
+<BR>
+如果還需要設定文字的顏色或是字體的大小，可以寫成：<BR>
+<BR>
+&LT;Input type=text style="background:BLUE;color:FFFFDD;FONT-SIZE:16pt" value="輸入欄之內有背景顏色，設定文字顏色、大小"&GT;&LT;/input&GT;<BR>
+<Input type=text style="background:BLUE;color:FFFFDD;FONT-SIZE:16pt" value="輸入欄之內有背景顏色，設定文字顏色、大小"></input><BR>
+<BR>
+另外，這個指令也可以用在OPTION、TEXTAREA...之內，就像是你在<A HREF="javascript:if(confirm('http://neemy.com/heart  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://neemy.com/heart'" tppabs="http://neemy.com/heart" target=_blank>聊天室</a>中選擇聊天的文字顏色一樣。
+<BR>
+<select>
+<option value=blue style="background:BLUE;color:blue">BLUE
+<option value=red style="background:red;color:red">RED
+<option value=yellow style="background:yellow;color:yellow">YELLOW
+</select>
+<LI>其他的指令大部分就是屬於HTML的指令囉。<BR>
+<BR>
+</ol>
+
+　　下面是由思源HTML3.0所擷取出來的部分參數，可以當作寫CSS參考。
+</TD></TR></TD></TR></TABLE>
+
+<BR>
+
+<TABLE BORDER=1 cellspacing=8 cellpadding=8 WIDTH=95%>
+<TR>
+<TD>屬性
+<TD>說明
+<TD>設定值
+<TD>範例
+
+<tr>
+<TD>font-size
+<TD>設定字體大小.	
+<TD>點point (pt)英吋 (in)公分 (cm)點pixel (px)	
+<TD>{font-size: 14pt}
+</TD></TR>
+
+
+<TR>
+<TD>font-family	
+<TD>設定字形	
+<TD>任何字形名稱，例如細明體、Arial Black等等	
+<TD>{font-family:Arial Black}�}</TD></TR>
+
+<TR>
+<TD>font-weight	<TD>設定字體粗細	<TD>extra-light
+light
+demi-light
+medium
+demi-bold
+bold
+extra-bold	
+<TD>{font-weight: bold}
+
+<TR>
+<TD>font-style	
+<TD>設定字體形態	
+<TD>
+normal
+italic	
+<TD>{font-style: italic}
+
+
+<TR>
+<TD>line-height	<TD>設定行高	
+<TD>點 point (pt)
+英吋 (in)
+公分 (cm)
+點 pixel (px)
+百分比(%)	
+<TD>{line-height: 18pt}
+
+
+<TR>
+<TD>font
+<TD colspan=3>一次設定全部的字型屬性		
+
+<tr>
+<TD>color
+<TD>設定顏色	
+<TD>色彩名稱
+RGB值
+<TD>{color: Red}
+
+
+<TR><TD>text-decoration	
+<TD>設定文字加強方式	
+<TD>none
+underline
+italic
+line-through	
+<TD>{text-decoration: underline}
+
+<TR>
+<TD>margin-left
+<TD>設定文件內文與左邊界距離
+<TD>點 point (pt)
+英吋 (in)
+公分 (cm)
+點 pixel (px)	
+<TD>{margin-left: 2.5cm}
+
+
+<TR>
+<TD>margin-right
+<TD>設定文件內文與右邊界距離	
+<TD>點 point (pt)
+英吋 (in)
+公分 (cm)
+點 pixel (px)	
+<TD>{margin-right: 1in}
+
+
+
+<TR>
+<TD>margin-top	
+<TD>設定文件內文與上邊界距離	
+<TD>點 point (pt)
+英吋 (in)
+公分 (cm)
+點 pixel (px)	
+<TD>{margin-top: -10px}
+
+
+<TR>
+<TD>margin
+<TD colspan=3>一次設定所有的邊界屬性		
+
+
+
+<TR>
+<TD>text-align
+<TD>設定文字排列方式	
+<TD>left
+center
+right	
+<TD>{text-align: left}
+
+
+<TR>
+<TD>text-indent
+<TD>設定文字向右縮排距離	
+<TD>點 point (pt)
+英吋 (in)
+公分 (cm)
+點 pixel (px)	
+<TD>{text-indent: 1.5in}
+
+
+<TR>
+<TD>background	
+<TD>設定背景圖或背景顏色	
+<TD>
+URL
+色彩名稱        RGB值	
+<TD>{background: #99CC99}
+
+</td></tr></table>
+<br><br>
+
+<table border=1 cellspacing=6 cellpadding=6 WIDTH=95%>
+<tr><td bgcolor=lightgreen>
+<pre><font SIZE=3><b>外部連結CSS檔</b></FONT></PRE>
+當你有好幾十頁，好幾百頁網頁的時候都用到相同的CSS檔時，偏偏CSS檔案又是一大串的，這個時候就要用這個功能囉。
+會不會影響網頁顯示呢？答案是：不會。
+<TR><TD>
+使用方法：<BR>
+在&lt;head&gt;和&lt;/head&gt;之間加上這一行：<BR>
+&LT;link rel=stylesheet type="text/css" href="page.css"&GT;<BR><BR>
+
+加上後看起來的網頁開頭就像醬子：<BR>
+&lt;html&gt;<br>
+&lt;HEAD&gt;<br>
+&LT;link rel=stylesheet type="text/css" href="page.css"&GT;<BR>
+&lt;/HEAD&gt;<br>
+&lt;BODY ........<br><BR><BR>
+
+至於 page.css 的內容嘛，其實說穿了妳一定會覺得很簡單，就是把前段的&lt;STYLE type=text/css&gt;和&lt;/style&gt;<BR>
+去掉之後，存成你喜歡的檔名就好啦。<BR><BR>
+範例：page.css<BR><BR>
+
+A:link {COLOR: #0000ff; FONT-SIZE: 12pt; TEXT-DECORATION: none}<br>
+A:visited {COLOR: #0000ff; FONT-SIZE: 12pt; TEXT-DECORATION: none}<br>
+A:hover {BACKGROUND-COLOR: red; COLOR: white; FONT-SIZE: 12pt; TEXT-DECORATION: none}<BR>
+<BR><BR><BR><BR>
+當然還有其他一堆指令像是將物體包成物件的SPAN、DIV，還有CLASS.....我比較少用到的功能，如果有需要的話，老話一句：
+<SPAN onClick=alert('快去買書來看吧！')>？按這裡？</A>
+</td></tr>

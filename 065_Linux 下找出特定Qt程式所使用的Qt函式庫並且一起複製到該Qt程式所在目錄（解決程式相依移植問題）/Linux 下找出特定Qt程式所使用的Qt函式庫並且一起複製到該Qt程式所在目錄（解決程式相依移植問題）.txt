@@ -1,0 +1,6 @@
+Linux 下找出特定Qt程式所使用的Qt函式庫並且一起複製到該Qt程式所在目錄（解決程式相依移植問題）
+#2014/12/08實驗筆記
+#cd到執行檔所在目錄
+ldd qtcreator01 | cut -d " " -f 3					#找出所有相依函式庫
+ldd qtcreator01 | grep Qt | cut -d " " -f 3	#找出Qt 相依函式庫
+cp `ldd qtcreator01 | grep Qt | cut -d " " -f 3` ./		#拷貝Qt 相依函式庫到目前目錄

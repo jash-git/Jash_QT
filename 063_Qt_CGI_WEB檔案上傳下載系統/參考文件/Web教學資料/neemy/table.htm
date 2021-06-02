@@ -1,0 +1,107 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+<META NAME="Author" CONTENT="心靈版豬-WHY製作">
+<TITLE>表格製作...</TITLE>
+</HEAD>
+<body bgcolor=f1f1dd LInk=blue aLInk=red vLInk=#87cefd BACKGROUND="1o4.gif" tppabs="http://neemy.com/html/pic/1o4.gif">
+
+<body bgcolor=FFFFDD link=blue alink=red vlink=#87cefd>
+<table width="96%" border="0" cellspacing="3" cellpadding="4" align="CENTER"><TR><TD>
+<img SRC="2.gif" tppabs="http://neemy.com/html/pic/2.gif" border=0 align="right" hspace=2 vspace=4><b><BR>
+這個地方不太好懂喔，要多試幾次才會知道。所使用的語法就是&LT;TABLE BORDER="1"&GT;&LT;TR&GT;&LT;TD&GT;&LT;/TD&GT;&LT;/TR&GT&LT;/TABLE&GT;這些而已喔。
+</TD></TR></TABLE>
+
+<TABLE BORDER=1 CELLSPACING=4 CELLPADDING=4 width="96%" ALIGN=CENTER>
+<TR><TD COLSPAN=2 BGCOLOR=AQUA><b>做一個最簡單的表格</TD></TR>
+<TR><TD>原始標籤</TD><TD>顯示結果</TD>
+<TR><TD>&LT;TABLE BORDER="1"&GT;<br>&LT;TR&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=1><TR><TD>房間一</TD></TR></TABLE></TD></TR>
+<TR><TD COLSPAN=2 BGCOLOR=AQUA><b>標籤解釋</TD></TR>
+<TR><TD COLSPAN=2 BGCOLOR=AQUA><b>
+<li>&LT;TABLE BORDER="1"&GT;<br>告訴瀏覽器，我現在要開始作一個表單了喔。
+<li>&LT;TR&GT;<br>我現在要開始作第一層囉。
+<li>&LT;TD&GT;<br>我現在要開始作第一層裡面的第一格囉。
+<li>&LT;/TD&GT;<br>我第一層裡面的第一格已經做完囉。
+<li>&LT;/TR&GT;<br>我第一層已經做好囉。
+<li>&LT;/TABLE&GT;<br>這個表單我做完囉。<BR><BR>
+<LI>
+其實大家覺得很複雜對不對！那我們現在把表單當作蓋一間房子好了，房子裡面的房間每間都一樣大。<br>
+<ol><LI>好啦，現在我們要開始蓋房子啦，我們用&LT;TABLE BORDER="1"&GT;告訴瀏覽器我們開始蓋房子啦。
+<li>然後房子都是一層一層蓋的啊，那我們用&LT;TR&GT;告訴瀏覽器我們要蓋第一層囉。
+<li>瀏覽器現在已經知道我們要蓋房子囉，而且要蓋第一層，那現在我們要開始蓋第一層的第一個房間囉，我們用&LT;TD&GT;告訴瀏覽器，我們要蓋第一層房間囉。過了很久，好不容易第一間蓋完啦，我們用&LT;/TD&GT;告訴瀏覽器我們蓋完第一間囉。
+<li>我們現在突然不想蓋囉！我們要告訴瀏覽器我們不蓋囉，我們用&LT;/TR&GT;告訴瀏覽器我們不蓋這層囉，用&LT;/TABLE&GT;告訴瀏覽器我們房子已經蓋完囉。
+</TD></TR>
+<TR><TD>&LT;TABLE BORDER="1"&GT;<br>&LT;TR&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=1><TR><TD>房間一</TD></TR></TABLE></TD></TR>
+
+<TR><TD COLSPAN=2 BGCOLOR=AQUA><b>我突然想要在同一層蓋兩間房間。</TD></TR>
+<TR><TD>&LT;TABLE BORDER="1"&GT;<br>&LT;TR&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=1><TR><TD>房間一</TD><TD>房間二</TD></TR></TABLE></TD></TR>
+
+<TR><TD COLSPAN=2 BGCOLOR=AQUA><b>我突然想要在同一層蓋三間房間。</TD></TR>
+<TR><TD>&LT;TABLE BORDER="1"&GT;<br>&LT;TR&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;&LT;TD&GT;房間三&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=1><TR><TD>房間一</TD><TD>房間二</TD><TD>房間三</TD></TR></TABLE></TD></TR>
+
+<TR><TD COLSPAN=2 BGCOLOR=AQUA><b>我突然想要蓋兩層ㄝ，每層都只有一個房間。</TD></TR>
+<TR><TD>&LT;TABLE BORDER="1"&GT;<br>&LT;TR&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;&LT;/TR&GT;<BR>&LT;TR&GT;<BR>&LT;TD&GT;房間二&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=1><TR><TD>房間一</TD><TR><TD>房間二</TD></TR></TABLE></TD></TR>
+
+<TR><TD COLSPAN=2 BGCOLOR=AQUA><b>我突然想要蓋兩層ㄝ，每層都有三個房間。</TD></TR>
+<TR><TD>&LT;TABLE BORDER="1"&GT;<br>&LT;TR&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;<br>&LT;/TR&GT<BR><br>&LT;TR&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=1><TR><TD>房間一</TD><TD>房間二<TD>房間三<TR><TD>房間一</TD><TD>房間二<TD>房間三</TR></TABLE></TD></TR>
+
+<TR><TD COLSPAN=2 BGCOLOR=AQUA><b>我第一層要三間房間，第二層只要一間房間，而且第二層的房間是第一層房間的三倍大，我用 COLSPAN="3" 告訴瀏覽器。</TD></TR>
+<TR><TD>&LT;TABLE BORDER="1"&GT;<br>&LT;TR&GT;<br>&LT;TD COLSPAN="3"&GT;三倍大的房間&LT;/TD&GT;<br>&LT;/TR&GT<BR><br>&LT;TR&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;&LT;TD&GT;房間三&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=1><TR><TD COLSPAN="3">三倍大的房間</TD></TR><TR><TD>房間一</TD><TD>房間二<TD>房間三</TR></TABLE></TD></TR>
+
+<TR><TD COLSPAN=2 BGCOLOR=AQUA><b>我突然想要蓋兩層ㄝ，每層都有三個房間，而且樓上和樓下的第一間房間打通了，我用 ROWSPAN="2" 告訴瀏覽器。</TD></TR>
+<TR><TD>&LT;TABLE BORDER="1"&GT;<br>&LT;TR&GT;<br>&LT;TD ROWSPAN="2"&GT;房間一&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;&LT;TD&GT;房間三&LT;/TD&GT;<br>&LT;/TR&GT<BR><br>&LT;TR&GT;<br>&LT;TD&GT;房間二&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=1><TR><TD ROWSPAN="2">房間一</TD><TD>房間二<TD>房間三<TR><TD>房間二<TD>房間三</TR></TABLE></TD></TR>
+
+<TR><TD COLSPAN=2 BGCOLOR=AQUA><b>我突然想要蓋兩層ㄝ，每層都有三個房間，整棟房屋的是綠色的。</TD></TR>
+<TR><TD>&LT;TABLE BORDER="1" BGCOLOR="#00FF00"&GT;<br>&LT;TR&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;<br>&LT;/TR&GT<BR><br>&LT;TR&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=1 BGCOLOR="#00FF00"><TR><TD>房間一</TD><TD>房間二<TD>房間三<TR><TD>房間一</TD><TD>房間二<TD>房間三</TR></TABLE></TD></TR>
+
+<TR><TD COLSPAN=2 BGCOLOR=AQUA><b>我突然想要蓋兩層ㄝ，每層都有三個房間。我只要上面的那一層是綠色的。</TD></TR>
+<TR><TD>&LT;TABLE BORDER="1"&GT;<br>&LT;TR BGCOLOR="#00FF00"&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;<br>&LT;/TR&GT<BR><br>&LT;TR&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=1><TR BGCOLOR="#00FF00"><TD>房間一</TD><TD>房間二<TD>房間三<TR><TD>房間一</TD><TD>房間二<TD>房間三</TR></TABLE></TD></TR>
+
+
+<TR><TD COLSPAN=2 BGCOLOR=AQUA><b>我突然想要蓋兩層ㄝ，每層都有三個房間。我只要上面那一層的房間二是綠色的。</TD></TR>
+<TR><TD>&LT;TABLE BORDER="1"&GT;<br>&LT;TR&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;&LT;TD BGCOLOR="#00FF00"&GT;房間二&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;<br>&LT;/TR&GT<BR><br>&LT;TR&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=1><TR><TD>房間一</TD><TD BGCOLOR="#00FF00">房間二<TD>房間三<TR><TD>房間一</TD><TD>房間二<TD>房間三</TR></TABLE></TD></TR>
+
+<TR><TD COLSPAN=2 BGCOLOR=AQUA><b>我突然想要蓋兩層ㄝ，每層都有三個房間，整棟房屋是綠色的，可是外面要加厚(用BORDER="數字")，而且框框的顏色要用藍色的(BORDERCOLOR="顏色碼")。</TD></TR>
+<TR><TD>&LT;TABLE BORDER="6" BORDERCOLOR="0000FF"BGCOLOR="#00FF00"&GT;<br>&LT;TR&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;<br>&LT;/TR&GT<BR><br>&LT;TR&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=6 BGCOLOR="#00FF00" BORDERCOLOR="0000FF"><TR><TD>房間一</TD><TD>房間二<TD>房間三<TR><TD>房間一</TD><TD>房間二<TD>房間三</TR></TABLE></TD></TR>
+
+<TR><TD COLSPAN=2 BGCOLOR=AQUA><b>我突然想要蓋兩層ㄝ，每層都有三個房間，整棟房屋是綠色的，上面的第二間房間要背景要貼圖(BACKGROUND="圖片檔"，可是外面要加厚(用BORDER="數字")，而且框框的顏色要用藍色的(BORDERCOLOR="顏色碼")。</TD></TR>
+<TR><TD>&LT;TABLE BORDER="6" BORDERCOLOR="0000FF"BGCOLOR="#00FF00"&GT;<br>&LT;TR&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;&LT;TD BACKGROUND="bg.jpg"&GT;房間二&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;<br>&LT;/TR&GT<BR><br>&LT;TR&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;&LT;TD&GT;房間二&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=6 BGCOLOR="#00FF00" BORDERCOLOR="0000FF"><TR><TD>房間一</TD><TD BACKGROUND="bg.jpg" tppabs="http://neemy.com/html/html/bg.jpg">房間二<TD>房間三<TR><TD>房間一</TD><TD>房間二<TD>房間三</TR></TABLE></TD></TR>
+
+<TR><TD COLSPAN=2 BGCOLOR=AQUA><b>看了上面的那麼多例子，你一定知道表格要怎麼畫了。下面是一些比較進階的功能喔。
+<TR><TD>原始標籤</TD><TD>顯示結果</TD>
+<TR><TD>&LT;TABLE BORDER="1" height="100" width="100"&GT;<br>&LT;TR&GT;<br>&LT;TD&GT;房間一&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=1 height="100" width="100"><TR><TD>房間一</TD></TR></TABLE></TD></TR>
+
+<TR><TD>&LT;TABLE BORDER="1" height="100" width="100"&GT;<br>&LT;TR&GT;<br>&LT;TD ALIGN="CENTER&GT;置中&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=1 height="100" width="100"><TR><TD ALIGN="CENTER">置中</TD></TR></TABLE></TD></TR>
+
+<TR><TD>&LT;TABLE BORDER="1" height="100" width="100"&GT;<br>&LT;TR&GT;<br>&LT;TD ALIGN="RIGHT"&GT;房間一&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=1 height="100" width="100"><TR><TD ALIGN="RIGHT">靠右</TD></TR></TABLE></TD></TR>
+
+<TR><TD>&LT;TABLE BORDER="1" height="100" width="100" CELLPADDING="10"&GT;<br>&LT;TR&GT;<br>&LT;TD ALIGN=&GT;文字與邊框距離&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=1 height="100" width="100" CELLPADDING="10"><TR><TD>文字與邊框距離</TD></TR></TABLE></TD></TR>
+
+<TR><TD>&LT;TABLE BORDER="1" height="100" width="100" CELLSPACING="10"&GT;<br>&LT;TR&GT;<br>&LT;TD ALIGN="RIGHT"&GT;框架與邊框距離&LT;/TD&GT;&LT;TD ALIGN="RIGHT"&GT;框架與邊框距離&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=1 height="100" width="100" CELLSPACING="10"><TR><TD>框架與邊框距離</TD><TD>框架與邊框距離</TD></TR></TABLE></TD></TR>
+
+<TR><TD>&LT;TABLE BORDER="1" height="100" width="100" BORDERCOLORLIGHT="#FF0000"&GT;<br>&LT;TR&GT;<br>&LT;TD&GT;亮面邊框顏色&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=1 height="100" width="100" BORDERCOLORLIGHT="#FF0000"><TR><TD>亮面邊框顏色</TD></TR></TABLE></TD></TR>
+
+<TR><TD>&LT;TABLE BORDER="1" height="100" width="100" BORDERCOLORDARK="#00FF00"&GT;<br>&LT;TR&GT;<br>&LT;TD&GT;暗面邊框顏色&LT;/TD&GT;<br>&LT;/TR&GT<br>&LT;/TABLE&GT;</TD>
+<TD><TABLE BORDER=1 height="100" width="100" BORDERCOLORDARK="#00FF00"><TR><TD>暗面邊框顏色</TD></TR></TABLE></TD></TR>
+</TABLE></TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,5 @@
+01.	在家目錄建立Qt_service目錄
+02.	建立startup.sh和shutdown.sh並設定可執行「chmod 777 startup.sh;chmod 777 shutdown.sh」
+03.	在Qt_service下建立log目錄
+04.	sudo pluma 並打開 /etc/init.d/rc.local
+05. 再rc.local的最後加上 /home/jash/Qt_service/startup.sh

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>249</width>
+    <height>96</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>thread_TCP_Server</string>
+  </property>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>0</y>
+     <width>85</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>關閉服務</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>161</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>資訊：</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>slotExit()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>202</x>
+     <y>45</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>124</x>
+     <y>47</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slotExit()</slot>
+ </slots>
+</ui>

@@ -1,0 +1,113 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+<META NAME="Author" CONTENT="心靈版豬-WHY製作">
+<TITLE>心靈點滴之簡單網頁教學-前言準備</TITLE>
+</HEAD>
+
+<body bgcolor=f1f1dd LInk=blue aLInk=red vLInk=#87cefd BACKGROUND="100.gif" tppabs="http://neemy.com/html/pic/100.gif">
+<table width="90%" border="0" cellspacing="3" cellpadding="4" align="CENTER"><TR><TD>
+<img SRC="logo-1.jpg" tppabs="http://neemy.com/html/script/logo.jpg" width=108 height=104 border=0 align="right" hspace=2 vspace=4><b><BR>
+變換按鈕，滑鼠移過去就會更換圖案，蠻炫的效果ㄛ.....
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+if(document.images)
+{
+
+memu0=new Image()
+memu0.src="000a.gif"/*tpa=http://neemy.com/html/script/000a.gif*/
+memu0off=new Image()
+memu0off.src="000b.gif"/*tpa=http://neemy.com/html/script/000b.gif*/
+
+
+memu1=new Image()
+memu1.src="001a.jpg"/*tpa=http://neemy.com/html/script/001a.jpg*/
+memu1off=new Image()
+memu1off.src="001b.jpg"/*tpa=http://neemy.com/html/script/001b.jpg*/
+memu2=new Image()
+memu2.src="002a .jpg"/*tpa=http://neemy.com/html/script/002a .jpg*/
+memu2off=new Image()
+memu2off.src="002b.jpg"/*tpa=http://neemy.com/html/script/002b.jpg*/
+memu3=new Image()
+memu3.src="003a.jpg"/*tpa=http://neemy.com/html/script/003a.jpg*/
+memu3off=new Image()
+memu3off.src="003b.jpg"/*tpa=http://neemy.com/html/script/003b.jpg*/
+
+}
+function Act(menuName)
+{
+if(document.images){
+document[menuName].src = eval(menuName+".src")
+}
+}
+function Inact(menuName)
+{
+if(document.images){
+document[menuName].src = eval(menuName+"off.src")
+}
+}
+//-->
+</SCRIPT>
+
+
+<IMG NAME="memu0" SRC="000a.gif" tppabs="http://neemy.com/html/script/000a.gif" BORDER="0" onMouseOut="Act('memu0')" onMouseOver="Inact('memu0')" align=center alt=接近我你會看的更清楚><I><FONT COLOR=BLUE>靠近我看看。</I></FONT></img></A>
+
+
+</TD></TR>
+<TR><Td bgcolor=aqua>
+把下面的JAVASCRIPT複製並放在&LT;/HEAD&GT;的下面就可以啦！然後必須將你的連結改一下形式喔，<A href=#buttom>看這裡</a>。
+<br><br>
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;<br>
+&lt;!--<br>
+if(document.images)<br>
+{<br>//第一個連結圖檔宣示開始//<br>
+  memu0=new Image()<br>
+  memu0.src="000a.gif"//滑鼠沒有碰到時候的原來圖檔。//<br>
+  memu0off=new Image()<br>
+  memu0off.src="000b.gif"//滑鼠碰到圖案變成的圖檔。//<br>
+<br><br>//第二個連結圖檔宣示開始//<br>
+  memu1=new Image()<br>
+  memu1.src="001a.jpg"<br>
+  memu1off=new Image()<br>
+  memu1off.src="001b.jpg"<br>
+
+<br><br>//第三個連結圖檔宣示開始//<br>
+  memu2=new Image()<br>
+  memu2.src="002a .jpg"<br>
+  memu2off=new Image()<br>
+  memu2off.src="002b.jpg"<br>
+
+<br><br>//第N個連結圖檔宣示開始//<br>
+  memu3=new Image()<br>
+  memu3.src="003a.jpg"<br>
+  memu3off=new Image()<br>
+  memu3off.src="003b.jpg"//以此類推下去<br>
+<br>
+//到此行為止//<br>
+}<br>
+function Act(menuName)<br>
+{<br>
+  if(document.images){<br>
+      document[menuName].src = eval(menuName+".src")<br>
+  }<br>
+}<br>
+function Inact(menuName)<br>
+{<br>
+  if(document.images){<br>
+      document[menuName].src = eval(menuName+"off.src")<br>
+  }<br>
+}<br>
+//--&gt;<br>
+&lt;/SCRIPT&gt;<br><br>
+
+
+<a name=#buttom>修改連結</a><BR>
+把連結後面變成下面的形式就可以囉！要記得改連結中的 menu0 改成你宣示的圖檔編號喔。<BR>
+
+&lt;A HREF="連結網頁.htm" onMouseOut="Act('<font color=red>memu0</font>')" onMouseOver="Inact('<font color=red>memu0</font>')"&gt;<BR>
+&lt;IMG NAME="<font color=red>memu0</font>"  SRC="000a.gif" BORDER="0"&gt;&lt;/A&gt;
+<BR><BR><BR><BR>
+如果不想要有連結，直接把標籤原始碼改成<BR>
+&lt;IMG NAME="<font color=red>memu0</font>"  SRC="000a.gif" BORDER="0"  onMouseOut="Act('<font color=red>memu0</font>')" onMouseOver="Inact('<font color=red>memu0</font>')"&gt;&lt;/A&gt;
+<BR>就可以啦！趕快試試看喔。</td></tr></table>

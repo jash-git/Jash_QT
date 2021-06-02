@@ -1,0 +1,1 @@
+cvlc ./Base.mp4 --sout-keep --sout '#transcode{fps=29.97,venc=x264{keyint=90,profile=baseline,level=2.1,bframes=0,no-cabac,ref=1,no-mbtree,partitions=none,no-weightb,weightp=0,me=hex,subme=0,no-mixed-refs,no-8x8dct,trellis=0},vcodec=h264,vb=1000,width=640,height=480,acodec=aac,ab=64,channels=2,samplerate=44100}:udp{mux=ts,dst=224.8.8.13:1238}' vlc://quit

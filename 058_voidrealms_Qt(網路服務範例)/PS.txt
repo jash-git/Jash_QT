@@ -1,0 +1,12 @@
+http://www.voidrealms.com/source.aspx?filter=cpp
+
+FTPPlugin	A FTP Server plugin for PluginService
+FTPTester	Full source to an FTP server written in C++ with Qt
+LauncherPlugin	A plugin that launches other programs for the PluginService
+PluginService	A Service written in C++ with QT that loads plugins
+TelnetPlugin	A Telnet plugin for the PluginService
+TelnetServer	A Telnet server written in C++ with QT
+VDrives	A C++ class that gets information about Windows logical drives and returns QT variable types.
+VQTConvert	A C++ class that converts data between native windows types and QT types.
+VRegsitry	A C++ class that allows read and write access to the windows registry using QT variable types
+VServices	A C++ class that gets information on and manages Windows services using QT variable types.

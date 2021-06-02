@@ -1,0 +1,2 @@
+https://github.com/nikhilm/qhttpserver
+http://kodeclutz.blogspot.com/2011/02/qhttpserver-web-apps-in-qt.html

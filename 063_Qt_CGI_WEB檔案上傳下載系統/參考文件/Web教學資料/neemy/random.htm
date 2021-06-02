@@ -1,0 +1,202 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+<META NAME="Author" CONTENT="心靈版豬-WHY製作">
+<TITLE>隨機撥放</TITLE>
+</HEAD>
+
+<body bgcolor=f1f1dd LInk=blue aLInk=red vLInk=#87cefd BACKGROUND="100.gif" tppabs="http://neemy.com/html/pic/100.gif">
+<table width="90%" border="0" cellspacing="3" cellpadding="4" align="CENTER"><TR><TD>
+<img SRC="logo-1.jpg" tppabs="http://neemy.com/html/script/logo.jpg" width=108 height=104 border=0 align="right" hspace=2 vspace=4><b><BR>
+
+每次進來都撥放不同的音樂？圖案？連結？文字？版豬是喜歡用CGI加上SSI去控制啦，不過現在JAVASCRIPT也做得到喔。</TD></TR>
+<TR><TD BGCOLOR=AQUA>隨機連結...可以應用到隨機撥放音樂和文字喔。</TD></TR>
+<TR><TD BGCOLOR=AQUA>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+
+// Link of the Minute Script by Joe Merical
+// Copyright 1998
+// E-mail: jmpch@aol.com
+// URL: http://members.aol.com/jmpch/index.htm-->
+
+var linkno = 5;
+var date = new Date();
+var rd = date.getMinutes();
+var ra = rd % linkno;
+var re = ++ra;
+var mo=0
+frame="_blank"
+
+// Check to see if link number is
+// below one and fix it.
+if (re < 1) re=++re
+//Begin Links
+
+if (re == 1) {
+re = "http://neemy.com/";
+mo = "歡迎來到心靈點滴唷！^";
+}
+
+if (re == 2) {
+re = "http://neemy.com/money2u";
+mo = "賺錢方法大蒐集，告訴你如何從網路賺錢。";
+}
+
+if (re == 3) {
+re = "http://neemy.com/novel";
+mo = "網路的心情小說蒐集...";
+}
+
+if (re == 4) {
+re = "http://neemy.com/bbs/";
+mo = "心情佈告欄，網友的心情故事喔。";
+}
+
+if (re == 5) {
+re = "http://www.kimo.com.tw/";
+mo = "超級有名的奇摩站喔！";
+}
+
+
+var link="<A HREF="+re+" onMouseOver=\"window.status='"+mo+"'\">"+mo+" </A>";
+document.write(link);
+</SCRIPT>
+<BR><BR>
+把下面複製後貼到文件中就可以囉。<br><br>
+&lt;SCRIPT LANGUAGE="JavaScript"&gt;<br>
+&lt;!--<br>
+<br>
+// Link of the Minute Script by Joe Merical<br>
+// Copyright 1998<br>
+// E-mail: jmpch@aol.com<br>
+// URL: http://members.aol.com/jmpch/index.htm--&gt;<br>
+<br>
+var linkno = 5;//連結的總數目<br>
+var date = new Date();<br>
+var rd = date.getMinutes();<br>
+var ra = rd % linkno;<br>
+var re = ++ra;<br>
+var mo=0<br>
+frame="_blank"<br>
+<br>
+// Check to see if link number is<br>
+// below one and fix it.<br>
+if (re &lt; 1) re=++re<br>
+//Begin Links<br>
+<br>
+//第一個連結宣示開始//<br>
+if (re == 1) {<br>
+re = "http://neemy.com/";<br>
+mo = "歡迎來到心靈點滴唷！^";<br>
+}<br>
+<br>
+//第二個連結宣示開始//<br>
+if (re == 2) {<br>
+re = "http://neemy.com/money2u";<br>
+mo = "賺錢方法大蒐集，告訴你如何從網路賺錢。";<br>
+}<br>
+<br>
+//第三個連結宣示開始//<br>
+if (re == 3) {<br>
+re = "http://neemy.com/novel";<br>
+mo = "網路的心情小說蒐集...";<br>
+}<br>
+<br>
+//第四個連結宣示開始//<br>
+if (re == 4) {<br>
+re = "http://neemy.com/bbs/";<br>
+mo = "心情佈告欄，網友的心情故事喔。";<br>
+}<br>
+<br>
+//第Ｎ個連結宣示開始，以此類推//<br>
+if (re == 5) {<br>
+re = "http://www.kimo.com.tw";<br>
+mo = "超級有名的奇摩站喔！";<br>
+}<br>
+<br>
+var link="&lt;A HREF="+re+" onMouseOver=\"window.status='"+mo+"'\"&gt;"+mo+" &lt;/A&gt;";<br>
+document.write(link);<br>
+&lt;/SCRIPT&gt;<br>
+
+
+
+</TD></TR>
+<tr><td bgcolor=ffffdd>隨機提示文字</td></tr>
+<tr><td bgcolor=ffffdd>
+<SCRIPT Language="JavaScript">
+tips = new Array(6);
+tips[0] = "我是第一個！";
+tips[1] = "我可以提示文字。";
+tips[2] = "我可以貼圖。";
+tips[3] = "我還可以撥音樂。";
+tips[4] = "我可以做很多事。";
+tips[5] = "可是我不能生一個寶寶給你。";
+index = Math.floor(Math.random() * tips.length);
+document.write("<CENTER>" + tips[index] + "</CENTER><P>");
+</SCRIPT>
+
+把下面的程式碼複製後貼到網頁上就可以啦。<BR><BR>
+&lt;SCRIPT Language="JavaScript"&gt;<br>
+tips = new Array(6);//(6)是代表全部隨機撥放的數目，<br>
+tips[0] = "我是第一個！";<br>
+tips[1] = "我可以提示文字。";<br>
+tips[2] = "我可以貼圖。";<br>
+tips[3] = "我還可以撥音樂。";<br>
+tips[4] = "我可以做很多事。";<br>
+tips[5] = "可是我不能生一個寶寶給你。";<br>
+index = Math.floor(Math.random() * tips.length);<br>
+document.write("&lt;CENTER&gt;" + tips[index] + "&lt;/CENTER&gt;&lt;P&gt;");
+<br>&lt;/SCRIPT&gt;<br><BR><BR>
+<b>
+應用篇--隨機撥放背景音樂。<BR></b>
+&lt;SCRIPT Language="JavaScript"&gt;<br>
+tips = new Array(6);//(6)是代表全部隨機撥放的數目，<br>
+tips[0] = "音樂.mid";//可以使用連結喔。<br>
+tips[1] = "音樂1.mid";<br>
+tips[2] = "音樂2.mid";<br>
+tips[3] = "音樂3.mid";<br>
+tips[4] = "音樂4.mid";<br>
+tips[5] = "音樂5.mid";<br>
+index = Math.floor(Math.random() * tips.length);<br>
+document.write("&lt;EMBED autostart=true HIDDEN=TRUE LOOP=TRUE SRC=" + tips[index] + "&gt;&lt;/EMBED&GT;&lt;P&gt;");
+<br>&lt;/SCRIPT&gt;<br><BR><BR>
+
+
+<SCRIPT Language="JavaScript">
+tips = new Array(2);
+tips[0] = "bg.mid"/*tpa=http://neemy.com/html/script/bg.mid*/;
+tips[1] = "bg1.mid"/*tpa=http://neemy.com/html/script/bg1.mid*/;
+index = Math.floor(Math.random() * tips.length);
+document.write("<EMBED autostart=true HIDDEN=TRUE LOOP=TRUE SRC=" + tips[index] + "></EMBED><P>"); 
+</SCRIPT>
+
+<b>應用篇--隨機撥放影像。<SCRIPT Language="JavaScript">
+tips = new Array(6);
+tips[0] = "logo-2.jpg"/*tpa=http://neemy.com/html/pic/logo.jpg*/;
+tips[1] = "2.gif"/*tpa=http://neemy.com/html/pic/2.gif*/;
+tips[2] = "6.gif"/*tpa=http://neemy.com/html/pic/6.gif*/;
+tips[3] = "7.gif"/*tpa=http://neemy.com/html/pic/7.gif*/;
+tips[4] = "11.gif"/*tpa=http://neemy.com/html/pic/11.gif*/;
+tips[5] = "13.gif"/*tpa=http://neemy.com/html/pic/13.gif*/;
+index = Math.floor(Math.random() * tips.length);
+document.write("<IMG SRC=" + tips[index] + "></IMG><P>"); 
+</SCRIPT></b>
+<BR>
+&lt;SCRIPT Language="JavaScript"&gt;<br>
+tips = new Array(6);//(6)是代表全部隨機撥放的數目，<br>
+tips[0] = "影像1";//可以使用超連結喔。<br>
+tips[1] = "影像2";<br>
+tips[2] = "影像3";<br>
+tips[3] = "影像4";<br>
+tips[4] = "影像5";<br>
+tips[5] = "影像6";<br>
+index = Math.floor(Math.random() * tips.length);<br>
+document.write("&lt;IMG HEIGHT=72 WIDTH=72 SRC=" + tips[index] + "&gt;&lt;/img&GT;&lt;P&gt;");
+<br>&lt;/SCRIPT&gt;<br><BR><BR>
+
+
+
+</td></tr>
+
+</TD></TR>

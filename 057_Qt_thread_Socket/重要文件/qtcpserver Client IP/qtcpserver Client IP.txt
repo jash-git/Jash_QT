@@ -1,0 +1,16 @@
+qtcpserver get Client IP [ http://qt-project.org/forums/viewthread/1780 ]
+
+It works! Thanks!
+I¡¦ve never tried to construct a QTcpSocket and then move it to another thread.
+Now I have this:
+
+void StarServer::incomingConnection(int socket_descriptor)
+{
+    QTcpSocket *tcp_sock_tmp = new QTcpSocket();
+    tcp_sock_tmp->setSocketDescriptor(socket_descriptor);
+    qDebug() << tcp_sock_tmp->peerAddress().toString();
+ 
+    AutenticazioneSatelliteThread *thread = new AutenticazioneSatelliteThread(tcp_sock_tmp, this);
+ 
+    thread->start();
+}

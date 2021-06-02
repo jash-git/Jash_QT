@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<!-- saved from url=(0066)http://stackoverflow.com/questions/3878185/when-to-use-qthreadexec -->
+<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./QThread_exec_files/adzerk1_2_4_43,adzerk2_2_17_45,adzerk3_2_4_44"></script>
+    
+    <title>c++ - When to use QThread::exec() - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico">
+    <link rel="apple-touch-icon" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+
+    
+    <script type="text/javascript" async="" src="./QThread_exec_files/ga.js"></script><script type="text/javascript" async="" src="./QThread_exec_files/quant.js"></script><script type="text/javascript" src="./QThread_exec_files/jquery.min.js"></script>
+    <script type="text/javascript" src="./QThread_exec_files/stub.js"></script>
+    <link rel="stylesheet" type="text/css" href="./QThread_exec_files/all.css">
+    
+    <meta name="relativepagescore" content="138697">
+    <link rel="canonical" href="./QThread_exec_files/QThread_exec.htm">
+    <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;When to use QThread::exec()&#39;" href="http://stackoverflow.com/feeds/question/3878185">
+    <script type="text/javascript">
+        
+        StackExchange.ready(function () {
+            
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:2,shownCommentCount:2,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:3878185});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('1', '3878185');
+            
+                
+        });
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.init({"stackAuthUrl":"https://stackauth.com","serverTime":1357278869,"styleCode":true,"enableUserHovercards":true,"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","enableSocialMediaInSharePopup":true},"user":{"fkey":"4110a7e188b00c5e57b33d838d5bd08e","isAnonymous":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.js":"c862bf93b3ec","js/moderator.js":"37bba549a03e","js/full-anon.js":"27033739c1ff","js/full.js":"b31d48c4d0c7","js/wmd.js":"0360a509b7c2","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/mobile.js":"6eb68240242f","js/help.js":"fc9fb0517db2","js/tageditor.js":"450c9e8426fc","js/tageditornew.js":"9ac6c13a3a7f","js/inline-tag-editing.js":"30f72b99548b","js/revisions.js":"7273bb714bba","js/review.js":"b0ed21b3aeef"});
+        
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.using(
+            "gps",
+            function () {
+                StackExchange.gps.init(false);
+            }
+        );
+    </script>
+<script async="" type="text/javascript" src="./QThread_exec_files/full-anon.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/document_iterator.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/find_proxy.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/get_html_text.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/global_constants.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/name_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/number_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/string_finder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/change_sink.js"></script><meta name="document_iterator.js"><meta name="find_proxy.js"><meta name="get_html_text.js"><meta name="global_constants.js"><meta name="name_injection_builder.js"><meta name="number_injection_builder.js"><meta name="string_finder.js"><meta name="change_sink.js"><style id="wrc-middle-css" type="text/css">.wrc_whole_window{	display: none;	position: fixed; 	z-index: 2147483647;	background-color: rgba(40, 40, 40, 0.9);	word-spacing: normal !important;	margin: 0px !important;	padding: 0px !important;	border: 0px !important;	left: 0px;	top: 0px;	width: 100%;	height: 100%;	line-height: normal !important;	letter-spacing: normal !important;	overflow: hidden;}.wrc_bar_window{	display: none;	position: fixed; 	z-index: 2147483647;	background-color: rgba(60, 60, 60, 1.0);	word-spacing: normal !important;	font-family: Segoe UI, Arial Unicode MS, Arial, Sans-Serif;	margin: 0px !important;	padding: 0px !important;	border: 0px !important;	left: 0px;	top: 0px;	width: 100%;	height: 40px;	line-height: normal !important;	letter-spacing: normal !important;	color: white !important;	font-size: 13px !important;}.wrc_middle {	display: table-cell;	vertical-align: middle;	width: 100%;}.wrc_middle_main {	font-family: Segoe UI, Arial Unicode MS, Arial, Sans-Serif;	font-size: 14px;	width: 600px;	height: auto;    background: url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/background-body.jpg) repeat-x left top;	background-color: rgb(39, 53, 62);	position: relative;	margin-left: auto;	margin-right: auto;	text-align: left;}.wrc_middle_tq_main {	font-family: Segoe UI, Arial Unicode MS, Arial, Sans-Serif;	font-size: 16px;	width: 615px;	height: 460px;    background: url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/background-sitecorrect.png) no-repeat;	background-color: white;	color: black !important;	position: relative;	margin-left: auto;	margin-right: auto;	text-align: center;}.wrc_middle_logo {    background: url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/logo.jpg) no-repeat left bottom;    width: 140px;    height: 42px;    color: orange;    display: table-cell;    text-align: right;    vertical-align: middle;}.wrc_icon_warning {	margin: 20px 10px 20px 15px;	float: left;	background-color: transparent;}.wrc_middle_title {    color: #b6bec7;	height: auto;    margin: 0px auto;	font-size: 2.2em;	white-space: nowrap;	text-align: center;}.wrc_middle_hline {    height: 2px;	width: 100%;    display: block;}.wrc_middle_description {	text-align: center;	margin: 15px;	font-size: 1.4em;	padding: 20px;	height: auto;	color: white;	min-height: 3.5em;}.wrc_middle_actions_main_div {	margin-bottom: 15px;	text-align: center;}.wrc_middle_actions_blue_button div {	display: inline-block;	width: auto;	cursor: Pointer;	margin: 3px 10px 3px 10px;	color: white;	font-size: 1.2em;	font-weight: bold;}.wrc_middle_actions_blue_button {	-moz-appearance: none;	border-radius: 7px;	-moz-border-radius: 7px/7px;	border-radius: 7px/7px;	background-color: rgb(0, 173, 223) !important;	display: inline-block;	width: auto;	cursor: Pointer;	border: 2px solid #00dddd;	padding: 0px 20px 0px 20px;}.wrc_middle_actions_blue_button:hover {	background-color: rgb(0, 159, 212) !important;}.wrc_middle_actions_blue_button:active {	background-color: rgb(0, 146, 200) !important;	border: 2px solid #00aaaa;}.wrc_middle_actions_grey_button div {	display: inline-block;	width: auto;	cursor: Pointer;	margin: 3px 10px 3px 10px;	color: white !important;	font-size: 15px;	font-weight: bold;}.wrc_middle_actions_grey_button {	-moz-appearance: none;	border-radius: 7px;	-moz-border-radius: 7px/7px;	border-radius: 7px/7px;	background-color: rgb(100, 100, 100) !important;	display: inline-block;	width: auto;	cursor: Pointer;	border: 2px solid #aaaaaa;	text-decoration: none;	padding: 0px 20px 0px 20px;}.wrc_middle_actions_grey_button:hover {	background-color: rgb(120, 120, 120) !important;}.wrc_middle_actions_grey_button:active {	background-color: rgb(130, 130, 130) !important;	border: 2px solid #00aaaa;}.wrc_middle_action_low {	font-size: 0.9em;	white-space: nowrap;	cursor: Pointer;	color: grey !important;	margin: 10px 10px 0px 10px;	text-decoration: none;}.wrc_middle_action_low:hover {	color: #aa4400 !important;}.wrc_middle_actions_rest_div {	padding-top: 5px;	white-space: nowrap;	text-align: center;}.wrc_middle_action {	white-space: nowrap;	cursor: Pointer;	color: red !important;	font-size: 1.2em;	margin: 10px 10px 0px 10px;	text-decoration: none;}.wrc_middle_action:hover {	color: #aa4400 !important;}</style><script id="wrc-script-middle_window" type="text/javascript" language="JavaScript">var g_inputsCnt = 0;var g_InputThis = new Array(null, null, null, null);var g_alerted = false;/* we test the input if it includes 4 digits   (input is a part of 4 inputs for filling the credit-card number)*/function is4DigitsCardNumber(val){	var regExp = new RegExp('[0-9]{4}');	return (val.length == 4 && val.search(regExp) == 0);}/* testing the whole credit-card number 19 digits devided by three '-' symbols or   exactly 16 digits without any dividers*/function isCreditCardNumber(val){	if(val.length == 19)	{		var regExp = new RegExp('[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}');		return (val.search(regExp) == 0);	}	else if(val.length == 16)	{		var regExp = new RegExp('[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}');		return (val.search(regExp) == 0);	}	return false;}function CheckInputOnCreditNumber(self){	if(g_alerted)		return false;	var value = self.value;	if(self.type == 'text')	{		if(is4DigitsCardNumber(value))		{			var cont = true;			for(i = 0; i < g_inputsCnt; i++)				if(g_InputThis[i] == self)					cont = false;			if(cont && g_inputsCnt < 4)			{				g_InputThis[g_inputsCnt] = self;				g_inputsCnt++;			}		}		g_alerted = (g_inputsCnt == 4);		if(g_alerted)			g_inputsCnt = 0;		else			g_alerted = isCreditCardNumber(value);	}	return g_alerted;}function CheckInputOnPassword(self){	if(g_alerted)		return false;	var value = self.value;	if(self.type == 'password')	{		g_alerted = (value.length > 0);	}	return g_alerted;}function onInputBlur(self, bRatingOk, bFishingSite){	var bCreditNumber = CheckInputOnCreditNumber(self);	var bPassword = CheckInputOnPassword(self);	if((!bRatingOk || bFishingSite == 1) && (bCreditNumber || bPassword) )	{		var warnDiv = document.getElementById("wrcinputdiv");		if(warnDiv)		{			/* show the warning div in the middle of the screen */			warnDiv.style.left = "0px";			warnDiv.style.top = "0px";			warnDiv.style.width = "100%";			warnDiv.style.height = "100%";			document.getElementById("wrc_warn_fs").style.display = 'none';			document.getElementById("wrc_warn_cn").style.display = 'none';			if(bFishingSite)				document.getElementById("wrc_warn_fs").style.display = 'block';			else				document.getElementById("wrc_warn_cn").style.display = 'block';			warnDiv.style.display = 'table';		}	}}</script><style id="wrc-css" type="text/css">.wrcx {display:none} .post-text .wrcx {display:inline !important; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey0-16.png") right no-repeat}"}
+.wrc0 {display:none} .post-text .wrc0 {display:inline !important; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey0-16.png") right no-repeat}"}
+.wrc11 {display:none} .post-text .wrc11 {display:inline !important; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green1-16.png") right no-repeat}"}
+.wrc12 {display:none} .post-text .wrc12 {display:inline !important; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green2-16.png") right no-repeat}"}
+.wrc13 {display:none} .post-text .wrc13 {display:inline !important; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green3-16.png") right no-repeat}"}
+.wrc21 {display:none} .post-text .wrc21 {display:inline !important; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow1-16.png") right no-repeat}"}
+.wrc22 {display:none} .post-text .wrc22 {display:inline !important; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow2-16.png") right no-repeat}"}
+.wrc23 {display:none} .post-text .wrc23 {display:inline !important; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow3-16.png") right no-repeat}"}
+.wrc31 {display:none} .post-text .wrc31 {display:inline !important; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red1-16.png") right no-repeat}"}
+.wrc32 {display:none} .post-text .wrc32 {display:inline !important; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red2-16.png") right no-repeat}"}
+.wrc33 {display:none} .post-text .wrc33 {display:inline !important; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red3-16.png") right no-repeat}"}
+.wrc_icon{margin:0;padding:0;padding-left:15px !important; margin-left: 5px; width:16px !important; height:16px !important;line-height:16px !important;}
+#wrchoverdiv{padding-bottom:20px;-webkit-border-radius: 4px; -webkit-box-shadow: 2px 2px 1px rgba(0,0,0,0.2); position:absolute; width:180px; background:transparent url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/background-body.jpg) top left repeat-x; display:none; font-family: Segoe UI, Arial Unicode MS, Arial, Sans-Serif; font-size: 14px; z-index:9999999;}
+#wrchoverdiv{cursor:default;}
+#wrchoverdiv #wrccontainer{width:180px;}
+#wrchoverdiv #wrcheader{width:140px; height:42px; background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/logo.jpg) bottom left no-repeat; text-align:right; line-height:42px; color:orange; margin:0 auto;}
+#wrchoverdiv .wrchorizontal{width:180px; height:2px; background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/horizontal-line.jpg) bottom left no-repeat;}
+#wrchoverdiv #wrccurrentvote{height:25px; line-height:25px; color:#FFF; text-align:center; text-transform:uppercase;}
+#wrchoverdiv #wrcrating{margin:5px auto; width:69px; height:55px; background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey-0.png) bottom left no-repeat;}
+#wrchoverdiv #wrcrating.wrcbx{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey-0.png);}
+#wrchoverdiv #wrcrating.wrcb0{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey-0.png);}
+#wrchoverdiv #wrcrating.wrcb11{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green-1.png);}
+#wrchoverdiv #wrcrating.wrcb12{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green-2.png);}
+#wrchoverdiv #wrcrating.wrcb13{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green-3.png);}
+#wrchoverdiv #wrcrating.wrcb21{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow-1.png);}
+#wrchoverdiv #wrcrating.wrcb22{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow-2.png);}
+#wrchoverdiv #wrcrating.wrcb23{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow-3.png);}
+#wrchoverdiv #wrcrating.wrcb31{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red-1.png);}
+#wrchoverdiv #wrcrating.wrcb32{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red-2.png);}
+#wrchoverdiv #wrcrating.wrcb33{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red-3.png);}
+#wrchoverdiv #wrcratingtext{margin:3px 5px; color:#FFF; text-align:center; padding:0; font-size:12px;}
+#wrchoverdiv #wrcweighttext{margin:3px 5px; color:#FFF; text-align:center; padding:0; font-size:12px;}
+#wrchoverdiv #wrcflags{width:150px; height:70px; margin:0 auto;}
+#wrchoverdiv .wrcicon{width:30px; height:30px; float:left;}
+#wrchoverdiv #wrcicon_shopping{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/shopping-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_shopping.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/shopping-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_social{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/social-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_social.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/social-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_news{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/news-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_news.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/news-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_it{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/it-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_it.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/it-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_corporate{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/corporate-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_corporate.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/corporate-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_pornography{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/pornography-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_pornography.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/pornography-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_violence{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/violence-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_violence.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/violence-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_gambling{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/gambling-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_gambling.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/gambling-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_drugs{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/drugs-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_drugs.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/drugs-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_illegal{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/illegal-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_illegal.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/illegal-small-selected.png) top left no-repeat;}
+</style><script type="text/javascript" src="./QThread_exec_files/ados-voting.js"></script><link rel="stylesheet" href="http://static.adzerk.net/Extensions/ados-voting.css"><link href="./QThread_exec_files/sidebar.css" type="text/css" rel="stylesheet"><link type="text/css" rel="stylesheet" charset="UTF-8" href="./QThread_exec_files/translateelement.css"><script type="text/javascript" charset="UTF-8" src="./QThread_exec_files/main_zh-TW.js"></script><script type="text/javascript" charset="UTF-8" src="./QThread_exec_files/element_main.js"></script></head><style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style>
+<body class="question-page">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+    <div class="container">
+        <div id="header">
+            <div id="portalLink">
+                <a class="genu" onclick="StackExchange.ready(function(){genuwine.click();});return false;">Stack Exchange</a>
+            </div>
+            <div id="topbar">
+                <div id="hlinks">
+                    
+
+
+
+
+
+
+
+
+
+<span id="hlinks-user">
+
+</span>
+<span id="hlinks-nav">
+                   <a href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f3878185%2fwhen-to-use-qthreadexec">log in</a>
+
+ <span class="lsep">|</span>
+                    <a href="http://careers.stackoverflow.com/">careers 2.0</a>
+
+ <span class="lsep">|</span>
+
+</span>
+<span id="hlinks-custom">
+        <a href="http://chat.stackoverflow.com/">chat</a>
+
+ <span class="lsep">|</span>
+            <a href="http://meta.stackoverflow.com/">meta</a>
+
+ <span class="lsep">|</span>
+        <a href="http://stackoverflow.com/about">about</a>
+
+ <span class="lsep">|</span>
+    <a href="http://stackoverflow.com/faq">faq</a>
+
+</span>
+                </div>
+                <div id="hsearch">
+                    <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                    <div>
+                        <input autocomplete="off" name="q" class="textbox" placeholder="search" tabindex="1" type="text" maxlength="140" size="28" value="">
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">Stack Overflow</a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://stackoverflow.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="custom-content"><script>
+StackExchange.ready(function () {
+    $.ajax({
+        url: "http://cdn.prom.sstatic.net/WinterBash/js/core.js?v=3",
+        dataType: "script",
+        cache: true
+    }).done(function () {
+        WinterBash.core.init('winterba.sh', 'http://cdn.prom.sstatic.net/WinterBash/');
+    });
+});
+</script></div>
+
+
+
+        <div id="content">
+            
+
+<div itemscope="" itemtype="http://schema.org/Article">
+<link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+<div id="question-header">
+    <h1 itemprop="name"><a href="./QThread_exec_files/QThread_exec.htm" class="question-hyperlink">When to use QThread::exec()</a></h1>
+</div>
+<div id="mainbar">
+
+
+
+<div class="question" id="question" data-questionid="3878185">
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1"><a href="http://engine.adzerk.net/redirect/0/5922/7472/8277/b5c89d4539564d628a51b28e1f45fa1d/43/1178/10187/634928756800990410/?keywords=c%2b%2b%2cmultithreading%2cqt" rel="nofollow" target="_blank" title=""><img src="./QThread_exec_files/bee37138e0414d6f99d68ae55955c4fa.png" title="" alt="" border="0" height="90" width="728"></a><img width="0" height="0" src="./QThread_exec_files/v.gif"><script type="text/javascript">azInitExtension("voting", "adzerk1", 414, 8277, 43, 10187, 5922);</script><div class="adzerk-vote-controls" style="display: block;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li></ul><a href="http://stackoverflow.com/questions/3878185/when-to-use-qthreadexec#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div></div>
+
+
+
+    <table>
+    <tbody><tr>
+    <td class="votecell">
+        
+
+<div class="vote">
+    <input type="hidden" value="3878185">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear (click again to undo)">up vote</a>
+    <span class="vote-count-post ">4</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful (click again to undo)">down vote</a>
+    
+    <a class="star-off" href="http://stackoverflow.com/questions/3878185/when-to-use-qthreadexec#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b></b></div>   
+
+ 
+</div>
+
+    </td>
+    
+<td class="postcell">
+<div>          
+    <div class="post-text" itemprop="description">
+        <p>I've checked a satisfying explanation but could not find. Usually docs mention that in order to use signals/slots between threads, we need to use event loops and start them by calling exec.</p>
+
+<p>However I can see that w/o using exec(), I can still send signals and handle them across threads.</p>
+
+<p>What's the exact use of it?</p>
+
+    </div>            
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/c%2b%2b" class="post-tag" title="show questions tagged &#39;c++&#39;" rel="tag">c++</a> <a href="http://stackoverflow.com/questions/tagged/multithreading" class="post-tag" title="show questions tagged &#39;multithreading&#39;" rel="tag">multithreading</a> <a href="http://stackoverflow.com/questions/tagged/qt" class="post-tag" title="show questions tagged &#39;qt&#39;" rel="tag">qt</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/q/3878185" title="short permalink to this question" class="short-link" id="link-post-3878185">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/3878185/edit" class="suggest-edit-post" title="">improve this question</a></div>
+    </td>
+    <td class="post-signature owner">
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    asked
+ <span title="2010-10-07 02:00:18Z" class="relativetime">Oct 7 '10 at 2:00</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="http://stackoverflow.com/users/192936/paul-simmons"><div class=""><img src="./QThread_exec_files/36ee1ca175af4a28b6b06e7b24e2b64c" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="http://stackoverflow.com/users/192936/paul-simmons">paul simmons</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">837</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="11 silver badges"><span class="badge2"></span><span class="badgecount">11</span></span><span title="32 bronze badges"><span class="badge3"></span><span class="badgecount">32</span></span>
+        </div>
+    </div>
+
+        <br class="cbt">
+        <div class="accept-rate accept-answer-link" title="this user has accepted an answer for 105 of 106 eligible questions">99% accept rate</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>    </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-3878185" class="comments">
+        <table>
+        <tbody>
+                    
+    <tr id="comment-4128522" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">maybe you are just sending signals from the thread without exec(), and receive them in a thread with an event loop (e.g. the main thread). That always works.</span> –&nbsp;<a href="http://stackoverflow.com/users/299399/frank-osterfeld" title="7433 reputation" class="comment-user">Frank Osterfeld</a> <span class="comment-date" dir="ltr"><a class="comment-link" onclick="StackExchange.question.highlightComment(4128522, 0)" href="http://stackoverflow.com/questions/3878185/when-to-use-qthreadexec#comment4128522_3878185"><span title="2010-10-07 05:53:14Z" class="relativetime-clean">Oct 7 '10 at 5:53</span></a></span></div></td>
+    </tr>
+            
+    <tr id="comment-5770857" class="comment">
+        <td></td>
+        <td class="comment-text"><div><span class="comment-copy">hi can you post a sample code of the two running threads.</span> –&nbsp;<a href="http://stackoverflow.com/users/245375/aditya-p" title="331 reputation" class="comment-user">Aditya P</a> <span class="comment-date" dir="ltr"><a class="comment-link" onclick="StackExchange.question.highlightComment(5770857, 0)" href="http://stackoverflow.com/questions/3878185/when-to-use-qthreadexec#comment5770857_3878185"><span title="2011-02-28 13:17:08Z" class="relativetime-clean">Feb 28 '11 at 13:17</span></a></span></div></td>
+    </tr>
+
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful" style="color: rgb(0, 0, 0);">Was this post useful to you? &nbsp;&nbsp;<input style="" class="anon-vote" type="button" value="Yes"> &nbsp;<input style="" class="anon-vote" type="button" value="No"></div>
+    
+</td>
+</tr>            </tbody></table>    
+</div>
+
+
+    
+
+
+<div id="answers">
+
+    <a name="tab-top"></a>
+    <div id="answers-header">
+        <div class="subheader answers-subheader">
+            <h2>
+                    2 Answers
+            </h2>
+            <div id="tabs">
+                <a href="http://stackoverflow.com/questions/3878185/when-to-use-qthreadexec?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+<a href="http://stackoverflow.com/questions/3878185/when-to-use-qthreadexec?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+<a class="youarehere" href="http://stackoverflow.com/questions/3878185/when-to-use-qthreadexec?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+
+            </div>
+        </div>    
+    </div>    
+
+
+
+
+
+  
+    <a name="3878201"></a>
+    <div id="answer-3878201" class="answer accepted-answer" data-answerid="3878201">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+
+<div class="vote">
+    <input type="hidden" value="3878201">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">3</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+            <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+ 
+</div>
+
+        </td>
+        
+
+
+<td class="answercell">
+    <div class="post-text"><p>Use <code>QThread::exec()</code> when you want to run the event loop Qt provides for you in the QThread class. If you don't call exec(), you need to create your own event loop that processes Qt events (that is, if you want signals / slots to work). This is almost certainly more work than it's worth, unless you have very specific needs.</p>
+
+<p>You say you can still send signals / slots? My guess is that you're not actually running anything on a different thread. This is a very common issue when using QThread. Put a breakpoint inside the code you think is running on a different thread and have a look at the stack trace - you may be in for a shock!</p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/a/3878201" title="short permalink to this answer" class="short-link" id="link-post-3878201">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/3878201/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info user-hover">
+        <div class="user-action-time">
+                                    answered
+ <span title="2010-10-07 02:07:02Z" class="relativetime">Oct 7 '10 at 2:07</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="http://stackoverflow.com/users/1304/thomi"><div class=""><img src="./QThread_exec_files/d07ab78a88fa4626baea08d39e5d5d2c" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="http://stackoverflow.com/users/1304/thomi">Thomi</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">4,495</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="24 silver badges"><span class="badge2"></span><span class="badgecount">24</span></span><span title="69 bronze badges"><span class="badge3"></span><span class="badgecount">69</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-3878201" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful" style="color: rgb(136, 136, 136);">
+        feedback
+    </div>
+    
+</td>
+</tr>            </tbody></table>
+</div>
+        <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk3"><a href="http://engine.adzerk.net/redirect/0/10769/2444/8277/04048ea30d8f4f27b20226a2983d8705/44/1178/16886/634928756801059740/?keywords=c%2b%2b%2cmultithreading%2cqt" rel="nofollow" target="_blank" title=""><img src="./QThread_exec_files/d893babe671c41118c1fece177e0a21a.jpg" title="" alt="" border="0" height="90" width="728"></a><img width="0" height="0" src="./QThread_exec_files/v(1).gif"><script type="text/javascript">azInitExtension("voting", "adzerk3", 414, 8277, 44, 16886, 10769);</script><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li></ul><a href="http://stackoverflow.com/questions/3878185/when-to-use-qthreadexec#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div></div>
+
+
+
+
+  
+    <a name="3878343"></a>
+    <div id="answer-3878343" class="answer" data-answerid="3878343">
+        <table>
+        <tbody><tr>
+        <td class="votecell">
+            
+
+<div class="vote">
+    <input type="hidden" value="3878343">
+    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+    <span class="vote-count-post ">2</span>
+    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down vote</a>
+    
+
+ 
+</div>
+
+        </td>
+        
+
+
+<td class="answercell">
+    <div class="post-text"><p>A rough example.</p>
+
+<p>Suppose you have a text box. On each letter user types on the text box you want to perform some background task. You can setup a <code>QThread</code> for that. Emit something whenever the contents of text box changes. Assign a slot from your <code>QThread</code> that handles the background task. Emit something from <code>QThread</code> when the task finished. Handle this signal from main thread. Connect them. Start the thread when the text box is created (or any appropriate time). If you call <code>exec()</code> from your <code>QThread::run()</code> then you don't need to <code>start()</code> the thread multiple times.</p>
+
+<p>If you don't use this mechanism, you may need to create (and/or <code>start()</code>) a <code>QThread</code> each time the content of text box changes, perform the background task and get result. This time you can still use signal/slot between main thread and this thread, but you need to <code>start()</code> the thread multiple times.</p>
+</div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+
+
+
+
+
+
+
+
+
+<div class="post-menu"><a href="http://stackoverflow.com/a/3878343" title="short permalink to this answer" class="short-link" id="link-post-3878343">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/3878343/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    
+
+    <div class="user-info ">
+        <div class="user-action-time">
+                                    answered
+ <span title="2010-10-07 02:53:49Z" class="relativetime">Oct 7 '10 at 2:53</span>
+        </div>
+        <div class="user-gravatar32">
+            <a href="http://stackoverflow.com/users/68304/donotalo"><div class=""><img src="./QThread_exec_files/476cd7b5710793b8c90f5b469820a1ed" alt="" width="32" height="32"></div></a>
+        </div>
+        <div class="user-details">
+            <a href="http://stackoverflow.com/users/68304/donotalo">Donotalo</a><br>
+            <span class="reputation-score" title="reputation score" dir="ltr">4,918</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="17 silver badges"><span class="badge2"></span><span class="badgecount">17</span></span><span title="48 bronze badges"><span class="badge3"></span><span class="badgecount">48</span></span>
+        </div>
+    </div>
+
+    </td>
+    </tr>
+    </tbody></table>
+</td>        </tr>
+
+
+<tr>
+<td class="votecell"></td>
+<td>
+    <div id="comments-3878343" class="comments dno">
+        <table>
+        <tbody>
+        
+            <tr><td></td><td></td></tr>
+        
+        </tbody>
+    
+        </table>
+    </div>
+    
+    
+    <div class="was-this-helpful">
+        feedback
+    </div>
+    
+</td>
+</tr>            </tbody></table>
+</div>
+    <a name="new-answer"></a>
+    <form id="post-form" action="http://stackoverflow.com/questions/3878185/answer/submit" method="post" class="post-form">
+        <h2 class="space">Your Answer</h2>
+
+
+
+
+<script type="text/javascript">
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+         
+        prepareEditor({
+            heartbeatType: 'answer',
+            bindNavPrevention: true,
+            postfix: "",
+            onDemand: true,
+            discardSelector: ".discard-answer"
+            ,immediatelyShowMarkdownHelp:true
+        });
+        
+
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">  
+
+    
+    <div class="wmd-container">
+        <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+        <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101"></textarea>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="4110a7e188b00c5e57b33d838d5bd08e">
+        <input id="author" name="author" type="text">
+    </div>
+</div>            <div class="form-item">
+        <table>
+        <tbody><tr>
+            <td class="vm open-id-login">
+                <a id="login-link" style="font-size: 200%; margin-left: 30px;" href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f3878185%2fwhen-to-use-qthreadexec">log in</a>
+                <script type="text/javascript">
+                    StackExchange.ready(function () {
+                        StackExchange.helpers.onClickDraftSave('#login-link');
+                    });
+                </script>
+            </td>
+            <td class="orcell">
+                <div class="orword">or</div>
+                <div class="orline"></div>
+            </td>
+            <td class="vm">
+                    <div>
+                        <label for="display-name">Name</label>
+                        <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                    </div>
+                    <div>
+                        <label for="m-address">Email</label>
+                        <input id="m-address" name="m-address" type="text" size="40" maxlength="100" value="" tabindex="106">
+                        <span class="edit-field-overlay">required, but never shown</span>
+                    </div>
+                    <div>
+                        <label for="home-page">Home Page</label>
+                        <input id="home-page" name="home-page" type="text" size="40" maxlength="200" value="" tabindex="107">
+                    </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+           
+            <div class="form-submit cbt">
+            <input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+            <a href="http://stackoverflow.com/questions/3878185/when-to-use-qthreadexec#" class="discard-answer dno">discard</a>
+    <p class="privacy-policy-agreement">
+        By posting your answer, you agree to the 
+        <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and 
+        <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.
+    </p>
+        </div>
+    </form>
+
+
+
+        <h2 class="bottom-notice">
+                Not the answer you're looking for? 
+            Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/c%2b%2b" class="post-tag" title="show questions tagged &#39;c++&#39;" rel="tag">c++</a> <a href="http://stackoverflow.com/questions/tagged/multithreading" class="post-tag" title="show questions tagged &#39;multithreading&#39;" rel="tag">multithreading</a> <a href="http://stackoverflow.com/questions/tagged/qt" class="post-tag" title="show questions tagged &#39;qt&#39;" rel="tag">qt</a> 
+                or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.
+        </h2>
+</div>
+</div>
+<div id="sidebar">
+
+
+
+     <script type="text/javascript">
+        window.showNewUser = true;
+
+            
+                (function(){
+                    var cs = window.sessionStorage && window.sessionStorage['tNewsletter'];
+                    var m = /:\/\/([^\/]*)/.exec(document.referrer);
+                    var h = {'www.reddit.com':1,'news.ycombinator.com':1};
+                    if(window.sessionStorage && (cs || (m && m.length == 2 && h[m[1]]))){
+                        showNewUser = false;
+                        StackExchange.ready(function(){
+                            StackExchange.newsletterAd.loader(m[1], cs);
+                        });
+                    }
+                    if (window.localStorage && showNewUser){
+                        var c = parseInt(localStorage['nuCounter'],10); 
+                        c = isNaN(c) ? 1 : c+1;
+                        window.localStorage['nuCounter'] = c; 
+                        showNewUser = c < 10;
+                    }
+                })()
+            
+     </script>
+    <div class="module newuser newuser-greeting" id="newuser-box" style="display:none;">
+        <h4>Hello World!</h4>
+        <div>
+            <p>This is a collaboratively edited question and answer site for <b>professional and enthusiast programmers</b>. It's 100% free, no registration required.</p>
+            <p class="ar"><a href="http://stackoverflow.com/about?mnu=1">about »</a>&nbsp;&nbsp;&nbsp;<a href="http://stackoverflow.com/faq?mnu=1">faq »</a>
+            </p>
+        </div>
+    </div>
+     <script type="text/javascript">
+        if (showNewUser) {
+            document.getElementById('newuser-box').style.display = '';
+        }
+     </script>
+        <div class="module question-stats">
+        <p class="label-key">tagged</p>
+        <div class="tagged"><a href="http://stackoverflow.com/questions/tagged/c%2b%2b" class="post-tag" title="show questions tagged &#39;c++&#39;" rel="tag">c++</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">×</span>&nbsp;<span class="item-multiplier-count">169424</span></span><br>
+<a href="http://stackoverflow.com/questions/tagged/multithreading" class="post-tag" title="show questions tagged &#39;multithreading&#39;" rel="tag">multithreading</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">×</span>&nbsp;<span class="item-multiplier-count">31882</span></span><br>
+<a href="http://stackoverflow.com/questions/tagged/qt" class="post-tag" title="show questions tagged &#39;qt&#39;" rel="tag">qt</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">×</span>&nbsp;<span class="item-multiplier-count">17451</span></span><br>
+</div>
+        <table id="qinfo">
+            <tbody><tr>
+                <td><p class="label-key">asked</p></td>
+                <td style="padding-left:10px"><p class="label-key" title="2010-10-07 02:00:18Z"><b>2 years ago</b></p></td>
+            </tr>
+            <tr>
+                <td><p class="label-key">viewed</p></td>
+
+                <td style="padding-left:10px">
+                    <p class="label-key">
+                        <b>1737 times</b>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td><p class="label-key">active</p></td>
+                <td style="padding-left:10px"><p class="label-key"><b><a href="http://stackoverflow.com/questions/3878185/when-to-use-qthreadexec?lastactivity" class="lastactivity-link" title="2010-10-07 02:53:49Z">2 years ago</a></b></p></td>
+            </tr>
+        </tbody></table>
+    </div>
+        
+                <script type="text/javascript">
+                var scriptSrc = "http://engine.adzerk.net/z/8277/adzerk1_2_4_43,adzerk2_2_17_45,adzerk3_2_4_44?keywords=c%2b%2b,multithreading,qt";
+                if (document.referrer) {
+                    if (/\?/.test(scriptSrc))
+                        scriptSrc += "&";
+                    else
+                        scriptSrc += "?";
+                    scriptSrc += "xReferrer=" + document.referrer;
+                }
+                StackExchange.ready(function () {
+                    var z = document.createElement("script");
+                    z.type = "text/javascript";
+                    z.async = "true";
+                    z.src = scriptSrc;
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(z, s);
+                });
+            </script>
+        <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk2"><a href="http://engine.adzerk.net/redirect/0/9334/2444/8277/69474bc3ddea484b9244b738294f34ae/45/1178/14844/634928756801026330/?keywords=c%2b%2b%2cmultithreading%2cqt" rel="nofollow" target="_blank" title=""><img src="./QThread_exec_files/db5df4870e4e4b6cbf42727fd434701a.jpg" title="" alt="" border="0" height="250" width="220"></a><img width="0" height="0" src="./QThread_exec_files/v(2).gif"><script type="text/javascript">azInitExtension("voting", "adzerk2", 414, 8277, 45, 14844, 9334);</script><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li></ul><a href="http://stackoverflow.com/questions/3878185/when-to-use-qthreadexec#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div></div>
+    <div id="hireme"> <a href="http://careers.stackoverflow.com/jobs?a=12" class="top" target="_blank"></a> <ul class="jobs"> <li> <a href="http://careers.stackoverflow.com/jobs/18160/software-engineer-in-test-qa-analyst-ultimate-software?a=lsix51m" target="_blank" title="SOFTWARE ENGINEER IN TEST/QA ANALYST at Ultimate Software. Click to learn more."> SOFTWARE ENGINEER IN TEST/QA ANALYST<br> <span class="company">Ultimate Software</span> <span class="location">Fort Lauderdale, FL</span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/23988/interactive-shop-seeks-ios-engineer-clockwork-active-media-systems?a=slaXV0Q" target="_blank" title="Interactive Shop Seeks iOS Engineer at Clockwork Active Media Systems. Click to learn more."> Interactive Shop Seeks iOS Engineer<br> <span class="company">Clockwork Active Media Systems</span> <span class="location">St Paul, MN; Minneapolis, MN</span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/28415/iphone-ipad-os-application-developer-at-booking-com?a=xzsPekE" target="_blank" title="iPhone / iPad OS Application Developer at Booking.com Amsterdam at Booking.com. Click to learn more."> iPhone / iPad OS Application Developer at Booking.com…<br> <span class="company">Booking.com</span> <span class="location">Amsterdam, Netherlands</span> </a> </li> </ul> <img alt="" class="impression" src="./QThread_exec_files/slaXV0Q-xzsPekE-lsix51m-12" style="display:none"></div>
+
+
+
+      
+    
+    <div class="module sidebar-related">
+        <h4 id="h-related">Related</h4>
+        <div class="related" data-tracker="rq=1">
+            <div class="spacer">
+<a href="http://stackoverflow.com/questions/1216588/invoking-methods-in-qthreads-context?rq=1" class="question-hyperlink">Invoking methods in QThread's context</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/1320912/how-to-terminate-a-qthread?rq=1" class="question-hyperlink">How to terminate a QThread?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/1351217/qthreadwait-and-qthreadfinished?rq=1" class="question-hyperlink">QThread::wait() and QThread::finished()</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/1543582/qtcpsocket-in-qthread?rq=1" class="question-hyperlink">QTcpSocket in QThread</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/2345026/can-i-use-waitforreadyread-in-a-qthread-that-belongs-to-the-mainthread?rq=1" class="question-hyperlink">Can I use waitForReadyRead in a QThread that belongs to the mainthread?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/2571037/does-qthreadsleep-require-the-event-loop-to-be-running?rq=1" class="question-hyperlink">Does QThread::sleep() require the event loop to be running?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/3213738/qthread-blocking-main-application?rq=1" class="question-hyperlink">QThread blocking main application</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/4500558/qthread-confusion?rq=1" class="question-hyperlink">QThread confusion</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/4526129/message-loop-of-a-qwidget-owned-by-a-qthread?rq=1" class="question-hyperlink">Message loop of a QWidget owned by a QThread</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/4589299/display-a-qmessagebox-from-c-code-running-in-a-qthread?rq=1" class="question-hyperlink">Display a QMessageBox from C code running in a QThread</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/5262012/knowing-when-a-qthreads-event-loop-has-started-from-another-thread?rq=1" class="question-hyperlink">Knowing when a QThread's event loop has started from another thread</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/5448341/is-qthread-on-user-level-kernel-level-or-both?rq=1" class="question-hyperlink">Is QThread on user level, kernel level or both?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/5790514/qthread-using-a-slot-quit-to-exit-the-thread?rq=1" class="question-hyperlink">QThread - Using a slot quit() to exit the thread</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/5840122/pause-a-qthread?rq=1" class="question-hyperlink">Pause a QThread</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/6368473/is-it-possible-to-implement-polling-with-qthread-without-subclassing-it?rq=1" class="question-hyperlink">Is it possible to implement polling with QThread without subclassing it?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/7012579/qt-c-memory-leak-with-qthread-and-qpainterdrawtext?rq=1" class="question-hyperlink">Qt/C++ memory leak with QThread and QPainter::drawText()</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/9080453/if-i-invoke-qmetaobjectinvokemethod-from-thread-to-singletone-is-the-invokatio?rq=1" class="question-hyperlink">If i invoke QMetaObject::invokeMethod from thread to singletone is the invokation is still in that qthread?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/10168187/sleep-function-inside-qthread?rq=1" class="question-hyperlink">sleep function inside QThread</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/10492480/starting-qtimer-in-a-qthread?rq=1" class="question-hyperlink">Starting QTimer In A QThread</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/11196006/qthread-passing-data-to-and-from?rq=1" class="question-hyperlink">QThread passing data to and from</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/11360842/qthread-making-parallel-execution-with-gui-feedback-blocking?rq=1" class="question-hyperlink">QThread: Making parallel execution with GUI-Feedback blocking?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/11970175/callback-from-qthread-in-unmanaged-dll-to-managed-c-main-thread?rq=1" class="question-hyperlink">Callback from QThread in unmanaged dll to managed c++ Main thread</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/12463135/is-it-possible-to-use-opencv-functions-from-inside-of-a-qthread?rq=1" class="question-hyperlink">Is it possible to use opencv functions from inside of a QThread?</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/13422162/qthreadhow-to-use-protected-static-functions?rq=1" class="question-hyperlink">QThread:How to use protected static functions</a>
+</div>
+<div class="spacer">
+<a href="http://stackoverflow.com/questions/13710729/emitting-signals-in-a-loop-from-qthread?rq=1" class="question-hyperlink">Emitting signals in a loop from QThread</a>
+</div>
+
+        </div>
+    </div>
+        <div class="everyonelovesstackoverflow" id="adzerk3">
+        </div>
+
+
+</div>
+
+<div id="feed-link">
+    <div id="feed-link-text"><a href="http://stackoverflow.com/feeds/question/3878185" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+<script type="text/javascript">
+StackExchange.ready(function(){$.get('/posts/3878185/ivc/1708');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/3878185/ivc/1708" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang">lang-c</div></div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <a href="http://stackoverflow.com/about">about</a> |
+                <a href="http://stackoverflow.com/faq">faq</a> |
+                <a href="http://blog.stackexchange.com/?blb=1">blog</a> |
+                    <a href="http://chat.stackoverflow.com/">chat</a> |
+                <a href="http://data.stackexchange.com/">data</a> |
+                <a href="http://stackexchange.com/legal">legal</a> |
+                <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a> |
+                <a href="http://stackexchange.com/about/hiring">jobs</a> |
+                <a href="http://engine.adzerk.net/redirect/0/2776/2751/0/4de3c60f719c4dfcb1a57531c7050090/0">advertising info</a> |
+
+                <a onclick="StackExchange.switchMobile(&#39;on&#39;, &#39;/questions/3878185/when-to-use-qthreadexec&#39;)">mobile</a> |
+
+                <b><a href="http://stackoverflow.com/help">contact us</a></b>
+                  | <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                <div id="footer-sites">
+                    
+                        <span style="color:#FE7A15;font-size:140%">■</span>&nbsp;<a href="http://stackoverflow.com/">stackoverflow.com</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">■</span>&nbsp;<a href="http://stackapps.com/">api/apps</a>&nbsp; 
+                        <span style="color:#FE7A15;font-size:140%">■</span>&nbsp;<a href="http://careers.stackoverflow.com/">careers 2.0</a>&nbsp; 
+                        <span style="color:#E8272C;font-size:140%">■</span>&nbsp;<a href="http://serverfault.com/">serverfault.com</a>&nbsp; 
+                        <span style="color:#00AFEF;font-size:140%">■</span>&nbsp;<a href="http://superuser.com/">superuser.com</a>&nbsp; 
+                        <span style="color:#969696;font-size:140%">■</span>&nbsp;<a href="http://meta.stackoverflow.com/">meta</a>&nbsp; 
+                        <span style="color:#46937D;font-size:140%">■</span>&nbsp;<a href="http://area51.stackexchange.com/">area&nbsp;51</a>&nbsp; 
+                        <span style="color:#C0D0DC;font-size:140%">■</span>&nbsp;<a href="http://webapps.stackexchange.com/">webapps</a>&nbsp; 
+                        <span style="color:#000000;font-size:140%">■</span>&nbsp;<a href="http://gaming.stackexchange.com/">gaming</a>&nbsp; 
+                        <span style="color:#dd4814;font-size:140%">■</span>&nbsp;<a href="http://askubuntu.com/">ubuntu</a>&nbsp; 
+                        <span style="color:#9ce4fe;font-size:140%">■</span>&nbsp;<a href="http://webmasters.stackexchange.com/">webmasters</a>&nbsp; 
+                        <span style="color:#cf4d3f;font-size:140%">■</span>&nbsp;<a href="http://cooking.stackexchange.com/">cooking</a>&nbsp; 
+                        <span style="color:#f4f28d;font-size:140%">■</span>&nbsp;<a href="http://gamedev.stackexchange.com/">game development</a>&nbsp; 
+                        <span style="color:#0f3559;font-size:140%">■</span>&nbsp;<a href="http://math.stackexchange.com/">math</a>&nbsp; 
+                        <span style="color:#f2f2f2;font-size:140%">■</span>&nbsp;<a href="http://photo.stackexchange.com/">photography</a>&nbsp; 
+                        <span style="color:#037187;font-size:140%">■</span>&nbsp;<a href="http://stats.stackexchange.com/">stats</a>&nbsp; 
+                        <span style="color:#f1e7cc;font-size:140%">■</span>&nbsp;<a href="http://tex.stackexchange.com/">tex</a>&nbsp; 
+                        <span style="color:#e1cdae;font-size:140%">■</span>&nbsp;<a href="http://english.stackexchange.com/">english</a>&nbsp; 
+                        <span style="color:#a2d9f6;font-size:140%">■</span>&nbsp;<a href="http://cstheory.stackexchange.com/">theoretical cs</a>&nbsp; 
+                        <span style="color:#1b3e6c;font-size:140%">■</span>&nbsp;<a href="http://programmers.stackexchange.com/">programmers</a>&nbsp; 
+                        <span style="color:#293a5d;font-size:140%">■</span>&nbsp;<a href="http://unix.stackexchange.com/">unix</a>&nbsp;
+                        <span style="color:#bec0cb;font-size:140%">■</span>&nbsp;<a href="http://apple.stackexchange.com/">apple</a>&nbsp;
+                        <span style="color:#939185;font-size:140%">■</span>&nbsp;<a href="http://wordpress.stackexchange.com/">wordpress</a>&nbsp;
+                        <span style="color:#ebf5f5;font-size:140%">■</span>&nbsp;<a href="http://physics.stackexchange.com/">physics</a>&nbsp;
+                        <span style="color:#4176ab;font-size:140%">■</span>&nbsp;<a href="http://diy.stackexchange.com/">home&nbsp;improvement</a>&nbsp;
+                        <span style="color:#d1d8d7;font-size:140%">■</span>&nbsp;<a href="http://gis.stackexchange.com/">gis</a>&nbsp;
+                        <span style="color:#e5e2d3;font-size:140%">■</span>&nbsp;<a href="http://electronics.stackexchange.com/">electrical&nbsp;engineering</a>&nbsp;
+                        <span style="color:#a4c639;font-size:140%">■</span>&nbsp;<a href="http://android.stackexchange.com/">android</a>&nbsp;
+                        <span style="color:#2e4e60;font-size:140%">■</span>&nbsp;<a href="http://security.stackexchange.com/">security</a>&nbsp;
+                        <span style="color:#45bcb5;font-size:140%">■</span>&nbsp;<a href="http://bicycles.stackexchange.com/">bicycles</a>&nbsp;
+                        <span style="color:#00adee;font-size:140%">■</span>&nbsp;<a href="http://dba.stackexchange.com/">dba</a>&nbsp;
+                        <span style="color:#2edaf0;font-size:140%">■</span>&nbsp;<a href="http://drupal.stackexchange.com/">drupal</a>&nbsp;
+                        <span style="color:#213951;font-size:140%">■</span>&nbsp;<a href="http://sharepoint.stackexchange.com/">sharepoint</a>&nbsp;
+                        <span style="color:#73abb3;font-size:140%">■</span>&nbsp;<a href="http://scifi.stackexchange.com/">scifi &amp; fantasy</a>&nbsp;
+                        <span style="color:#23629F;font-size:140%">■</span>&nbsp;<a href="http://ux.stackexchange.com/">user experience</a>&nbsp;
+                        <span style="color:#faff72;font-size:140%">■</span>&nbsp;<a href="http://skeptics.stackexchange.com/">skeptics</a>&nbsp;
+                        <span style="color:#623121;font-size:140%">■</span>&nbsp;<a href="http://rpg.stackexchange.com/">rpg</a>&nbsp;
+                        <span style="color:#e4be88;font-size:140%">■</span>&nbsp;<a href="http://judaism.stackexchange.com/">judaism</a>&nbsp;
+                        <span style="color:#ffecb1;font-size:140%">■</span>&nbsp;<a href="http://mathematica.stackexchange.com/">mathematica</a>&nbsp;
+                </div>
+            </div>
+            <div id="footer-flair">
+                <a class="peer1" href="http://www.peer1.com/stackoverflow"></a>  
+	            <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="cc-wiki-link"></a>
+                <div id="svnrev">rev 2013.1.3.750</div>
+                        </div>
+            <div id="copyright">
+                site design / logo © 2013 stack exchange inc; 
+                user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc-wiki</a> with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            
+
+        </div>
+    </div>
+    
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+    <script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-5620270-1']);
+        _gaq.push(['_setCustomVar', 1, 'tags', '|c++|multithreading|qt|']); 
+_gaq.push(['_trackPageview']);
+    var _qevents = _qevents || [];
+    (function(){
+        var s=document.getElementsByTagName('script')[0];
+        var ga=document.createElement('script');
+        ga.type='text/javascript';
+        ga.async=true;
+        ga.src='http://www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(ga,s);
+        var sc=document.createElement('script');
+        sc.type='text/javascript';
+        sc.async=true;
+        sc.src='http://edge.quantserve.com/quant.js'; 
+        s.parentNode.insertBefore(sc,s);
+    })();
+    </script>
+    <script type="text/javascript">
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>    
+    
+
+<div id="wrchoverdiv"><div id="wrccontainer"><div id="wrcheader"><div id="wrctitle"> WebRep</div></div><div class="wrchorizontal"></div><div id="wrccurrentvote">總體評價</div><div class="wrchorizontal"></div><div id="wrcrating"></div><div id="wrcratingtext">此網站沒有任何評價資訊</div><div id="wrcweighttext">（票數不足）</div><div id="wrcflags"><div id="wrcicon_shopping" class="wrcicon"></div><div id="wrcicon_social" class="wrcicon"></div><div id="wrcicon_news" class="wrcicon"></div><div id="wrcicon_it" class="wrcicon"></div><div id="wrcicon_corporate" class="wrcicon"></div><div id="wrcicon_pornography" class="wrcicon"></div><div id="wrcicon_violence" class="wrcicon"></div><div id="wrcicon_gambling" class="wrcicon"></div><div id="wrcicon_drugs" class="wrcicon"></div><div id="wrcicon_illegal" class="wrcicon"></div></div><div class="wrchorizontal"></div></div></div><div id="goog-gt-tt" class="goog-tooltip skiptranslate" dir="ltr" style="visibility: hidden; left: 579px; top: 763px; display: none;"><div style="padding: 8px;"><div><div class="logo"><img src="./QThread_exec_files/translate-32.png" width="20" height="20"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">原文</h1></div><div class="middle" style="padding: 8px;"><div class="original-text">Use QThread::exec() when you want to run the event loop Qt provides for you in the QThread class.</div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">建議更好的譯法</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none; opacity: 0;"></div></div><div id="wrchoverdiv"><div id="wrccontainer"><div id="wrcheader"><div id="wrctitle"> WebRep</div></div><div class="wrchorizontal"></div><div id="wrccurrentvote">總體評價</div><div class="wrchorizontal"></div><div id="wrcrating"></div><div id="wrcratingtext">此網站沒有任何評價資訊</div><div id="wrcweighttext">（票數不足）</div><div id="wrcflags"><div id="wrcicon_shopping" class="wrcicon"></div><div id="wrcicon_social" class="wrcicon"></div><div id="wrcicon_news" class="wrcicon"></div><div id="wrcicon_it" class="wrcicon"></div><div id="wrcicon_corporate" class="wrcicon"></div><div id="wrcicon_pornography" class="wrcicon"></div><div id="wrcicon_violence" class="wrcicon"></div><div id="wrcicon_gambling" class="wrcicon"></div><div id="wrcicon_drugs" class="wrcicon"></div><div id="wrcicon_illegal" class="wrcicon"></div></div><div class="wrchorizontal"></div></div></div></body><span id="skype_highlighting_settings" display="none" autoextractnumbers="1"></span><object id="skype_plugin_object" location.href="http://stackoverflow.com/questions/3878185/when-to-use-qthreadexec" location.hostname="stackoverflow.com" style="position: absolute; visibility: hidden; left: -100px; top: -100px;" width="0" height="0" type="application/x-vnd.skype.toolbars.npplugin.4.2.0"></object></html>

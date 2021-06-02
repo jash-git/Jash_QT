@@ -1,0 +1,460 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+<META NAME="Author" CONTENT="心靈版豬-WHY製作">
+<TITLE>時間應用</TITLE>
+</HEAD>
+
+<body bgcolor=f1f1dd link=blue alink=red vlink=#87cefd onLoad="startclock(); timerONE=window.setTimeout">
+<table width="90%" border="0" cellspacing="3" cellpadding="4" align="CENTER"><TR><TD>
+<img SRC="logo-1.jpg" tppabs="http://neemy.com/html/script/logo.jpg" width=108 height=104 border=0 align="right" hspace=2 vspace=4><b><BR>
+
+有時候人是很容易忘記時間的，利用JAVASCRIPT提醒你時間如何^_^</FONT>
+
+</TD></TR>
+
+
+
+<TR><TD BGCOLOR=AQUA>進站時間</TD></TR><TR><TD BGCOLOR=AQUA>
+<SCRIPT language="JavaScript">
+var vn="Microsoft Internet Explorer";
+var some;
+if(navigator.appName!=vn)
+some="11";
+else
+some="1911";
+today=new Date();
+var h = today.getHours();
+var m = today.getMinutes();
+var t = " " + (h) + ":" + (m) + "分";
+function initArray(){
+this.length=initArray.arguments.length
+for(var i=0;i<this.length;i++)
+this[i+1]=initArray.arguments[i] }
+var d=new initArray("星期日", "星期一","星期二", "星期三","星期四", "星期五", "星期六");
+document.write("民國",today.getYear()-some,"年",today.getMonth()+1,"月",today.getDate(),"日",d[today.getDay()+1]," ",t, ""); 
+</SCRIPT><br><br>
+很簡單的一個進站時間，你也可以在文字的四周加上TABLE、FONT的指令讓進站時間變的更炫喔。
+<TABLE BORDER=1 BORDERCOLORLIGHT=RED BORDERCOLORDARK=BLUE BGCOLOR=BLACK><TR><TD><FONT COLOR=00FF00><SCRIPT language="JavaScript">
+var vn="Microsoft Internet Explorer";
+var some;
+if(navigator.appName!=vn)
+some="11";
+else
+some="1911";
+today=new Date();
+var h = today.getHours();
+var m = today.getMinutes();
+var t = " " + (h) + ":" + (m) + "分";
+function initArray(){
+this.length=initArray.arguments.length
+for(var i=0;i<this.length;i++)
+this[i+1]=initArray.arguments[i] }
+var d=new initArray("星期日", "星期一","星期二", "星期三","星期四", "星期五", "星期六");
+document.write("民國",today.getYear()-some,"年",today.getMonth()+1,"月",today.getDate(),"日",d[today.getDay()+1]," ",t, ""); 
+</SCRIPT></TD></TR></TABLE>
+<BR>
+
+&lt;SCRIPT language="JavaScript"&gt;<BR>
+var vn="Microsoft Internet Explorer";<BR>
+var some;<BR>
+if(navigator.appName!=vn)<BR>
+some="11";<BR>
+else<BR>
+some="1911";<BR>
+today=new Date();<br>
+var h = today.getHours();<br>
+var m = today.getMinutes();<br>
+var t = " " + (h) + "<BLINK>:</BLINK>" + (m) + "分";<br>
+function initArray(){<br>
+this.length=initArray.arguments.length<br>
+for(var i=0;i&lt;this.length;i++)<br>
+this[i+1]=initArray.arguments[i]  }<br>
+var d=new initArray("星期日", "星期一","星期二", "星期三","星期四", "星期五", "星期六");<br>
+document.write("民國",today.getYear()-some,"年",today.getMonth()+1,"月",today.getDate(),"日",d[today.getDay()+1]," ",t, ""); <br>
+&lt;/SCRIPT&gt;<BR>
+
+</TD></TR>
+<TR><TD BGCOLOR=00CF00>停留時間</TD></TR><tr><td BGCOLOR=00CF00>
+計算停留時間的喔。<br>
+
+&lt;SCRIPT LANGUAGE="JAVASCRIPT"&gt;<BR>
+&lt;!--<BR>
+var ap_name  = navigator.appName;<BR>
+var ap_vinfo = navigator.appVersion;<BR>
+var ap_ver   = parseFloat(ap_vinfo.substring(0,ap_vinfo.indexOf('(')));<BR>
+<P>
+var time_start = new Date();<BR>
+var clock_start = time_start.getTime();<BR>
+var dl_ok=false;<BR>
+<P>
+function init ()<BR>
+{<BR>
+  if(ap_name=="Netscape" && ap_ver&gt;=3.0)<BR>
+  dl_ok=true; <BR>
+  return true;<BR>
+}<BR>
+<P>
+function get_time_spent ()<BR>
+{ <BR>
+  var time_now = new Date();<BR>
+  return((time_now.getTime() - clock_start)/1000); <BR>
+}<BR>
+<P>
+function show_secs ()  // show the time user spent on the side<BR>
+{ <BR>
+  var i_total_secs = Math.round(get_time_spent()); <BR>
+  var i_secs_spent = i_total_secs % 60;<BR>
+  var i_mins_spent = Math.round((i_total_secs-30)/60);   <BR>
+  var s_secs_spent = "" + ((i_secs_spent&gt;9) ? i_secs_spent : "0" + i_secs_spent);<BR>
+  var s_mins_spent = "" + ((i_mins_spent&gt;9) ? i_mins_spent : "0" + i_mins_spent);<BR>
+  document.fm0.time_spent.value = s_mins_spent + ":" + s_secs_spent;<BR>
+  window.setTimeout('show_secs()',1000); <BR>
+}<BR>
+<P>
+// --&gt;<BR>
+<P>
+&lt;/SCRIPT&gt;<BR>
+<P>
+
+
+
+
+<P>
+&lt;form name="fm0" onSubmit="0"&gt;<BR>
+&lt;font size="-1"&gt;&lt;I&gt;&lt;FONT COLOR="#888888"&gt;<font class=pword>停留時間</font>:&lt;/FONT&gt;&lt;/I&gt;&lt;/font&gt;&lt;br&gt;<BR>
+&lt;INPUT  type="text" name="time_spent" size=7 onFocus="this.blur()"&gt;<BR>
+&lt;/form&gt;<BR><BR>將上面的文件複製並貼到網頁中，然後<br>
+在BODY後面加上onLoad="init(); window.setTimeout('show_secs()',1);"<br>如下：<BR>
+&lt;BODY onLoad="init(); window.setTimeout('show_secs()',1);"&gt;</font><BR>
+<P></TD></TR>
+
+
+
+<TR><TD BGCOLOR=FFFFCD>顯示時間</TD></TR><TR><TD BGCOLOR=FFFFCD>
+顯示現在的時間喔！<br>
+<script language="JavaScript1.2">
+<!--
+if (document.layers)
+document.write('<ilayer id="clockmain" height=20><layer id="clock" width="100%"></layer></ilayer>');
+else
+document.write("<div><span id='clock'></span></div>");
+var now,hours,minutes,seconds,timeValue;
+function showtime(){
+if (!document.layers&&!document.all) return;
+now = new Date();
+hours = now.getHours();
+minutes = now.getMinutes();
+seconds = now.getSeconds();
+timeValue = (hours >= 12) ? "下午 " : "上午 ";
+timeValue += ((hours > 12) ? hours - 12 : hours) + " 點";
+timeValue += ((minutes < 10) ? " 0" : " ") + minutes + " 分";
+timeValue += ((seconds < 10) ? " 0" : " ") + seconds + " 秒";
+if (document.layers){
+document.clockmain.document.clock.document.write(timeValue);
+document.clockmain.document.clock.document.close();
+}
+else if (document.all)
+clock.innerHTML = timeValue;
+setTimeout("showtime()",100);
+}
+window.onload=showtime;
+//-->
+</script>
+<br><br>
+&lt;script language="JavaScript1.2"&gt;<BR>
+&lt;!--<BR>
+if (document.layers)<br>
+document.write('&lt;ilayer id="clockmain" height=20&gt;&lt;layer id="clock" width="100%"&gt;&lt;/layer&gt;&lt;/ilayer&gt;');<BR>
+else<BR>
+document.write("&lt;div&gt;&lt;span id='clock'&gt;&lt;/span&gt;&lt;/div&gt;");<BR>
+var now,hours,minutes,seconds,timeValue;<BR>
+function showtime(){<BR>
+    if (!document.layers&&!document.all) return;<BR>
+    now = new Date();<BR>
+    hours = now.getHours();<BR>
+    minutes = now.getMinutes();<BR>
+    seconds = now.getSeconds();<BR>
+    timeValue = (hours &gt;= 12) ? "下午 " : "上午 ";<BR>
+    timeValue += ((hours &gt; 12) ? hours - 12 : hours) + " 點";<BR>
+    timeValue += ((minutes &lt; 10) ? " 0" : " ") + minutes + " 分";<BR>
+    timeValue += ((seconds &lt; 10) ? " 0" : " ") + seconds + " 秒";<BR>
+    if (document.layers){<BR>
+        document.clockmain.document.clock.document.write(timeValue);<BR>
+        document.clockmain.document.clock.document.close();<BR>
+    }<BR>
+    else if (document.all)<BR>
+    clock.innerHTML = timeValue;<BR>
+    setTimeout("showtime()",100);<BR>
+}<BR>
+window.onload=showtime;<BR>
+//--&gt;<BR>
+&lt;/script&gt;<P></TD></TR>
+
+<TR><TD BGCOLOR=F3F4F5>精美日曆...kawaiㄋㄟ</TD></TR>
+<tr><td bgcolor=f3f4f5>
+<script LANGUAGE="JavaScript" TYPE="text/javascript">
+var vn="Microsoft Internet Explorer";
+var some;
+if(navigator.appName!=vn)
+some=1900;
+else
+some=0;
+function montharr(m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11)
+{
+this[0] = m0;
+this[1] = m1;
+this[2] = m2;
+this[3] = m3;
+this[4] = m4;
+this[5] = m5;
+this[6] = m6;
+this[7] = m7;
+this[8] = m8;
+this[9] = m9;
+this[10] = m10;
+this[11] = m11;
+}
+function calendar()
+{
+var monthNames = "JanFebMarAprMayJunJulAugSepOctNovDec";
+var today = new Date();
+var thisDay;
+var monthDays = new montharr(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+year = today.getYear();
+thisDay = today.getDate();
+if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) monthDays[1] = 29;
+nDays = monthDays[today.getMonth()];
+firstDay = today;
+firstDay.setDate(1); // works fine for most systems
+testMe = firstDay.getDate();
+if (testMe == 2) firstDay.setDate(0);
+startDay = firstDay.getDay();
+document.write('<table border="0" cellspacing="0" cellpadding="2" align="CENTER" bgcolor="#0080FF"><TR><TD><table width="100%" border="0" cellspacing="1" cellpadding="2" bgcolor="Silver">');
+document.write('<TR><th colspan="7" bgcolor="#C8E3FF">');
+var dayNames = new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+var monthNames = new Array("1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月");
+var now = new Date();
+document.write("<font style=font-size:9pt;Color:#330099>" , "西元" , " " , now.getYear() + some , "年" , " " , monthNames[now.getMonth()] , " " , now.getDate() , "日" , " " , dayNames[now.getDay()] , "</FONT>");
+document.writeln('</TH></TR><TR><TH BGCOLOR="#0080FF"><font style="font-size:9pt;Color:White">日</FONT></TH>');
+document.writeln('<th bgcolor="#0080FF"><font style="font-size:9pt;Color:White">一</FONT></TH>');
+document.writeln('<TH BGCOLOR="#0080FF"><font style="font-size:9pt;Color:White">二</FONT></TH>');
+document.writeln('<TH BGCOLOR="#0080FF"><font style="font-size:9pt;Color:White">三</FONT></TH>');
+document.writeln('<TH BGCOLOR="#0080FF"><font style="font-size:9pt;Color:White">四</FONT></TH>');
+document.writeln('<TH BGCOLOR="#0080FF"><font style="font-size:9pt;Color:White">五</FONT></TH>');
+document.writeln('<TH BGCOLOR="#0080FF"><font style="font-size:9pt;Color:White">六</FONT></TH>');
+document.writeln("</TR><TR>");
+column = 0;
+for (i=0; i<startDay; i++)
+{
+document.writeln("\n<TD><FONT style=font-size:9pt> </FONT></TD>");
+column++;
+}
+for (i=1; i<=nDays; i++)
+{
+if (i == thisDay)
+{
+document.writeln('</TD><td align="CENTER" bgcolor="#FF8040"><FONT style=font-size:9pt;Color:#ffffff><B>')
+}
+else
+{
+document.writeln('</TD><TD BGCOLOR="#FFFFFF" ALIGN="CENTER"><FONT style=font-size:9pt;font-family:Arial;font-weight:bold;Color:#330066>');
+}
+document.writeln(i);
+if (i == thisDay) document.writeln("</FONT></TD>")
+column++;
+if (column == 7)
+{
+document.writeln("<TR>"); 
+column = 0;
+}
+}
+document.writeln('<TR><td colspan="7" align="CENTER" valign="TOP" bgcolor="#0080FF"><form name="clock" onSubmit="0"><FONT style=font-size:9pt;Color:#ffffff>現在時間：</FONT><INPUT TYPE="Text" NAME="face" ALIGN="TOP"></TD></TR></TABLE></TD></TR></TABLE></FORM>');
+}
+var timerID = null;
+var timerRunning = false;
+function stopclock ()
+{
+if(timerRunning)
+clearTimeout(timerID);
+timerRunning = false;
+}
+function showtime()
+{
+var now = new Date()
+var hours = now.getHours()
+var minutes = now.getMinutes()
+var seconds = now.getSeconds()
+var timeValue = ""
+if(hours>=1 && hours <4)
+{timeValue += ("凌晨")}
+if(hours>=4 && hours<6)
+{timeValue += ("清晨")}
+if(hours>=6 && hours<9)
+{timeValue += ("早上")}
+if(hours>=9 && hours<12)
+{timeValue += ("上午")}
+if(hours>=12 && hours<13)
+{timeValue += ("中午")}
+if(hours>=13 && hours<18)
+{timeValue += ("下午")}
+if(hours>=18 && hours <19)
+{timeValue += ("傍晚")}
+if(hours>=19 && hours <24)
+{timeValue += ("晚上")}
+if(hours<1)
+{timeValue += ("午夜")}
+timeValue += ((hours > 12) ? hours - 12 : hours)
+timeValue += ((minutes < 10) ? ":0" : ":") + minutes
+timeValue += ((seconds < 10) ? ":0" : ":") + seconds
+document.clock.face.value = timeValue
+timerID = setTimeout("showtime()",1000)
+timerRunning = true
+}
+function startclock ()
+{
+stopclock();
+showtime();
+}
+</script>
+<script LANGUAGE="JavaScript" TYPE="text/javascript">
+<!--
+calendar();
+//-->
+</script><BR><BR>
+
+
+想不想要在網頁中放一個日曆啊？把下面複製回去就可以囉！<br><br>
+
+&lt;script LANGUAGE="JavaScript" TYPE="text/javascript"&gt;<BR>
+var vn="Microsoft Internet Explorer";<BR>
+var some;<BR>
+if(navigator.appName!=vn)<BR>
+some=1900;<BR>
+else<BR>
+some=0;<BR>
+function montharr(m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11)<BR>
+{<BR>
+this[0] = m0;<BR>
+this[1] = m1;<BR>
+this[2] = m2;<BR>
+this[3] = m3;<BR>
+this[4] = m4;<BR>
+this[5] = m5;<BR>
+this[6] = m6;<BR>
+this[7] = m7;<BR>
+this[8] = m8;<BR>
+this[9] = m9;<BR>
+this[10] = m10;<BR>
+this[11] = m11;<BR>
+}<BR>
+function calendar()<BR>
+{<BR>
+var monthNames = "JanFebMarAprMayJunJulAugSepOctNovDec";<BR>
+var today = new Date();<BR>
+var thisDay;<BR>
+var monthDays = new montharr(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);<BR>
+year = today.getYear();<BR>
+thisDay = today.getDate();<BR>
+if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) monthDays[1] = 29;<BR>
+nDays = monthDays[today.getMonth()];<BR>
+firstDay = today;<BR>
+firstDay.setDate(1); // works fine for most systems<BR>
+testMe = firstDay.getDate();<BR>
+if (testMe == 2) firstDay.setDate(0);<BR>
+startDay = firstDay.getDay();<BR>
+document.write('&lt;table border="0" cellspacing="0" cellpadding="2" align="CENTER" bgcolor="#0080FF"&gt;&lt;TR&gt;&lt;TD&gt;&lt;table width="100%" border="0" cellspacing="1" cellpadding="2" bgcolor="Silver"&gt;');<BR>
+document.write('&lt;TR&gt;&lt;th colspan="7" bgcolor="#C8E3FF"&gt;');<BR>
+var dayNames = new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");<BR>
+var monthNames = new Array("1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月");<BR>
+var now = new Date();<BR>
+document.write("&lt;font style=font-size:9pt;Color:#330099&gt;" , "西元" , " " , now.getYear() + some , "年" , " " , monthNames[now.getMonth()] , " " , now.getDate() , "日" , " " , dayNames[now.getDay()] , "&lt;/FONT&gt;");<BR>
+document.writeln('&lt;/TH&gt;&lt;/TR&gt;&lt;TR&gt;&lt;TH BGCOLOR="#0080FF"&gt;&lt;font style="font-size:9pt;Color:White"&gt;日&lt;/FONT&gt;&lt;/TH&gt;');<BR>
+document.writeln('&lt;th bgcolor="#0080FF"&gt;&lt;font style="font-size:9pt;Color:White"&gt;一&lt;/FONT&gt;&lt;/TH&gt;');<BR>
+document.writeln('&lt;TH BGCOLOR="#0080FF"&gt;&lt;font style="font-size:9pt;Color:White"&gt;二&lt;/FONT&gt;&lt;/TH&gt;');<BR>
+document.writeln('&lt;TH BGCOLOR="#0080FF"&gt;&lt;font style="font-size:9pt;Color:White"&gt;三&lt;/FONT&gt;&lt;/TH&gt;');<BR>
+document.writeln('&lt;TH BGCOLOR="#0080FF"&gt;&lt;font style="font-size:9pt;Color:White"&gt;四&lt;/FONT&gt;&lt;/TH&gt;');<BR>
+document.writeln('&lt;TH BGCOLOR="#0080FF"&gt;&lt;font style="font-size:9pt;Color:White"&gt;五&lt;/FONT&gt;&lt;/TH&gt;');<BR>
+document.writeln('&lt;TH BGCOLOR="#0080FF"&gt;&lt;font style="font-size:9pt;Color:White"&gt;六&lt;/FONT&gt;&lt;/TH&gt;');<BR>
+document.writeln("&lt;/TR&gt;&lt;TR&gt;");<BR>
+column = 0;<BR>
+for (i=0; i&lt;startDay; i++)<BR>
+{<BR>
+document.writeln("\n&lt;TD&gt;&lt;FONT style=font-size:9pt&gt;&nbsp;&lt;/FONT&gt;&lt;/TD&gt;");<BR>
+column++;<BR>
+}<BR>
+for (i=1; i&lt;=nDays; i++)<BR>
+{<BR>
+if (i == thisDay)<BR>
+{<BR>
+document.writeln('&lt;/TD&gt;&lt;td align="CENTER" bgcolor="#FF8040"&gt;&lt;FONT style=font-size:9pt;Color:#ffffff&gt;&lt;B&gt;')<BR>
+}<BR>
+else<BR>
+{<BR>
+document.writeln('&lt;/TD&gt;&lt;TD BGCOLOR="#FFFFFF" ALIGN="CENTER"&gt;&lt;FONT style=font-size:9pt;font-family:Arial;font-weight:bold;Color:#330066&gt;');<BR>
+}<BR>
+document.writeln(i);<BR>
+if (i == thisDay) document.writeln("&lt;/FONT&gt;&lt;/TD&gt;")<BR>
+column++;<BR>
+if (column == 7)<BR>
+{<BR>
+document.writeln("&lt;TR&gt;"); <BR>
+column = 0;<BR>
+}<BR>
+}<BR>
+document.writeln('&lt;TR&gt;&lt;td colspan="7" align="CENTER" valign="TOP" bgcolor="#0080FF"&gt;&lt;form name="clock" onSubmit="0"&gt;&lt;FONT style=font-size:9pt;Color:#ffffff&gt;現在時間：&lt;/FONT&gt;&lt;INPUT TYPE="Text" NAME="face" ALIGN="TOP"&gt;&lt;/TD&gt;&lt;/TR&gt;&lt;/TABLE&gt;&lt;/TD&gt;&lt;/TR&gt;&lt;/TABLE&gt;&lt;/FORM&gt;');<BR>
+}<BR>
+var timerID = null;<BR>
+var timerRunning = false;<BR>
+function stopclock ()<BR>
+{<BR>
+if(timerRunning)<BR>
+clearTimeout(timerID);<BR>
+timerRunning = false;<BR>
+}<BR>
+function showtime()<BR>
+{<BR>
+var now = new Date()<BR>
+var hours = now.getHours()<BR>
+var minutes = now.getMinutes()<BR>
+var seconds = now.getSeconds()<BR>
+var timeValue = ""<BR>
+if(hours&gt;=1 && hours &lt;4)<BR>
+{timeValue += ("凌晨")}<BR>
+if(hours&gt;=4 && hours&lt;6)<BR>
+{timeValue += ("清晨")}<BR>
+if(hours&gt;=6 && hours&lt;9)<BR>
+{timeValue += ("早上")}<BR>
+if(hours&gt;=9 && hours&lt;12)<BR>
+{timeValue += ("上午")}<BR>
+if(hours&gt;=12 && hours&lt;13)<BR>
+{timeValue += ("中午")}<BR>
+if(hours&gt;=13 && hours&lt;18)<BR>
+{timeValue += ("下午")}<BR>
+if(hours&gt;=18 && hours &lt;19)<BR>
+{timeValue += ("傍晚")}<BR>
+if(hours&gt;=19 && hours &lt;24)<BR>
+{timeValue += ("晚上")}<BR>
+if(hours&lt;1)<BR>
+{timeValue += ("午夜")}<BR>
+timeValue  += ((hours &gt; 12) ? hours - 12 : hours)<BR>
+timeValue  += ((minutes &lt; 10) ? ":0" : ":") + minutes<BR>
+timeValue  += ((seconds &lt; 10) ? ":0" : ":") + seconds<BR>
+document.clock.face.value = timeValue<BR>
+timerID = setTimeout("showtime()",1000)<BR>
+timerRunning = true<BR>
+}<BR>
+function startclock ()<BR>
+{<BR>
+stopclock();<BR>
+showtime();<BR>
+}<BR>
+&lt;/script&gt;<BR>
+&lt;script LANGUAGE="JavaScript" TYPE="text/javascript"&gt;<br>
+&lt;!--<br>
+calendar();<br>
+//--&gt;<br>
+&lt;/script&gt;<br><BR>
+將上面複製並貼到網頁檔案中後，<br>在BODY後面加上 onLoad="startclock(); timerONE=window.setTimeout" 就可以囉：<br>
+範例：&LT;BODY onLoad="startclock(); timerONE=window.setTimeout"&GT;
+

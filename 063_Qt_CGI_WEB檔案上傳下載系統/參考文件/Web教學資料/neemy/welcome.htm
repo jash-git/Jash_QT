@@ -1,0 +1,67 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+<META NAME="Author" CONTENT="心靈版豬-WHY製作">
+<TITLE>歡迎，警告視窗</TITLE>
+</HEAD><center>
+<body bgcolor=f1f1dd LInk=blue aLInk=red vLInk=#87cefd BACKGROUND="100.gif" tppabs="http://neemy.com/html/pic/100.gif">
+<table border=0 width=96%>
+<TR><TD colspan=2 bgcolor=ffffdd><img SRC="logo-1.jpg" tppabs="http://neemy.com/html/script/logo.jpg" width=108 height=104 border=0 align="right" hspace=8 vspace=4>
+這個已經用了好多次囉！不過有時候用的恰到好處，會增加人家對你的網頁的印象喔！
+</td></tr>
+
+<tr><td bgcolor=lightgreen>
+
+<script language="JavaScript">
+<!--
+(window.alert(" 我是警告視窗喔"))
+--></script>
+<B>警告或是歡迎視窗<BR></b>
+使用方法很簡單，把下面的標籤語法複製→貼上→修改文字就可以啦。
+<br><br>
+&lt;script language="JavaScript"&gt;<br>
+&lt;!--<br>
+(window.alert(" 修改文字區"))<br>
+-->&lt;/script&gt;<BR>
+
+<tr><td bgcolor=aqua><b>開小說明視窗</b><br>有時候進入某些網站都會有討厭的小廣告，不過如果你用的好的話，可以拿來作網站歡迎或是簡介喔。
+<BR>
+&lt;script language="JavaScript"&gt;<BR>
+&lt;!--<BR>
+var gt = unescape('%3e');<BR>
+var popup = null;<BR>
+var over = "Launch Pop-up Navigator";<BR>
+  popup = window.open('', 'popupnav', 'width=<font class=pword>200</font>,height=<font class=pword>170</font>,resizable=1,scrollbars=auto');<BR>
+  if (popup != null) {<BR>
+    if (popup.opener == null) {<BR>
+      popup.opener = self;    <BR>
+}<BR>
+    popup.location.href = '<font class=pword>說明視窗的內容.htm</font>';<BR>
+  }<BR>
+// --&gt;<BR>
+&lt;/script&gt;<BR><br><br>
+<b>進階應用-自動關閉小視窗..很好用喔，歡迎光臨後會自己把廣告視窗關掉。<br></b>
+&lt;!-- Begin Pop Up Window --&gt;<BR>
+&lt;script language="JavaScript"&gt;<BR>
+config='toolbar=no,location=no,directories=no,status=no,menubar=no,width=200,height=150'<BR>
+config += 'scrollbars=no,resizable=no'<BR>
+pop = window.open ("","pop",config)<BR><BR>
+pop.document.write('&lt;script language="javascript"&gt;');<BR>
+pop.document.write('setTimeout(');<BR>
+pop.document.write('"self.close()');<BR>
+pop.document.write(';",3000)');<BR>
+pop.document.write('&lt;/');<BR>
+pop.document.write('script&gt;');<BR>
+pop.document.write('&lt;body bgcolor=ltgreen&gt;');<BR>
+pop.document.write('&lt;center&gt;&lt;b&gt;歡迎！&lt;/b&gt;&lt;/center&gt;');<BR>
+pop.document.write('&lt;center&gt;&lt;b&gt;&lt;h3&gt;光臨，本網頁正在下載中&lt;/h3&gt;&lt;/b&gt;&lt;/center&gt;');<BR>
+pop.document.write('&lt;center&gt;&lt;b&gt;&lt;h6&gt;請稍等，本視窗會自動關閉&lt;/h6&gt;&lt;/b&gt;&lt;/center&gt;');<BR>
+pop.document.write('&lt;/body&gt;');<BR>
+&lt;/script&gt;<BR><BR>
+
+
+&lt;!-- End Up Window --&gt;
+
+
+
+</table>

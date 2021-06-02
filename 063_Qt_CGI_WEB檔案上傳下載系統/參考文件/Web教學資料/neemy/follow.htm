@@ -1,0 +1,555 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+<META NAME="Author" CONTENT="心靈版豬-WHY製作">
+<TITLE>跟屁蟲系列</TITLE>
+</HEAD><center>
+
+
+<style>
+.spanstyle {
+	position:absolute;
+	visibility:visible;
+	top:-50px;
+	font-size:12pt;
+	font-family:Verdana;
+font-weight:bold;
+	color:#0000FF;
+}
+</style>
+
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+</head>
+
+<body text="#0000FF" style="width: 100%; overflow-x: hidden; overflow-y: scroll; font-size: 10pt; font-family: Verdana; font-weight: bold" onLoad="makesnake()" link="#FDA8EE" vlink="#FDA8EE" alink="#FDA8EE">
+
+
+<script>
+var x,y
+var step=20
+var flag=0
+
+// Your snappy message. Important: the space at the end of the sentence!!!
+var message="我是跟屁蟲～ "
+message=message.split("")
+
+var xpos=new Array()
+for (i=0;i<=message.length-1;i++) {
+xpos[i]=-50
+}
+
+var ypos=new Array()
+for (i=0;i<=message.length-1;i++) {
+ypos[i]=-50
+}
+
+function handlerMM(e){
+x = (document.layers) ? e.pageX : document.body.scrollLeft+event.clientX
+y = (document.layers) ? e.pageY : document.body.scrollTop+event.clientY
+flag=1
+}
+
+function makesnake() {
+if (flag==1 && document.all) {
+for (i=message.length-1; i>=1; i--) {
+xpos[i]=xpos[i-1]+step
+ypos[i]=ypos[i-1]
+}
+xpos[0]=x+step
+ypos[0]=y
+
+for (i=0; i<message.length-1; i++) {
+var thisspan = eval("span"+(i)+".style")
+thisspan.posLeft=xpos[i]
+thisspan.posTop=ypos[i]
+}
+}
+
+else if (flag==1 && document.layers) {
+for (i=message.length-1; i>=1; i--) {
+xpos[i]=xpos[i-1]+step
+ypos[i]=ypos[i-1]
+}
+xpos[0]=x+step
+ypos[0]=y
+
+for (i=0; i<message.length-1; i++) {
+var thisspan = eval("document.span"+i)
+thisspan.left=xpos[i]
+thisspan.top=ypos[i]
+}
+}
+var timer=setTimeout("makesnake()",30)
+}
+
+</script>
+
+<script> 
+<!-- Beginning of JavaScript - 
+
+for (i=0;i<=message.length-1;i++) { 
+document.write("<span id='span"+i+"' class='spanstyle'>") 
+document.write(message[i]) 
+document.write("</span>") 
+} 
+
+if (document.layers){ 
+document.captureEvents(Event.MOUSEMOVE); 
+} 
+document.onmousemove = handlerMM; 
+
+// - End of JavaScript - --> 
+</script> 
+
+<script language="JavaScript1.2">
+
+if (document.all&&window.spotlight){
+var x=new Array()
+var direction=new Array()
+var y=new Array()
+if (spotlight.length==null){
+spotlight[0]=document.all.spotlight
+x[0]=0
+direction[0]="right"
+y[0]=spotlight[0].height
+spotlight[0].filters.light.addPoint(100,50,100,255,255,255,90)
+}
+else
+for (i=0;i<spotlight.length;i++){
+x[i]=0
+direction[i]="right"
+y[i]=spotlight[i].height
+spotlight[i].filters.light.addPoint(100,50,100,255,255,255,90)
+}
+}
+
+function slidelight(cur){
+spotlight[cur].filters.light.MoveLight(0,x[cur],y[cur],200,-1)
+
+if (x[cur]<spotlight[cur].width+200&&direction[cur]=="right")
+x[cur]+=10
+else if (x[cur]>spotlight[cur].width+200){
+direction[cur]="left"
+x[cur]-=10
+}
+else if (x[cur]>-200&&x[cur]<-185){
+direction[cur]="right"
+x[cur]+=10
+}
+else{
+x[cur]-=10
+direction[cur]="left"
+}
+}
+
+if (document.all&&window.spotlight){
+if (spotlight.length==null)
+setInterval("slidelight(0)",spotlight[0].speed)
+else
+for (t=0;t<spotlight.length;t++){
+var temp='setInterval("slidelight('+t+')",'+spotlight[t].speed+')'
+eval(temp)
+}
+}
+</script>
+
+
+
+<table border=0 width=96%>
+<TR><TD colspan=2 bgcolor=ffffdd><img SRC="logo-1.jpg" tppabs="http://neemy.com/html/script/logo.jpg" width=108 height=104 border=0 align="right" hspace=8 vspace=4>
+有沒有看到有一隻跟屁蟲一直跟在游標後面，想要甩也甩不掉！很好玩喔！</td></tr>
+<tr><td bgcolor=ffff0d>跟屁蟲系列之一→文字篇...就是你現在看到跟在游標後面的文字囉。</td></tr>
+<tr><td bgcolor=ffff0d>將下面的程式碼複製貼到網頁上就可以囉！<br><BR>&lt;script&gt;<br>
+var x,y<br>
+var step=20<br>
+var flag=0<br>
+<br>
+// Your snappy message. Important: the space at the end of the sentence!!!<br>
+var message="我是跟屁蟲～ "<br>
+message=message.split("")<br>
+<br>
+var xpos=new Array()<br>
+for (i=0;i&lt;=message.length-1;i++) {<br>
+	xpos[i]=-50<br>
+}<br>
+<br>
+var ypos=new Array()<br>
+for (i=0;i&lt;=message.length-1;i++) {<br>
+	ypos[i]=-50<br>
+}<br>
+<br>
+function handlerMM(e){<br>
+	x = (document.layers) ? e.pageX : document.body.scrollLeft+event.clientX<br>
+	y = (document.layers) ? e.pageY : document.body.scrollTop+event.clientY<br>
+	flag=1<br>
+}<br>
+<br>
+function makesnake() {<br>
+	if (flag==1 && document.all) {<br>
+ 	for (i=message.length-1; i&gt;=1; i--) {<br>
+			xpos[i]=xpos[i-1]+step<br>
+			ypos[i]=ypos[i-1]<br>
+ 	}<br>
+		xpos[0]=x+step<br>
+		ypos[0]=y<br>
+	<br>
+		for (i=0; i&lt;message.length-1; i++) {<br>
+ 		var thisspan = eval("span"+(i)+".style")<br>
+ 		thisspan.posLeft=xpos[i]<br>
+			thisspan.posTop=ypos[i]<br>
+ 	}<br>
+	}<br>
+	<br>
+	else if (flag==1 && document.layers) {<br>
+ 	for (i=message.length-1; i&gt;=1; i--) {<br>
+			xpos[i]=xpos[i-1]+step<br>
+			ypos[i]=ypos[i-1]<br>
+ 	}<br>
+		xpos[0]=x+step<br>
+		ypos[0]=y<br>
+	<br>
+		for (i=0; i&lt;message.length-1; i++) {<br>
+ 		var thisspan = eval("document.span"+i)<br>
+ 		thisspan.left=xpos[i]<br>
+			thisspan.top=ypos[i]<br>
+ 	}<br>
+	}<br>
+		var timer=setTimeout("makesnake()",30)<br>
+}<br>
+<br>
+&lt;/script&gt;<br>
+<br>
+&lt;script&gt; <br>
+&lt;!-- Beginning of JavaScript - <br>
+ <br>
+for (i=0;i&lt;=message.length-1;i++) { <br>
+ document.write("&lt;span id='span"+i+"' class='spanstyle'&gt;") <br>
+	document.write(message[i]) <br>
+ document.write("&lt;/span&gt;") <br>
+} <br>
+ <br>
+if (document.layers){ <br>
+	document.captureEvents(Event.MOUSEMOVE); <br>
+} <br>
+document.onmousemove = handlerMM; <br>
+ <br>
+// - End of JavaScript - --&gt; <br>
+&lt;/script&gt; <br>
+<br>
+&lt;script language="JavaScript1.2"&gt;<br>
+<br>
+if (document.all&&window.spotlight){<br>
+var x=new Array()<br>
+var direction=new Array()<br>
+var y=new Array()<br>
+if (spotlight.length==null){<br>
+spotlight[0]=document.all.spotlight<br>
+x[0]=0<br>
+direction[0]="right"<br>
+y[0]=spotlight[0].height<br>
+spotlight[0].filters.light.addPoint(100,50,100,255,255,255,90)<br>
+}<br>
+else<br>
+for (i=0;i&lt;spotlight.length;i++){<br>
+x[i]=0<br>
+direction[i]="right"<br>
+y[i]=spotlight[i].height<br>
+spotlight[i].filters.light.addPoint(100,50,100,255,255,255,90)<br>
+}<br>
+}<br>
+<br>
+function slidelight(cur){<br>
+spotlight[cur].filters.light.MoveLight(0,x[cur],y[cur],200,-1)<br>
+<br>
+if (x[cur]&lt;spotlight[cur].width+200&&direction[cur]=="right")<br>
+x[cur]+=10<br>
+else if (x[cur]&gt;spotlight[cur].width+200){<br>
+direction[cur]="left"<br>
+x[cur]-=10<br>
+}<br>
+else if (x[cur]&gt;-200&&x[cur]&lt;-185){<br>
+direction[cur]="right"<br>
+x[cur]+=10<br>
+}<br>
+else{<br>
+x[cur]-=10<br>
+direction[cur]="left"<br>
+}<br>
+}<br>
+<br>
+if (document.all&&window.spotlight){<br>
+if (spotlight.length==null)<br>
+setInterval("slidelight(0)",spotlight[0].speed)<br>
+else<br>
+for (t=0;t&lt;spotlight.length;t++){<br>
+var temp='setInterval("slidelight('+t+')",'+spotlight[t].speed+')'<br>
+eval(temp)<br>
+}<br>
+}<br>
+&lt;/script&gt;<br>
+
+將下面這段文字貼在body  之前<BR><BR>
+<BR>
+&lt;style&gt;<BR>
+.spanstyle {<BR>
+	position:absolute;<BR>
+	visibility:visible;<BR>
+	top:-50px;<BR>
+	font-size:12pt;<BR>
+	font-family:Verdana;<BR>
+	font-weight:bold;<BR>
+	color:#0000FF;<BR>
+}<BR>
+&lt;/style&gt;<BR>
+
+<br>
+貼上後記得要再BODY後面加上下面這一行，要不然不會動喔。：<P>
+
+style="width: 100%; overflow-x: hidden; overflow-y: scroll; font-size: 10pt; font-family: Verdana; font-weight: bold" onLoad="makesnake()"<BR>
+</TD></TR>
+<TR><TD>&nbsp;</td></tr><TR><TD>&nbsp;</td></tr>
+<TR><TD bgcolor=green><font color=yellow>彩色跟屁蟲</td></tr>
+<TR><TD bgcolor=lightgreen>
+將下面這一段貼到網頁中：<BR>
+&lt;STYLE type=text/css&gt;.spanstyle {FONT-SIZE: 9pt; POSITION: absolute; TOP: -50px; VISIBILITY: visible}&lt;/STYLE&gt;<BR>
+&lt;SCRIPT language=JavaScript&gt;<BR>
+var message="彩色的跟屁蟲... ^ _ ^";//修改您的文字就可以啦。<BR>
+var x,y;<BR>
+var step=12;<BR>
+var flag=0;message=message.split("");<BR>
+var xpos=new Array();for (i=0;i&lt;=message.length-1;i++) {xpos[i]=-50;}<BR>
+var ypos=new Array();for (i=0;i&lt;=message.length-1;i++) {ypos[i]=-50;}<BR>
+function handlerMM(e) {x = (document.layers) ? e.pageX : document.body.scrollLeft+event.clientX+20;y = (document.layers) ? e.pageY : document.body.scrollTop+event.clientY;flag=1;}function makesnake() <BR>
+{if (flag==1 && document.all) {for (i=message.length-1; i&gt;=1; i--) <BR>
+{xpos[i]=xpos[i-1]+step;ypos[i]=ypos[i-1];}xpos[0]=x+step;ypos[0]=y;for (i=0; i&lt;=message.length-1; i++) <BR>
+{var thisspan = eval("span"+(i)+".style");thisspan.posLeft=xpos[i];thisspan.posTop=ypos[i];thisspan.color=Math.random() * 255 * 255 * 255 + Math.random() * 255 * 255 + Math.random() * 255;}}else if (flag==1 && document.layers) <BR>
+{for (i=message.length-1; i&gt;=1; i--) {xpos[i]=xpos[i-1]+step;ypos[i]=ypos[i-1];}xpos[0]=x+step;ypos[0]=y;for (i=0; i&lt;message.length-1; i++) <BR>
+{var thisspan = eval("document.span"+i);thisspan.left=xpos[i];thisspan.top=ypos[i];thisspan.color=Math.random() * 255 * 255 * 255 + Math.random() * 255 * 255 + Math.random() * 255;}}}for (i=0;i&lt;=message.length-1;i++) <BR>
+{document.write("&lt;span id='span"+i+"' class='spanstyle'&gt;");document.write(message[i]);document.write("&lt;/span&gt;");}if (document.layers) <BR>
+{document.captureEvents(Event.MOUSEMOVE);}document.onmousemove = handlerMM;function pageonload() <BR>
+{makesnake();window.setTimeout("pageonload();", 2);}&lt;/SCRIPT&gt;<BR>
+<BR><BR>
+然後在BODY 後面加上 onload=javascript:pageonload();就可以了，就像醬子：<BR>
+&lt;BODY onload=javascript:pageonload();&gt;<BR>
+</td></tr>
+
+<TR><TD>&nbsp;</td></tr><TR><TD>&nbsp;</td></tr>
+<TR><TD>&nbsp;</td></tr><TR><TD>&nbsp;</td></tr>
+<TR><TD BGCOLOR=LIGHTGREEN>跟屁蟲系列隻二-圖片跟屁蟲-限用IE</td></tr>
+<TR><TD BGCOLOR=LIGHTGREEN>有文字的怎麼可以沒有圖片的呢？<br>版豬去收集了一個圖片的喔，不過只限定用在IE才可以。<br>
+把下面的程式碼複製回去貼上就可以了，然後改一改圖檔的名稱、大小就可以囉。<br><br>
+&lt;div id="cursor" 
+style="position:absolute; left:100px; top:160px; width:100px; 
+height:25px; z-index:0; visibility: visible"&gt;<BR>&lt;img 
+src="圖檔名稱.gif</FONT>" 
+&gt;<BR>&lt;/div&gt;&lt;script 
+language="JavaScript"&gt;<BR>&lt;!--<BR>function 
+YY_Mousetrace(evnt) { //v1.2 copyright (c)1998 Yaro von 
+Flocken<BR>if (yyns4)<BR>{if (evnt.pageX) {yy_ml=evnt.pageX; 
+yy_mt=evnt.pageY;} }<BR>else{<BR>yy_ml=(event.clientX + 
+document.body.scrollLeft);<BR>yy_mt=(event.clientY + 
+document.body.scrollTop);<BR>}<BR>if 
+(yy_tracescript)eval(yy_tracescript)<BR>}<BR>function 
+m()<BR>{<BR>document.all.cursor.style.left=yy_ml+10<BR>document.all.cursor.style.top=yy_mt+10<BR>}<BR>//--&gt;<BR>&lt;/script&gt;<BR>&lt;script 
+language="JavaScript"&gt;<BR>&lt;!--<BR>var 
+yyns4=window.Event?true:false; var yy_mt = 0; var yy_ml = 0;<BR>if 
+(yyns4) 
+document.captureEvents(Event.MOUSEMOVE);<BR>document.onmousemove = 
+YY_Mousetrace;<BR>yy_tracescript = 
+'m()';<BR>//--&gt;<BR>&lt;/script&gt; </FONT></td></tr>
+<TR><TD>&nbsp;</td></tr><TR><TD>&nbsp;</td></tr>
+<TR><TD>&nbsp;</td></tr><TR><TD>&nbsp;</td></tr>
+<TR><TD BGCOLOR=87CEFD>跟屁蟲系列三-躲在右下角跟著視窗跑，甩不掉喔。</TD></TR>
+<TR><TD BGCOLOR=87CEFD>很好玩的一個跟屁蟲，會一直跟在視窗右下角喔，不相你你甩甩看，能甩掉你就是超級天才囉。<bR>
+將下列程式碼複製貼到網頁就可以啦，<br><br>
+&lt;DIV id="waterMark" style="position:absolute"&gt;<br>
+&lt;A href="<FONT class=pword>index.htm</font>"&gt;&lt;IMG src="圖檔名稱.gif</font>"&gt;&lt;/A&gt;<br>
+&lt;/DIV&gt; <br>
+&lt;script language="JavaScript1.2"&gt;<br>
+&lt;!--<br>
+// Watermark script by Paul Anderson, CNET Builder.com. All rights reserved.<br>
+<br>
+markW = <FONT class=pword>15</font>;       // 圖檔的寬<br>
+markH = <FONT class=pword>15</font>;       // 圖檔的長<br>
+markX = <FONT class=pword>95</font>;      // 螢幕上X軸的位置<br>
+markY = <FONT class=pword>95</font>;      // 螢幕上Y軸的位置<br>
+markRefresh = <FONT class=pword>20</font>; // 每幾千分之一秒重新定位<br>
+<br>
+// set common object reference<br>
+if (!document.all) document.all = document;<br>
+if (!document.all.waterMark.style) document.all.waterMark.style = document.all.waterMark;<br>
+<br>
+wMark = document.all.waterMark.style;<br>
+wMark.width = markW;<br>
+wMark.height = markH;<br>
+navDOM = window.innerHeight; // Nav DOM flag<br>
+ <br>
+function setVals() {<br>
+ barW = 0; // scrollbar compensation for PC Nav<br>
+ barH = 0;<br>
+ if (navDOM) {<br>
+  if (document.height &gt; innerHeight) barW = 20;<br>
+  if (document.width &gt; innerWidth) barH = 20;<br>
+  } else {<br>
+  innerWidth = document.body.clientWidth;<br>
+  innerHeight = document.body.clientHeight;<br>
+  }<br>
+ posX = ((innerWidth - markW)-barW) * (markX/100);<br>
+ posY = ((innerHeight - markH)-barH) * (markY/100);<br>
+ }<br>
+<br>
+function wRefresh() {<br>
+ wMark.left = posX + (navDOM?pageXOffset:document.body.scrollLeft);<br>
+ wMark.top = posY + (navDOM?pageYOffset:document.body.scrollTop);<br>
+ }<br>
+<br>
+function markMe() {<br>
+ setVals();<br>
+ window.onresize=setVals;<br>
+ markID = setInterval ("wRefresh()",markRefresh);<br>
+ }<br>
+<br>
+window.onload=markMe; // safety for Mac IE4.5<br>
+<br>
+//--&gt;<br>
+&lt;/script&gt;<br>
+
+</TD></TR>
+<TR><TD>&nbsp;</td></tr><TR><TD>&nbsp;</td></tr>
+<TR><TD>&nbsp;</td></tr><TR><TD>&nbsp;</td></tr>
+<TR><TD bgcolor=yellow>衛星游標，很炫喔！！</td></tr>
+<TR><TD bgcolor=ffdddd>
+把下面這一段文字加到網頁(BODY之後)中：<BR>
+
+&lt;script LANGUAGE="JavaScript"&gt;<BR>
+window.onerror=null;<BR>
+netscape = (document.layers) ? 1:0;<BR>
+goodIE = (document.all) ? 1:0;<BR>
+document.onmousemove=MoveHandler;<BR>
+var gotthere = 0;<BR>
+var count = 0;<BR>
+var ietopcorner=''<BR>
+var ieleftcorner=''<BR>
+
+toplocation = new Array( 0,30,57,80,101,125,80,80,101,125,80,0 );<BR>
+temptoplocation = new Array( 50,100,100,150,150,200,200,100,150,150,200,200,0 );<BR>
+leftlocation = new Array( 0,292,318,181,181,217,263,318,181,181,217,263,-96 );<BR>
+templeftlocation = new Array( 0,0,260,390,420,550,680,390,420,550,680,0 );<BR>
+difftop = new Array( 0,0,0,0,0,0,0,0,0,0,0,0 );<BR>
+diffleft = new Array( 0,0,0,0,0,0,0,0,0,0,0,0 );<BR>
+questtop = -13;<BR>
+questleft2 = -96;<BR>
+if (netscape) {<BR>
+   document.body=new Object()<BR>
+   document.body.scrollTop=''<BR>
+   document.body.scrollLeft=''<BR>
+   window.captureEvents(Event.MOUSEMOVE);<BR>
+   window.onMouseMove = MoveHandler; <BR>
+   var layerstart = "document.";<BR>
+   var layerleft = ".left";<BR>
+   var layertop = ".top";<BR>
+   var layerstyle = "";<BR>
+   var windowWidth = window.innerWidth;<BR>
+   var windowHeight = window.innerHeight;  <BR>}
+else if (goodIE) {<BR>
+   ietopcorner=document.body.scrollTop<BR>
+   ieleftcorner=document.body.scrollLeft<BR>
+   layerstart = "document.all.";<BR>
+   layerleft = ".left";<BR>
+   layertop = ".top";<BR>
+   layerstyle = ".style";<BR>
+   windowWidth=600;<BR>
+   windowHeight=400; }<BR>
+// end error trapping<BR>
+   var Ypos2 = 72;<BR>
+   var Xpos2 = 72;<BR>
+function MoveHandler(e) {<BR>
+if (netscape || goodIE) {<BR>
+  Xpos2 = (netscape)?e.pageX:event.x<BR>
+  Ypos2 = (netscape)?e.pageY:event.y<BR>
+Xorigin = Xpos2;<BR>
+Yorigin = Ypos2; <BR>
+if (Ypos2 &gt; windowHeight/2) {<BR>
+if (Xpos2 &gt; windowWidth/2) { direction = 1;} <BR>
+else { direction = -1;} }<BR>
+else {<BR>
+if (Xpos2 &gt; windowWidth/2) { direction = -1;} <BR>
+else { direction = 1;} }<BR>
+}}<BR>
+
+function startthedots() {<BR>
+if (goodIE) {<BR>
+windowWidth=document.body.clientWidth;<BR>
+windowHeight=document.body.clientHeight; }<BR>
+Xorigin = 204;<BR>
+Yorigin = 147; <BR>
+spin();run(); }<BR>
+
+var OrbitSize = 200;<BR>
+count=1; delay=100; direction = -1;<BR>
+Count = new Array ( 0, .63, 1.26, 1.89, 2.52, 3.15, 3.78, 4.41, 5.04, 5.67 );<BR>
+Xpoint = new Array ( 0, .63, 1.26, 1.89, 2.52, 3.15, 3.78, 4.41, 5.04, 5.67 );<BR>
+Ypoint = new Array ( 0, .63, 1.26, 1.89, 2.52, 3.15, 3.78, 4.41, 5.04, 5.67 );<BR>
+var speed = -0.06;<BR>
+var offset = 1;<BR>
+
+  function spin() {<BR>
+for ( j = 0 ; j &lt;= 9 ; j++ ) {<BR>
+Count[j] = Count[j] + (speed*direction);	<BR>
+	Xpoint[j] = Xorigin + ((OrbitSize*Math.sin(Count[j])*offset));	<BR>
+	Ypoint[j] = Yorigin + (OrbitSize*Math.cos(Count[j])); }<BR>
+setTimeout('spin()',3); }<BR>
+
+function run() {<BR>
+   count++; <BR>
+  for ( j = 0 ; j &lt;= 9 ; j++ ) {<BR>
+difftop[j]  = Ypoint[j] -  temptoplocation[j];<BR>
+diffleft[j] = Xpoint[j] - templeftlocation[j];<BR>
+diff = 30;<BR>
+temptoplocation[j] = temptoplocation[j] + difftop[j]/diff;<BR>
+templeftlocation[j] = templeftlocation[j] + diffleft[j]/diff;<BR>
+  eval(layerstart+"a"+j+layerstyle+layerleft+" = document.body.scrollLeft+templeftlocation["+j+"]");<BR>
+  eval(layerstart+"a"+j+layerstyle+layertop+" = document.body.scrollTop+temptoplocation["+j+"]"); }<BR>
+setTimeout('run()', 25) }<BR>
+
+badIE = 0;<BR>
+browserName = navigator.appName.substring(0,8);<BR>
+browserVer = parseFloat(navigator.appVersion);<BR>
+macintosh = navigator.userAgent.indexOf("Mac");<BR>
+if (browserName == "Microsof") { <BR>
+if (macintosh != -1) { badIE = 1; }<BR>
+if (browserVer &lt; 4) { badIE = 1; }<BR>
+ }<BR>
+
+&lt;/script&gt;<BR>
+
+&lt;style TYPE="text/css"&gt;<BR>
+&lt;!--<BR>
+#a0 {position:absolute; left:-24; top:-24; width:9; height:25;clip:rect(0 9 9 0);z-index:2000;}<BR>
+#a1 {position:absolute; left:96; top:-24; width:9; height:25;clip:rect(0 9 9 0);z-index:2000;}<BR>
+#a2 {position:absolute; left:216; top:-24; width:9; height:25;clip:rect(0 9 9 0);z-index:2000;}<BR>
+#a3 {position:absolute; left:338; top:-24; width:9; height:25;clip:rect(0 9 9 0);z-index:2000;}<BR>
+#a4 {position:absolute; left:460; top:-24; width:9; height:25;clip:rect(0 9 9 0);z-index:2000;}<BR>
+#a5 {position:absolute; left:640; top:-24; width:9; height:25;clip:rect(0 9 9 0);z-index:2000;}<BR>
+#a6 {position:absolute; left:-24; top:-24; width:9; height:25;clip:rect(0 9 9 0);z-index:2000;}<BR>
+#a7 {position:absolute; left:200; top:-24; width:9; height:25;clip:rect(0 9 9 0);z-index:2000;}<BR>
+#a8 {position:absolute; left:300; top:-24; width:9; height:25;clip:rect(0 9 9 0);z-index:2000;}<BR>
+#a9 {position:absolute; left:600; top:-24; width:9; height:25;clip:rect(0 9 9 0);z-index:2000;}<BR>
+<BR>
+// --&gt;<BR>
+&lt;/style&gt;<BR>
+&lt;div ID="a0" align="center"&gt;&lt;img src="圖案名稱.gif" height="9" width="9"&gt;&lt;/div&gt;<BR>
+&lt;div ID="a1" align="center"&gt;&lt;img src="圖案名稱.gif" height="9" width="9"&gt;&lt;/div&gt;<BR>
+&lt;div ID="a2" align="center"&gt;&lt;img src="圖案名稱.gif" height="9" width="9"&gt;&lt;/div&gt;<BR>
+&lt;div ID="a3" align="center"&gt;&lt;img src="圖案名稱.gif" height="9" width="9"&gt;&lt;/div&gt;<BR>
+&lt;div ID="a4" align="center"&gt;&lt;img src="圖案名稱.gif" height="9" width="9"&gt;&lt;/div&gt;<BR>
+&lt;div ID="a5" align="center"&gt;&lt;img src="圖案名稱.gif" height="9" width="9"&gt;&lt;/div&gt;<BR>
+&lt;div ID="a6" align="center"&gt;&lt;img src="圖案名稱.gif" height="9" width="9"&gt;&lt;/div&gt;<BR>
+&lt;div ID="a7" align="center"&gt;&lt;img src="圖案名稱.gif" height="9" width="9"&gt;&lt;/div&gt;<BR>
+&lt;div ID="a8" align="center"&gt;&lt;img src="圖案名稱.gif" height="9" width="9"&gt;&lt;/div&gt;<BR>
+&lt;div ID="a9" align="center"&gt;&lt;img src="圖案名稱.gif" height="9" width="9"&gt;&lt;/div&gt;<BR>
+<BR><BR><BR>
+然後把這一段 onLoad="startthedots()" 加到 body 後面，就像醬子：
+&lt;BODY onLoad="startthedots()"&GT;
+</td></tr>

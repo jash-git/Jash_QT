@@ -1,0 +1,149 @@
+<html>
+<htm>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/htm; charset=big5">
+<META NAME="Author" CONTENT="心靈版豬-WHY製作">
+<TITLE>影像地圖</TITLE>
+</HEAD><center>
+<body bgcolor=f1f1dd LInk=blue aLInk=red vLInk=#87cefd BACKGROUND="100.gif" tppabs="http://neemy.com/html/pic/100.gif">
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+function scroll(seed)
+{
+var m1 = "你看見我了嗎？我就是狀態列走馬燈的示範喔" 
+var m2 = "要使用Netscape 4.0或 IE 4.0才看的到喔！ "
+var msg=m1+m2; 
+var out = " ";
+var c = 1;
+if (seed > 100) {
+seed--;
+var cmd="scroll(" + seed + ")";
+timerTwo=window.setTimeout(cmd,100);
+}
+else if (seed <= 100 && seed > 0) {
+for (c=0 ; c < seed ; c++) {
+out+=" ";
+}
+out+=msg;
+seed--;
+var cmd="scroll(" + seed + ")";
+window.status=out;
+timerTwo=window.setTimeout(cmd,100);
+} else if (seed <= 0) {
+if (-seed < msg.length) {
+out+=msg.substring(-seed,msg.length);
+seed--;
+var cmd="scroll(" + seed + ")";
+window.status=out;
+timerTwo=window.setTimeout(cmd,100);
+}
+else {
+window.status=" ";
+timerTwo=window.setTimeout("scroll(100)",7);
+}
+}
+}
+timerONE=window.setTimeout('scroll(100)',50);
+//-->
+</SCRIPT>
+
+
+<table border=0 width=96%>
+<TR><TD colspan=2><img SRC="logo-1.jpg" tppabs="http://neemy.com/html/script/logo.jpg" width=108 height=104 border=0 align="right" hspace=8 vspace=4>
+低頭往下看看狀態列，是不是有一堆字跑出來啊，那就是狀態列走馬的應用喔。版豬收集了幾個狀態列走馬的JAVASCRIPT，讓網頁應用更靈活喔。</FONT></TD></TR></TABLE><P>
+
+<table border=1 width=90%>
+<tr><td bgcolor=yellow>下面就是幾個走馬燈的形式，你可以選自己喜歡的。</td></tr>
+<tr><td bgcolor=aqua>
+&lt;SCRIPT Language="JavaScript"&gt;<BR>
+var msg="你看見我了嗎？我就是狀態列走馬燈的示範喔，打字加移動效果的喔！";<BR>
+var interval = 100;<BR>
+var spacelen = 120;<BR>
+var space10=" ";<BR>
+var seq=0;<BR><BR>
+
+function Scroll() {<BR>
+len = msg.length;<BR>
+window.status = msg.substring(0, seq+1);<BR>
+seq++;<BR>
+if ( seq &gt;= len ) { <BR>
+seq = spacelen; <BR>
+window.setTimeout("Scroll2();", interval );<BR>
+}<BR>
+else<BR>
+window.setTimeout("Scroll2();", interval );<BR>
+} <BR>
+<BR>
+function Scroll2() {<BR>
+var out="";<BR>
+for (i=1; i&lt;=spacelen/space10.length; i++) out += space10;<BR>
+out = out + msg;<BR>
+len=out.length;<BR>
+window.status=out.substring(seq, len);<BR>
+seq++;<BR>
+if ( seq &gt;= len ) { seq = 0; };<BR>
+window.setTimeout("Scroll2();", interval );<BR>
+} <BR>
+&lt;/SCRIPT&gt;<BR>
+
+
+
+<tr><td bgcolor=pink>
+&lt;SCRIPT Language="JavaScript"&gt;<BR>
+<BR>
+   var msg="你看見我了嗎？我就是狀態列走馬燈的示範喔，文字會一個接著一個出現，真有趣！</font>";<BR>
+   var interval = 100;<BR>
+   seq = 0;<BR>
+<BR>
+   function Scroll() {<BR>
+<BR>
+      len = msg.length;<BR>
+      window.status = msg.substring(0, seq+1);<BR>
+      seq++;<BR>
+      if ( seq &gt;= len ) { seq = 0 };<BR>
+      window.setTimeout("Scroll();", interval );<BR>
+   }   <BR>
+<BR>
+&lt;/SCRIPT&gt;<BR>
+
+
+<tr><td bgcolor=lightgreen>
+<BR>
+&lt;SCRIPT Language="JavaScript"&gt;<BR>
+<BR>
+   var msg="你看見我了嗎？我就是狀態列走馬燈的示範喔，打字加移動效果的喔！</font>";<BR>
+   var interval = 100;<P>
+   var spacelen = 120;<BR>
+   var space10="          ";<BR>
+   var seq=0;<P>
+   function Scroll() {<BR>
+      len = msg.length;<BR>
+      window.status = msg.substring(0, seq+1);<BR>
+      seq++;<BR>
+      if ( seq &gt;= len ) { <BR>
+         seq = spacelen; <BR>
+         window.setTimeout("Scroll2();", interval );<BR>
+      }<BR>
+      else<BR>
+         window.setTimeout("Scroll();", interval );<BR>
+   }   <BR>
+<BR>
+   function Scroll2() {<BR>
+      var out="";<BR>
+<BR>
+      for (i=1; i&lt;=spacelen/space10.length; i++) out += space10;<BR>
+      out = out + msg;<BR>
+      len=out.length;<BR>
+      window.status=out.substring(seq, len);<BR>
+      seq++;<BR>
+      if ( seq &gt;= len ) { seq = 0; };<BR>
+      window.setTimeout("Scroll2();", interval );<BR>
+   }  <P>
+&lt;/SCRIPT&gt;<P>
+
+<tr><td bgcolor=f1f2ff>
+使用時只要將上面的程式碼複製，然貼在網頁中空白的地方(通常是貼在&LT;/HEAD&GT;下面)
+然後在&LT;BODY&GT;後面加上 OnLoad="Scroll();" 就可以啦！如下，<br>
+&lt;BODY</font> OnLoad="Scroll();" &gt;<P>
+當然啦，後面可以繼續加上背景、顏色...等等標籤，像這樣。<br>
+&lt;BODY</font> OnLoad="Scroll();" BGCOLOR="#FFFF00 BACKGROUND="BG.GIF" LINK="#FFFFDD" ALINK="RED" VLINK="PURPLE"&gt;<P>

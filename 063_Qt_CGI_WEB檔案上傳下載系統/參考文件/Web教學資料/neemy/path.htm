@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+<META NAME="Author" CONTENT="心靈版豬-WHY製作">
+<TITLE>心靈點滴之簡單網頁教學-路徑觀念</TITLE>
+</HEAD>
+<body bgcolor=f1f1dd link=blue alink=red vlink=#87cefd background="1o4.gif" tppabs="http://neemy.com/html/pic/1o4.gif">
+
+<table width="96%" border="0" cellspacing="3" cellpadding="4" align="CENTER"><TR><TD>
+<img SRC="7.gif" tppabs="http://neemy.com/html/pic/7.gif" border=0 align="right" hspace=2 vspace=4><b><BR>
+路徑觀念？路徑是什麼東西？什麼是絕對路徑？什麼是相對路徑？蝦米碗糕？你知不知道如果你的路徑搞錯了，你貼的圖、你的連結都不用喔。一定要搞懂喔。</TD></TR></table></table><table border=0 cellpacing=4>
+<tr><td colspan=2>&nbsp;</td></tr><tr><td colspan=2>&nbsp;</td></tr>
+<tr><td colspan=2 bgcolor=aqua>絕對路徑</td></tr>
+<tr><td colspan=2>什麼是絕對路徑呢？簡單的說，就是硬碟裡裡面的目錄，也就是我們在檔案管理員中看到的一層一層的目錄。不過實際上在一般網頁的連結上，我們很少用到絕對路徑。看下面的圖案解釋。</td></tr>
+<tr><td width=100><table border=4 cellspacing=2 cellpadding=6 bordercolor=blue width=100><tr><td width=30 bgcolor=red>.............資料夾一.............<table border=4 cellspacing=2 cellpadding=6 bordercolor=yellow width=100><tr><td bgcolor=aqua>....資料夾二....................</td></tr></table></td></tr></table></td><td bgcolor=ffffdd>現在假設藍色的外殼是我們的磁碟機(我們現在是硬碟，所以是C:\)，網路上的人不能直接讀我們磁碟機裡面的資料，黃色外殼是我們磁碟機裡面的一個資料夾，藍色區域代表資料夾裡面的內容。我們把黃色區域的「絕對路徑」稱為：「C:\資料夾一\資料夾二」。其實絕對路徑就是檔案在我們主機的位置啦^_^。<BR>又好比我們房間裡的一個櫃子，假設你把相簿放在櫃子裡，人家問你把相簿放哪兒了，你應該會回答放在櫃子裡。而不是回答「我把相簿放在宇宙第N科星雲中的第X行星系裡的第K個軌道的第Y科星球的亞洲大陸西太平洋與台灣海峽之間的台灣的美濃鎮XXX路XXX弄XXX.....樓XXX距離門口幾公分的櫃子裡」</tr>
+<tr><td colspan=2 bgcolor=aqua>相對路徑？什麼是相對路徑？簡單的說，就是資料夾下面的檔案可以搬到別的主機去也可以讓別人讀取。好比你把相簿連櫃子一起搬到美國，人家問你相簿在哪，你會回答在櫃子裡而不是絕對路徑。</td></tr>
+</table>
+<table border=1 cellspacing=3 cellpadding=5>
+<tr><td colspan=4>現在假設我們剛剛都把網頁放在「mypage」這個資料夾囉。然後我們在「mypage」這個資料夾裡面又多建立了一個「pic」的資料夾讓我們放圖片用。下面就是相對路徑的用法囉。</td></tr>
+<tr><td>Html的位置</td><td>圖檔位置</TD><TD>標籤寫法</TD><TD>使用情況</TD></TR>
+<TR><TD>C:\mypage</td><td>C:\mypage</td><td>&lt;img src="model.jpg"&gt;</td><td>圖檔和html在同一個目錄</td></tr>
+<TR><TD>C:\mypage</td><td>C:\mypage\pic</td><td>&lt;img src="./pic/model.gif"&gt;</td><td>圖檔在網頁的下一層目錄</td></tr>
+<TR><TD>C:\mypage\pic</td><td>C:\mypage\</td><td>&lt;img src="../model.gif"&gt;</td><td>圖檔在目錄的上一層</td></tr>
+<tr><td colspan=4>其中 ../ 代表回到上一層目錄，相對路徑的用法在網路上常常被用到，我們一般看到的網址後面的目錄其實都是相對路徑的產物！例如：http://www.x.com/xyz，xyz即是。還是不懂？？？背起來就對囉。<center><br><img src="pica36.gif" tppabs="http://neemy.com/html/pic/pica36.gif" alt=你還不懂嗎？你還在思考嗎？起來動一動，大腦會比較清醒喔^_^></IMG></td></tr>
+
+</table></body></html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0075)http://doc.qt.digia.com/solutions/4/qtservice/qtservice-example-server.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><!-- qtservice-2.6_1-opensource/examples/server/server.qdoc --><head><meta http-equiv="Content-Type" content="text/html; charset=Big5">
+  <title>A simple HTTP Server</title>
+  <link href="./A simple HTTP Server_files/classic.css" rel="stylesheet" type="text/css">
+<script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/document_iterator.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/find_proxy.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/get_html_text.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/global_constants.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/name_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/number_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/string_finder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/change_sink.js"></script><style type="text/css"></style><meta name="document_iterator.js"><meta name="find_proxy.js"><meta name="get_html_text.js"><meta name="global_constants.js"><meta name="name_injection_builder.js"><meta name="number_injection_builder.js"><meta name="string_finder.js"><meta name="change_sink.js"><style id="wrc-middle-css" type="text/css">.wrc_whole_window{	display: none;	position: fixed; 	z-index: 2147483647;	background-color: rgba(40, 40, 40, 0.9);	word-spacing: normal !important;	margin: 0px !important;	padding: 0px !important;	border: 0px !important;	left: 0px;	top: 0px;	width: 100%;	height: 100%;	line-height: normal !important;	letter-spacing: normal !important;	overflow: hidden;}.wrc_bar_window{	display: none;	position: fixed; 	z-index: 2147483647;	background-color: rgba(60, 60, 60, 1.0);	word-spacing: normal !important;	font-family: Segoe UI, Arial Unicode MS, Arial, Sans-Serif;	margin: 0px !important;	padding: 0px !important;	border: 0px !important;	left: 0px;	top: 0px;	width: 100%;	height: 40px;	line-height: normal !important;	letter-spacing: normal !important;	color: white !important;	font-size: 13px !important;}.wrc_middle {	display: table-cell;	vertical-align: middle;	width: 100%;}.wrc_middle_main {	font-family: Segoe UI, Arial Unicode MS, Arial, Sans-Serif;	font-size: 14px;	width: 600px;	height: auto;    background: url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/background-body.jpg) repeat-x left top;	background-color: rgb(39, 53, 62);	position: relative;	margin-left: auto;	margin-right: auto;	text-align: left;}.wrc_middle_tq_main {	font-family: Segoe UI, Arial Unicode MS, Arial, Sans-Serif;	font-size: 16px;	width: 615px;	height: 460px;    background: url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/background-sitecorrect.png) no-repeat;	background-color: white;	color: black !important;	position: relative;	margin-left: auto;	margin-right: auto;	text-align: center;}.wrc_middle_logo {    background: url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/logo.jpg) no-repeat left bottom;    width: 140px;    height: 42px;    color: orange;    display: table-cell;    text-align: right;    vertical-align: middle;}.wrc_icon_warning {	margin: 20px 10px 20px 15px;	float: left;	background-color: transparent;}.wrc_middle_title {    color: #b6bec7;	height: auto;    margin: 0px auto;	font-size: 2.2em;	white-space: nowrap;	text-align: center;}.wrc_middle_hline {    height: 2px;	width: 100%;    display: block;}.wrc_middle_description {	text-align: center;	margin: 15px;	font-size: 1.4em;	padding: 20px;	height: auto;	color: white;	min-height: 3.5em;}.wrc_middle_actions_main_div {	margin-bottom: 15px;	text-align: center;}.wrc_middle_actions_blue_button div {	display: inline-block;	width: auto;	cursor: Pointer;	margin: 3px 10px 3px 10px;	color: white;	font-size: 1.2em;	font-weight: bold;}.wrc_middle_actions_blue_button {	-moz-appearance: none;	border-radius: 7px;	-moz-border-radius: 7px/7px;	border-radius: 7px/7px;	background-color: rgb(0, 173, 223) !important;	display: inline-block;	width: auto;	cursor: Pointer;	border: 2px solid #00dddd;	padding: 0px 20px 0px 20px;}.wrc_middle_actions_blue_button:hover {	background-color: rgb(0, 159, 212) !important;}.wrc_middle_actions_blue_button:active {	background-color: rgb(0, 146, 200) !important;	border: 2px solid #00aaaa;}.wrc_middle_actions_grey_button div {	display: inline-block;	width: auto;	cursor: Pointer;	margin: 3px 10px 3px 10px;	color: white !important;	font-size: 15px;	font-weight: bold;}.wrc_middle_actions_grey_button {	-moz-appearance: none;	border-radius: 7px;	-moz-border-radius: 7px/7px;	border-radius: 7px/7px;	background-color: rgb(100, 100, 100) !important;	display: inline-block;	width: auto;	cursor: Pointer;	border: 2px solid #aaaaaa;	text-decoration: none;	padding: 0px 20px 0px 20px;}.wrc_middle_actions_grey_button:hover {	background-color: rgb(120, 120, 120) !important;}.wrc_middle_actions_grey_button:active {	background-color: rgb(130, 130, 130) !important;	border: 2px solid #00aaaa;}.wrc_middle_action_low {	font-size: 0.9em;	white-space: nowrap;	cursor: Pointer;	color: grey !important;	margin: 10px 10px 0px 10px;	text-decoration: none;}.wrc_middle_action_low:hover {	color: #aa4400 !important;}.wrc_middle_actions_rest_div {	padding-top: 5px;	white-space: nowrap;	text-align: center;}.wrc_middle_action {	white-space: nowrap;	cursor: Pointer;	color: red !important;	font-size: 1.2em;	margin: 10px 10px 0px 10px;	text-decoration: none;}.wrc_middle_action:hover {	color: #aa4400 !important;}</style><script id="wrc-script-middle_window" type="text/javascript" language="JavaScript">var g_inputsCnt = 0;var g_InputThis = new Array(null, null, null, null);var g_alerted = false;/* we test the input if it includes 4 digits   (input is a part of 4 inputs for filling the credit-card number)*/function is4DigitsCardNumber(val){	var regExp = new RegExp('[0-9]{4}');	return (val.length == 4 && val.search(regExp) == 0);}/* testing the whole credit-card number 19 digits devided by three '-' symbols or   exactly 16 digits without any dividers*/function isCreditCardNumber(val){	if(val.length == 19)	{		var regExp = new RegExp('[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}');		return (val.search(regExp) == 0);	}	else if(val.length == 16)	{		var regExp = new RegExp('[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}');		return (val.search(regExp) == 0);	}	return false;}function CheckInputOnCreditNumber(self){	if(g_alerted)		return false;	var value = self.value;	if(self.type == 'text')	{		if(is4DigitsCardNumber(value))		{			var cont = true;			for(i = 0; i < g_inputsCnt; i++)				if(g_InputThis[i] == self)					cont = false;			if(cont && g_inputsCnt < 4)			{				g_InputThis[g_inputsCnt] = self;				g_inputsCnt++;			}		}		g_alerted = (g_inputsCnt == 4);		if(g_alerted)			g_inputsCnt = 0;		else			g_alerted = isCreditCardNumber(value);	}	return g_alerted;}function CheckInputOnPassword(self){	if(g_alerted)		return false;	var value = self.value;	if(self.type == 'password')	{		g_alerted = (value.length > 0);	}	return g_alerted;}function onInputBlur(self, bRatingOk, bFishingSite){	var bCreditNumber = CheckInputOnCreditNumber(self);	var bPassword = CheckInputOnPassword(self);	if((!bRatingOk || bFishingSite == 1) && (bCreditNumber || bPassword) )	{		var warnDiv = document.getElementById("wrcinputdiv");		if(warnDiv)		{			/* show the warning div in the middle of the screen */			warnDiv.style.left = "0px";			warnDiv.style.top = "0px";			warnDiv.style.width = "100%";			warnDiv.style.height = "100%";			document.getElementById("wrc_warn_fs").style.display = 'none';			document.getElementById("wrc_warn_cn").style.display = 'none';			if(bFishingSite)				document.getElementById("wrc_warn_fs").style.display = 'block';			else				document.getElementById("wrc_warn_cn").style.display = 'block';			warnDiv.style.display = 'table';		}	}}</script><style id="wrc-css" type="text/css">.wrcx {display:none} .r .wrcx,  .fc .wrcx, #rhsline ol .wrcx {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey0-16.png") right no-repeat} .vresult .r, .tl .r .wrcx{ display: none;}
+.wrc0 {display:none} .r .wrc0,  .fc .wrc0, #rhsline ol .wrc0 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey0-16.png") right no-repeat} .vresult .r, .tl .r .wrc0{ display: none;}
+.wrc11 {display:none} .r .wrc11,  .fc .wrc11, #rhsline ol .wrc11 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green1-16.png") right no-repeat} .vresult .r, .tl .r .wrc11{ display: none;}
+.wrc12 {display:none} .r .wrc12,  .fc .wrc12, #rhsline ol .wrc12 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green2-16.png") right no-repeat} .vresult .r, .tl .r .wrc12{ display: none;}
+.wrc13 {display:none} .r .wrc13,  .fc .wrc13, #rhsline ol .wrc13 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green3-16.png") right no-repeat} .vresult .r, .tl .r .wrc13{ display: none;}
+.wrc21 {display:none} .r .wrc21,  .fc .wrc21, #rhsline ol .wrc21 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow1-16.png") right no-repeat} .vresult .r, .tl .r .wrc21{ display: none;}
+.wrc22 {display:none} .r .wrc22,  .fc .wrc22, #rhsline ol .wrc22 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow2-16.png") right no-repeat} .vresult .r, .tl .r .wrc22{ display: none;}
+.wrc23 {display:none} .r .wrc23,  .fc .wrc23, #rhsline ol .wrc23 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow3-16.png") right no-repeat} .vresult .r, .tl .r .wrc23{ display: none;}
+.wrc31 {display:none} .r .wrc31,  .fc .wrc31, #rhsline ol .wrc31 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red1-16.png") right no-repeat} .vresult .r, .tl .r .wrc31{ display: none;}
+.wrc32 {display:none} .r .wrc32,  .fc .wrc32, #rhsline ol .wrc32 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red2-16.png") right no-repeat} .vresult .r, .tl .r .wrc32{ display: none;}
+.wrc33 {display:none} .r .wrc33,  .fc .wrc33, #rhsline ol .wrc33 {display:inline; background: url("chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red3-16.png") right no-repeat} .vresult .r, .tl .r .wrc33{ display: none;}
+.wrc_icon{margin:0;padding:0;padding-left:15px !important; margin-left: 5px; width:16px !important; height:16px !important;line-height:16px !important;}
+#wrchoverdiv{padding-bottom:20px;-webkit-border-radius: 4px; -webkit-box-shadow: 2px 2px 1px rgba(0,0,0,0.2); position:absolute; width:180px; background:transparent url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/background-body.jpg) top left repeat-x; display:none; font-family: Segoe UI, Arial Unicode MS, Arial, Sans-Serif; font-size: 14px; z-index:9999999;}
+#wrchoverdiv{cursor:default;}
+#wrchoverdiv #wrccontainer{width:180px;}
+#wrchoverdiv #wrcheader{width:140px; height:42px; background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/logo.jpg) bottom left no-repeat; text-align:right; line-height:42px; color:orange; margin:0 auto;}
+#wrchoverdiv .wrchorizontal{width:180px; height:2px; background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/horizontal-line.jpg) bottom left no-repeat;}
+#wrchoverdiv #wrccurrentvote{height:25px; line-height:25px; color:#FFF; text-align:center; text-transform:uppercase;}
+#wrchoverdiv #wrcrating{margin:5px auto; width:69px; height:55px; background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey-0.png) bottom left no-repeat;}
+#wrchoverdiv #wrcrating.wrcbx{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey-0.png);}
+#wrchoverdiv #wrcrating.wrcb0{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/grey-0.png);}
+#wrchoverdiv #wrcrating.wrcb11{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green-1.png);}
+#wrchoverdiv #wrcrating.wrcb12{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green-2.png);}
+#wrchoverdiv #wrcrating.wrcb13{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/green-3.png);}
+#wrchoverdiv #wrcrating.wrcb21{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow-1.png);}
+#wrchoverdiv #wrcrating.wrcb22{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow-2.png);}
+#wrchoverdiv #wrcrating.wrcb23{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/yellow-3.png);}
+#wrchoverdiv #wrcrating.wrcb31{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red-1.png);}
+#wrchoverdiv #wrcrating.wrcb32{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red-2.png);}
+#wrchoverdiv #wrcrating.wrcb33{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/red-3.png);}
+#wrchoverdiv #wrcratingtext{margin:3px 5px; color:#FFF; text-align:center; padding:0; font-size:12px;}
+#wrchoverdiv #wrcweighttext{margin:3px 5px; color:#FFF; text-align:center; padding:0; font-size:12px;}
+#wrchoverdiv #wrcflags{width:150px; height:70px; margin:0 auto;}
+#wrchoverdiv .wrcicon{width:30px; height:30px; float:left;}
+#wrchoverdiv #wrcicon_shopping{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/shopping-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_shopping.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/shopping-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_social{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/social-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_social.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/social-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_news{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/news-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_news.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/news-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_it{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/it-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_it.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/it-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_corporate{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/corporate-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_corporate.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/corporate-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_pornography{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/pornography-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_pornography.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/pornography-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_violence{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/violence-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_violence.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/violence-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_gambling{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/gambling-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_gambling.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/gambling-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_drugs{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/drugs-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_drugs.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/drugs-small-selected.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_illegal{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/illegal-small-disable.png) top left no-repeat;}
+#wrchoverdiv #wrcicon_illegal.selected{background:url(chrome-extension://icmlaeflemplmjndnaapfdbbnpncnbda/skin/images/icons/illegal-small-selected.png) top left no-repeat;}
+</style></head>
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td align="left" valign="top" width="32"><img src="./A simple HTTP Server_files/qt-logo.png" align="left" width="57" height="67" border="0"></td>
+<td width="1">&nbsp;&nbsp;</td><td class="postheader" valign="center"><a href="http://doc.qt.digia.com/solutions/4/qtservice/index.html"><font color="#004faf">Home</font></a></td>
+</tr></tbody></table><h1 class="title">A simple HTTP Server<br><span class="subtitle"></span>
+</h1>
+<p>It is a very simple implementation of a HTTP daemon that listens on chosen port (defaultly 8080) and sends back a simple HTML page back for every GET request it gets. After sending the page, it closes the connection.</p>
+<pre><span class="comment"> // HttpDaemon is the the class that implements the simple HTTP server.</span>
+ class HttpDaemon : public QTcpServer
+ {
+     Q_OBJECT
+ public:
+     HttpDaemon(quint16 port, QObject* parent = 0)
+         : QTcpServer(parent), disabled(false)
+     {
+         listen(QHostAddress::Any, port);
+     }
+
+     void incomingConnection(int socket)
+     {
+         if (disabled)
+             return;
+
+         <span class="comment">// When a new client connects, the server constructs a QTcpSocket and all</span>
+         <span class="comment">// communication with the client is done over this QTcpSocket. QTcpSocket</span>
+         <span class="comment">// works asynchronously, this means that all the communication is done</span>
+         <span class="comment">// in the two slots readClient() and discardClient().</span>
+         QTcpSocket* s = new QTcpSocket(this);
+         connect(s, SIGNAL(readyRead()), this, SLOT(readClient()));
+         connect(s, SIGNAL(disconnected()), this, SLOT(discardClient()));
+         s-&gt;setSocketDescriptor(socket);
+
+         QtServiceBase::instance()-&gt;logMessage("New Connection");
+     }
+
+     void pause()
+     {
+         disabled = true;
+     }
+
+     void resume()
+     {
+         disabled = false;
+     }
+
+ private slots:
+     void readClient()
+     {
+         if (disabled)
+             return;
+
+         <span class="comment">// This slot is called when the client sent data to the server. The</span>
+         <span class="comment">// server looks if it was a get request and sends a very simple HTML</span>
+         <span class="comment">// document back.</span>
+         QTcpSocket* socket = (QTcpSocket*)sender();
+         if (socket-&gt;canReadLine()) {
+             QStringList tokens = QString(socket-&gt;readLine()).split(QRegExp("[ \r\n][ \r\n]*"));
+             if (tokens[0] == "GET") {
+                 QTextStream os(socket);
+                 os.setAutoDetectUnicode(true);
+                 os &lt;&lt; "HTTP/1.0 200 Ok\r\n"
+                     "Content-Type: text/html; charset=\"utf-8\"\r\n"
+                     "\r\n"
+                     "&lt;h1&gt;Nothing to see here&lt;/h1&gt;\n"
+                     &lt;&lt; QDateTime::currentDateTime().toString() &lt;&lt; "\n";
+                 socket-&gt;close();
+
+                 QtServiceBase::instance()-&gt;logMessage("Wrote to client");
+
+                 if (socket-&gt;state() == QTcpSocket::UnconnectedState) {
+                     delete socket;
+                     QtServiceBase::instance()-&gt;logMessage("Connection closed");
+                 }
+             }
+         }
+     }
+     void discardClient()
+     {
+         QTcpSocket* socket = (QTcpSocket*)sender();
+         socket-&gt;deleteLater();
+
+         QtServiceBase::instance()-&gt;logMessage("Connection closed");
+     }
+
+ private:
+     bool disabled;
+ };</pre>
+<p>The server implementation uses the <a href="http://doc.qt.digia.com/solutions/4/qtservice/qtservicebase.html#logMessage">QtService::logMessage</a>() function to send messages and status reports to the system event log. The server also supports a paused state in which case incoming requests are ignored.</p>
+<p>The <tt>HttpService</tt> class subclasses <a href="http://doc.qt.digia.com/solutions/4/qtservice/qtservice.html">QtService</a> to implement the service functionality.</p>
+<pre> class HttpService : public QtService&lt;QCoreApplication&gt;
+ {
+ public:
+     HttpService(int argc, char **argv)
+         : QtService&lt;QCoreApplication&gt;(argc, argv, "Qt HTTP Daemon")
+     {
+         setServiceDescription("A dummy HTTP service implemented with Qt");
+         setServiceFlags(QtServiceBase::CanBeSuspended);
+     }</pre>
+<p>The constructor calls the <a href="http://doc.qt.digia.com/solutions/4/qtservice/qtservice.html">QtService</a> constructor instantiated with <a href="http://qt.nokia.com/doc/4.5/qcoreapplication.html">QCoreApplication</a> since our service will not use GUI. The first two parameters of our constructor are passed to <a href="http://doc.qt.digia.com/solutions/4/qtservice/qtservice.html">QtService</a>. The last parameter, "Qt HTTP Daemon", is the name of the service.</p>
+<pre> protected:
+     void start()
+     {
+         QCoreApplication *app = application();
+
+         quint16 port = (app-&gt;argc() &gt; 1) ?
+                 QString::fromLocal8Bit(app-&gt;argv()[1]).toUShort() : 8080;
+         daemon = new HttpDaemon(port, app);
+
+         if (!daemon-&gt;isListening()) {
+             logMessage(QString("Failed to bind to port %1").arg(daemon-&gt;serverPort()), QtServiceBase::Error);
+             app-&gt;quit();
+         }
+     }</pre>
+<p>The implementation of <tt>start()</tt> first checks if the user passed a port number. If yes that port is used by server to listen on. Otherwise default 8080 port is used. Then creates an instance of the HTTP server using operator new, passing the application object as the parent to ensure that the object gets destroyed.</p>
+<pre>     void pause()
+     {
+         daemon-&gt;pause();
+     }
+
+     void resume()
+     {
+         daemon-&gt;resume();
+     }
+
+ private:
+     HttpDaemon *daemon;
+ };</pre>
+<p>The implementations of pause() and resume() forward the request to the server object.</p>
+<pre> #include "main.moc"
+
+ int main(int argc, char **argv)
+ {
+ #if !defined(Q_WS_WIN)
+     <span class="comment">// QtService stores service settings in SystemScope, which normally require root privileges.</span>
+     <span class="comment">// To allow testing this example as non-root, we change the directory of the SystemScope settings file.</span>
+     QSettings::setPath(QSettings::NativeFormat, QSettings::SystemScope, QDir::tempPath());
+     qWarning("(Example uses dummy settings file: %s/QtSoftware.conf)", QDir::tempPath().toLatin1().constData());
+ #endif
+     HttpService service(argc, argv);
+     return service.exec();
+ }</pre>
+<p>The main entry point function creates the service object and uses the <tt>exec()</tt> function to execute the service.</p>
+<p></p><address><hr><div align="center">
+<table width="100%" cellspacing="0" border="0"><tbody><tr class="address">
+<td width="30%" align="left">Copyright c 2009 Nokia Corporation and/or its subsidiary(-ies)</td>
+<td width="40%" align="center"><a href="http://qt.nokia.com/doc/trademarks.html">Trademarks</a></td>
+<td width="30%" align="right"><div align="right">Qt Solutions</div></td>
+</tr></tbody></table></div></address>
+
+<div id="wrchoverdiv"><div id="wrccontainer"><div id="wrcheader"><div id="wrctitle"> WebRep</div></div><div class="wrchorizontal"></div><div id="wrccurrentvote">總體評價</div><div class="wrchorizontal"></div><div id="wrcrating"></div><div id="wrcratingtext">此網站沒有任何評價資訊</div><div id="wrcweighttext">（票數不足）</div><div id="wrcflags"><div id="wrcicon_shopping" class="wrcicon"></div><div id="wrcicon_social" class="wrcicon"></div><div id="wrcicon_news" class="wrcicon"></div><div id="wrcicon_it" class="wrcicon"></div><div id="wrcicon_corporate" class="wrcicon"></div><div id="wrcicon_pornography" class="wrcicon"></div><div id="wrcicon_violence" class="wrcicon"></div><div id="wrcicon_gambling" class="wrcicon"></div><div id="wrcicon_drugs" class="wrcicon"></div><div id="wrcicon_illegal" class="wrcicon"></div></div><div class="wrchorizontal"></div></div></div></body><style type="text/css">embed[type*="application/x-shockwave-flash"],embed[src*=".swf"],object[type*="application/x-shockwave-flash"],object[codetype*="application/x-shockwave-flash"],object[src*=".swf"],object[codebase*="swflash.cab"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"],object[classid*="d27cdb6e-ae6d-11cf-96b8-444553540000"],object[classid*="D27CDB6E-AE6D-11cf-96B8-444553540000"]{	display: none !important;}</style><span id="skype_highlighting_settings" display="none" autoextractnumbers="1"></span><style type="text/css"></style><object id="skype_plugin_object" location.href="http://doc.qt.digia.com/solutions/4/qtservice/qtservice-example-server.html" location.hostname="doc.qt.digia.com" style="position: absolute; visibility: hidden; left: -100px; top: -100px;" width="0" height="0" type="application/x-vnd.skype.toolbars.npplugin.4.2.0"></object></html>

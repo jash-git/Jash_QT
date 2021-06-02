@@ -1,0 +1,153 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+<META NAME="Author" CONTENT="心靈版豬-WHY製作">
+<TITLE>框架製作...畫面分割</TITLE>
+</HEAD>
+
+<body bgcolor=FFFFDD link=blue alink=red vlink=#87cefd>
+<table width="96%" border="0" cellspacing="3" cellpadding="4" align="CENTER"><TR><TD bgcolor=ffffc0>
+<img SRC="picas6.gif" tppabs="http://neemy.com/html/pic/picas6.gif"  border=0 align="right" hspace=2 vspace=4 alt=頭好暈><b><BR>
+框架就是 FRAME，用在很多地方喔，像你現在用的網頁模式其實就是一個框架的模式，不信你把滑鼠網左邊移動看看，會有一個地方出現←→喔，可以拉動改變視窗。不過如果框架沒有設定好，那參觀者可能就看到空白的網頁囉。如果應用的好，那就可以免去看一個網頁換一個網址的麻煩喔。
+</TD></TR></TABLE>
+
+<table width="96%" border="0" cellspacing="6" cellpadding="0" align="CENTER">
+<TR><td COLSPAN=2 BGCOLOR=F3F4F5>框架的觀念</TD></TR>
+<TR><TD bgcolor=fdfdfc>大家看右邊的圖示，其實框架就跟一個櫃子一樣，現在我們假裝右邊那個圖示是一個櫃子。
+<BR>我們把這個大櫃子叫做 index.htm (你也可以取其他的名字喔)
+<BR>紅色櫃子的地方我們要裝的東西是 a1.htm。櫃子裡顯示的就是 a1.htm 的內容。
+<BR>藍色櫃子的地方我們要裝的東西是 a2.htm。櫃子裡顯示的就是 a2.htm 的內容。
+<BR>黃色櫃子的地方我們要裝的東西是 a3.htm。櫃子裡顯示的就是 a3.htm 的內容。
+<BR>當然啦，什麼顏色的櫃子要裝哪一個 htm檔案是由我們決定的啊！</TD><TD><TABLE BORDER=1 height=100><TR><TD COLSPAN=2 BGCOLOR=RED>a1.htm</td></tr><tr><td bgcolor=blue>a2.htm</td><td bgcolor=yellow>a3.htm</td></tr></table></td></tr>
+</td></tr>
+<tr><td colspan=2>&nbsp;</td></tr>
+<tr><td colspan=2>&nbsp;</td></tr>
+
+<tr><td colspan=2 bgcolor=lightgreen>好啦，既然我們已經知道框架是什麼東西，那我們就開始使用框架囉。首先，先建立一個HTM檔案囉，隨便你命名啦！把下面這對原始碼複製並貼到你新開的文件中喔。<BR>
+&lt;HTML&gt;<br>
+&lt;HEAD&gt;<br>
+&lt;META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5"&gt;<br>
+&lt;META NAME="Author" CONTENT="這裡可以寫入作者的名字"&gt;<br>
+&lt;TITLE&gt;我也會作框架喔&lt;/TITLE&gt;<br>
+&lt;/HEAD&gt;<br>
+這裡就是你要編輯網頁的地方，也就是主要的精華喔。<br>
+&lt;/HTML&gt;<BR><BR>奇怪？不是要加&LT;BODY&GT;嗎？怎麼不見了？不用擔心啦，在框架的文件中，FRAMESET會取代BODY的啦。</TD></TR>
+
+<tr><td colspan=2 bgcolor=lightgreen>好了嗎？那我們要開始囉！</TD></TR>
+<TR><TD BGCOLOR=F1F3F5>網頁標籤</TD><TD BGCOLOR=GOLD></TD></TR>
+
+<TR><TD BGCOLOR=AQUA>
+&lt;HTML&gt;<br>
+&lt;HEAD&gt;<br>
+&lt;META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5"&gt;<br>
+&lt;META NAME="Author" CONTENT="這裡可以寫入作者的名字"&gt;<br>
+&lt;TITLE&gt;我也會作框架喔-左右分割兩部分-&lt;/TITLE&gt;<br>
+&lt;/HEAD&gt;<br>
+&lt;FRAMESET COLS="100,*" &gt;<BR>
+&lt;FRAME SRC="a1.htm" NAME="a1"&gt;<BR>
+&lt;FRAME SRC="a2.htm" NAME="a2"&gt;<BR>
+&lt;/FRAMESET&gt;<br>&lt;/HTML&gt;
+</TD><TD BGCOLOR=PINK align=center><table border=1 height=100><tr><td bgcolor=aqua>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td bgcolor=blue>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr></table></TD></TR>
+
+<TR><TD BGCOLOR=AQUA>
+&lt;HTML&gt;<br>
+&lt;HEAD&gt;<br>
+&lt;META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5"&gt;<br>
+&lt;META NAME="Author" CONTENT="這裡可以寫入作者的名字"&gt;<br>
+&lt;TITLE&gt;我也會作框架喔-上下分割兩部分-&lt;/TITLE&gt;<br>
+&lt;/HEAD&gt;<br>
+&lt;FRAMESET ROWS="100,*" &gt;<BR>
+&lt;FRAME SRC="a1.htm" NAME="a1"&gt;<BR>
+&lt;FRAME SRC="a2.htm" NAME="a2"&gt;<BR>
+&lt;/FRAMESET&gt;<br>&lt;/HTML&gt;
+</TD><TD BGCOLOR=PINK align=center><table border=1 height=100><tr><td bgcolor=aqua>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><TR><td bgcolor=blue>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr></table></TD></TR>
+
+
+
+<TR><TD BGCOLOR=AQUA>
+&lt;HTML&gt;<br>
+&lt;HEAD&gt;<br>
+&lt;META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5"&gt;<br>
+&lt;META NAME="Author" CONTENT="這裡可以寫入作者的名字"&gt;<br>
+&lt;TITLE&gt;我也會作框架喔-左右分割兩部分，右邊分割上下-&lt;/TITLE&gt;<br>
+&lt;/HEAD&gt;<br>
+&lt;FRAMESET COLS="100,*" &gt;<BR>
+&lt;FRAME SRC="a1.htm" NAME="a1"&gt;<BR>
+&lt;FRAMESET ROWS="50,*" &gt;<BR>
+&lt;FRAME SRC="a2.htm" NAME="a1"&gt;<BR>
+&lt;FRAME SRC="a3.htm" NAME="a1"&gt;<BR>
+&lt;/FRAMESET&gt;<br>&lt;/HTML&gt;
+
+</TD><TD BGCOLOR=PINK align=center><table border=1 height=100><tr><td bgcolor=aqua rowspan=2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td bgcolor=blue>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr><tr><td bgcolor=blue>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr></table></TD></TR>
+<tr><td colspan=2 BGCOLOR=LIGHTGREEN>在上面我們看到的，我們先把第一個地方(a1)裝滿了，我們現在想要分割右邊的區域，我們又用了一次&lt;FRAMESET&GT;的指令，跟上面的比較看看，是不是很像啊。同樣的道理，你也可以繼續分割其他的區塊喔。
+<tr><td colspan=2>&nbsp;</td></tr>
+
+<TR><TD BGCOLOR=AQUA>
+&lt;HTML&gt;<br>
+&lt;HEAD&gt;<br>
+&lt;META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5"&gt;<br>
+&lt;META NAME="Author" CONTENT="這裡可以寫入作者的名字"&gt;<br>
+&lt;/HEAD&gt;<br>
+&lt;TITLE&gt;我也會作框架喔-左右分割三部分-&lt;/TITLE&gt;<br>
+&lt;FRAMESET COLS="100,100,*" &gt;<BR>
+&lt;FRAME SRC="a1.htm" NAME="a1"&gt;<BR>
+&lt;FRAME SRC="a2.htm" NAME="a2"&gt;<BR>
+&lt;FRAME SRC="a3.htm" NAME="a3"&gt;<BR>
+&lt;/FRAMESET&gt;<br>&lt;/HTML&gt;
+</TD><TD BGCOLOR=PINK align=center><table border=1 height=100><tr><td bgcolor=aqua>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td bgcolor=aqua>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td bgcolor=blue>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr></table></TD></TR>
+<TR><TD BGCOLOR=AQUA>
+&lt;HTML&gt;<br>
+&lt;HEAD&gt;<br>
+&lt;META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5"&gt;<br>
+&lt;META NAME="Author" CONTENT="這裡可以寫入作者的名字"&gt;<br>
+&lt;TITLE&gt;我也會作框架喔-上下分割三部分-&lt;/TITLE&gt;<br>
+&lt;/HEAD&gt;<br>
+&lt;FRAMESET ROWS="100,100,*" &gt;<BR>
+&lt;FRAME SRC="a1.htm" NAME="a1"&gt;<BR>
+&lt;FRAME SRC="a2.htm" NAME="a2"&gt;<BR>
+&lt;FRAME SRC="a3.htm" NAME="a3"&gt;<BR>
+&lt;/FRAMESET&gt;<br>&lt;/HTML&gt;
+
+</TD><TD BGCOLOR=PINK align=center><table border=1 height=100><tr><td bgcolor=aqua>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><TR><td bgcolor=blue>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr><tr><td bgcolor=aqua>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></table></TD></TR>
+<tr><td colspan=2 BGCOLOR=LIGHTGREEN>在上面我們看到的，&lt;FRAMESET ROWS="100,*"&gt;中的
+<br>FRAMESET就是告訴瀏覽器我們要分割視窗了，
+<br>COLS是告訴瀏覽器我們要分割成左右兩部分，
+<br>ROWS是告訴瀏覽器我們要分割成上下兩部分，後面的數字是代表分割所佔的比例，如果你要分割成左右共三部分，你就該寫成&lt;FRAMESET COLS="數字一、數字二,*"&gt;的形式。
+<br>&lt;FRAME SRC="a3.htm" NAME="a3"&gt;中的NAME代表你給這個框架(櫃子)的名字，框架名稱必須不一樣喔。而
+<br>FRAME SRC="???.htm" 是框架中目標的網頁檔案。<BR>
+</td></tr>
+
+<tr><td colspan=2 BGCOLOR=YELLOW>進階標籤說明。</TD>
+<TR><tr><td>&LT;FRAMESET COLS="100,*" frameborder="0" framespacing="5"&GT;<BR>
+<LI>COLS="100,*"<br>就是畫面左右分割，比例為100和剩下空間。
+<LI>ROWS="100,*"<br>就是畫面上下分割，比例為100和剩下空間。
+<LI>frameborder="0"<BR>"0"代表不要邊框，"1"代表要邊框。
+<li>framespacing="5"<br>框架與框架間的保留空白的距離，以免太擠。
+<BR><BR>
+&LT;FRAME SRC="a1.htm" NAME="a1" frameborder=0 scrolling="no" noresize marginhight=2 marginwidth=2&GT;
+<li>SRC="a1.htm"<br>
+設定此框架中要顯示的網頁名稱，每個框架一定要對應一個網頁，否則就會產生錯誤，這裡就是要您填入對應網頁的名稱。（如果該網頁在不同目錄，記得路徑要寫清楚） 
+
+<LI>NAME="1"<br>
+設定這個框架的名稱，這樣才能指定框架來作連結，所以一定要設定喔！當然名稱隨你高興取名。 
+
+<LI>frameborder=0<br>
+設定框架的邊框，"0"代表不要邊框，"1"代表要邊框。
+
+<li>scrolling="no"<BR>
+設定是否要顯示捲軸，YES是要顯示捲軸，NO是無論如何都不要顯示，AUTO是視情況顯示。
+
+<LI>noresize<br>
+使用者不能改變這個邊框顯示範圍的大小。
+
+<LI>marginhight=2<BR>
+表示框架高度部份邊緣所保留的空間。 
+
+<LI>marginwidth=2<BR>
+表示框架寬度部份邊緣所保留的空間。 
+</td></tr>
+
+<tr><td colspan=2 BGCOLOR=PINK>網頁的TARGET</TD><tr><td>
+如果我們的網頁a1.htm 中有一個連結，我們希望他的連結內容出現在 a3 的框架中，我們應該輸入<br>
+&LT;a href="連結位址" TARGET="a3"&GT;連結文字&LT;/A&GT;<BR>這樣一來我們只要按這個連結，畫面就會出現在 a3 的框架中喔。
+<td><TABLE BORDER=1 height=100><TR><TD COLSPAN=2 BGCOLOR=RED>a1.htm</td></tr><tr><td bgcolor=blue>a2.htm</td><td bgcolor=yellow>a3.htm</td></tr></table></td></tr>

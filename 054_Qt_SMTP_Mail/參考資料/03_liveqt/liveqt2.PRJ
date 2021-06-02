@@ -1,0 +1,39 @@
+[Project ID]
+Signature=UE Proj: v.1
+[Project Information]
+Project Directory=\\Tekkamaki\rmd\LiveQt2\
+Use Relative Directory=1
+Relative to Project File=0
+Project Wordfile=
+[Open Files]
+Open File0=\\Tekkamaki\rmd\LiveQt2\ljinterface.h
+Active File Display Mode=3
+Open File Pos0=1802
+Open File Line0=1483
+Open File Window Pos0=0,1,-1,-1,-4,-23,22,22,664,428
+Open File1=\\Tekkamaki\rmd\LiveQt2\ljinterface.cpp
+Open File Pos1=4891
+Open File Line1=554
+Open File Window Pos1=2,3,-1,-1,-4,-23,44,44,690,454
+Open File2=\\Tekkamaki\rmd\LiveQt2\ljhttp.h
+Open File Pos2=975
+Open File Line2=549
+Active File Index=1
+Open File Window Pos2=0,1,-1,-1,-4,-23,66,66,712,476
+Open File3=\\Tekkamaki\rmd\LiveQt2\ljhttp.cpp
+Open File Pos3=2743
+Open File Line3=2743
+Open File Window Pos3=0,1,-1,-1,-4,-23,66,66,712,476
+Open File4=
+[File View]
+Current Select=Open Files\
+[Group]
+1=
+[Files]
+0=liveqt.pro
+1=ljconfigparser.h
+2=ljhttp.cpp
+3=ljhttp.h
+4=ljinterface.cpp
+5=ljinterface.h
+6=main.cpp

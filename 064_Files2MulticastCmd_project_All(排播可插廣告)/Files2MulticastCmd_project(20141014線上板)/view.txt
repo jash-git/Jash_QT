@@ -1,0 +1,2 @@
+http://192.168.0.93/live/jash.stream/playlist.m3u8?pf=monitor
+http://192.168.0.72:9090/udp/224.8.8.130:13011

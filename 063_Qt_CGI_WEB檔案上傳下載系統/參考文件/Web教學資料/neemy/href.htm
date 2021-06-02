@@ -1,0 +1,81 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+<META NAME="Author" CONTENT="心靈版豬-WHY製作">
+<TITLE>網路之精神.....超連結的使用方法</TITLE>
+</HEAD><center>
+<body bgcolor=f1f1dd link=blue alink=red vlink=#87cefd background="100.gif" tppabs="http://neemy.com/html/pic/100.gif">
+
+<table border=0 width=96%>
+<TR><TD colspan=2><img SRC="pic19.gif" tppabs="http://neemy.com/html/pic/pic19.gif" border=0 align="right" hspace=8 vspace=4>網頁上是不是常常看到一大沱連結呢？該如何在自己的網頁中加上連結呢？</td></tr></table>
+</FONT></TD></TR></TABLE><P>
+
+
+
+<table width="96%" border="0" cellspacing="3" cellpadding="3" align="CENTER">
+<TR><TD bgcolor=ffffdd>連結標籤</TD><TD bgcolor=ffffdd>連結類型</td></tr>
+
+<TR><td bgcolor=ffff00>一般網頁連結<TD bgcolor=ffff00><img src="11.gif" tppabs="http://neemy.com/html/pic/11.gif" alt="這裡很重要喔，一定要多加練習" align=right valign=center>&lt;a href="連結的網頁"&gt;連結的網頁&lt;/a&gt;，站長比較喜歡使用相對路徑來作連結，相對路徑和絕對路徑的觀念請看左邊。</td></tr>
+<tr><td bgcolor=ffff00>範例：<td bgcolor=ffff00>&lt;a href="http://www.neemy.com"&gt;一般網頁連結&lt;/a&gt;<BR>
+<a href="javascript:if(confirm('http://www.neemy.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.neemy.com/'" tppabs="http://www.neemy.com/">一般網頁連結</a></td></tr>
+
+<tr><td bgcolor=aqua>電子郵件連結<td bgcolor=aqua>&lt;a href="mailto:連結信箱"&gt;連結信箱&lt;/a&gt;</td></tr>
+<tr><td bgcolor=aqua>範例：<td  bgcolor=aqua>&lt;a href="mailto:money2u@pchome.com.tw"&gt;電子郵件連結&lt;/a&gt;<BR>
+<a href="mailto:money2u@pchome.com.tw">電子郵件連結</a><BR>
+&lt;a href="mailto:money2u@pchome.com.tw?SUBJECT=信件的標題"&gt;電子郵件連結&lt;/a&gt;<BR>
+<a href="mailto:money2u@pchome.com.tw?SUBJECT=信件的標題">電子郵件連結</a></td></tr>
+<tr><td bgcolor=ffffcd>FTP主機連結<td bgcolor=ffffcd>&lt;a href="FTP主機"&gt;連結信箱&lt;/a&gt;</td></tr>
+<tr><td bgcolor=ffffcd>範例：<td bgcolor=ffffcd>&lt;a href="ftp://ftp.seed.net.tw"&gt;一般網頁連結&lt;/a&gt;<BR>
+<a href="javascript:if(confirm('ftp://ftp.seed.net.tw/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='ftp://ftp.seed.net.tw/'" tppabs="ftp://ftp.seed.net.tw/">FTP主機連結</a></td></tr>
+
+
+<tr><td bgcolor=pink>新聞主機連結<td bgcolor=pink>&lt;a href="news:NEWS主機"&gt;連結信箱&lt;/a&gt;</td></tr>
+<tr><td bgcolor=pink>範例：<td bgcolor=pink>&lt;a href="news:news.seed.net.tw"&gt;新聞主機連結&lt;/a&gt;<BR>
+<a href="news:news.seed.net.tw">新聞主機連結</a></td></tr>
+
+<tr><td bgcolor=00ff00>GOPHER連結<td bgcolor=00ff00>&lt;a href="gopher://GOPHER主機"&gt;連結信箱&lt;/a&gt;</td></tr>
+<tr><td bgcolor=00ff00>範例：<td bgcolor=00ff00>&lt;a href="gopher://gopher.seed.net.tw"&gt;GOPHER連結&lt;/a&gt;<BR>
+<a href="javascript:if(confirm('gopher://gopher.seed.net.tw/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?'))window.location='gopher://gopher.seed.net.tw/'" tppabs="gopher://gopher.seed.net.tw/">GOPHER連結</a></td></tr>
+
+<tr><td bgcolor=lightgreen>BBS連結<td bgcolor=lightgreen>&lt;a href="telnet://BBS主機"&gt;連結信箱&lt;/a&gt;</td></tr>
+<tr><td bgcolor=lightgreen>範例：<td bgcolor=lightgreen>&lt;a href="telnet://163.15.175.23"&gt;BBS連結&lt;/a&gt;<BR>
+<a href="telnet://163.15.175.23">BBS連結</a></td></tr>
+<tr><td colspan=2>&nbsp;</td></tr><tr><td colspan=2>&nbsp;</td></tr><tr><td colspan=2 background="picas11.gif" tppabs="http://neemy.com/html/pic/picas11.gif">&nbsp;</td></tr>
+<tr><td colspan=2 bgcolor=ffffdd>網頁的目標位置(TARGET)</td></tr>
+<tr><td colspan=2 bgcolor=fffffc>通常使用在框架模式或是另外開視窗的狀態下，主要的使用方法為： <LI>TARGET="框架名稱"<BR>
+其參數如下 
+<LI>target="_blank"
+<BR>開一個新的視窗顯示網頁內容。<BR><BR>
+<LI>target="_parent"
+<br>將連結的畫面內容，當成文件的上一個畫面。 <BR><BR>
+<LI>target="_self"
+<br>將連結顯示在目前的視窗之中。<BR><BR>
+<LI>target="_top"
+<BR>連結顯示時占滿整個視窗。<BR><BR>
+範例：&lt;a href="href.htm" target="_blank"&gt;開新視窗&lt;/a&gt;<BR>
+<a href="href.htm" tppabs="http://neemy.com/html/html/href.htm" target=_blank>開新視窗</a><br>
+</td></tr>
+<tr><td colspan=2>&nbsp;</td></tr><tr><td colspan=2>&nbsp;</td></tr>
+<tr><td colspan=2 bgcolor=lightgreen>網頁內部的連結製作法</td></tr>
+<tr><td colspan=2 bgcolor=fffff0>先在連結處作記號：<BR>&lt;A NAME="A1"&gt;想連結的點&lt;/A&gt;<BR>
+設定連結：&lt;A HREF="#A1"&gt;連結&lt;/A&gt; </td></tr>
+</td></tr>
+<tr><td colspan=2 bgcolor=aqua>進階技巧-連結介紹-JAVASCRIPT</td></tr>
+<tr><td colspan=2 bgcolor=fffff0>
+範例：<BR>
+&lt;A href="href.htm" OnmouseOver="window.status='這裡可以填入網頁介紹的內容，滑鼠移過時就會顯示在下面的狀態列喔。';return true;" OnMouseOut="window.status=' ';"&gt;把滑鼠靠過來看看&lt;/A&gt;
+
+<BR><BR>結果：<BR>
+<A href="href.htm" tppabs="http://neemy.com/html/html/href.htm" OnmouseOver="window.status='這裡可以填入網頁介紹的內容，滑鼠移過時就會顯示在下面的狀態列喔。';return true;" OnMouseOut="window.status=' ';">把滑鼠靠過來看看</A>
+<tr><td colspan=2 bgcolor=aqua>進階技巧-連結變色-CSS(Cascading Style Sheets)</td></tr>
+<tr><td colspan=2 bgcolor=fffff0>
+把下面的這堆文字複製起來，貼在&LT;/HEAD&GT;之前就可以啦。<br><br>
+&lt;STYLE type=text/css&gt;<br>
+A:link {COLOR: #0000ff; FONT-SIZE: 12pt; TEXT-DECORATION: none; font-family: 標楷體}<br>
+A:visited {COLOR: #0000ff; FONT-SIZE: 12pt; TEXT-DECORATION: none; font-family: 標楷體}<br>
+A:ACTIVE {COLOR: #00FFff; FONT-SIZE: 12pt; TEXT-DECORATION: none; font-family: 標楷體}<br>
+A:hover {BACKGROUND-COLOR: red; COLOR: white; FONT-SIZE: 13pt; TEXT-DECORATION: none; font-family: 標楷體}<br>
+&lt;/STYLE&gt;<br>
+</TD></TR>
+</table>
+
