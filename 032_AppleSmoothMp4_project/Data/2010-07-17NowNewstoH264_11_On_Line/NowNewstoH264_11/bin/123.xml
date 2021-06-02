@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NowNewsMediaList OrderDate="2010-06-23 10:26:16" MediaType="h264" TotalItem="5">
+  <Items id="47038">
+    <mi_id>47038</mi_id>
+    <sn>1032334</sn>
+    <server_path><![CDATA[nownews/]]></server_path>
+    <file_name>v1032334.wmv</file_name>
+    <file_size>2685569</file_size>
+    <tw_name><![CDATA[麻疹恐爆社區感染 新3例接觸上千]]></tw_name>
+    <publish_date>2010-06-23 09:24:00</publish_date>
+    <destination_path><![CDATA[h264/nownews/]]></destination_path>
+  </Items>
+  <Items id="47039">
+    <mi_id>47039</mi_id>
+    <sn>1032335</sn>
+    <server_path><![CDATA[nownews/]]></server_path>
+    <file_name>v1032335.wmv</file_name>
+    <file_size>8533911</file_size>
+    <tw_name><![CDATA[堆鞭炮爆炸 民宅大火警消搶救]]></tw_name>
+    <publish_date>2010-06-23 09:32:00</publish_date>
+    <destination_path><![CDATA[h264/nownews/]]></destination_path>
+  </Items>
+  <Items id="47040">
+    <mi_id>47040</mi_id>
+    <sn>1032336</sn>
+    <server_path><![CDATA[nownews/]]></server_path>
+    <file_name>v1032336.wmv</file_name>
+    <file_size>6133761</file_size>
+    <tw_name><![CDATA[李李仁挨轟 陶子護夫節目call out]]></tw_name>
+    <publish_date>2010-06-23 09:36:00</publish_date>
+    <destination_path><![CDATA[h264/nownews/]]></destination_path>
+  </Items>
+  <Items id="47041">
+    <mi_id>47041</mi_id>
+    <sn>1032337</sn>
+    <server_path><![CDATA[nownews/]]></server_path>
+    <file_name>v1032337.wmv</file_name>
+    <file_size>3357599</file_size>
+    <tw_name><![CDATA[收容人當提款機 管理員重判19年]]></tw_name>
+    <publish_date>2010-06-23 09:38:00</publish_date>
+    <destination_path><![CDATA[h264/nownews/]]></destination_path>
+  </Items>
+  <Items id="47042">
+    <mi_id>47042</mi_id>
+    <sn>1032338</sn>
+    <server_path><![CDATA[nownews/]]></server_path>
+    <file_name>v1032338.wmv</file_name>
+    <file_size>9021947</file_size>
+    <tw_name><![CDATA[國道3車禍 貨車爆胎撞上水泥車]]></tw_name>
+    <publish_date>2010-06-23 09:44:00</publish_date>
+    <destination_path><![CDATA[h264/nownews/]]></destination_path>
+  </Items>
+</NowNewsMediaList>

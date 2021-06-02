@@ -1,0 +1,5 @@
+cd /usr/local/WowzaMediaServercd
+cd bin
+sudo ./startup.sh
+
+vlc rtsp://127.0.0.1/live/test.stream

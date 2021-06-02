@@ -1,0 +1,24 @@
+#include <QDateTime>
+
+SystemTime::SystemTime(QWidget *parent)
+    : QMainWindow(parent)
+{
+	ui.setupUi(this);
+	setWindowTitle("System Time");
+	ui.statusbar->showMessage("Showing system time");
+ 
+	//get current date
+	QDate date = QDate::currentDate();
+	QString dateString = date.toString();
+	ui.label->setText("Date: " + dateString);
+ 
+	//get current time
+	QTime time = QTime::currentTime();
+	QString timeString = time.toString();
+	ui.label_2->setText("Time: " + timeString);
+ 
+	//get current date and time
+	QDateTime dateTime = QDateTime::currentDateTime();
+	QString dateTimeString = dateTime.toString();
+	ui.label_3->setText("Date and Time: " + dateTimeString);
+}

@@ -1,0 +1,9 @@
+currentPath:	/home/jash/Qt4_project/ReadXml03/bin/
+Name	VC1
+Page	10
+Name	VC2
+Page	20
+Name	VC3
+Page	30
+Name	VC4
+Page	40

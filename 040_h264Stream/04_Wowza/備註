@@ -1,0 +1,8 @@
+啟動WOWZA
+啟動VLC_VLM
+啟動FFMPEG
+FFMPEG 輸出 upd://@:1233
+VLC_VLM 輸出 rtp://127.0.0.1:1234
+WOWZA 輸出 rtsp://127.0.0.1/live/test.stream
+最後 vlc rtsp://127.0.0.1/live/test.stream
+

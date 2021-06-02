@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<appSetting>
+	<PlayListUrl><![CDATA[http://xpe5tv.tw-airnet.net/_admin/module/film_schedule_edit_v2_model.php?channel=livebase&action=get_xml]]></PlayListUrl>
+	<LiveMulticastUrl><![CDATA[udp://@235.1.1.55:1231]]></LiveMulticastUrl>
+	<MulticastPar01><![CDATA[--udp-caching=60000 --sout-mux-caching=6000 --sout-ts-pid-video=69 --sout-ts-pid-audio=68 --sout-keep --sout '#transcode{fps=29.97,venc=x264{keyint=630,profile=main,level=3,bframes=0,no-cabac,ref=1,no-mbtree,partitions=none,no-weightb,weightp=0,me=hex,subme=0,no-mixed-refs,no-8x8dct,trellis=0},vcodec=h264,vb=3000,width=704,height=480,acodec=mp2a,alang=eng,ab=128,channels=2,samplerate=48000}:udp{mux=ts,dst=127.0.0.1:1239}']]></MulticastPar01>
+	<MulticastPar02><![CDATA[vlc udp://@127.0.0.1:1239 --udp-caching=60000 --sout-mux-caching=6000 --sout-ts-pid-video=69 --sout-ts-pid-audio=68 --sout-keep --sout '#udp{mux=ts,dst=224.8.8.3:1239}']]></MulticastPar02>
+	<BaseUrl><![CDATA[udp://@224.8.8.3:1238]]></BaseUrl>
+	<LivePar><![CDATA[--udp-caching=60000 --sout-mux-caching=6000 --sout-ts-pid-video=69 --sout-ts-pid-audio=68 --sout-keep --sout '#transcode{fps=29.97,venc=x264{keyint=630,profile=main,level=3,bframes=0,no-cabac,ref=1,no-interlaced,aq-mode=0,no-mbtree,partitions=none,no-weightb,weightp=0,me=hex,subme=0,no-mixed-refs,no-8x8dct,trellis=0},vcodec=h264,vb=3000,width=704,height=480,deinterlace,acodec=mp2a,alang=eng,ab=128,channels=2,samplerate=48000}:udp{mux=ts,dst=127.0.0.1:1239}']]></LivePar>
+</appSetting>

@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>view.html</file>
+        <file>jquery.js</file>
+        <file>signal.js</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,5 @@
+01.單純輸出UDP串流，VLC可以撥放正常不會中斷
+02.單傳輸出RTSP的VOD版，VLC可以撥放會中斷
+03.將FFMPEG輸出UDP透過VLC轉換成RTP，VLC可以撥放正常不會中斷
+04.將VLC輸出RTP透過WOWZA轉換成RTSP，VLC可以撥放正常不會中斷[OK]
+05.將FFMPEG的部分換成VLC 實現可以指定影片時間 開始transcode[OK]

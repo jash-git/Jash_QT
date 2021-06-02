@@ -1,0 +1,10 @@
+Pixmap = QPixmap::grabWindow(QApplication::desktop()->winId());
+
+Use the above code.... 
+
+ffmpeg -r 3 -f image2 -i /path/to/image/directory/prefix%d.jpg /path/to/destination.avi
+
+-r fps
+Set frame rate (Hz value, fraction or abbreviation), (default = 25).
+
+http://blog.csdn.net/jixiuffff/article/details/5709976

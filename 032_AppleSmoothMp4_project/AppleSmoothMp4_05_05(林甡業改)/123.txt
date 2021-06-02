@@ -1,0 +1,65 @@
+20
+A9909001/
+m00359.wmv
+A9909001
+m00359_iphone_cell.smil
+src="mp4:../videos/m00359_64k.mp4" system-bitrate="64000"
+src="mp4:../videos/m00359_150k.mp4" system-bitrate="150000"
+src="mp4:../videos/m00359_240k.mp4" system-bitrate="240000"
+A9909001
+m00359_iphone_wifi.smil
+src="mp4:../videos/m00359_440k.mp4" system-bitrate="440000"
+src="mp4:../videos/m00359_640k.mp4" system-bitrate="640000"
+A9909001
+m00359_iphone_all.smil
+src="mp4:../videos/m00359_64k.mp4" system-bitrate="64000"
+src="mp4:../videos/m00359_150k.mp4" system-bitrate="150000"
+src="mp4:../videos/m00359_240k.mp4" system-bitrate="240000"
+src="mp4:../videos/m00359_440k.mp4" system-bitrate="440000"
+src="mp4:../videos/m00359_640k.mp4" system-bitrate="640000"
+**************
+480x320
+24000
+40000
+44.1
+1
+3
+A9909001/
+m00359_64k.mp4
+**************
+400x300
+110000
+40000
+44.1
+10
+30
+A9909001/
+m00359_150k.mp4
+**************
+400x300
+200000
+40000
+44.1
+15
+45
+A9909001/
+m00359_240k.mp4
+**************
+400x300
+400000
+40000
+44.1
+29.97
+90
+A9909001/
+m00359_440k.mp4
+**************
+400x300
+600000
+40000
+44.1
+29.97
+90
+A9909001/
+m00359_640k.mp4
+**************

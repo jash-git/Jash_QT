@@ -1,0 +1,4 @@
+lesson01:大陸範例修改程可以在Qt4上執行
+Qt_opengl_2dpainting:Qt4本身範例
+cube_fun1:當初在實驗室H檔引用範例[重點要透過安裝套件管理工具安裝 glut套件]
+cube_fun2:可旋轉 但發現正方體像長方體

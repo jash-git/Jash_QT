@@ -1,0 +1,15 @@
+<smil>
+	<head>
+	</head>
+	<body>
+		<switch>
+			<video src="mp4:videos/23184_64k.mp4" system-bitrate="64000"/>
+			<video src="mp4:videos/23184_150k.mp4" system-bitrate="150000"/>
+			<video src="mp4:videos/23184_240k.mp4" system-bitrate="240000"/>
+			<video src="mp4:videos/23184_440k.mp4" system-bitrate="440000"/>
+			<video src="mp4:videos/23184_640k.mp4" system-bitrate="640000"/>
+			<video src="mp4:videos/23184_840k.mp4" system-bitrate="840000"/>
+			<video src="mp4:videos/23184_1240k.mp4" system-bitrate="1240000"/>
+		</switch>
+	</body>
+</smil>

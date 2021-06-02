@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<appSetting>
+	<shscriptfile>test.sh</shscriptfile>
+	<NetEndPath>/home/chst01/VIDEO/video/h264/</NetEndPath>
+	<NetStartPath>/home/chst01/VIDEO/video/</NetStartPath>	
+	<StartPath>/home/chst01/50G/WMV_local/</StartPath>
+	<EndPath>/home/chst01/50G/H264_local/</EndPath>
+	<HostType>ver=v2</HostType>
+</appSetting>

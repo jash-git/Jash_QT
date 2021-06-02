@@ -1,0 +1,5 @@
+test_QProcess_01->單純呼叫Mplayer 播放影片
+test_QProcess_02->單純呼叫Mplayer 播放影片並等待程式執行完成關閉自己
+test_QProcess_03->呼叫SH檔執行轉檔並等待程式程式執行完成關閉自己
+callexe_01->呼叫單一執行檔，並用Timer來偵測呼叫的程式是否已結束
+CallAnyExe_01->可以自行定義呼叫程式，並取出相關回應訊息並顯示

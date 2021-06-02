@@ -1,0 +1,17 @@
+09 修正DB存取方式 只開一次 最後一筆之後停止TIMER動作
+10 修正RunVLCInputBash 將原本的BASH 替換成直接呼叫VLC 實現直接控制
+11 最後一筆之後停止TIMER動作並關閉DB和自己本身
+12 修改StrData.replace("base","./Base.mp4");
+13 修改
+	StrData.replace("smooth/","/m2/smooth/");
+	StrData.replace("c:\\Base_1240k.mp4","./Base.mp4");
+14 新增 無XML清單的防呆函數
+15 新增 XML參數 適用live-base清單
+16 新增 將 LIVE 和 墊檔 的 VLC 參數分離
+17 新增兩個參數讓程是可以任意設定呼叫VLC或FFMPEG、再標題列顯示目前程式所在路徑方便區別
+18 直接破壞原本架構把原本RunVLCInputBash(int intswitch)函數改成直接呼教固定的ffmpeg_vlc.sh 不在呼叫VLC或FFMPEG
+19 從18修正 為了解決跨天就死掉 另外系統時間要調整成24小時制
+20 新增啟始時間計算功能
+21 修正LIVE產生SH的功能
+20120905multicast_playlistconfig[mpege2].zip 將轉檔參數設定成mpege2 備份
+20120911Multicast_Playlist.tar.gz 線上所有程式和參數檔 備份

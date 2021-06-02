@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<appSetting>
+	<PlayListUrl><![CDATA[http://xpe5tv.tw-airnet.net/_admin/module/film_schedule_edit_v2_model.php?channel=livebase&action=get_xml]]></PlayListUrl>
+	<LiveMulticastUrl><![CDATA[rtsp://61.67.123.92/live/cctv4_440k.stream]]></LiveMulticastUrl>
+	<MulticastPar01><![CDATA[--sout '#transcode{venc=x264,vcodec=h254,acodec=mp4a}:udp{mux=ts,dst=224.1.1.1:1234}']]></MulticastPar01>
+	<MulticastPar02><![CDATA[vlc udp://@224.1.1.1:1234]]></MulticastPar02>
+	<BaseUrl><![CDATA[mms://61.67.123.85/test_hhh]]></BaseUrl>
+	<LivePar><![CDATA[--sout-keep --sout '#udp{mux=ts,dst=224.8.8.3:1239}']]></LivePar>
+</appSetting>

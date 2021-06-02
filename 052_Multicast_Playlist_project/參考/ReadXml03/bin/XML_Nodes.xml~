@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AppSetting>
+	<BOOKS>
+		<BOOK>
+		<Name>VC1</Name>
+		</BOOK>
+		<BOOK>
+		<Name>VC2</Name>
+		</BOOK>
+		<BOOK>
+		<Name>VC3</Name>
+		</BOOK>
+		<BOOK>
+		<Name>VC4</Name>
+		</BOOK>
+	</BOOKS>
+</AppSetting>

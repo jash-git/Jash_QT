@@ -1,0 +1,11 @@
+<smil>
+	<head>
+	</head>
+	<body>
+		<switch>
+			<video src="mp4:videos/23184_150k.mp4" system-bitrate="150000"/>
+			<video src="mp4:videos/23184_240k.mp4" system-bitrate="240000"/>
+			<video src="mp4:videos/23184_440k.mp4" system-bitrate="440000"/>
+		</switch>
+	</body>
+</smil>

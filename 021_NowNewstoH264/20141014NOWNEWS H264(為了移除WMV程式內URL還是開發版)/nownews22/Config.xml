@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<appSetting>
+	<shscriptfile>test.sh</shscriptfile>
+	<NetEndPath>/home/jash/avdata2/smooth/</NetEndPath>
+	<NetStartPath>/home/jash/avdata3/</NetStartPath>	
+	<StartPath>/home/jash/wmv/</StartPath>
+	<EndPath>/home/jash/mp4/</EndPath>
+</appSetting>

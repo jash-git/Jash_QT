@@ -1,0 +1,9 @@
+<smil>
+	<head>
+	</head>
+	<body>
+		<switch>
+			<video src="mp4:Movie01_400K.mp4" system-bitrate="400000"/>
+		</switch>
+	</body>
+</smil>

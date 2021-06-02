@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<work>
+<work_id>20</work_id>
+<source_path><![CDATA[A9909001\]]></source_path>
+<source_filename><![CDATA[m00359.wmv]]></source_filename>
+<encodes>
+<encode>
+<dimension><![CDATA[480x320]]></dimension>
+<video_bitrate><![CDATA[24000]]></video_bitrate>
+<audio_bitrate><![CDATA[40000]]></audio_bitrate>
+<audio_sample_rate><![CDATA[44.1]]></audio_sample_rate>
+<frame_rate><![CDATA[1]]></frame_rate>
+<keyframe><![CDATA[3]]></keyframe>
+<destination_path><![CDATA[A9909001\]]></destination_path>
+<destination_filename><![CDATA[m00359_64k.mp4]]></destination_filename>
+</encode>
+<encode>
+<dimension><![CDATA[400x300]]></dimension>
+<video_bitrate><![CDATA[110000]]></video_bitrate>
+<audio_bitrate><![CDATA[40000]]></audio_bitrate>
+<audio_sample_rate><![CDATA[44.1]]></audio_sample_rate>
+<frame_rate><![CDATA[10]]></frame_rate>
+<keyframe><![CDATA[30]]></keyframe>
+<destination_path><![CDATA[A9909001\]]></destination_path>
+<destination_filename><![CDATA[m00359_150k.mp4]]></destination_filename>
+</encode>
+<encode>
+<dimension><![CDATA[400x300]]></dimension>
+<video_bitrate><![CDATA[200000]]></video_bitrate>
+<audio_bitrate><![CDATA[40000]]></audio_bitrate>
+<audio_sample_rate><![CDATA[44.1]]></audio_sample_rate>
+<frame_rate><![CDATA[15]]></frame_rate>
+<keyframe><![CDATA[45]]></keyframe>
+<destination_path><![CDATA[A9909001\]]></destination_path>
+<destination_filename><![CDATA[m00359_240k.mp4]]></destination_filename>
+</encode>
+<encode>
+<dimension><![CDATA[400x300]]></dimension>
+<video_bitrate><![CDATA[400000]]></video_bitrate>
+<audio_bitrate><![CDATA[40000]]></audio_bitrate>
+<audio_sample_rate><![CDATA[44.1]]></audio_sample_rate>
+<frame_rate><![CDATA[29.97]]></frame_rate>
+<keyframe><![CDATA[90]]></keyframe>
+<destination_path><![CDATA[A9909001\]]></destination_path>
+<destination_filename><![CDATA[m00359_440k.mp4]]></destination_filename>
+</encode>
+<encode>
+<dimension><![CDATA[400x300]]></dimension>
+<video_bitrate><![CDATA[600000]]></video_bitrate>
+<audio_bitrate><![CDATA[40000]]></audio_bitrate>
+<audio_sample_rate><![CDATA[44.1]]></audio_sample_rate>
+<frame_rate><![CDATA[29.97]]></frame_rate>
+<keyframe><![CDATA[90]]></keyframe>
+<destination_path><![CDATA[A9909001\]]></destination_path>
+<destination_filename><![CDATA[m00359_640k.mp4]]></destination_filename>
+</encode>
+</encodes>
+<smils>
+<smil>
+<destination_path><![CDATA[A9909001\]]></destination_path>
+<destination_filename><![CDATA[m00359_iphone_cell.smil]]></destination_filename>
+<video><![CDATA[src="mp4:../videos/m00359_64k.mp4" system-bitrate="64000"]]></video>
+<video><![CDATA[src="mp4:../videos/m00359_150k.mp4" system-bitrate="150000"]]></video>
+<video><![CDATA[src="mp4:../videos/m00359_240k.mp4" system-bitrate="240000"]]></video>
+</smil>
+<smil>
+<destination_path><![CDATA[A9909001\]]></destination_path>
+<destination_filename><![CDATA[m00359_iphone_wifi.smil]]></destination_filename>
+<video><![CDATA[src="mp4:../videos/m00359_440k.mp4" system-bitrate="440000"]]></video>
+<video><![CDATA[src="mp4:../videos/m00359_640k.mp4" system-bitrate="640000"]]></video>
+</smil>
+<smil>
+<destination_path><![CDATA[A9909001\]]></destination_path>
+<destination_filename><![CDATA[m00359_iphone_all.smil]]></destination_filename>
+<video><![CDATA[src="mp4:../videos/m00359_64k.mp4" system-bitrate="64000"]]></video>
+<video><![CDATA[src="mp4:../videos/m00359_150k.mp4" system-bitrate="150000"]]></video>
+<video><![CDATA[src="mp4:../videos/m00359_240k.mp4" system-bitrate="240000"]]></video>
+<video><![CDATA[src="mp4:../videos/m00359_440k.mp4" system-bitrate="440000"]]></video>
+<video><![CDATA[src="mp4:../videos/m00359_640k.mp4" system-bitrate="640000"]]></video>
+</smil>
+</smils>
+</work>

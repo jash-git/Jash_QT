@@ -1,0 +1,9 @@
+currentPath:	/home/jash/Multicast_Playlist/bin04/
+PlayListUrl	http://xpe5tv.tw-airnet.net/_admin/module/film_schedule_edit_v2_model.php?channel=livebase&action=get_xml
+LiveMulticastUrl	udp://@235.1.1.55:1231?fifo_size=1000000&overrun_nonfatal=1
+MulticastPar01	-y -f mpegts -vcodec libx264 -s 704x480 -r 30 -b:v 3000k -acodec mp2 -ar 44100 -b:a 96k -ac 2 -preset slow -crf 20 -strict -2 ./jashfifo4
+MulticastPar02	vlc ./jashfifo4 --sout-ts-pid-video=69 --sout-ts-pid-audio=68 --sout-keep --sout '#transcode{acodec=mp2a,alang=eng,ab=128,channels=2,samplerate=48000,audio-sync}:udp{mux=ts,dst=224.8.8.33:3239}'
+BaseUrl	udp://@224.8.8.13:1238?fifo_size=1000000&overrun_nonfatal=1
+LivePar	-y -f mpegts -vcodec libx264 -s 704x480 -r 30 -b:v 3000k ./jashfifo4
+LiveProcess	ffmpeg
+MultiProcess	ffmpeg

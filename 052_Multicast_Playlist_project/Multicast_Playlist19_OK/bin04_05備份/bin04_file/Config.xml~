@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<appSetting>
+	<PlayListUrl><![CDATA[http://xpe5tv.tw-airnet.net/_admin/module/film_schedule_edit_v2_model.php?channel=livebase&action=get_xml]]></PlayListUrl>
+	<LiveMulticastUrl><![CDATA[http://192.168.0.93/live/5tvmix.stream/playlist.m3u8?fifo_size=1000000&overrun_nonfatal=1]]></LiveMulticastUrl>
+	<MulticastPar01><![CDATA[-y -f mpegts -vcodec libx264 -s 704x480 -r 30 -b:v 3000k -acodec mp2 -ar 44100 -b:a 96k -ac 2 -preset slow -crf 20 -strict -2 ./jashfifo4]]></MulticastPar01>
+	<MulticastPar02><![CDATA[vlc ./jashfifo4 --sout-ts-pid-video=69 --sout-ts-pid-audio=68 --sout-keep --sout '#transcode{acodec=mp2a,alang=eng,ab=128,channels=2,samplerate=48000,audio-sync}:udp{mux=ts,dst=224.8.8.33:3239}']]></MulticastPar02>
+	<BaseUrl><![CDATA[udp://@224.8.8.13:1238?fifo_size=1000000&overrun_nonfatal=1]]></BaseUrl>
+	<LivePar><![CDATA[-y -f mpegts -vcodec libx264 -s 704x480 -r 30 -b:v 3000k ./jashfifo4]]></LivePar>
+	<LiveProcess><![CDATA[ffmpeg]]></LiveProcess>
+	<MultiProcess><![CDATA[ffmpeg]]></MultiProcess>
+</appSetting>

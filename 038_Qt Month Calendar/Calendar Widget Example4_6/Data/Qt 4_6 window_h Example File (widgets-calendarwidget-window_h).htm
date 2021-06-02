@@ -1,0 +1,162 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0067)http://doc.trolltech.com/4.6.2/widgets-calendarwidget-window-h.html -->
+<HTML lang=en xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>Qt 4.6: window.h Example File (widgets/calendarwidget/window.h)</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type><LINK 
+rel=stylesheet type=text/css 
+href="Qt%204_6%20window_h%20Example%20File%20(widgets-calendarwidget-window_h).files/classic.css">
+<META name=GENERATOR content="MSHTML 8.00.6001.19019"></HEAD>
+<BODY>
+<TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=32 align=left><A href="http://qt.nokia.com/"><IMG 
+      border=0 align=left 
+      src="Qt%204_6%20window_h%20Example%20File%20(widgets-calendarwidget-window_h).files/qt-logo.png"></A></TD>
+    <TD width=1>&nbsp;&nbsp;</TD>
+    <TD class=postheader vAlign=center><A 
+      href="http://doc.trolltech.com/4.6.2/index.html"><FONT 
+      color=#004faf>Home</FONT></A>&nbsp;· <A 
+      href="http://doc.trolltech.com/4.6.2/classes.html"><FONT 
+      color=#004faf>All&nbsp;Classes</FONT></A>&nbsp;· <A 
+      href="http://doc.trolltech.com/4.6.2/functions.html"><FONT 
+      color=#004faf>All&nbsp;Functions</FONT></A>&nbsp;· <A 
+      href="http://doc.trolltech.com/4.6.2/overviews.html"><FONT 
+      color=#004faf>Overviews</FONT></A></TD></TR></TBODY></TABLE>
+<H1 class=title>window.h Example File<BR><SPAN 
+class=small-subtitle>widgets/calendarwidget/window.h</SPAN> </H1><PRE><SPAN class=comment> /****************************************************************************
+ **
+ ** Copyright (C) 2010 Nokia Corporation and/or its subsidiary(-ies).
+ ** All rights reserved.
+ ** Contact: Nokia Corporation (qt-info@nokia.com)
+ **
+ ** This file is part of the examples of the Qt Toolkit.
+ **
+ ** $QT_BEGIN_LICENSE:LGPL$
+ ** Commercial Usage
+ ** Licensees holding valid Qt Commercial licenses may use this file in
+ ** accordance with the Qt Commercial License Agreement provided with the
+ ** Software or, alternatively, in accordance with the terms contained in
+ ** a written agreement between you and Nokia.
+ **
+ ** GNU Lesser General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU Lesser
+ ** General Public License version 2.1 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.LGPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU Lesser General Public License version 2.1 requirements
+ ** will be met: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html.
+ **
+ ** In addition, as a special exception, Nokia gives you certain additional
+ ** rights.  These rights are described in the Nokia Qt LGPL Exception
+ ** version 1.1, included in the file LGPL_EXCEPTION.txt in this package.
+ **
+ ** GNU General Public License Usage
+ ** Alternatively, this file may be used under the terms of the GNU
+ ** General Public License version 3.0 as published by the Free Software
+ ** Foundation and appearing in the file LICENSE.GPL included in the
+ ** packaging of this file.  Please review the following information to
+ ** ensure the GNU General Public License version 3.0 requirements will be
+ ** met: http://www.gnu.org/copyleft/gpl.html.
+ **
+ ** If you have questions regarding the use of this file, please contact
+ ** Nokia at qt-info@nokia.com.
+ ** $QT_END_LICENSE$
+ **
+ ****************************************************************************/</SPAN>
+
+ #ifndef WINDOW_H
+ #define WINDOW_H
+
+ #include &lt;QWidget&gt;
+
+ class QCalendarWidget;
+ class QCheckBox;
+ class QComboBox;
+ class QDate;
+ class QDateEdit;
+ class QGridLayout;
+ class QGroupBox;
+ class QLabel;
+
+ class Window : public QWidget
+ {
+     Q_OBJECT
+
+ public:
+     Window();
+
+ private slots:
+     void localeChanged(int index);
+     void firstDayChanged(int index);
+     void selectionModeChanged(int index);
+     void horizontalHeaderChanged(int index);
+     void verticalHeaderChanged(int index);
+     void selectedDateChanged();
+     void minimumDateChanged(const QDate &amp;date);
+     void maximumDateChanged(const QDate &amp;date);
+     void weekdayFormatChanged();
+     void weekendFormatChanged();
+     void reformatHeaders();
+     void reformatCalendarPage();
+
+ private:
+     void createPreviewGroupBox();
+     void createGeneralOptionsGroupBox();
+     void createDatesGroupBox();
+     void createTextFormatsGroupBox();
+     QComboBox *createColorComboBox();
+
+     QGroupBox *previewGroupBox;
+     QGridLayout *previewLayout;
+     QCalendarWidget *calendar;
+
+     QGroupBox *generalOptionsGroupBox;
+     QLabel *localeLabel;
+     QLabel *firstDayLabel;
+     QLabel *selectionModeLabel;
+     QLabel *horizontalHeaderLabel;
+     QLabel *verticalHeaderLabel;
+     QComboBox *localeCombo;
+     QComboBox *firstDayCombo;
+     QComboBox *selectionModeCombo;
+     QCheckBox *gridCheckBox;
+     QCheckBox *navigationCheckBox;
+     QComboBox *horizontalHeaderCombo;
+     QComboBox *verticalHeaderCombo;
+
+     QGroupBox *datesGroupBox;
+     QLabel *currentDateLabel;
+     QLabel *minimumDateLabel;
+     QLabel *maximumDateLabel;
+     QDateEdit *currentDateEdit;
+     QDateEdit *minimumDateEdit;
+     QDateEdit *maximumDateEdit;
+
+     QGroupBox *textFormatsGroupBox;
+     QLabel *weekdayColorLabel;
+     QLabel *weekendColorLabel;
+     QLabel *headerTextFormatLabel;
+     QComboBox *weekdayColorCombo;
+     QComboBox *weekendColorCombo;
+     QComboBox *headerTextFormatCombo;
+
+     QCheckBox *firstFridayCheckBox;
+     QCheckBox *mayFirstCheckBox;
+ };
+
+ #endif</PRE>
+<P>
+<ADDRESS>
+<HR>
+
+<DIV align=center>
+<TABLE border=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR class=address>
+    <TD width="40%" align=left>Copyright © 2010 Nokia Corporation and/or its 
+      subsidiary(-ies)</TD>
+    <TD width="20%" align=middle><A 
+      href="http://doc.trolltech.com/4.6.2/trademarks.html">Trademarks</A></TD>
+    <TD width="40%" align=right>
+      <DIV align=right>Qt 
+4.6.2</DIV></TD></TR></TBODY></TABLE></DIV></ADDRESS></BODY></HTML>

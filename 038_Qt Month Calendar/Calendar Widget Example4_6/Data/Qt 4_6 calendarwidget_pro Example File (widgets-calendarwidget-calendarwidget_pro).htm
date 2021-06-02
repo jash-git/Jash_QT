@@ -1,0 +1,54 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0077)http://doc.trolltech.com/4.6.2/widgets-calendarwidget-calendarwidget-pro.html -->
+<HTML lang=en xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>Qt 4.6: calendarwidget.pro Example File (widgets/calendarwidget/calendarwidget.pro)</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type><LINK 
+rel=stylesheet type=text/css 
+href="Qt%204_6%20calendarwidget_pro%20Example%20File%20(widgets-calendarwidget-calendarwidget_pro).files/classic.css">
+<META name=GENERATOR content="MSHTML 8.00.6001.19019"></HEAD>
+<BODY>
+<TABLE border=0 cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=32 align=left><A href="http://qt.nokia.com/"><IMG 
+      border=0 align=left 
+      src="Qt%204_6%20calendarwidget_pro%20Example%20File%20(widgets-calendarwidget-calendarwidget_pro).files/qt-logo.png"></A></TD>
+    <TD width=1>&nbsp;&nbsp;</TD>
+    <TD class=postheader vAlign=center><A 
+      href="http://doc.trolltech.com/4.6.2/index.html"><FONT 
+      color=#004faf>Home</FONT></A>&nbsp;· <A 
+      href="http://doc.trolltech.com/4.6.2/classes.html"><FONT 
+      color=#004faf>All&nbsp;Classes</FONT></A>&nbsp;· <A 
+      href="http://doc.trolltech.com/4.6.2/functions.html"><FONT 
+      color=#004faf>All&nbsp;Functions</FONT></A>&nbsp;· <A 
+      href="http://doc.trolltech.com/4.6.2/overviews.html"><FONT 
+      color=#004faf>Overviews</FONT></A></TD></TR></TBODY></TABLE>
+<H1 class=title>calendarwidget.pro Example File<BR><SPAN 
+class=small-subtitle>widgets/calendarwidget/calendarwidget.pro</SPAN> </H1><PRE> HEADERS =   window.h
+ SOURCES =   main.cpp \
+             window.cpp
+
+ # install
+ target.path = $$[QT_INSTALL_EXAMPLES]/widgets/calendarwidget
+ sources.files = $$SOURCES $$HEADERS $$RESOURCES $$FORMS calendarwidget.pro resources
+ sources.path = $$[QT_INSTALL_EXAMPLES]/widgets/calendarwidget
+ INSTALLS += target sources
+
+ symbian {
+     TARGET.UID3 = 0xA000C603
+     include($$QT_SOURCE_TREE/examples/symbianpkgrules.pri)
+ }</PRE>
+<P>
+<ADDRESS>
+<HR>
+
+<DIV align=center>
+<TABLE border=0 cellSpacing=0 width="100%">
+  <TBODY>
+  <TR class=address>
+    <TD width="40%" align=left>Copyright © 2010 Nokia Corporation and/or its 
+      subsidiary(-ies)</TD>
+    <TD width="20%" align=middle><A 
+      href="http://doc.trolltech.com/4.6.2/trademarks.html">Trademarks</A></TD>
+    <TD width="40%" align=right>
+      <DIV align=right>Qt 
+4.6.2</DIV></TD></TR></TBODY></TABLE></DIV></ADDRESS></BODY></HTML>

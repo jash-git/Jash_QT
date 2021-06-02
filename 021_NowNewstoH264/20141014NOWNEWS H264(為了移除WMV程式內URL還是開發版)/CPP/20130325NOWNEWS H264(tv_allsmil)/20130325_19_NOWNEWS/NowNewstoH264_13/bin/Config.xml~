@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<appSetting>
+	<shscriptfile>test.sh</shscriptfile>
+	<NetEndPath>/home/jash/WMV/</NetEndPath>
+	<NetStartPath>/home/jash/H264/</NetStartPath>	
+	<StartPath>/home/jash/WMV_local/</StartPath>
+	<EndPath>/home/jash/H264_local/</EndPath>
+</appSetting>

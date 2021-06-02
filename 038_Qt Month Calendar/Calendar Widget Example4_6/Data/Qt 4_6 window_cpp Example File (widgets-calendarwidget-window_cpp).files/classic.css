@@ -1,0 +1,183 @@
+BODY {
+	FONT-FAMILY: Arial, Geneva, Helvetica, sans-serif
+}
+H1 {
+	FONT-FAMILY: Arial, Geneva, Helvetica, sans-serif
+}
+H2 {
+	FONT-FAMILY: Arial, Geneva, Helvetica, sans-serif
+}
+H3 {
+	FONT-FAMILY: Arial, Geneva, Helvetica, sans-serif
+}
+H4 {
+	FONT-FAMILY: Arial, Geneva, Helvetica, sans-serif
+}
+H5 {
+	FONT-FAMILY: Arial, Geneva, Helvetica, sans-serif
+}
+H6 {
+	FONT-FAMILY: Arial, Geneva, Helvetica, sans-serif
+}
+P {
+	FONT-FAMILY: Arial, Geneva, Helvetica, sans-serif
+}
+CENTER {
+	FONT-FAMILY: Arial, Geneva, Helvetica, sans-serif
+}
+TD {
+	FONT-FAMILY: Arial, Geneva, Helvetica, sans-serif
+}
+TH {
+	FONT-FAMILY: Arial, Geneva, Helvetica, sans-serif
+}
+UL {
+	FONT-FAMILY: Arial, Geneva, Helvetica, sans-serif
+}
+DL {
+	FONT-FAMILY: Arial, Geneva, Helvetica, sans-serif
+}
+DIV {
+	FONT-FAMILY: Arial, Geneva, Helvetica, sans-serif
+}
+H1 {
+	TEXT-ALIGN: center; FONT-SIZE: 160%
+}
+H2 {
+	FONT-SIZE: 120%
+}
+H3 {
+	FONT-SIZE: 100%
+}
+H3.fn {
+	BORDER-BOTTOM: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; PADDING-BOTTOM: 6px; BACKGROUND-COLOR: #eee; MARGIN: 42px 0px 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 0px; BORDER-TOP: #ddd 1px solid; FONT-WEIGHT: bold; BORDER-RIGHT: #ddd 1px solid; PADDING-TOP: 6px
+}
+SPAN.fn {
+	BORDER-BOTTOM: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; PADDING-BOTTOM: 6px; BACKGROUND-COLOR: #eee; MARGIN: 42px 0px 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 0px; BORDER-TOP: #ddd 1px solid; FONT-WEIGHT: bold; BORDER-RIGHT: #ddd 1px solid; PADDING-TOP: 6px
+}
+HR {
+	TEXT-ALIGN: left; BORDER-RIGHT-WIDTH: 0px; BACKGROUND-COLOR: #ccc; MARGIN: 34px 0px; WIDTH: 100%; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 1px; COLOR: #a0a0a0; BORDER-LEFT-WIDTH: 0px
+}
+TABLE.valuelist {
+	BORDER-BOTTOM: #dddddd 1px solid; BORDER-LEFT: #dddddd 1px solid; BACKGROUND-COLOR: #f0f0f0; BORDER-COLLAPSE: collapse; BORDER-TOP: #dddddd 1px solid; BORDER-RIGHT: #dddddd 1px solid
+}
+TABLE.indextable {
+	BORDER-BOTTOM: #555 1px solid; BORDER-LEFT: #555 1px solid; BACKGROUND-COLOR: #f0f0f0; BORDER-COLLAPSE: collapse; FONT-SIZE: 100%; BORDER-TOP: #555 1px solid; BORDER-RIGHT: #555 1px solid
+}
+TABLE TD.largeindex {
+	BORDER-BOTTOM-COLOR: #555; BORDER-RIGHT-WIDTH: 1px; BACKGROUND-COLOR: #f0f0f0; BORDER-TOP-COLOR: #555; BORDER-COLLAPSE: collapse; BORDER-TOP-WIDTH: 1px; BORDER-BOTTOM-WIDTH: 1px; BORDER-RIGHT-COLOR: #555; FONT-SIZE: 120%; BORDER-LEFT-COLOR: #555; BORDER-LEFT-WIDTH: 1px
+}
+TABLE.valuelist TH {
+	BORDER-BOTTOM: #666 1px solid; BORDER-LEFT: #666 2px solid; PADDING-BOTTOM: 4px; BACKGROUND-COLOR: #666; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; COLOR: white; BORDER-TOP: #666 1px solid; BORDER-RIGHT: #666 1px solid; PADDING-TOP: 4px
+}
+TH.titleheader {
+	BACKGROUND-IMAGE: url(images/gradient.png); BORDER-BOTTOM: #666 1px solid; BORDER-LEFT: #666 0px solid; PADDING-BOTTOM: 2px; BACKGROUND-COLOR: #555; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; COLOR: white; BORDER-TOP: #666 1px solid; BORDER-RIGHT: #666 0px solid; PADDING-TOP: 2px
+}
+TH.largeheader {
+	BORDER-BOTTOM: #444 1px solid; BORDER-LEFT: #444 0px solid; PADDING-BOTTOM: 4px; BACKGROUND-COLOR: #555555; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; COLOR: white; FONT-SIZE: 120%; BORDER-TOP: #444 1px solid; BORDER-RIGHT: #444 0px solid; PADDING-TOP: 4px
+}
+P {
+	MARGIN-TOP: 8px; MARGIN-BOTTOM: 8px; MARGIN-LEFT: 4px
+}
+A:link {
+	COLOR: #0046ad; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #672967; TEXT-DECORATION: none
+}
+A.obsolete {
+	COLOR: #661100; TEXT-DECORATION: none
+}
+A.compat {
+	COLOR: #661100; TEXT-DECORATION: none
+}
+A.obsolete:visited {
+	COLOR: #995500; TEXT-DECORATION: none
+}
+A.compat:visited {
+	COLOR: #995500; TEXT-DECORATION: none
+}
+BODY {
+	BACKGROUND: #ffffff; COLOR: black
+}
+TABLE.generic {
+	BORDER-BOTTOM: #bbb 1px solid; BORDER-LEFT: #bbb 1px solid; BORDER-COLLAPSE: collapse; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid
+}
+TABLE.annotated {
+	BORDER-BOTTOM: #bbb 1px solid; BORDER-LEFT: #bbb 1px solid; BORDER-COLLAPSE: collapse; BORDER-TOP: #bbb 1px solid; BORDER-RIGHT: #bbb 1px solid
+}
+TABLE TD.memItemLeft {
+	BORDER-BOTTOM: #e0e0e0 1px; BORDER-LEFT: #e0e0e0 1px; PADDING-BOTTOM: 0px; MARGIN: 4px; PADDING-LEFT: 8px; WIDTH: 180px; PADDING-RIGHT: 0px; WHITE-SPACE: nowrap; FONT-SIZE: 100%; BORDER-TOP: #e0e0e0 1px; BORDER-RIGHT: #e0e0e0 1px; PADDING-TOP: 2px
+}
+TABLE TD.memItemRight {
+	BORDER-BOTTOM: #e0e0e0 1px; BORDER-LEFT: #e0e0e0 1px; PADDING-BOTTOM: 0px; MARGIN: 4px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; FONT-SIZE: 100%; BORDER-TOP: #e0e0e0 1px; BORDER-RIGHT: #e0e0e0 1px; PADDING-TOP: 2px
+}
+TABLE TR.odd {
+	BACKGROUND: #f0f0f0; COLOR: black
+}
+TABLE TR.even {
+	BACKGROUND: #e4e4e4; COLOR: black
+}
+TABLE.annotated TH {
+	TEXT-ALIGN: left; PADDING-BOTTOM: 3px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; PADDING-TOP: 3px
+}
+TABLE.annotated TD {
+	PADDING-BOTTOM: 3px; PADDING-LEFT: 3px; PADDING-RIGHT: 3px; PADDING-TOP: 3px
+}
+TABLE TR PRE {
+	BORDER-BOTTOM-STYLE: none; PADDING-BOTTOM: 0px; BORDER-RIGHT-STYLE: none; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP-STYLE: none; BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-LEFT-STYLE: none; PADDING-TOP: 0px
+}
+TR.qt-style {
+	BACKGROUND: #96e066; COLOR: black
+}
+BODY PRE {
+	BORDER-BOTTOM: #e7e7e7 1px solid; BORDER-LEFT: #e7e7e7 1px solid; PADDING-BOTTOM: 0.2em; PADDING-LEFT: 0.2em; PADDING-RIGHT: 0.2em; BACKGROUND: #f1f1f1; COLOR: black; BORDER-TOP: #e7e7e7 1px solid; BORDER-RIGHT: #e7e7e7 1px solid; PADDING-TOP: 0.2em
+}
+TABLE TR.qt-code PRE {
+	BORDER-BOTTOM: #e7e7e7 1px solid; BORDER-LEFT: #e7e7e7 1px solid; PADDING-BOTTOM: 0.2em; PADDING-LEFT: 0.2em; PADDING-RIGHT: 0.2em; BACKGROUND: #f1f1f1; COLOR: black; BORDER-TOP: #e7e7e7 1px solid; BORDER-RIGHT: #e7e7e7 1px solid; PADDING-TOP: 0.2em
+}
+SPAN.preprocessor {
+	COLOR: darkblue
+}
+SPAN.preprocessor A {
+	COLOR: darkblue
+}
+SPAN.comment {
+	FONT-STYLE: italic; COLOR: darkred
+}
+SPAN.string {
+	COLOR: darkgreen
+}
+SPAN.char {
+	COLOR: darkgreen
+}
+.title {
+	TEXT-ALIGN: center
+}
+.subtitle {
+	FONT-SIZE: 0.8em
+}
+.small-subtitle {
+	FONT-SIZE: 0.65em
+}
+.qmlitem {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.qmlname {
+	WHITE-SPACE: nowrap
+}
+.qmltype {
+	TEXT-ALIGN: center; FONT-SIZE: 160%
+}
+.qmlproto {
+	BORDER-BOTTOM: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; PADDING-BOTTOM: 6px; BACKGROUND-COLOR: #eee; MARGIN: 42px 0px 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; BORDER-TOP: #ddd 1px solid; FONT-WEIGHT: bold; BORDER-RIGHT: #ddd 1px solid; PADDING-TOP: 6px
+}
+.qmlreadonly {
+	FLOAT: right; COLOR: red
+}
+.qmldoc {
+	
+}
+*.qmlitem P {
+	
+}

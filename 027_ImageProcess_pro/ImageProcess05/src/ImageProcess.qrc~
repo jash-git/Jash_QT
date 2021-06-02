@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="123" >
+    <file>icon/123.PNG</file>
+  </qresource>
+  <qresource prefix="456" >
+    <file>icon/456.PNG</file>
+  </qresource>
+</RCC>

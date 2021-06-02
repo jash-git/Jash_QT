@@ -1,0 +1,22 @@
+<NowNewsMediaList OrderDate="2010-06-09 10:41:37" MediaType="h264" TotalItem="12">
+  <Items id="45919">
+    <mi_id>45919</mi_id>
+    <sn>1031196</sn>
+    <server_path><![CDATA[nownews/]]></server_path>
+    <file_name>v1030812.wmv</file_name>
+    <file_size>8173899</file_size>
+    <tw_name><![CDATA[現場消息？林口狠父火燒 2歲女無生命跡象]]></tw_name>
+    <publish_date>2010-06-09 09:16:00</publish_date>
+    <destination_path><![CDATA[h264/nownews/]]></destination_path>
+  </Items>
+  <Items id="45920">
+    <mi_id>45920</mi_id>
+    <sn>1031197</sn>
+    <server_path><![CDATA[nownews/]]></server_path>
+    <file_name>v1030812.wmv</file_name>
+    <file_size>10206013</file_size>
+    <tw_name><![CDATA[四警打麻將影帶 胡木源：沒看過]]></tw_name>
+    <publish_date>2010-06-09 09:28:00</publish_date>
+    <destination_path><![CDATA[h264/nownews/]]></destination_path>
+  </Items>
+</NowNewsMediaList>

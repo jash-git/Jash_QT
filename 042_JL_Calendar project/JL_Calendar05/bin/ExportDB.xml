@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JL_Calendar>
+    <Note>
+        <ID>1</ID>
+        <Date>YYYY-MM-DD</Date>
+        <Hour>hh</Hour>
+        <Minutes>mm</Minutes>
+        <Event>sample-測試</Event>
+        <Switch>on</Switch>
+    </Note>
+    <Note>
+        <ID>2</ID>
+        <Date>2011-05-09</Date>
+        <Hour>10</Hour>
+        <Minutes>00</Minutes>
+        <Event>測試-Qt</Event>
+        <Switch>off</Switch>
+    </Note>
+    <Note>
+        <ID>3</ID>
+        <Date>2011-05-09</Date>
+        <Hour>13</Hour>
+        <Minutes>30</Minutes>
+        <Event>13點的時間</Event>
+        <Switch>off</Switch>
+    </Note>
+</JL_Calendar>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AppSetting>
+	<BOOKS>
+		<BOOK>
+			<Name>VC1</Name>
+			<Page>10</Page>
+		</BOOK>
+		<BOOK>
+			<Name>VC2</Name>
+			<Page>20</Page>		
+		</BOOK>
+		<BOOK>
+			<Name>VC3</Name>
+			<Page>30</Page>
+		</BOOK>
+		<BOOK>
+			<Name>VC4</Name>
+			<Page>40</Page>
+		</BOOK>
+	</BOOKS>
+</AppSetting>

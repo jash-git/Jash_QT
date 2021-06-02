@@ -1,0 +1,78 @@
+H3.fn {
+	MARGIN-LEFT: 1cm; TEXT-INDENT: -1cm
+}
+SPAN.fn {
+	MARGIN-LEFT: 1cm; TEXT-INDENT: -1cm
+}
+A:link {
+	COLOR: #004faf; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #672967; TEXT-DECORATION: none
+}
+A.obsolete {
+	COLOR: #661100; TEXT-DECORATION: none
+}
+A.compat {
+	COLOR: #661100; TEXT-DECORATION: none
+}
+A.obsolete:visited {
+	COLOR: #995500; TEXT-DECORATION: none
+}
+A.compat:visited {
+	COLOR: #995500; TEXT-DECORATION: none
+}
+TD.postheader {
+	FONT-FAMILY: sans-serif
+}
+TR.address {
+	FONT-FAMILY: sans-serif
+}
+BODY {
+	BACKGROUND: #ffffff; COLOR: black
+}
+TABLE TR.odd {
+	BACKGROUND: #f0f0f0; COLOR: black
+}
+TABLE TR.even {
+	BACKGROUND: #e4e4e4; COLOR: black
+}
+TABLE.annotated TH {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; TEXT-ALIGN: left
+}
+TABLE.annotated TD {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+TABLE TR PRE {
+	BACKGROUND: none transparent scroll repeat 0% 0%; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+TR.qt-style {
+	BACKGROUND: #a2c511; COLOR: black
+}
+BODY PRE {
+	BORDER-RIGHT: #e7e7e7 1px solid; PADDING-RIGHT: 0.2em; BORDER-TOP: #e7e7e7 1px solid; PADDING-LEFT: 0.2em; BACKGROUND: #f1f1f1; PADDING-BOTTOM: 0.2em; BORDER-LEFT: #e7e7e7 1px solid; COLOR: black; PADDING-TOP: 0.2em; BORDER-BOTTOM: #e7e7e7 1px solid
+}
+SPAN.preprocessor {
+	COLOR: darkblue
+}
+SPAN.preprocessor A {
+	COLOR: darkblue
+}
+SPAN.comment {
+	COLOR: darkred; FONT-STYLE: italic
+}
+SPAN.string {
+	COLOR: darkgreen
+}
+SPAN.char {
+	COLOR: darkgreen
+}
+.title {
+	TEXT-ALIGN: center
+}
+.subtitle {
+	FONT-SIZE: 0.8em
+}
+.small-subtitle {
+	FONT-SIZE: 0.65em
+}

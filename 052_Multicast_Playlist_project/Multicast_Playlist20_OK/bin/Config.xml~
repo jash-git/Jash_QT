@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<appSetting>
+	<PlayListUrl><![CDATA[http://xpe5tv.tw-airnet.net/_admin/module/film_schedule_edit_v2_model.php?channel=hhhh264&action=get_xml]]></PlayListUrl>
+	<LiveMulticastUrl><![CDATA[udp://@235.1.1.55:1233]]></LiveMulticastUrl>
+	<MulticastPar01><![CDATA[-f mpegts -vcodec libx264 -s 640x480 -vf yadif -r 30 -re -b 5000k -q 40 "udp://@224.8.8.13:1238?pkt_size=1316"]]></MulticastPar01>
+	<MulticastPar02><![CDATA[vlc udp://@224.8.8.13:1238]]></MulticastPar02>
+	<BaseUrl><![CDATA[http://192.168.0.234:8383]]></BaseUrl>
+	<LivePar><![CDATA[--sout-keep --sout '#udp{mux=ts,dst=224.8.8.3:1239}']]></LivePar>
+	<LiveProcess><![CDATA[ffmpeg]]></LiveProcess>
+	<MultiProcess><![CDATA[ffmpeg]]></MultiProcess>
+</appSetting>

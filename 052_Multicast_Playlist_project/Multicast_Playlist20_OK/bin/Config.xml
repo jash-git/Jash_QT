@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<appSetting>
+	<PlayListUrl><![CDATA[http://xpe5tv.tw-airnet.net/_admin/module/film_schedule_edit_v2_model.php?channel=west_h264&action=get_xml]]></PlayListUrl>
+	<LiveMulticastUrl><![CDATA[udp://@235.1.1.55:1233]]></LiveMulticastUrl>
+	<MulticastPar01><![CDATA[-y -f mpegts -vcodec libx264 -s 704x480 -r 30 -b:v 3000k -acodec copy -threads 0 ./jashfifo5]]></MulticastPar01>
+	<MulticastPar02><![CDATA[vlc]]></MulticastPar02>
+	<BaseUrl><![CDATA[http://192.168.0.234:8282]]></BaseUrl>
+	<LivePar><![CDATA[--sout-keep --sout '#udp{mux=ts,dst=224.8.8.3:1239}']]></LivePar>
+	<LiveProcess><![CDATA[vlc]]></LiveProcess>
+	<MultiProcess><![CDATA[ffmpeg]]></MultiProcess>
+</appSetting>

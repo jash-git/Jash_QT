@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<appSetting>
+	<PlayListUrl><![CDATA[http://xpe5tv.tw-airnet.net/_admin/module/film_schedule_edit_v2_model.php?channel=live_liao&action=get_xml]]></PlayListUrl>
+	<LiveMulticastUrl><![CDATA[udp://@235.1.1.55:1231]]></LiveMulticastUrl>
+	<MulticastPar01><![CDATA[-y -f mpegts -vcodec libx264 -s 704x480 -r 30 -b:v 3000k -acodec copy -threads 0 ./jashfifo5]]></MulticastPar01>
+	<MulticastPar02><![CDATA[vlc]]></MulticastPar02>
+	<BaseUrl><![CDATA[http://192.168.0.234:8282]]></BaseUrl>
+	<LivePar><![CDATA[--sout-ts-pid-video=69 --sout-ts-pid-audio=68 --sout-transcode-alang=eng --logo-file /home/chst01/5TVLOGO.png --logo-x=50 --logo-y=370 --sout '#duplicate{dst={transcode{sfilter=logo,fps=0,hurry-up,open-gop=normal,udp-caching=0,venc=x264{keyint=24,vqscale=1,vqmin=1,profile=high,partition=i4x4,p8x8,b8x8,level=3.1,bframes=2,subme=7,ref=4,qpmax=51,qpmin=1,me=hex,trellis=2},vcodec=h264,vb=1200,rc-lookahead=30,vbv-maxrate=1200,vbv-bufsize=1400,vbv-init=100,width=640,height=480,deblock=0:0,deinterlace{bob},acodec=aac,ab=48,samplerate=48000}:standard{mux=ts,access="udp",dst="224.8.8.253:25303"}},dst={transcode{sfilter=logo,fps=0,hurry-up,open-gop=normal,udp-caching=0,venc=x264{keyint=24,vqscale=1,vqmin=1,profile=high,partition=i4x4,p8x8,b8x8,level=3.1,bframes=2,subme=7,ref=4,qpmax=51,qpmin=1,me=hex,trellis=2},vcodec=h264,vb=800,rc-lookahead=30,vbv-maxrate=800,vbv-bufsize=800,vbv-init=1200,width=640,height=480,deblock=0:0,deinterlace{bob},acodec=aac,ab=48,samplerate=48000}:standard{mux=ts,access="udp",dst="224.8.8.253:25304"}}}']]></LivePar>
+	<LiveProcess><![CDATA[cvlc]]></LiveProcess>
+	<MultiProcess><![CDATA[ffmpeg]]></MultiProcess>
+</appSetting>

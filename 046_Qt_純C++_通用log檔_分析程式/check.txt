@@ -1,0 +1,3 @@
+Open Http Post Return = 0,not_par.txt,not_par,
+Open Http Post Return =,all.txt,all,
+The Box permited,CE_OUI.txt,CE_OUI,

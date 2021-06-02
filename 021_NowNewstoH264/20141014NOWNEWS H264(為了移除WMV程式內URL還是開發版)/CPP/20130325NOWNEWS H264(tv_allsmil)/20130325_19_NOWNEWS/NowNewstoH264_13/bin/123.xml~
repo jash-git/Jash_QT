@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NowNewsMediaList OrderDate="2010-06-23 10:26:16" MediaType="h264" TotalItem="5">
+  <Items id="47038">
+    <mi_id>47038</mi_id>
+    <sn>1032334</sn>
+    <server_path><![CDATA[nownews/]]></server_path>
+    <file_name>mv011.wmv</file_name>
+    <file_size>2685569</file_size>
+    <tw_name><![CDATA[麻疹恐爆社區感染 新3例接觸上千]]></tw_name>
+    <publish_date>2010-06-23 09:24:00</publish_date>
+    <destination_path><![CDATA[h264/nownews/]]></destination_path>
+  </Items>
+</NowNewsMediaList>
