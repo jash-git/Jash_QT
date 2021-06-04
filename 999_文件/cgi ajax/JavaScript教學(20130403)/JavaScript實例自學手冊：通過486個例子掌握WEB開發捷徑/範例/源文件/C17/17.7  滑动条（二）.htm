@@ -1,0 +1,138 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>滑块条</title>
+<style type="text/css">
+#trackBar
+{
+    background-color:#666666;
+}
+
+#trackBar_slider
+{
+    border:1px solid #808080;
+    background-color:#FFFFFF;
+}
+
+#trackBar1
+{
+    background-color:blue;
+}
+
+#trackBar1_slider
+{
+    border:1px solid #808080;
+    background-color:#FFFFFF;
+}
+</style>
+</head>
+<body>
+<div id="info"></div>
+<div id="trackBar1"> </div>
+<script type="text/javascript" language="javascript">
+//对象未创建完成之前，不能在函数之中用this
+function setTrackBar(trackBar, min, max, barPos)//指定的div，最小值，最大值和位置
+{
+    this.trackBar = trackBar;                 //承载滑动条的对象
+    this.sliderIdStr = trackBar + "_slider";       //滑动条
+    this.trackBarId = document.getElementById(this.trackBar);  //获取div
+    this.sliderId = null;                                           //未创建滑动条对象
+    this.min = (min>=0)?min:0;                                      //最小值不能小于0
+    this.max = (max>=min)?max:min;                                  //最大值必须大于最小值
+    this.barPos = (barPos>=min && barPos<=max)?barPos:min;                      //位置必须在最大和最小之间
+    
+    this.orientation = "h";                                         //设置对象和滑动条的位置
+    this.trackBarWidth = 100;
+    this.trackBarHeight = 10
+    this.sliderWidth = 10;
+    this.sliderHeight = 10;
+    this.Create = Create; 
+    this.draging = false;
+    this.offset = 0;
+    
+    this.BeforeDrag = BeforeDrag;                                    //绑定滑动事件
+    this.OnDrag = OnDrag;
+    this.EndDrag = EndDrag;
+}
+function Create(trackBar1)                                          //创建滑动条的方法
+{
+    this.trackBarId.innerHTML = "<div id=\"" + this.sliderIdStr + "\"" + " onmousedown=\"javascript:BeforeDrag(" + trackBar1 + ");\"" + " style=\"position:relative;cursor:n-resize;\"></div>";
+    this.sliderId = document.getElementById(this.sliderIdStr);
+    this.sliderId.style.pixelTop = this.trackBarHeight - ((this.trackBarHeight-this.sliderHeight)*this.barPos)/(this.max-this.min) - this.sliderHeight;
+    this.trackBarId.style.width = this.trackBarWidth;               //设置滑动条的初始位置
+    this.trackBarId.style.height = this.trackBarHeight;
+    this.sliderId.style.width = this.sliderWidth;
+    this.sliderId.style.height = this.sliderHeight;
+    
+    return true;
+}
+
+var curTrackBar = null;
+
+//准备拖拽
+function BeforeDrag(trackBar)
+{
+    if (event.button != 1)                  //如果不是鼠标左键，则返回
+    {
+        return;
+    }
+    document.body.style.cursor = "n-resize";//鼠标的样式
+    curTrackBar = trackBar;
+    curTrackBar.draging = true;
+    curTrackBar.offset = curTrackBar.trackBarId.style.pixelTop + curTrackBar.sliderId.style.pixelTop+curTrackBar.sliderId.offsetHeight- event.clientY;
+}
+
+
+function OnDrag()                           //实现拖拽的方法
+{
+    if(!curTrackBar || !curTrackBar.draging)
+    {
+        return;
+    }
+    event.returnValue = false;
+    var phyPos = 0;
+    if (curTrackBar.orientation !== "h")
+    {
+        phyPos = curTrackBar.trackBarId.style.pixelTop + curTrackBar.trackBarId.offsetHeight - event.clientY - curTrackBar.offset;
+        if (phyPos <= 0)
+        {
+            phyPos = 0;                     //如果拖动到最底端
+        }
+        else if(phyPos >= (curTrackBar.trackBarId.offsetHeight-curTrackBar.sliderId.offsetHeight))
+        {
+            phyPos = curTrackBar.trackBarId.offsetHeight - curTrackBar.sliderId.offsetHeight;
+        }
+                                                //改变滑动条的位置
+        curTrackBar.sliderId.style.pixelTop = curTrackBar.trackBarId.offsetHeight - phyPos - curTrackBar.sliderId.offsetHeight;
+        curTrackBar.barPos = parseInt(((curTrackBar.max-curTrackBar.min)*phyPos/(curTrackBar.trackBarId.offsetHeight-curTrackBar.sliderId.offsetHeight)));
+    }
+
+    OnTrackBarTxt();
+}
+function EndDrag()                      //结束拖拽
+{
+    if (!curTrackBar)
+    {
+        return;
+    }
+    document.body.style.cursor = "default";
+    curTrackBar.draging = false;
+}
+
+function OnTrackBarTxt()           //拖拽时，改变滑动条的值
+{
+    document.getElementById("info").innerHTML = curTrackBar.barPos+ " / " + curTrackBar.max;
+}
+
+document.onmousemove = OnDrag;              //鼠标移动时，实现拖拽-开始滑动
+document.onmouseup = EndDrag;               //鼠标离开时，结束拖拽-即结束滑动
+var trackBarObj1 = new setTrackBar("trackBar1", 0, 100,100);//配置滑动条，指定最小值和最大值
+trackBarObj1.orientation = "v";                            //滑动条的方法-垂直
+trackBarObj1.trackBarWidth = 15;                            //对象的宽度
+trackBarObj1.trackBarHeight = 100;                          //对象的高度
+trackBarObj1.sliderWidth = 15;                              //滑动条的宽度
+trackBarObj1.sliderHeight = 10;                             //滑动条的高度
+trackBarObj1.Create("trackBarObj1");                        //创建滑动条
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- saved from url=(0078)http://blog.csdn.net/common/ad.html?t=12&containerId=ad_commend&frmId=ad_frm_1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>CSDN Ad</title>
+    <style type="text/css">
+        body { margin:0px; padding:0px;}
+    </style>
+     <script src="jquery.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="div1"><style type="text/css">
+ul { margin:0px; padding:0 4px 0 0; }
+ul, x:-moz-any-link, x:default { width:90%; }
+ul li { padding:3px 0px;}
+a { font-size:12px; text-decoration:none; color:#006699; }
+a:hover { color:#000; }
+</style>
+
+<ul>
+
+<li><a href="http://blog.csdn.net/nostopstep/article/details/18792303" target="_blank">* 一个资深程序员看12306（终结篇）</a></li>
+
+
+<li><a href="http://blog.csdn.net/qbg19881206/article/details/18750531" target="_blank">* 设计模式初探-解释器模式</a></li>
+
+
+
+<li><a href="http://blog.csdn.net/ljianhui/article/details/18748657" target="_blank">* 使用C语言实现“泛型”链表</a></li>
+
+
+<li><a href="http://blog.csdn.net/anzhsoft/article/details/18730605" target="_blank">* Linux Debugging: 使用反汇编理解C++程序函数调用栈</a></li>
+
+
+<li><a href="http://blog.csdn.net/grafx/article/details/18779701" target="_blank">* 基于区域卷积的增强型点噪声算法</a></li>
+
+
+<li><a href="http://blog.csdn.net/starrow/article/details/18707871" target="_blank">* Hacking with JavaScript——在浏览器之内，网页之外，运行JavaScript</a></li>
+
+</ul></div>
+<script type="text/javascript">
+    window.onload = function () {
+        if (document.domain != 'blog.csdn.net') {
+            document.domain = "csdn.net";
+        }
+        //这种给广告区域赋值的方式，对于有些JS广告不能完美的显示
+        //top.document.getElementById('ad_commend').innerHTML = document.getElementById('div1').innerHTML;
+
+        var h = document.body.offsetHeight + 2;
+        setTimeout(function () {
+            if (h > 800) h = document.getElementById('div1').offsetHeight + 4;
+            try { top.document.getElementById('ad_frm_1').style.height = h + 'px'; }
+            catch (err) { }
+        }, 100);
+    };
+    $(function() {
+        $("#div1 a").click(function() {
+            top._gaq.push(['_trackEvent', 'function', 'onclick', 'blog_articles_tuijianwenzhang']);
+        });
+    });
+</script>
+
+
+</body></html>

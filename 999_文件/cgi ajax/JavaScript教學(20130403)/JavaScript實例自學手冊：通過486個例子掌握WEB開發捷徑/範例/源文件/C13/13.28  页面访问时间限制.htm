@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT language="JavaScript">
+var limit="1:02";                      //设置剩余的时间
+var tmpTime=limit.split(":");          //将分和秒切割开
+var myTime=tmpTime[0]*60+tmpTime[1]*1;     //获取剩余的秒数
+function calTime(){
+    if (myTime==1)
+        window.location="www.google.com" //时间到了后导航到的地址
+    else{ 
+        myTime-=1;                    //开始倒数时间
+        curmin=Math.floor(myTime/60); //当前剩余分钟数
+        cursec=myTime;                //当前剩余秒数
+        if (curmin!=0)                   //如果分钟数不为0
+           curtime="你只有"+curmin+"分钟的时间保存此页。";
+        else
+           curtime="你只有"+cursec+"秒的时间访问此页，请尽快保存。";
+        setTimeout("calTime()",1000);      //设置定时器，不断变化提示时间
+        document.form1.txttime.value=curtime;//在文本框中显示剩余时间
+       }
+}
+</SCRIPT>
+</head>
+<body bgcolor="#fabaaa" onload="calTime()">
+<form name="form1">
+<p><input type="text" name="txttime" size="40" />
+</p>
+</form>
+</body>
+</html>

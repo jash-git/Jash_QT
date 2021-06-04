@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<table border="1">
+	<tbody>
+		<tr>
+			<th>姓名</th>
+			<th>性别</th>
+			<th>年龄</th>
+		</tr>
+		<tr>
+			<th>小明</th>
+			<th>女</th>
+			<th>23</th>
+		</tr>
+		<tr>
+			<th>王里</th>
+			<th>男</th>
+			<th>27</th>
+		</tr>
+	</tbody>
+</table>

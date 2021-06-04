@@ -1,0 +1,88 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+
+</head>
+<body>
+<script LANGUAGE="JAVASCRIPT">
+function ClearForm(form){   //清空页面中的文本框
+    form.weight.value = "";
+    form.height.value = "";
+    form.bmi.value = "";
+    form.comment.value = "";
+}
+function bmi(weight, height) {//计算健康值
+          bmindx=weight/eval(height*height);
+          return bmindx;
+}
+function checkform(form) {          
+       if (form.weight.value==null||form.weight.value.length==0 
+        || form.height.value==null||form.height.value.length==0){//判断用户的输入
+            alert("\n请填写身高和体重！");
+            return false;
+       }
+       else if (parseFloat(form.height.value) <= 0||
+                parseFloat(form.height.value) >=500||
+                parseFloat(form.weight.value) <= 0||
+                parseFloat(form.weight.value) >=500){
+                alert("\n输入的数据有问题 \n请重新输入.");  //输入数据范围
+                ClearForm(form);
+                return false;
+       }
+       return true;
+}
+function computeHealth(form) {                          //根据健康值，判断描述信息
+       if (checkform(form)) {
+       yourbmi=Math.round(bmi(form.weight.value, form.height.value/100));
+       form.bmi.value=yourbmi;
+       if (yourbmi >30) {
+          form.comment.value="不要在闹了!!!";
+       }
+       else if (yourbmi >28 && yourbmi <=30) {
+          form.comment.value="真的太胖了?";
+       }
+       else if (yourbmi >23 && yourbmi <=28) {
+          form.comment.value="不是一般的胖阿?";
+       }
+       else if (yourbmi >21 && yourbmi <=23) {
+          form.comment.value="您现在是偏胖,应该注意饮食!";
+       }
+       else if (yourbmi >=19 && yourbmi <=21) {
+          form.comment.value="哇!!!您太苗条了! 是标准身材";
+       }
+       else if (yourbmi >=18 && yourbmi <19) {
+          form.comment.value="您是不是营养不良?????";
+       }
+       else if (yourbmi >=17 && yourbmi <18) {
+          form.comment.value="这个不是骨头吗????";
+       }
+       else if (yourbmi <17) {
+          form.comment.value="按照生物学来说这种生物是不能生存的!!!!!!";
+       }
+      }
+       return;
+}
+</script>
+
+<form NAME="BMI" method="POST">
+  <table border="1">
+    <tr>
+      <td><font color="blue"><div align="center"><center><p>体重</font> (kg)</td>
+      <td align="center"><font color="blue"><div align="center"><center><p>身高</font>(cm)</td>
+      <td align="center"><font color="blue"><div align="center"><center><p>健康值</font></td>
+      <td align="center"><font color="blue"><div align="center"><center><p>电脑对您的评价</font></td>
+    </tr>
+    <tr align="center">
+      <td><input TYPE="TEXT" NAME="weight" SIZE="6" onFocus="this.form.weight.value=''"></td>
+      <td><input TYPE="TEXT" NAME="height" SIZE="6" onFocus="this.form.height.value=''"></td>
+      <td><input TYPE="TEXT" NAME="bmi" SIZE="5"></td>
+      <td><input TYPE="TEXT" NAME="comment" size="40"></td>
+    </tr>
+  </table>
+  <div align="center"><center><p>
+  <input TYPE="button" VALUE="确定"  onClick="computeHealth(this.form)"> 
+  <input TYPE="reset" VALUE="取消"  onClick="ClearForm(this.form)"> </p>
+  </center></div>
+</form>
+</body>
+</html>

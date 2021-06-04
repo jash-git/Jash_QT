@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<form name=loading>
+  <p align=center> <font color="#0155cc" size="2" face="Arial">页面载入中，请稍等...</font><br>
+    <input type=text name=progress size=46 style="font-family:Arial; font-weight:bolder; color:#0066ff; background-color:#fef4d9; padding:0px; border-style:none;">
+    <br>
+    <input type=text name=percent size=47 style="color:#0055BB; text-align:center; border-width:medium; border-style:none;">
+    <script language="javascript"> 
+        var bar=0;                                     //进度条的进度
+        var line="||" ;                                //类似进度条的符号
+        var amount="||" ;
+        count() ;
+        function count(){ 
+            bar=bar+2 ;                                //进度条+2
+            amount =amount + line ;                    //符号也跟着增加
+            document.loading.progress.value=amount ;   //进度条显示符号
+            document.loading.percent.value=bar+"%" ;   //现实进度
+            if (bar<100)                               //判断进度条是否已经到头
+            setTimeout("count()",100);
+            else 
+            window.location = "#";                     
+        }
+    </script>
+  </p>
+</form> </body>
+</html>

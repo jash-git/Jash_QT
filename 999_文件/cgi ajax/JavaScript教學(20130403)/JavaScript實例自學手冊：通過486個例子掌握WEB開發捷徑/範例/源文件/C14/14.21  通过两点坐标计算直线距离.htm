@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script LANGUAGE="JavaScript">
+function distanceCAL(form) 
+{
+    var x1 = eval(form.x1.value);  //获取第一点的X坐标
+    var y1 = eval(form.y1.value);  //获取第一点的Y坐标
+    var x2 = eval(form.x2.value);  //获取第二点的X坐标
+    var y2 = eval(form.y2.value);  //获取第二点的Y坐标
+    var calX = x2 - x1;        
+    var calY = y2 - y1;
+    form.result.value = Math.pow((calX *calX + calY * calY), 0.5);
+}
+</script>
+</head>
+<body >
+<form>
+<table border=3 cellspacing=2 cellpadding=5>
+<tr>
+        <td colspan=4 align=center height="18">
+            <strong><span style="font-size: 14pt">两点的直线距离</span></strong></td>
+</tr>
+<tr>
+        <td colspan=2 align=center>
+            <span style="color: #666666">第一点的坐标</span></td>
+        <td colspan=2 align=center>
+            <span style="color: #999966">第二点的坐标</span></td>
+</tr>
+<tr>
+        <td align=center>X 轴</td>
+        <td align=center>Y 轴</td>
+        <td align=center>X 轴</td>
+        <td align=center>Y 轴</td>
+</tr>
+<tr>
+<td align=center><input type=text name=x1 size=5></td>
+<td align=center><input type=text name=y1 size=5></td>
+<td align=center><input type=text name=x2 size=5></td>
+<td align=center><input type=text name=y2 size=5></td>
+</tr>
+<tr>
+<td colspan=4 align=center>
+          <input type=button value="计算距离" onClick="distanceCAL(this.form)">
+        <input type=text name=result size=20></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+#site_top_menu {
+    background-color: #0F9BE1;
+    border-bottom: 1px solid #5C665C;
+    border-top: 1px solid #5C665C;
+    padding: 0.3em;
+	margin-bottom: 10px;
+    position: relative;
+    text-align: center;
+}
+
+#site_top_menu a {
+    color: white;
+    padding: 0.3em;
+    text-decoration: none;
+}
+
+#site_top_menu a:hover {
+    background-color: #0F9BE1;
+    color: white;
+    text-decoration: none;
+}

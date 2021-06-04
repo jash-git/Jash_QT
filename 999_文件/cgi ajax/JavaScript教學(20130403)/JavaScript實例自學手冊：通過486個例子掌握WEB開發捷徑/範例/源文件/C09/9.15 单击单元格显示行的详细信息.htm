@@ -1,0 +1,57 @@
+<html>
+<head>
+  <title></title>
+</head>
+<style type="text/css"> 
+.div_class{ 
+    margin: 0 auto; 
+    width: 200px; 
+    height: 17px; 
+    border: 1px solid #9EB1C0; 
+    padding: 1px;     
+} 
+</style>
+<script type="text/javascript">
+function displayDiv(obj){
+  var myName = obj.innerText;                             //获取当前单元格内容
+  var address = obj.parentNode.childNodes[1].innerText;   //获取下一个单元格内容
+  var phone = obj.parentNode.childNodes[2].innerText;     //获取下下个单元格内容
+  var objDiv = document.getElementById("div");            //获取要显示内容的div
+  objDiv.innerHTML = "姓名：" +myName+ "<br>联系地址：" +address+ "<br>电话："+phone;
+  objDiv.style.display="";
+}
+
+function hiddenDiv(){                                    //隐藏div的显示
+  var obgDiv = document.getElementById("div");   
+  obgDiv.style.display="none";
+}
+</script>
+<body>
+<table>
+  <tr>
+    <td>
+
+<table width="400" border="1" cellpadding="1" cellspacing="1">
+  <tr>
+    <td>姓名</td>
+    <td>联系地址</td>
+    <td>电话</td>
+  </tr>
+  <tr>
+    <td onclick="displayDiv(this)">张三</td>
+    <td>北京</td>
+    <td>010-88888888</td>
+  </tr>
+  <tr>
+    <td onclick="displayDiv(this)">王武</td>
+    <td>北京</td>
+    <td>010-66666666</td>
+  </tr>
+</table>
+<div id="div" class="div_class" style="display:none" ondblclick="hiddenDiv()"> 
+</div>
+    </td>
+  </tr> 
+</table>
+</body>
+</html>

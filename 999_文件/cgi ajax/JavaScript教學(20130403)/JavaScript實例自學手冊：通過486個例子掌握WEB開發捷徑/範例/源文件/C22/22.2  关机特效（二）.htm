@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>关机特效</title>
+</head>
+<body style="background-color:#E9EDF7">
+<script language="javascript">
+function closeMsg(txt)
+{
+    document.body.style.filter='alpha(opacity=40) gray';//实现窗体的滤镜效果，设置透明度
+    confirm(txt);	                            //弹出提示性对话框
+    document.body.style.filter='';                      //取消滤镜
+}
+setTimeout("msgbox('注销   关闭   重新启动')",1000)  //隔一秒触发一次
+</script>
+<a href="javascript:closeMsg('注销   关闭   重新启动')">关机效果</a>
+</body>
+</html>

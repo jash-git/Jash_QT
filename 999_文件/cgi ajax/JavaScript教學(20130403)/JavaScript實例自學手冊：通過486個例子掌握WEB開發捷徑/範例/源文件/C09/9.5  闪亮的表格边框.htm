@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+   <table border="0" width="280" id="tb1" style="border:3px solid green">
+   <tr>
+   <td>
+     这是一个闪亮的表格边框！
+   </td>
+   </tr>
+   </table>
+   <script language="JavaScript">
+   function flashTable()
+   {
+   if (!document.all) return           //判断浏览器的类型
+   if (tb1.style.borderColor=="green") //判断表格的颜色是否是绿色
+   tb1.style.borderColor="red"         //将颜色更改为红色
+   else
+   tb1.style.borderColor="green"       //将颜色更改为绿色
+   }
+   setInterval("flashTable()", 400)    //每隔400毫秒就更新下颜色
+   </script> </body>
+</html>

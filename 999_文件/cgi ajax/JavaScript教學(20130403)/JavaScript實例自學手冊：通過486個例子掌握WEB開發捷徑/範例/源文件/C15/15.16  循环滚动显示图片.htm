@@ -1,0 +1,157 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+<script language="javascript">
+//定义要显示的图片数组
+imgArr=new Array()
+imgArr[0]="<a href=http://www.google.com/ onmouseMove='javascript:outHover=true' onMouseover='javascript:outHover=true' onMouseout='javascript:outHover=false;mvStart()'><img src=LOGO1.gif border=0></a>"
+imgArr[1]="<a href=http://www.baidu.com/ onmouseMove='javascript:outHover=true' onMouseover='javascript:outHover=true' onMouseout='javascript:outHover=false;mvStart()'><img src=LOGO2.gif border=0></a>"
+imgArr[2]="<a href=http://www.google.com/ onmouseMove='javascript:outHover=true' onMouseover='javascript:outHover=true' onMouseout='javascript:outHover=false;mvStart()'><img src=LOGO1.gif border=0></a>"
+imgArr[3]="<a href=http://www.baidu.com/ onmouseMove='javascript:outHover=true' onMouseover='javascript:outHover=true' onMouseout='javascript:outHover=false;mvStart()'><img src=LOGO2.gif border=0></a>"
+imgArr[4]="<a href=http://www.google.com/ onmouseMove='javascript:outHover=true' onMouseover='javascript:outHover=true' onMouseout='javascript:outHover=false;mvStart()'><img src=LOGO1.gif border=0></a>"
+//内部变量
+var moveStep=4;               //步长，单位：pixel
+var moveRelax=100;           //移动时间间隔，单位：ms
+ns4=(document.layers)?true:false;
+var displayImgAmount=4 ;     //视区窗口可显示个数
+var divWidth=220;            //每块图片占位宽
+var divHeight=145;           //每块图片占位高
+var startDnum=0;
+var nextDnum=startDnum+displayImgAmount;
+var timeID;
+var outHover=false;
+var startDivClipLeft;
+var nextDivClipRight;
+//初始化层
+function initDivPlace()
+{
+    if (ns4)
+    {
+        for (i=0;i<displayImgAmount;i++){
+            eval("document.divOuter.document.divAds"+i+".left="+divWidth*i)
+        }
+        for (i=displayImgAmount;i<imgArr.length;i++){
+            eval("document.divOuter.document.divAds"+i+".left="+divWidth*displayImgAmount)
+        }
+    }else{
+        for (i=0;i<displayImgAmount;i++){
+            eval("document.all.divAds"+i+".style.left="+divWidth*i)
+        }
+        for (i=displayImgAmount;i<imgArr.length;i++){
+            eval("document.all.divAds"+i+".style.left="+divWidth*displayImgAmount)
+        }
+    }
+}
+//设置定时器移动图片
+function mvStart(){
+    timeID=setTimeout(moveLeftDiv,moveRelax)
+}
+//清除定时器，停止移动
+function mvStop(){
+    clearTimeout(timeID)
+}
+
+function moveLeftDiv(){
+    if (ns4){
+        for (i=0;i<=displayImgAmount;i++){
+            eval("document.divOuter.document.divAds"+parseInt((startDnum+i)%imgArr.length)+".left=document.divOuter.document.divAds"+parseInt((startDnum+i)%imgArr.length)+".left-moveStep")
+        }
+
+        startDivClipLeft=parseInt(eval("document.divOuter.document.divAds"+startDnum+".clip.left"))
+        nextDivClipRight=parseInt(eval("document.divOuter.document.divAds"+nextDnum+".clip.right"))
+
+        if (startDivClipLeft+moveStep>divWidth){
+            eval("document.divOuter.document.divAds"+nextDnum+".clip.right="+divWidth)
+            
+            eval("document.divOuter.document.divAds"+startDnum+".left="+divWidth*displayImgAmount)
+            eval("document.divOuter.document.divAds"+parseInt((nextDnum+1)%imgArr.length)+".left=document.divOuter.document.divAds"+nextDnum+".left+"+divWidth)
+            eval("document.divOuter.document.divAds"+parseInt((nextDnum+1)%imgArr.length)+".clip.left=0")
+            
+            
+            startDnum=(++startDnum)%imgArr.length
+            nextDnum=(startDnum+displayImgAmount)%imgArr.length
+            
+            startDivClipLeft=moveStep-(divWidth-startDivClipLeft)
+            nextDivClipRight=moveStep-(divWidth-nextDivClipRight)
+        }else{
+            eval("document.divOuter.document.divAds"+nextDnum+".clip.left=0")
+            startDivClipLeft+=moveStep
+            nextDivClipRight+=moveStep
+        }
+        eval("document.divOuter.document.divAds"+startDnum+".clip.left="+startDivClipLeft)
+        eval("document.divOuter.document.divAds"+nextDnum+".clip.right="+nextDivClipRight)
+    }else{
+        for (i=0;i<=displayImgAmount;i++){
+            eval("document.all.divAds"+parseInt((startDnum+i)%imgArr.length)+".style.left=document.all.divAds"+parseInt((startDnum+i)%imgArr.length)+".style.pixelLeft-moveStep")
+        }
+    
+        startDivClipLeft=parseInt(eval("document.all.divAds"+startDnum+".currentStyle.clipLeft"))
+        nextDivClipRight=parseInt(eval("document.all.divAds"+nextDnum+".currentStyle.clipRight"))
+    
+        if (startDivClipLeft+moveStep>divWidth){
+            eval("document.all.divAds"+nextDnum+".style.clip='rect(0,"+divWidth+","+divHeight+",0"+")'")
+            
+            eval("document.all.divAds"+startDnum+".style.left="+divWidth*displayImgAmount)
+            eval("document.all.divAds"+parseInt((nextDnum+1)%imgArr.length)+".style.left=document.all.divAds"+nextDnum+".style.pixelLeft+"+divWidth)
+            
+            startDnum=(++startDnum)%imgArr.length
+            nextDnum=(startDnum+displayImgAmount)%imgArr.length
+            
+            startDivClipLeft=moveStep-(divWidth-startDivClipLeft)
+            nextDivClipRight=moveStep-(divWidth-nextDivClipRight)
+        }else{
+            startDivClipLeft+=moveStep
+            nextDivClipRight+=moveStep
+        }
+        eval("document.all.divAds"+startDnum+".style.clip='rect(0,"+divWidth+","+divHeight+","+startDivClipLeft+")'")
+        eval("document.all.divAds"+nextDnum+".style.clip='rect(0,"+nextDivClipRight+","+divHeight+",0)'")
+    }
+    if (outHover){
+        mvStop()
+    }else{
+        mvStart()
+    }
+}
+//定义显示图片的层
+function writeDivs(){
+    if (ns4){
+        document.write("<ilayer name=divOuter width=750 height="+divHeight+">")
+        
+        for (i=0;i<imgArr.length;i++){
+            document.write("<layer name=divAds"+i+">")
+            document.write(imgArr[i]+" ")
+            document.write("</layer>")
+        }
+        document.write("</ilayer>")
+        document.close()
+        for (i=displayImgAmount;i<imgArr.length;i++){
+            eval("document.divOuter.document.divAds"+i+".clip.right=0")
+        }
+    }else{
+        document.write("<div id=divOuter style='position:relative' width=750 height="+divHeight+">")
+        
+        for (i=0;i<imgArr.length;i++){
+            document.write("<div id=divAds"+i+" style='position:absolute;clip:rect(0,"+divWidth+","+divHeight+",0)'>")
+            document.write(imgArr[i]+" ")
+            document.write("</div>")
+        }
+        document.write("</div>")
+        for (i=displayImgAmount;i<imgArr.length;i++){
+            eval("document.all.divAds"+i+".style.clip='rect(0,0,"+divHeight+",0)'")
+        }
+    }
+}
+writeDivs();
+initDivPlace();
+</script>
+</head>
+<body  onload="mvStart()">
+       <p>
+        调试其他进程的能力赋予您极广泛的权力，这是无法通过其他途经获得的，在进行远程调试时更是如此。恶意的调试器可能对正在调试的计算机造成大范围的损害。因此，对可能进行调试的人要有所限制。有关更多信息，请参见<a
+           >远程调试权限</a>。</p>
+    <p>
+        但是，许多开发人员没有意识到安全威胁也可以从相反的方向产生。调试对象进程中的恶意代码可能危害调试计算机的安全：有许多必须防范的不道德的安全利用。</p>
+    <h1 >
+        安全性最佳做法</h1>
+    </body>
+</html>

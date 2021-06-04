@@ -1,0 +1,16 @@
+<HTML>
+<HEAD>
+<title>反选</title>
+<script  language=javascript>  
+function  getCount()
+{
+    var count=document.all('TextArea1').innerHTML.split('\n').length-1;//获取回车的个数
+    alert("总共有"+ count +"个回车");
+}  
+</script>  
+</HEAD>
+<BODY>
+    <textarea id="TextArea1" cols="30" rows="8"></textarea>
+    <input id="Button1" type="button"  value="获取" onclick="getCount()" />
+</BODY>
+</HTML>

@@ -1,0 +1,38 @@
+ <html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+<SCRIPT language=javascript>
+var Words;
+function SetWords(word)   //加密当前文本
+{
+  Words = escape(word.value);//加密的主要方法
+}
+function SetNewWords(form)  //加密当前窗体
+{
+  var NewWords;
+  NewWords = Words
+  form.NewWords.value = NewWords;
+}
+</SCRIPT>
+
+</head>
+<body >
+<FORM METHOD="POST">
+  <div align="center"> 
+    <div align="center"> 
+            <font color="#0066FF">加密页面源代码脚本</font></div>
+    <p>将你的页面源代码粘贴在下面的框内,要包括所有的标签例如html , head, body等。</p>
+  </div>
+  <P align="center"> 
+    <TEXTAREA NAME="Word"  VALUE="" ROWS=7 COLS=50 ONCHANGE="SetWords(this)">
+</TEXTAREA>
+  <P align="center"> 
+    <INPUT TYPE=BUTTON ONCLICK="SetNewWords(this.form)" 
+VALUE="开始转换">
+  
+    <P align="center"> 
+    <TEXTAREA NAME="NewWords"  VALUE="" ROWS=7 COLS=50>
+</TEXTAREA>
+</FORM>
+</body>
+</html>

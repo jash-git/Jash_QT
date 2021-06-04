@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+    <script language="javascript">
+    function getAddress(e)
+    {
+       var t=e.offsetTop;
+       var l=e.offsetLeft;
+       while(e=e.offsetParent)
+       {
+          t+=e.offsetTop;  //获取X坐标
+          l+=e.offsetLeft; //获取Y坐标
+       }
+       alert("x坐标="+t+"   y坐标为="+l);
+    }
+    </script>
+</head>
+<body>
+<input id="Button1" type="button" value="坐标" onclick="getAddress(this)" />
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language=javascript>
+//为string对象添加是否是正确日期属性
+String.prototype.isDate = function()
+{
+   var r = this.match(/^(\d{4})(-|\/)(\d{2})\2(\d{2})$/); //正则表达式 
+   if(r==null)return false; 
+   var d = new Date(r[1], r[3]-1, r[4]); 
+   return(d.getFullYear()==r[1]&&(d.getMonth()+1)==r[3]&&d.getDate()==r[4]);
+}
+alert("2007-05-31".isDate());
+alert("2006-1-41".isDate());
+</script>
+</head>
+<body>
+</body>
+</html>

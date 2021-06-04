@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script LANGUAGE="JavaScript">
+var msg = "欢迎来到北京";
+var speed = 1000;
+var control = 1;
+function msgFlash()
+{
+  if (control == 1)
+    {
+      window.status=msg;
+      control=0;
+    }  
+  else
+    {
+      window.status="";
+      control=1;
+    }
+  setTimeout("msgFlash()",speed);
+}
+</script>
+</head>
+<body onload="msgFlash()">
+</body>
+</html>

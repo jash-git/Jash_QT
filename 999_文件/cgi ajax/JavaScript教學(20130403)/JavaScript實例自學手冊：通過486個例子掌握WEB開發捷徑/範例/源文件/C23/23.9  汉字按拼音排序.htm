@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>汉字排序</title>
+<script  language="javascript" >
+     function txtSort()
+     {
+          var txtarray=document.getElementById("txt").value;    //获取排序前的文本
+          txtarray=txtarray.split(",");                         //通过间隔符号，将文本分割成数组
+          txtarray.sort();                                      //对数组进行排序
+          txtarray.sort(function(txtarray,b){
+           return txtarray.localeCompare(b)                    //使用localeCompare进行2个文本的对比
+           });
+          document.getElementById("txt2").value=txtarray;      //显示排序后的结果
+     }
+</script>
+</head>
+<body>
+排序前：<textarea id="txt" >占三,里斯,亚当,苹果,香蕉,政治,历史</textarea></p>
+<input type="button" id="Button1" value="排序" onclick="txtSort()"/></p>
+排序后：<textarea id="txt2" ></textarea></p>
+</body>
+</html>

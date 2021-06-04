@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<!-- saved from url=(0093)http://superuser.com/questions/344760/how-to-create-a-dummy-sound-card-device-in-linux-server -->
+<html class=" clickberry-extension clickberry-extension-standalone"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>ubuntu - How to create a dummy sound card device in Linux server? - Super User</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/superuser/img/favicon.ico">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/superuser/img/apple-touch-icon.png">
+    <link rel="search" type="application/opensearchdescription+xml" title="Super User" href="http://superuser.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@super_user">
+    <meta name="twitter:domain" content="superuser.com">
+    <meta name="og:type" content="website">
+    <meta name="og:image" content="http://cdn.sstatic.net/superuser/img/apple-touch-icon@2.png?v=e869e4459439">
+    <meta name="og:title" content="How to create a dummy sound card device in Linux server?">
+    <meta name="og:description" content="I want to run Linux program that require a soundcard, on a server, which has no soundcard.
+Is it possible to create a dummy soundcard? I am totally unaware of Linux sound system internals. Please p...">
+    <meta name="og:url" content="http://superuser.com/questions/344760/how-to-create-a-dummy-sound-card-device-in-linux-server">
+    <link rel="canonical" href="./ubuntu - How to create a dummy sound card device in Linux server_files/ubuntu - How to create a dummy sound card device in Linux server.htm">
+
+    
+    
+    <script type="text/javascript" async="" src="./ubuntu - How to create a dummy sound card device in Linux server_files/ga.js"></script><script type="text/javascript" async="" src="./ubuntu - How to create a dummy sound card device in Linux server_files/ados"></script><script type="text/javascript" async="" src="./ubuntu - How to create a dummy sound card device in Linux server_files/quant.js"></script><script async="" src="./ubuntu - How to create a dummy sound card device in Linux server_files/beacon.js"></script><script async="" src="./ubuntu - How to create a dummy sound card device in Linux server_files/analytics.js"></script><script type="text/javascript" async="" src="./ubuntu - How to create a dummy sound card device in Linux server_files/ados.js"></script><script type="text/javascript" src="./ubuntu - How to create a dummy sound card device in Linux server_files/jquery.min.js"></script>
+    <script src="./ubuntu - How to create a dummy sound card device in Linux server_files/stub.en.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="./ubuntu - How to create a dummy sound card device in Linux server_files/all.css">
+    
+    <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;How to create a dummy sound card device in Linux server?&#39;" href="http://superuser.com/feeds/question/344760">
+    <script type="text/javascript">
+        
+        StackExchange.ready(function () {
+            StackExchange.using("postValidation", function () {
+                StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+            });
+
+            
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:3,shownCommentCount:3,highlightColor:'#BEB013',backgroundColor:'#FFF',questionId:344760});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('3', '344760');
+            
+                    });
+    </script>
+
+
+    <script type="text/javascript">
+        StackExchange.ready(function () {
+            StackExchange.realtime.init('sockets.ny.stackexchange.com');
+            StackExchange.realtime.subscribeToInboxNotifications();
+                    StackExchange.realtime.subscribeToReputationNotifications('3');
+                            StackExchange.realtime.subscribeToTopBarNotifications('3');
+        });
+    </script>
+    <script type="text/javascript">
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1390376794,"styleCode":true,"enableUserHovercards":true,"site":{"name":"Super User","description":"Q&A for computer enthusiasts and power users","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LcDNwYAAAAAAG_X1rC8kTtLBP6XS2Ym1N0n9kSY","recaptchaAudioLang":"en","enableSocialMediaInSharePopup":true},"user":{"fkey":"8995b00aa6b08a430c1ef1dbd2b9cb6f","isAnonymous":true,"ab":{"welcome_email":{"v":"c","g":2},"anonymoushero":{"v":"bias2","g":2}}}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"e0bbd4760e83","js/moderator.en.js":"f24049d774be","js/full-anon.en.js":"a913da37f9a7","js/full.en.js":"081ed757f4bd","js/wmd.en.js":"849f408083f3","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"6db6f78458f8","js/help.en.js":"d3cc74d8a93a","js/tageditor.en.js":"6d51a5f8d7f3","js/tageditornew.en.js":"5761dfb80bd0","js/inline-tag-editing.en.js":"f951bd09dc69","js/revisions.en.js":"33fd38144303","js/review.en.js":"44c8a0044283","js/tagsuggestions.en.js":"e4e7b952fcc7","js/post-validation.en.js":"c275fe37d674","js/explore-qlist.en.js":"73825bd006fc","js/events.en.js":"c3218f63807f"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+        
+    </script>
+    
+        <script type="text/javascript">
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+<script async="" type="text/javascript" src="./ubuntu - How to create a dummy sound card device in Linux server_files/full-anon.en.js"></script><meta content="clickberry-extension-here"><script type="text/javascript" src="chrome-extension://dlnembnfbcpjnepmfjmngjenhhajpdfd/resources/LocalScript.js"></script><script type="text/javascript" src="chrome-extension://dlnembnfbcpjnepmfjmngjenhhajpdfd/libraries/DataExchangeScript.js"></script><script async="" type="text/javascript" src="./ubuntu - How to create a dummy sound card device in Linux server_files/post-validation.en.js"></script><script id="clickberry-standalone-script" src="chrome-extension://lfmhcpmkbdkbgbmkjoiopeeegenkdikp/modules/clickberry/ChromeStdInjector.js?v=prod&addonType=fvd"></script><script type="text/javascript">LCS_FE1DEEEA_DB6D_44b8_83F0_34FC0F9D1052_g_DataObject.updateStorage("%7B%22toolbarID%22%3A%22471647753ad14bbbb118b33291161ba7%22%2C%22installer_name%22%3A%22sg_6R8RSu76nt_active_MB206_MB207_UA-25323614-27_2013-01-20-15-07-41%22%2C%22product_name%22%3A%22IB%20Updater%22%2C%22product_version%22%3A%222.0.0.578%22%2C%22WSG_upn2%22%3A%226R8RSu76nt%22%2C%22WSG_status%22%3A%22inactive%7C%7C%7C8641390376740001%22%2C%22WSG_redirectQueryParam1%22%3A%22MB206%22%2C%22WSG_redirectQueryParam2%22%3A%22MB207%22%2C%22WSG_gtQueryParam%22%3A%22UA-25323614-27%22%2C%22temp_installer_name%22%3A%22sg_6R8RSu76nt_active_MB206_MB207_UA-25323614-27_2013-01-20-15-07-41%22%2C%22WSG_lastUpdate%22%3A%221390352176399%7C%7C%7C8641390352176400%22%2C%22WSG_whiteList%22%3A%22%7B%5C%22search.babylon.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.imesh.net%5C%22%3A%5C%22q%5C%22%2C%5C%22www.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22home.mywebsearch.com%5C%22%3A%5C%22searchfor%5C%22%2C%5C%22search.mywebsearch.com%5C%22%3A%5C%22searchfor%5C%22%2C%5C%22search.mindspark.com%5C%22%3A%5C%22searchfor%5C%22%2C%5C%22search.conduit.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.zugo.com%5C%22%3A%5C%22p%5C%22%2C%5C%22www2.mystart.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.mystart.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.bigseekpro.com%5C%22%3A%5C%22q%5C%22%2C%5C%22bigseekpro.com%5C%22%3A%5C%22q%5C%22%2C%5C%22bigspeedpro.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.esnips.com%5C%22%3A%5C%22searchQuery%5C%22%2C%5C%22search.foxtab.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.brothersoft.com%5C%22%3A%5C%22keyword%5C%22%2C%5C%22search.softonic.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.iobit.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.iminent.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.facemoods.com%5C%22%3A%5C%22s%5C%22%2C%5C%22www.plusnetwork.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.alothome.com%5C%22%3A%5C%22q%5C%22%2C%5C%22alothome.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.alothome.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.chatvibes.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.blekko.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.searchnu.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchnu.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.icq.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.etype.com%5C%22%3A%5C%22query%5C%22%2C%5C%22isearch.babylon.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.utorrent.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.bittorrent.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.bearshare.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.bearshare.net%5C%22%3A%5C%22q%5C%22%2C%5C%22searchya.com%5C%22%3A%5C%22q%5C%22%2C%5C%22int.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.searchcompletion.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.adoresearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchcore.net%5C%22%3A%5C%22q%5C%22%2C%5C%22googosearch.info%5C%22%3A%5C%22terms%5C%22%2C%5C%22bar.searchqu.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.speedbit.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.toggle.com%5C%22%3A%5C%22q%5C%22%2C%5C%22isearch.whitesmoke.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.handycafe.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchassist.babylon.com%5C%22%3A%5C%22q%5C%22%2C%5C%22video.searchcompletion.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchbrowsing.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.anchorfree.net%5C%22%3A%5C%22q%5C%22%2C%5C%22search.hotspotshield.com%5C%22%3A%5C%22q%5C%22%2C%5C%22dts.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22uk.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.chatzum.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.phpnuke.org%5C%22%3A%5C%22q%5C%22%2C%5C%22www.i-mysearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.smartaddressbar.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.search-guru.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchgby.com%5C%22%3A%5C%22%5C%22%2C%5C%22thespecialsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.bpath.com%5C%22%3A%5C%22q%5C%22%2C%5C%22start.funmoods.com%5C%22%3A%5C%22s%5C%22%2C%5C%22fr.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22de.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22it.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22es.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.imesh.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.swagbucks.com%5C%22%3A%5C%22q%5C%22%2C%5C%22isearch.avg.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.avg.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.yippy.com%5C%22%3A%5C%22query%5C%22%2C%5C%22cludr.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.vmn.net%5C%22%3A%5C%22q%5C%22%2C%5C%22www.gigablast.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.metacrawler.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.ixquick.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22duckduckgo.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.lycos.com%5C%22%3A%5C%22q%5C%22%2C%5C%22monstercrawler.com%5C%22%3A%5C%22q%5C%22%2C%5C%22go.com%5C%22%3A%5C%22p%5C%22%2C%5C%22hotbot.com%5C%22%3A%5C%22keyword%5C%22%2C%5C%22home.myplaycity.com%5C%22%3A%5C%22s%5C%22%2C%5C%22www.findamo.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.gboxapp.com%5C%22%3A%5C%22q%5C%22%2C%5C%22start.iplay.com%5C%22%3A%5C%22q%5C%22%2C%5C%22home.speedbit.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.alot.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.searchplusnetwork.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchqu.net%5C%22%3A%5C%22%5C%22%2C%5C%22search.insiteapp.com%5C%22%3A%5C%22q%5C%22%2C%5C%22somoto.com%5C%22%3A%5C%22q%5C%22%2C%5C%22blekko.com%5C%22%3A%5C%22%5C%22%2C%5C%22suggestor.netliker.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.netliker.com%5C%22%3A%5C%22%5C%22%2C%5C%22insta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.fast-search.biz%5C%22%3A%5C%22q%5C%22%2C%5C%22start.facemoods.com%5C%22%3A%5C%22s%5C%22%2C%5C%22search.coolnovo.com%5C%22%3A%5C%22%5C%22%2C%5C%22chromeplus.info%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchble.com%5C%22%3A%5C%22keyword%5C%22%2C%5C%22home.allgameshome.com%5C%22%3A%5C%22s%5C%22%2C%5C%22forsearch.net%5C%22%3A%5C%22q%5C%22%2C%5C%22allssearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.snap.do%5C%22%3A%5C%22q%5C%22%2C%5C%22search.smartsearchbox.net%5C%22%3A%5C%22%5C%22%2C%5C%22search.seznam.cz%5C%22%3A%5C%22q%5C%22%2C%5C%22search.funmoods.com%5C%22%3A%5C%22s%5C%22%2C%5C%22search.avira.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.jzip.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.findeer.com%5C%22%3A%5C%22%5C%22%2C%5C%22search-faster.com%5C%22%3A%5C%22%5C%22%2C%5C%22dnssearch.rr.com%5C%22%3A%5C%22search%5C%22%2C%5C%22search.rr.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.kalloutsearch4.com%5C%22%3A%5C%22q%5C%22%2C%5C%22kalloutsearch4.com%5C%22%3A%5C%22Keywords%5C%22%2C%5C%22search.rapidns.net%5C%22%3A%5C%22SearchQuery%5C%22%2C%5C%22websearch.4shared.com%5C%22%3A%5C%22q%5C%22%2C%5C%22images.search.conduit.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.cpchero.biz%5C%22%3A%5C%22q%5C%22%2C%5C%22search.kikin.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.engine-search.biz%5C%22%3A%5C%22q%5C%22%2C%5C%22www.mysearchresults.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.vdc.com.vn%5C%22%3A%5C%22SearchQuery%5C%22%2C%5C%22search.charter.net%5C%22%3A%5C%22search%5C%22%2C%5C%22search-vbc.com%5C%22%3A%5C%22keywords%5C%22%2C%5C%22search.pch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.pantip.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.startsearcher.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.icafemanager.com%5C%22%3A%5C%22q%5C%22%2C%5C%22aolsearcht10.search.aol.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.free.fr%5C%22%3A%5C%22%5C%22%2C%5C%22www.similarsitesearch.com%5C%22%3A%5C%22URL%5C%22%2C%5C%22qoqole.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.claro-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22isearch.claro-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.uncoverthenet.com/search%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchcanvas.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.etoolkit.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchalgo.com%5C%22%3A%5C%22q%5C%22%2C%5C%22bestsearchall.com%5C%22%3A%5C%22q%5C%22%2C%5C%22bestorganicsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22mysearchproperties.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.treasuretrooper.com%5C%22%3A%5C%22q%5C%22%2C%5C%22btsearch.name%5C%22%3A%5C%22q%5C%22%2C%5C%22optu.search-help.net%5C%22%3A%5C%22search%5C%22%2C%5C%22search.clinck.in%5C%22%3A%5C%22q%5C%22%2C%5C%22search.shareazaweb.net%5C%22%3A%5C%22q%5C%22%2C%5C%22search.solarmash.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.surfcanyon.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.tedata.net%5C%22%3A%5C%22SearchQuery%5C%22%2C%5C%22www.gooofullsearch.com%5C%22%3A%5C%22keywords%5C%22%2C%5C%22www.alnaddy.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchsafer.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchqu.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchfunmoods.com%5C%22%3A%5C%22s%5C%22%2C%5C%22www.searchfunmoods.com%5C%22%3A%5C%22s%5C%22%2C%5C%22www.searchya.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.lphant.net%5C%22%3A%5C%22%5C%22%2C%5C%22searchremagnified.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.pagequeryresults.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.searchqueryresults.com%5C%22%3A%5C%22%5C%22%2C%5C%22domainhelp.search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.b1.org%5C%22%3A%5C%22q%5C%22%2C%5C%22search.pontofrio.com.br%5C%22%3A%5C%22q%5C%22%2C%5C%22search.maxonline.com.sg%5C%22%3A%5C%22q%5C%22%2C%5C%22search.us.com%5C%22%3A%5C%22k%5C%22%2C%5C%22www.picsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.search-document.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchsafer.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.website-unavailable.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.appsarefun.info%5C%22%3A%5C%22%5C%22%2C%5C%22www.searchamong.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.savevalet.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.navegaki.com.br%5C%22%3A%5C%22q%5C%22%2C%5C%22my.rally.io%5C%22%3A%5C%22%5C%22%2C%5C%22isearch.glarysoft.com%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.mocaflix.com%5C%22%3A%5C%22s%5C%22%2C%5C%22search.fastaddressbar.com%5C%22%3A%5C%22s%5C%22%2C%5C%22search.certified-toolbar.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22mysearch.avg.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www1.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.searchya.com%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.just-browse.info%5C%22%3A%5C%22s%5C%22%2C%5C%22search.fbdownloader.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.startnow.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.protectedsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22start.iminent.com%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.pu-results.info%5C%22%3A%5C%22s%5C%22%2C%5C%2222find.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.comcast.net%5C%22%3A%5C%22q%5C%22%2C%5C%22rss2search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchinq.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.22find.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.genieo.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.safesearch.net%5C%22%3A%5C%22q%5C%22%2C%5C%22isearch.fantastigames.com%5C%22%3A%5C%22q%5C%22%2C%5C%22nortonsafe.search.ask.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.dnsrsearch.com%5C%22%3A%5C%22search%5C%22%2C%5C%22yourstartsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22mixidj.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchiu.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www1.dlinksearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.eazel.com%5C%22%3A%5C%22q%5C%22%2C%5C%22en.eazel.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.smartsuggestor.net%5C%22%3A%5C%22s%5C%22%2C%5C%22mixidj.claro-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.buzzdock.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.oracle.com%5C%22%3A%5C%22q%5C%22%2C%5C%22visualbee.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22filesearch.setun.net%5C%22%3A%5C%22q%5C%22%2C%5C%22search.smartsuggestor.com%5C%22%3A%5C%22s%5C%22%2C%5C%22go.findrsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.earthlink.net%5C%22%3A%5C%22q%5C%22%2C%5C%22search.netzero.net%5C%22%3A%5C%22query%5C%22%2C%5C%22www.holasearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.31searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.99searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.28searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.29searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.38searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.39searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.50searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.100searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.20searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.24searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.45searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.55searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.60searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.70searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.88searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.47searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.32searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.48searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.53searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.40searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.66searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.34searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.49searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.30searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.41searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.36searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.52searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.25searchengines.com%5C%22%3A%5C%22query%5C%22%2C%5C%22home.maxwebsearch.com%5C%22%3A%5C%22query%5C%22%2C%5C%22polysearch.org%5C%22%3A%5C%22srch%5C%22%2C%5C%22search.bnpmedia.com%5C%22%3A%5C%22q%5C%22%2C%5C%22start.search.us.com%5C%22%3A%5C%22k%5C%22%2C%5C%22www.searchnfind.org%5C%22%3A%5C%22%5C%22%2C%5C%22searching-gambling.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.easylifeapp.com%5C%22%3A%5C%22s%5C%22%2C%5C%22www.goodsearch.com%5C%22%3A%5C%22keywords%5C%22%2C%5C%22search.adlux.com%5C%22%3A%5C%22%5C%22%2C%5C%22websearch.good-results.info%5C%22%3A%5C%22s%5C%22%2C%5C%22search.beesq.net%5C%22%3A%5C%22k%5C%22%2C%5C%22www1.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.search.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.yhs.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22info.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.yd.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www2.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www3.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.helpmefindyour.info%5C%22%3A%5C%22s%5C%22%2C%5C%22tuvaro.com%5C%22%3A%5C%22q%5C%22%2C%5C%22amazon.smart-search.com%5C%22%3A%5C%22query%5C%22%2C%5C%22butterflysearch.net%5C%22%3A%5C%22search%5C%22%2C%5C%22g9search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22images.searchcompletion.com%5C%22%3A%5C%22q%5C%22%2C%5C%22lab.search.conduit.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.autocompletepro.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.creativetoolbars.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.dudu.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.filebulldog.com%5C%22%3A%5C%22p%5C%22%2C%5C%22search.findwide.com%5C%22%3A%5C%22k%5C%22%2C%5C%22search.focalprice.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.juno.com%5C%22%3A%5C%22query%5C%22%2C%5C%22search.peoplepc.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.piccshare.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.starburnsoftware.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.zonealarm.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search27.info.com%5C%22%3A%5C%22qkw%5C%22%2C%5C%22search42.info.com%5C%22%3A%5C%22qkw%5C%22%2C%5C%22search45.info.com%5C%22%3A%5C%22qkw%5C%22%2C%5C%22search49.info.com%5C%22%3A%5C%22qkw%5C%22%2C%5C%22securesearch.lavasoft.com%5C%22%3A%5C%22q%5C%22%2C%5C%22shieldedsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22us.aolsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.brandthunder.com%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.youwillfind.info%5C%22%3A%5C%22s%5C%22%2C%5C%22websearchsimple.com%5C%22%3A%5C%22q%5C%22%2C%5C%22wind.search-help.net%5C%22%3A%5C%22search%5C%22%2C%5C%22www.21searchengines.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.22searchengines.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.42searchengines.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.46searchengines.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.85searchengines.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.goonsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.isearch-123.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.maxwebsearch.com%5C%22%3A%5C%22query%5C%22%2C%5C%22www.searchgby.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.tlbsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22avira.search.ask.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.coupons.com%5C%22%3A%5C%22%5C%22%2C%5C%22smartsearchfacts.com%5C%22%3A%5C%22search%5C%22%2C%5C%22www.27searchengines.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.90searchengines.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.searchgol.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchpage.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.toastsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.zum.com%5C%22%3A%5C%22query%5C%22%2C%5C%22searchzone.com%5C%22%3A%5C%22query%5C%22%2C%5C%22contenko.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.mysearch.com%5C%22%3A%5C%22searchfor%5C%22%2C%5C%22home.tb.ask.com%5C%22%3A%5C%22searchfor%5C%22%2C%5C%22isearch.shopathome.com%5C%22%3A%5C%22%5C%22%2C%5C%22searchy.easylifeapp.com%5C%22%3A%5C%22p%5C%22%2C%5C%22www.search.smartshopping.com%5C%22%3A%5C%22keywords%5C%22%2C%5C%22search.bitcomet.com%5C%22%3A%5C%22q%5C%22%2C%5C%22trusearch.com%5C%22%3A%5C%22squery%5C%22%2C%5C%22www.photoshopsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.snapdo.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.globososo.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search34.info.com%5C%22%3A%5C%22KW%5C%22%2C%5C%22start.mysearchdial.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.v9.com%5C%22%3A%5C%22p%5C%22%2C%5C%22maxwebsearch.com%5C%22%3A%5C%22query%5C%22%2C%5C%22search.twcc.com%5C%22%3A%5C%22%5C%22%2C%5C%22websearch.simplespeedy.info%5C%22%3A%5C%22q%5C%22%2C%5C%22search.ividi.org%5C%22%3A%5C%22q%5C%22%2C%5C%22securedsearch2.lavasoft.com%5C%22%3A%5C%22p%5C%22%2C%5C%22yumyumsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22wisersearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.morefastsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.minituner.org%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.searchrocket.info%5C%22%3A%5C%22q%5C%22%2C%5C%22www.firstsearchhere.com%5C%22%3A%5C%22q%5C%22%2C%5C%22infosearchresults.com%5C%22%3A%5C%22q%5C%22%2C%5C%22mp3tubetoolbarsearch.com%5C%22%3A%5C%22p%5C%22%2C%5C%22sr.searchfunmoods.com%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.searchdwebs.info%5C%22%3A%5C%22q%5C%22%2C%5C%22www.buenosearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.isearch-for.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.triple-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22onlinelivesearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.freecause.com%5C%22%3A%5C%22p%5C%22%2C%5C%22search.url.com%5C%22%3A%5C%22query%5C%22%2C%5C%22search.viewpoint.com%5C%22%3A%5C%22k%5C%22%2C%5C%22search2.virginmedia.com%5C%22%3A%5C%22q%5C%22%2C%5C%22twww1.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.pu-result.info%5C%22%3A%5C%22s%5C%22%2C%5C%22websearch.searchannel.info%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.simplesearches.info%5C%22%3A%5C%22s%5C%22%2C%5C%22www.aolsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.dalesearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.greenpoweredsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.search.us.com%5C%22%3A%5C%22k%5C%22%2C%5C%22www.search30.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchfog.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.thedreamsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www1.delta-seawww1.delta-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22Searchamong.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchstarburnsoftware.com%5C%22%3A%5C%22q%5C%22%2C%5C%22qvo6.com%5C%22%3A%5C%22p%5C%22%2C%5C%22start.qone8.com%5C%22%3A%5C%22q%5C%22%2C%5C%22delta-homes.com%5C%22%3A%5C%22p%5C%22%2C%5C%22search.localstrike.net%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.pur-esult.info%5C%22%3A%5C%22%5C%22%2C%5C%22www.searchfusion.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.rpidity.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.isearchspace.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.tika-search.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.doko-search.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.only-search.com%5C%22%3A%5C%22%5C%22%2C%5C%22mixidj.buenosearch.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.golsearch.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.splashtop.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.dosearches.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.all.biz%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.soft-quick.info%5C%22%3A%5C%22s%5C%22%2C%5C%22search.centrum.cz%5C%22%3A%5C%22q%5C%22%2C%5C%22searchfog.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.whitesmoke.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.domainnotfound.optimum.net%5C%22%3A%5C%22q%5C%22%2C%5C%22search.hao123.co.th%5C%22%3A%5C%22wd%5C%22%2C%5C%22searchiy.gboxapp.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.funnysearch.org%5C%22%3A%5C%22q%5C%22%2C%5C%22native-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www2.search-results.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.webssearches.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.globasearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.hao123.com.eg%5C%22%3A%5C%22wd%5C%22%2C%5C%22search2.mayoclinic.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.onlinelivesearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchsheet.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.bigpond.net.au%5C%22%3A%5C%22SearchQuery%5C%22%2C%5C%22searchsearchsearch.org%5C%22%3A%5C%22Keywords%5C%22%2C%5C%22bar.maxwebsearch.com%5C%22%3A%5C%22query%5C%22%2C%5C%22search30.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.quebles.com%5C%22%3A%5C%22q%5C%22%2C%5C%22isearch.omiga-plus.com%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.searchpages.info%5C%22%3A%5C%22q%5C%22%2C%5C%22www.oursearching.com%5C%22%3A%5C%22%5C%22%2C%5C%22do-search.com%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.search-guide.info%5C%22%3A%5C%22%5C%22%2C%5C%22websearch.wisesearch.info%5C%22%3A%5C%22%5C%22%2C%5C%22www.looksafesearch.com%5C%22%3A%5C%22%5C%22%2C%5C%22search14.accoona.com%5C%22%3A%5C%22search%5C%22%2C%5C%22search.gifthulk.com%5C%22%3A%5C%22%5C%22%2C%5C%22folksearcher.com%5C%22%3A%5C%22%5C%22%2C%5C%22searchitallonline.com%5C%22%3A%5C%22query%5C%22%2C%5C%22searchresultsonline.com%5C%22%3A%5C%22query%5C%22%2C%5C%22websearch.homesearch-hub.info%5C%22%3A%5C%22s%5C%22%2C%5C%22www.searchnet.com%5C%22%3A%5C%22utm_term%5C%22%2C%5C%22www.safesearchkids.com%5C%22%3A%5C%22%5C%22%2C%5C%22bittorrent.inspsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22dnssearch2.ono.es%5C%22%3A%5C%22SearchQuery%5C%22%2C%5C%22firstsearchnow.com%5C%22%3A%5C%22q%5C%22%2C%5C%22morefastsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22r.search.adlux.com%5C%22%3A%5C%22%5C%22%2C%5C%22search.atajitos.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.bt.com%5C%22%3A%5C%22p%5C%22%2C%5C%22search.ominent.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.qone8.com%5C%22%3A%5C%22q%5C%22%2C%5C%22search.ueep.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchstarburnsoftware.com%5C%22%3A%5C%22q%5C%22%2C%5C%22searchstats.iminent.com%5C%22%3A%5C%22%5C%22%2C%5C%22ultimate-search.net%5C%22%3A%5C%22q%5C%22%2C%5C%22utorrent.inspsearch.com%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.oversearch.info%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.relevantsearch.info%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.searchboxes.info%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.searchere.info%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.searchesplace.info%5C%22%3A%5C%22q%5C%22%2C%5C%22websearch.the-searcheng.info%5C%22%3A%5C%22q%5C%22%2C%5C%22www.firstsearchnow.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.fullsearch.com.ar%5C%22%3A%5C%22q%5C%22%2C%5C%22www.infosearchresults.com%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searcheo.fr%5C%22%3A%5C%22q%5C%22%2C%5C%22www.searchresultsonline.com%5C%22%3A%5C%22%5C%22%2C%5C%22www.superquicksearch.com%5C%22%3A%5C%22%5C%22%7D%7C%7C%7C8641390352177378%22%2C%22WSG_blackList%22%3A%22form%3DCONTLB%7Cbabsrc%3Dtoolbar%7Cbabsrc%3Dtb_ss%7CinvocationType%3Dtb50-ie-aolsoftonic-tbsbox-en-us%7CinvocationType%3Dtb50-ff-aolsoftonic-tbsbox-en-us%7Csrc%3Dtlbvw%7Csap%3Dtr%7Csrc%3D1%7C/toolbar%7CSearchSource%3D1%7CSearchSource%3D44%7Cqsrc%3D2871%7Cbabsrc%3DTB_def%7C%7C%7C8641390352177379%22%2C%22WSG_kswitch%22%3A%22active%7C%7C%7C8641390376740000%22%2C%22WSG_inactive_by_user%22%3A%22not%20set%22%2C%22WSG_debugMode%22%3A%22not%20set%22%2C%22WSG_showDialog%22%3A%22not%20set%22%2C%22WSG_dailyPing%22%3A%22true%7C%7C%7C1390438577293%22%2C%22WSG_installedPing%22%3A%22true%7C%7C%7C8641358665679730%22%2C%22WSG_toolbar_query%22%3A%22not%20set%22%2C%22WSG_geoRequest%22%3A%22TW%7C%7C%7C8641360140150495%22%2C%22WSG_ssl%22%3A%22%7C%7C%7C8641372924807159%22%2C%22pxl_wsg_dailyPing%22%3A%22dailyPing%7C%7C%7C1390438577296%22%7D");</script><script type="text/javascript" async="" src="./ubuntu - How to create a dummy sound card device in Linux server_files/gt.js"></script><script type="text/javascript" src="./ubuntu - How to create a dummy sound card device in Linux server_files/adFeedback.js"></script><link rel="stylesheet" href="http://static.adzerk.net/Extensions/adFeedback.css"></head>
+<body class="question-page new-topbar">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+<div class="topbar">
+    <div class="topbar-wrapper">
+        
+        <div class="js-topbar-dialog-corral">
+
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">Explore our sites</a></h3>
+    </div>
+    <div class="modal-content">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+            <a href="http://chat.stackexchange.com/" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+                    <a href="http://blog.superuser.com/" data-gps-track="site_switcher.click({ item_type:7 })">blog</a>
+            </div>
+    <a href="http://superuser.com/" class="current-site-link site-link js-gps-track" data-gps-track="site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-superuser" title="Super User"></div>
+        Super User
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <a href="http://meta.superuser.com/" class="site-link js-gps-track" data-gps-track="site.switch({ target_site:77, item_type:3 });site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-superusermeta" title="Meta Super User"></div>
+        Meta Super User
+    </a>
+
+                </li>
+                    </ul>
+        
+
+
+        
+            <div class="child-content"></div>
+
+    </div>
+</div>        </div>
+
+        <div class="network-items">
+            
+            <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 115 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+            
+        </div>
+
+        <div class="topbar-links">
+            
+                <div class="links-container">
+                    <span class="topbar-menu-links">
+                        <a href="http://superuser.com/users/login?returnurl=%2fquestions%2f344760%2fhow-to-create-a-dummy-sound-card-device-in-linux-server" class="login-link">sign up</a>    
+                        <a href="http://superuser.com/users/login?returnurl=%2fquestions%2f344760%2fhow-to-create-a-dummy-sound-card-device-in-linux-server" class="login-link">log in</a>
+                        <a href="http://superuser.com/tour">tour</a>
+                            <a href="http://superuser.com/questions/344760/how-to-create-a-dummy-sound-card-device-in-linux-server#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                <li>
+                    <a href="http://superuser.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                        Tour
+                        <span class="item-summary">
+                            Start here for a quick overview of the site
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://superuser.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="http://meta.superuser.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+                    </span>
+                </div>
+
+			<div class="search-container">
+                <form id="search" action="http://superuser.com/search" method="get" autocomplete="off">
+                    <input name="q" type="text" placeholder="search" value="" tabindex="1" autocomplete="off" maxlength="240">
+                </form>
+			</div>
+            	
+        </div>      
+    </div> 
+</div>
+<script>
+    StackExchange.ready(function () {
+        //topbar.init();
+        StackExchange.topbar.init();
+    });
+</script>    <div class="container">
+        <div id="header" class="headeranon">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://superuser.com/">
+                    Super User
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs mainnavsanon">
+                    <ul>
+                            <li class="youarehere"><a id="nav-questions" href="http://superuser.com/questions">Questions</a></li>
+                            <li><a id="nav-tags" href="http://superuser.com/tags">Tags</a></li>
+                            <li><a id="nav-tour" href="http://superuser.com/about">Tour</a></li>
+                            <li><a id="nav-users" href="http://superuser.com/users">Users</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://superuser.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content">
+            
+
+<div itemscope="" itemtype="http://schema.org/Article">
+	<link itemprop="image" href="http://cdn.sstatic.net/superuser/img/apple-touch-icon.png">
+			<!--googleoff: all-->
+<div id="herobox-mini">
+    <div id="hero-content">
+        <span id="controls">
+            <a href="http://superuser.com/about" id="tell-me-more" class="button">Take the 2-minute tour</a>
+            <span id="close"><a title="click to dismiss">×</a></span>
+        </span>
+        <div id="blurb">
+            Super User is a question and answer site for computer enthusiasts and power users. It's 100% free, no registration required.
+        </div>        
+    </div>
+    <script>
+        $('#tell-me-more').click(function () {
+            var clickSource = $("body").attr("class") + '-mini';
+            if ($("body").hasClass("questions-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("question-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("home-page")) {
+                clickSource = 'homepagemini';
+            }
+
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("aboutpage.click", { aboutclick_location: clickSource } , true);
+            });
+        });
+        $('#herobox-mini #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "close" }, true);
+            });
+            $.cookie("hero", "none", { path: "/" });
+            var $hero = $("#herobox-mini");
+            $hero.slideUp('fast', function () { $hero.remove(); });
+            return false;
+        });
+    </script>
+</div>
+			<!--googleon: all-->
+			<div id="question-header">
+			<h1 itemprop="name"><a href="./ubuntu - How to create a dummy sound card device in Linux server_files/ubuntu - How to create a dummy sound card device in Linux server.htm" class="question-hyperlink">How to create a dummy sound card device in Linux server?</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="344760" id="question">
+    
+    <script type="text/javascript">
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8476,"adzerk1776984066",4).setZone(46) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1776984066"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiY20iOjg0MSwiY2giOjExNzgsImNyIjo1OTE2LCJkaSI6IjFlZjBmMzY3NDdjNTRjYjNiNjY4OGQ1OTQ0ZjMzNzM4IiwiZG0iOjEsImZjIjoxMDExNywiZmwiOjI0MjMsImt3IjoibGludXgsdWJ1bnR1LGFsc2EiLCJudyI6MjIsInBjIjowLCJwciI6MTU2OCwicnQiOjEsInJmIjoiaHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS50dy8iLCJzdCI6ODQ3Niwiem4iOjQ2LCJ0cyI6MTM5MDM3Njg2OTgyMywidXIiOiJodHRwOi8vY2FyZWVycy5zdGFja292ZXJmbG93LmNvbS8ifQ&s=HgYHrGgVVOOobWKBg8ENk_BNRK0" rel="nofollow" target="_blank" title=""><img src="./ubuntu - How to create a dummy sound card device in Linux server_files/d31c8d7d3cf640a6b29d9ad71788dd4a.png" title="" alt="" border="0" width="728" height="90"></a><div class="adzerk-vote-controls" style="display: block;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li></ul><a href="http://superuser.com/questions/344760/how-to-create-a-dummy-sound-card-device-in-linux-server#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" src="./ubuntu - How to create a dummy sound card device in Linux server_files/i.gif"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="344760">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+    <span class="vote-count-post ">7</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+    
+    <a class="star-off" href="http://superuser.com/questions/344760/how-to-create-a-dummy-sound-card-device-in-linux-server#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>4</b></div>   
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="description">
+
+        <p>I want to run Linux program that require a soundcard, on a server, which has no soundcard.
+Is it possible to create a dummy soundcard? I am totally unaware of Linux sound system internals. Please point me in right direction. </p>
+
+<p>I have followed this example: <a href="http://alsa.opensrc.org/.asoundrc#A_brief_example" rel="nofollow">http://alsa.opensrc.org/.asoundrc</a> but it didn't work out.</p>
+
+<p>PS: There is similar question: <a href="http://superuser.com/questions/249294/how-to-create-a-virtual-sound-device-in-Linux">How to create a virtual sound device in Linux?</a>. But this is totally different in the context that the user is creating an alias to already available soundcard. </p>
+
+<hr>
+
+<p><strong>Edit:</strong><br>
+I want a dummy device to be created in /dev/.. so that any application that needs a sound device will find it.<br>
+I am completely unware, how alsa works. So I simply followed the example. I created /etc/asound.conf with:</p>
+
+<pre><code>pcm.card0 {
+    type hw
+    card 0
+}
+ctl.card0 {
+    type hw
+    card 0
+}
+</code></pre>
+
+<p>And <code>aplay -L</code> gives me:</p>
+
+<pre><code>null
+    Discard all samples (playback) or generate zero samples (capture)
+</code></pre>
+
+    </div>
+    <div class="post-taglist">
+        <a href="http://superuser.com/questions/tagged/linux" class="post-tag js-gps-track" title="show questions tagged &#39;linux&#39;" rel="tag">linux</a> <a href="http://superuser.com/questions/tagged/ubuntu" class="post-tag js-gps-track" title="show questions tagged &#39;ubuntu&#39;" rel="tag">ubuntu</a> <a href="http://superuser.com/questions/tagged/alsa" class="post-tag js-gps-track" title="show questions tagged &#39;alsa&#39;" rel="tag">alsa</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://superuser.com/q/344760" title="short permalink to this question" class="short-link" id="link-post-344760">share</a><span class="lsep">|</span><a href="http://superuser.com/posts/344760/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://superuser.com/posts/344760/revisions" title="show all edits to this post">edited <span title="2013-09-10 15:30:17Z" class="relativetime">Sep 10 '13 at 15:30</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://superuser.com/users/52387/udo"><div><img src="./ubuntu - How to create a dummy sound card device in Linux server_files/86e63e366a722ad7c77d34e26bc239a7" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://superuser.com/users/52387/udo">udo</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">2,143</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="15 silver badges"><span class="badge2"></span><span class="badgecount">15</span></span><span title="36 bronze badges"><span class="badge3"></span><span class="badgecount">36</span></span>
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2011-10-09 22:48:09Z" class="relativetime">Oct 9 '11 at 22:48</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://superuser.com/users/82526/ssapkota"><div><img src="./ubuntu - How to create a dummy sound card device in Linux server_files/f0c4434aeab80f600eb49095e7c93ddd" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://superuser.com/users/82526/ssapkota">ssapkota</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">818</span><span title="5 silver badges"><span class="badge2"></span><span class="badgecount">5</span></span><span title="9 bronze badges"><span class="badge3"></span><span class="badgecount">9</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-344760" class="comments" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="add comment" data-addlink-disabled="true">
+
+    <tr id="comment-378176" class="comment">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">Yes, there is such a thing as "dummy" sound device in Alsa. But you need to elaborate about what exactly "didn't work out" for you. Error message, not detected by the software, etc. Also, does the target "linux program" use ALSA at all? Because if it doesn't, messing with ALSA config files won't give you much.</span>
+	–&nbsp;
+		<a href="http://superuser.com/users/37440/haimg" title="11352 reputation" class="comment-user">haimg</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://superuser.com/questions/344760/how-to-create-a-dummy-sound-card-device-in-linux-server#comment378176_344760"><span title="2011-10-10 04:52:36Z" class="relativetime-clean">Oct 10 '11 at 4:52</span></a></span>
+				</div>
+
+        </td>
+    </tr>
+    <tr id="comment-378207" class="comment">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">I want a virtual sound device to be created in /dev/...</span>
+	–&nbsp;
+		<a href="http://superuser.com/users/82526/ssapkota" title="818 reputation" class="comment-user owner">ssapkota</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://superuser.com/questions/344760/how-to-create-a-dummy-sound-card-device-in-linux-server#comment378207_344760"><span title="2011-10-10 05:57:01Z" class="relativetime-clean">Oct 10 '11 at 5:57</span></a></span>
+				</div>
+
+        </td>
+    </tr>
+    <tr id="comment-378213" class="comment">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="comment-score">
+                            
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>   
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+	<span class="comment-copy">See the edit for more.</span>
+	–&nbsp;
+		<a href="http://superuser.com/users/82526/ssapkota" title="818 reputation" class="comment-user owner">ssapkota</a>
+	<span class="comment-date" dir="ltr"><a class="comment-link" href="http://superuser.com/questions/344760/how-to-create-a-dummy-sound-card-device-in-linux-server#comment378213_344760"><span title="2011-10-10 06:08:36Z" class="relativetime-clean">Oct 10 '11 at 6:08</span></a></span>
+				</div>
+
+        </td>
+    </tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-344760" data-rep="50" data-anon="true" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add comment</a>
+    </td>
+</tr>            </tbody></table>    
+</div>
+
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								2 Answers
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://superuser.com/questions/344760/how-to-create-a-dummy-sound-card-device-in-linux-server?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+        <a href="http://superuser.com/questions/344760/how-to-create-a-dummy-sound-card-device-in-linux-server?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+        <a class="youarehere" href="http://superuser.com/questions/344760/how-to-create-a-dummy-sound-card-device-in-linux-server?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="344859"></a>
+<div id="answer-344859" class="answer accepted-answer" data-answerid="344859">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="344859">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">7</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text">
+            <p>You need to load a <strong>dummy</strong> sound driver. Please see the <a href="http://www.alsa-project.org/main/index.php/Matrix%3aModule-dummy">Alsa Wiki</a> for detailed info, but here are the basics:</p>
+
+<ol>
+<li><p>Load the driver:  </p>
+
+<blockquote>
+  <p>modprobe snd-dummy ; modprobe snd-pcm-oss ; modprobe snd-mixer-oss ; modprobe snd-seq-oss</p>
+</blockquote></li>
+<li><p>Have proper .asoundrc file (you have it covered)</p></li>
+<li><p>Configure autoloading of the drivers. Add this to <code>/etc/modules.conf</code>:</p>
+
+<blockquote>
+  <p># OSS/Free portion - card #1<br>
+     alias sound-slot-0 snd-card-0<br>
+     alias sound-service-0-0 snd-mixer-oss<br>
+     alias sound-service-0-1 snd-seq-oss<br>
+     alias sound-service-0-3 snd-pcm-oss<br>
+     alias sound-service-0-8 snd-seq-oss<br>
+     alias sound-service-0-12 snd-pcm-oss  </p>
+</blockquote></li>
+</ol>
+
+<p>There are actually quite a few things involved, I suggest you visit the Wiki page above for more detailed explanation.</p>
+
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://superuser.com/a/344859" title="short permalink to this answer" class="short-link" id="link-post-344859">share</a><span class="lsep">|</span><a href="http://superuser.com/posts/344859/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2011-10-10 06:43:22Z" class="relativetime">Oct 10 '11 at 6:43</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://superuser.com/users/37440/haimg"><div><img src="./ubuntu - How to create a dummy sound card device in Linux server_files/fc3025c472dc2f52f7b3f257f302c907" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://superuser.com/users/37440/haimg">haimg</a><br>
+        <span class="reputation-score" title="reputation score 11352" dir="ltr">11.4k</span><span title="7 gold badges"><span class="badge1"></span><span class="badgecount">7</span></span><span title="33 silver badges"><span class="badge2"></span><span class="badgecount">33</span></span><span title="80 bronze badges"><span class="badge3"></span><span class="badgecount">80</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-344859" class="comments dno" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="add comment" data-addlink-disabled="true">
+					    <tr><td></td><td></td></tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-344859" data-rep="50" data-anon="true" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add comment</a>
+    </td>
+</tr>
+    </tbody></table>
+</div>
+<script type="text/javascript">
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8476,"adzerk1460654889",4).setZone(48) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1460654889"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiY20iOjg0MSwiY2giOjExNzgsImNyIjo1OTE2LCJkaSI6IjE5OTUwMDFjYWM3MTQzOGQ4NGFkYzZkYzU3MmJjYWU4IiwiZG0iOjEsImZjIjoxMDExNywiZmwiOjI0MjMsImt3IjoibGludXgsdWJ1bnR1LGFsc2EiLCJudyI6MjIsInBjIjowLCJwciI6MTU2OCwicnQiOjEsInJmIjoiaHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS50dy8iLCJzdCI6ODQ3Niwiem4iOjQ4LCJ0cyI6MTM5MDM3Njg2OTgyNSwidXIiOiJodHRwOi8vY2FyZWVycy5zdGFja292ZXJmbG93LmNvbS8ifQ&s=bUxPZuoZ_Z_icixpOhaEWEAtqdQ" rel="nofollow" target="_blank" title=""><img src="./ubuntu - How to create a dummy sound card device in Linux server_files/d31c8d7d3cf640a6b29d9ad71788dd4a.png" title="" alt="" border="0" width="728" height="90"></a><div class="adzerk-vote-controls" style="display: none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li></ul><a href="http://superuser.com/questions/344760/how-to-create-a-dummy-sound-card-device-in-linux-server#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" src="./ubuntu - How to create a dummy sound card device in Linux server_files/i(1).gif"></div>
+  
+<a name="700723"></a>
+<div id="answer-700723" class="answer" data-answerid="700723">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input type="hidden" name="_id_" value="700723">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span class="vote-count-post ">2</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text">
+            <p>I too had issues with this when trying to get a Dummy Sound device working on the Raspberry Pi running Raspian (derivative of Debian). The Pi on has an audio output but no input, and I want to use an application that looks for both, even though I only need an output (PJSIP). </p>
+
+<p>However, the info above did not work for me and neither did the WiKi page. After speaking with a user form the ALSA mailing list, they suggested that the info on the WikI page is out of date, however, they gave me pointers as to how to solve this.</p>
+
+<p>Firstly, I only need to load the 'snd-dummy' module using:</p>
+
+<pre><code>sudo modprobe snd-dummy
+</code></pre>
+
+<p>However, the device does not stay present after a reboot. On the Pi, this module can be loaded via the '/etc/modules' file, editing this file to load the driver produced the desired results:</p>
+
+<pre><code>sudo nano /etc/modules
+</code></pre>
+
+<p>My /etc/modules file simply looks like this:</p>
+
+<pre><code># /etc/modules: kernel modules to load at boot time.
+#
+# This file contains the names of kernel modules that should be loaded
+# at boot time, one per line. Lines beginning with "#" are ignored.
+# Parameters can be specified after the module name.
+
+snd-bcm2835
+snd-dummy
+</code></pre>
+
+<p>So, the default driver loads first, then the Dummy driver load second. Job done!</p>
+
+<p>Good Luck </p>
+
+<p>Chris</p>
+
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://superuser.com/a/700723" title="short permalink to this answer" class="short-link" id="link-post-700723">share</a><span class="lsep">|</span><a href="http://superuser.com/posts/700723/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-01-12 20:34:43Z" class="relativetime">Jan 12 at 20:34</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://superuser.com/users/289106/user289106"><div><img src="./ubuntu - How to create a dummy sound card device in Linux server_files/d8dbdaafa48770cf9f99773d686ac327" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://superuser.com/users/289106/user289106">user289106</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">21</span><span title="1 bronze badge"><span class="badge3"></span><span class="badgecount">1</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-700723" class="comments dno" data-localized="true">
+		    <table>
+			    <tbody data-remaining-comments-count="0" data-addlink-html="add comment" data-addlink-disabled="true">
+					    <tr><td></td><td></td></tr>
+			    </tbody>
+		    </table>
+	    </div>
+			<a id="comments-link-700723" data-rep="50" data-anon="true" class="comments-link disabled-link" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add comment</a>
+    </td>
+</tr>
+    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="http://superuser.com/questions/344760/answer/submit" method="post" class="post-form">
+							<input type="hidden" id="post-id" value="344760">
+							<h2 class="space">Your Answer</h2>
+
+
+
+    
+
+<script type="text/javascript">
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+         
+        prepareEditor({
+            heartbeatType: 'answer',
+            bindNavPrevention: true,
+            postfix: "",
+            onDemand: true,
+            discardSelector: ".discard-answer"
+            ,immediatelyShowMarkdownHelp:true
+        });
+        
+
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="8995b00aa6b08a430c1ef1dbd2b9cb6f">
+        <input id="author" name="author" type="text">
+    </div>
+</div>
+							<div style="position: relative;">
+								
+            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://superuser.com/users/login?returnurl=%2fquestions%2f344760%2fhow-to-create-a-dummy-sound-card-device-in-linux-server%23new-answer">login</a></h3>
+                        <script type="text/javascript">
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Stack Exchange</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <script type="text/javascript">
+                StackExchange.ready(function () {
+                    StackExchange.helpers.bindHelpOverlayEvents($('.vm input'));
+                });
+            </script>
+            <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="text" size="30" maxlength="100" value="" tabindex="106">
+                    <span class="edit-field-overlay">required, but not shown</span>
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', '%2fquestions%2f344760%2fhow-to-create-a-dummy-sound-card-device-in-linux-server%23new-answer');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;script type="text/javascript"&gt;
+                StackExchange.ready(function () {
+                    StackExchange.helpers.bindHelpOverlayEvents($('.vm input'));
+                });
+            &lt;/script&gt;
+            &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="text" size="30" maxlength="100" value="" tabindex="106"&gt;
+                    &lt;span class="edit-field-overlay"&gt;required, but not shown&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="http://superuser.com/questions/344760/how-to-create-a-dummy-sound-card-device-in-linux-server#" class="discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://superuser.com/questions/tagged/linux" class="post-tag" title="show questions tagged &#39;linux&#39;" rel="tag">linux</a> <a href="http://superuser.com/questions/tagged/ubuntu" class="post-tag" title="show questions tagged &#39;ubuntu&#39;" rel="tag">ubuntu</a> <a href="http://superuser.com/questions/tagged/alsa" class="post-tag" title="show questions tagged &#39;alsa&#39;" rel="tag">alsa</a>  or <a href="http://superuser.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+							<div class="module question-stats">
+					<p class="label-key">tagged</p>
+					<div class="tagged"><a href="http://superuser.com/questions/tagged/linux" class="post-tag js-gps-track" title="show questions tagged &#39;linux&#39;" rel="tag">linux</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">×</span>&nbsp;<span class="item-multiplier-count">22634</span></span><br>
+<a href="http://superuser.com/questions/tagged/ubuntu" class="post-tag js-gps-track" title="show questions tagged &#39;ubuntu&#39;" rel="tag">ubuntu</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">×</span>&nbsp;<span class="item-multiplier-count">10117</span></span><br>
+<a href="http://superuser.com/questions/tagged/alsa" class="post-tag js-gps-track" title="show questions tagged &#39;alsa&#39;" rel="tag">alsa</a>&nbsp;<span class="item-multiplier"><span class="item-multiplier-x">×</span>&nbsp;<span class="item-multiplier-count">120</span></span><br>
+</div>
+					<table id="qinfo">
+						<tbody><tr>
+							<td>
+								<p class="label-key">asked</p>
+							</td>
+							<td style="padding-left: 10px">
+								<p class="label-key" title="2011-10-09 22:48:09Z"><b>2 years ago</b></p>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<p class="label-key">viewed</p>
+							</td>
+
+							<td style="padding-left: 10px">
+								<p class="label-key">
+									<b>6448 times</b>
+								</p>
+							</td>
+						</tr>
+							<tr>
+								<td>
+									<p class="label-key">active</p>
+								</td>
+								<td style="padding-left: 10px">
+									<p class="label-key"><b><a href="http://superuser.com/questions/344760/how-to-create-a-dummy-sound-card-device-in-linux-server?lastactivity" class="lastactivity-link" title="2014-01-12 20:34:43Z">9 days ago</a></b></p>
+								</td>
+							</tr>
+					</tbody></table>
+				</div>
+						
+			<script type="text/javascript">
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8476,"adzerk1289627621",17).setZone(47) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1289627621"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MTcsImNtIjoyOTExLCJjaCI6MTE3OCwiY3IiOjkzMzMsImRpIjoiYjExZjk5Yzk2NDQyNGM0ZDhiYWNjMzdmNjUwZTc0OGEiLCJkbSI6MSwiZmMiOjE0ODc3LCJmbCI6NzQ3NCwia3ciOiJsaW51eCx1YnVudHUsYWxzYSIsIm53IjoyMiwicGMiOjAsInByIjoxNjA0LCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuY29tLnR3LyIsInN0Ijo4NDc2LCJ6biI6NDcsInRzIjoxMzkwMzc2ODY5ODI4LCJ1ciI6Imh0dHA6Ly9jYXJlZXJzLnN0YWNrb3ZlcmZsb3cuY29tLyJ9&s=WNHYeRiTvKxrlDqgvlo-7w2oTyA" rel="nofollow" target="_blank" title=""><img src="./ubuntu - How to create a dummy sound card device in Linux server_files/12f0cc69cd9742faa9c8ee0f7b0d210e.jpg" title="" alt="" border="0" width="220" height="250"></a><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li></ul><a href="http://superuser.com/questions/344760/how-to-create-a-dummy-sound-card-device-in-linux-server#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" src="./ubuntu - How to create a dummy sound card device in Linux server_files/i(2).gif"></div>
+			  
+    
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+<div class="spacer">
+	<a href="http://superuser.com/q/249294?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">3</div>
+	</a>
+	<a href="http://superuser.com/questions/249294/how-to-create-a-virtual-sound-device-in-linux?lq=1" class="question-hyperlink">How to create a virtual sound device in Linux?</a>
+</div>			</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track">
+<a href="http://superuser.com/q/53957?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">15
+    </div>
+</a><a href="http://superuser.com/questions/53957/what-do-alsa-devices-like-hw0-0-mean-how-do-i-figure-out-which-to-use?rq=1" class="question-hyperlink">What do ALSA devices like “hw:0,0” mean? How do I figure out which to use?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://superuser.com/q/108979?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://superuser.com/questions/108979/alsa-oss-emulation-wont-work?rq=1" class="question-hyperlink">ALSA OSS Emulation won't work</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://superuser.com/q/164898?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://superuser.com/questions/164898/how-can-i-get-hdmi-audio-to-be-visible-to-aplay-l-on-linux?rq=1" class="question-hyperlink">How can I get HDMI audio to be visible to `aplay -l` on Linux?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://superuser.com/q/249294?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">3
+    </div>
+</a><a href="http://superuser.com/questions/249294/how-to-create-a-virtual-sound-device-in-linux?rq=1" class="question-hyperlink">How to create a virtual sound device in Linux?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://superuser.com/q/289927?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://superuser.com/questions/289927/recording-sound-from-tv-tuner-card-thorough-alsa-driver-on-ubuntu?rq=1" class="question-hyperlink">Recording sound from TV tuner card thorough Alsa driver on Ubuntu</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://superuser.com/q/424982?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://superuser.com/questions/424982/volume-gain-too-high-with-alsa-under-debian-for-an-usb-sound-card?rq=1" class="question-hyperlink">Volume / gain too high with ALSA under Debian for an USB sound card</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://superuser.com/q/464275?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">2
+    </div>
+</a><a href="http://superuser.com/questions/464275/ac3-dts-output-produces-buzzing-noise-using-a52-alsa-plugin-in-pulseaudio?rq=1" class="question-hyperlink">AC3 &amp; DTS Output Produces Buzzing/Noise Using a52 ALSA Plugin in Pulseaudio</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://superuser.com/q/597227?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://superuser.com/questions/597227/linux-arecord-capture-sound-card-output-rather-than-microphone-input?rq=1" class="question-hyperlink">linux arecord: capture sound card output rather than microphone input</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://superuser.com/q/664171?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">1
+    </div>
+</a><a href="http://superuser.com/questions/664171/linux-mint-via-sound-issue?rq=1" class="question-hyperlink">linux mint VIA sound issue</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://superuser.com/q/675787?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://superuser.com/questions/675787/disable-a-linux-sound-card?rq=1" class="question-hyperlink">Disable a linux sound card</a>
+</div>
+
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/646238/how-do-i-convince-my-students-that-the-choice-of-variable-of-integration-is-irre" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do I convince my students that the choice of variable of integration is irrelevant?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/18986/draw-the-olympic-games-logo" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Draw the Olympic Games logo
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="http://stackoverflow.com/questions/21273890/difference-between-and-equals-in-c-sharp" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Difference between == and Equals() in C#
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-superuser" title="Super User"></div><a href="http://superuser.com/questions/704218/why-there-is-such-a-big-difference-between-size-and-size-on-disk" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why there is such a big difference between "Size" and "Size on disk"?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/18413/how-do-you-handle-an-interview-for-a-candidate-who-is-performing-poorly" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do you handle an interview for a candidate who is performing poorly?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="http://rpg.stackexchange.com/questions/31794/what-is-gm-dm-fiat" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is "GM/DM Fiat?"
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="http://physics.stackexchange.com/questions/94471/how-do-i-explain-to-a-6-year-old-why-people-on-the-other-side-of-the-earth-dont" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do I explain to a 6 year old why people on the other side of the earth don't fall off?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/18362/is-it-ethical-to-write-answers-to-work-relevant-stack-exchange-questions-on-the" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it ethical to write answers to work-relevant Stack Exchange questions on the clock?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="http://tex.stackexchange.com/questions/155087/the-spiral-of-roots-in-tikz" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    The Spiral of Roots in TikZ
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/19010/hello-world-repeating-each-character-n-times" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    "Hello world!", repeating each character n times
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-stats" title="Cross Validated"></div><a href="http://stats.stackexchange.com/questions/82963/why-is-linear-regression-not-able-to-predict-the-outcome-of-a-simple-determinist" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:65 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is linear regression not able to predict the outcome of a simple deterministic sequence?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="http://electronics.stackexchange.com/questions/97198/why-does-connecting-a-high-current-device-to-my-digital-circuit-cause-weird-beha" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does connecting a high-current device to my digital circuit cause weird behavior?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-ux" title="User Experience Stack Exchange"></div><a href="http://ux.stackexchange.com/questions/49991/should-yes-delete-it-be-red-or-green" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:102 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Should "Yes, delete it" be red or green?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/645672/what-is-the-difference-between-a-point-and-a-vector" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the difference between a point and a vector
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="http://travel.stackexchange.com/questions/23496/dual-passports-australian-and-lebanese" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Dual Passports: Australian and Lebanese
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-salesforce" title="Salesforce Stack Exchange"></div><a href="http://salesforce.stackexchange.com/questions/24801/using-sobject-get-to-fetch-a-field-value-from-a-related-parent-object" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:459 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Using sObject.get() to fetch a field value from a related parent object
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="http://stackoverflow.com/questions/21275650/confusing-code-compiles-fine-how-this-code-works" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    confusing code, compiles fine. How this code works?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-gaming" title="Arqade"></div><a href="http://gaming.stackexchange.com/questions/151703/is-eve-online-turn-based-behind-the-scenes" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:41 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is EVE Online turn-based behind the scenes?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="http://tex.stackexchange.com/questions/155331/how-to-add-equations-on-top-of-arrows" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to add equations on top of arrows?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-aviation" title="Aviation Stack Exchange"></div><a href="http://aviation.stackexchange.com/questions/1189/raising-the-flaps-right-after-touchdown-good-or-bad" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Raising the flaps right after touchdown. Good or bad?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/18324/cheating-in-a-phone-interview" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Cheating in a phone interview
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="http://unix.stackexchange.com/questions/110256/cant-apply-chmod-to-a-file" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can't apply chmod to a file
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="http://rpg.stackexchange.com/questions/31791/what-are-the-major-innovations-in-dungeon-world-compared-to-dd-3-5-pf-4e" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What are the major innovations in Dungeon World compared to D&amp;D 3.5/Pf/4e?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codereview" title="Code Review Stack Exchange"></div><a href="http://codereview.stackexchange.com/questions/39720/temperature-conversion-in-c" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:196 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Temperature conversion in C
+                </a>
+
+            </li>
+    </ul>
+
+        
+        <script>
+            StackExchange.ready(function () {
+                var $div = $('#hot-network-questions'),
+                    $more = $div.find('.js-show-more'),
+                    $hidden = $div.find('.js-hidden');
+
+                $more.click(function () {
+                    $hidden.show();
+                    $more.remove();
+                    return false;
+                });
+
+            
+                var mHeight = $('#mainbar').height(),
+                    sHeight = $('#sidebar').height() + 550;
+
+                if (mHeight > sHeight) {
+                    $hidden.each(function() {
+                        sHeight += $(this).show().height();
+                        return mHeight > sHeight;
+                    });
+
+                    if ($hidden.filter(':hidden').length == 0) {
+                        $more.remove();
+                    }
+                }
+            
+            
+            });
+        </script>
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text"><a href="http://superuser.com/feeds/question/344760" title="feed of this question and its answers"><span class="feed-icon"></span>question feed</a></div>
+</div>
+	<script type="text/javascript">
+StackExchange.ready(function(){$.get('/posts/344760/ivc/b17c');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/344760/ivc/b17c" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang"></div></div>
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="http://superuser.com/about">about</a>
+                    <a href="http://superuser.com/help">help</a>
+                        <a href="http://superuser.com/help/badges">badges</a>
+                    <a href="http://blog.superuser.com/?blb=1">blog</a>
+                        <a href="http://chat.stackexchange.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/about/hiring">jobs</a>
+                    <a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MjAsImNtIjo5NTQsImNoIjoxMTc4LCJjciI6Mjg0NSwiZG0iOjQsImZjIjoyODY3LCJmbCI6Mjc1MSwibnciOjIyLCJydiI6MCwicHIiOjExNSwic3QiOjAsInVyIjoiaHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL2Fib3V0L2NvbnRhY3QiLCJyZSI6MX0&s=H7rycSB8DON6ld2xOU0q8siejIQ">advertising info</a>
+
+                    <a onclick="StackExchange.switchMobile(&quot;on&quot;)">mobile</a>
+                    <b><a href="http://superuser.com/contact">contact us</a></b>
+                        <b><a href="http://meta.superuser.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="professional system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems.">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Answers</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="Information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (14)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackoverflow.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Overflow</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo © 2014 stack exchange inc; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2014.1.22.1320
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Super User works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+<script type="text/javascript">var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script type="text/javascript">
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    ados.run.push(function () { ados_setKeywords('linux,ubuntu,alsa');; ados_load(); });         
+</script>
+
+    <script type="text/javascript">
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-3');        
+        
+        ga('set', 'dimension2', '|linux|ubuntu|alsa|');         
+        ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+            qc.type='text/javascript';
+            qc.async=true;
+            qc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+            s.parentNode.insertBefore(qc, s);
+            var sc=document.createElement('script');
+            sc.async=true;
+            sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+            s.parentNode.insertBefore(sc, s);
+        })();
+        _comscore.push({ c1: "2", c2: "17440561" });
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>            
+
+<div id="LCS_FE1DEEEA_DB6D_44b8_83F0_34FC0F9D1052_communicationDiv" lcs_fe1deeea_db6d_44b8_83f0_34fc0f9d1052_valuename="WSG_status" lcs_fe1deeea_db6d_44b8_83f0_34fc0f9d1052_valueresult="inactive|||8641390376794146"></div></body></html>

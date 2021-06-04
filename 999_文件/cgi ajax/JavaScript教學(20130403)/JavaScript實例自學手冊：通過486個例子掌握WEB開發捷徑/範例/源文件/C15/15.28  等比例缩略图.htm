@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+    <script language="javascript">
+function Wa_SetImgAutoSize() 
+{ 
+var img=document.all.img1;    //获取图片 
+var MaxWidth=200;             //设置图片宽度界限
+var MaxHeight=100;            //设置图片高度界限
+var HeightWidth=img.offsetHeight/img.offsetWidth;//设置高宽比 
+var WidthHeight=img.offsetWidth/img.offsetHeight;//设置宽高比 
+if(img.readyState!="complete")return false;      //确保图片完全加载 
+if(img.offsetWidth>MaxWidth){ 
+img.width=MaxWidth; 
+img.height=MaxWidth*HeightWidth; 
+} 
+if(img.offsetHeight>MaxHeight){ 
+img.height=MaxHeight; 
+img.width=MaxHeight*WidthHeight; 
+} 
+} 
+</script> 
+</head>
+<body>
+<img src="LOGO1.gif" border=0 id="img1" onload="Wa_SetImgAutoSize();"> 
+<img src="LOGO1.gif" border=0 id="img2" > 
+</body>
+</html>

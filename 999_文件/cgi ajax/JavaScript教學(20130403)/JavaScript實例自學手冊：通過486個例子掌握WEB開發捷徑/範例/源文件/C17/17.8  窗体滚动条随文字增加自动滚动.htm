@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<script>
+var txtMsg = "往右";                //要显示的文本
+                                    //动态创建span标签
+var text = document.createElement("<span style=position:absolute;z-index:3;font:12;left:10;top:10></span>");
+var stat =true;
+function writeText()
+{
+	text.innerText = txtMsg;        //显示文本
+	txtMsg += "继续往右";           //连接文本内容
+	div1.appendChild(text);         //将文本添加到div中
+	window.setTimeout("writeText()",400);//设置定时器,不间断显示文本
+                if (stat) {window.scrollTo(10000,0);}//主要控制滚动条的位置
+}
+document.onmousedown = function(){stat = false;}
+</script>
+<body onload="writeText()">
+<div id=div1 style=position:absolute;top:20;left:20;width:10000;cursor:default>
+</div>
+</body>
+</html>

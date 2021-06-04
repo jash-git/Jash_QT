@@ -1,0 +1,3 @@
+call bash file
+
+bash XXX.sh

@@ -1,0 +1,59 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>New Page</title>
+<Script Language="javascript">
+function trClick(c){
+if(c==0){                                // 如果选择的是第一行
+ if (document.all("a1").style.display=="")//如果第二行是显示的
+  document.all("a1").style.display="none";//让第二行不显示
+ else
+   document.all("a1").style.display="";   //让第二行显示
+ if (document.all("a1").style.display=="none")//如果第二行不显示
+  document.all("a11").style.display="none";   //第三行也不显示
+ else
+   document.all("a11").style.display="";       //第三行显示
+}
+else if(c==1){
+     if (document.all("a11").style.display=="")   //如果第三行显示
+      document.all("a11").style.display="none";   //第三行不显示
+     else
+       document.all("a11").style.display="";        //第三行显示
+     if (document.all("a111").style.display=="")  //如果第四行显示
+      document.all("a111").style.display="none";  //第四行不显示
+     else
+       document.all("a111").style.display="";  //第四行显示
+    }
+else if(c==2){
+     if (document.all("a111").style.display=="")  //如果第四行显示
+      document.all("a111").style.display="none";  //第四行不显示
+     else
+       document.all("a111").style.display="";  //第四行显示
+    }
+}
+-->
+</Script>
+</head>
+
+<body>
+<div align="center">
+ <center>
+ <table border="0" cellpadding="0" cellspacing="0" width="200">
+  <tr id="a0" onclick="trClick(0)">
+   <td height="24" bgcolor="#0000FF"><b><font color="#FFFFFF">第一行</font></b></td>
+  </tr>
+  <tr id="a1" onclick="trClick(1)">
+   <td height="24" bgcolor="#FF0000"><font color="#FFFFFF">第二行</font></td>
+  </tr>
+  <tr id="a11" onclick="trClick(2)">
+   <td height="24" bgcolor="#FFFF00">第三行</td>
+  </tr>
+   <tr id="a111">
+   <td height="24" bgcolor="#0eeee0">第四行</td>
+  </tr>
+ </table>
+ </center>
+</div>
+</body>
+</html>

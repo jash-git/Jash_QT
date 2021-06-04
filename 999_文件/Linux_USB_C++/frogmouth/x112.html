@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<HTML
+><HEAD
+><TITLE
+>Getting the version of the hiddev interface</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.64
+"><LINK
+REL="HOME"
+TITLE="USB HID for Linux USB"
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"><LINK
+REL="UP"
+TITLE="The HID device interface"
+HREF="c100.html" tppabs="http://www.frogmouth.net/hid-doco/c100.html"><LINK
+REL="PREVIOUS"
+TITLE="How HID devices relate to the hiddev interface"
+HREF="x106.html" tppabs="http://www.frogmouth.net/hid-doco/x106.html"><LINK
+REL="NEXT"
+TITLE="Getting information about the HID device"
+HREF="x133.html" tppabs="http://www.frogmouth.net/hid-doco/x133.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>USB HID for Linux USB</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x106.html" tppabs="http://www.frogmouth.net/hid-doco/x106.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>The HID device interface</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x133.html" tppabs="http://www.frogmouth.net/hid-doco/x133.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN112"
+>Getting the version of the hiddev interface</A
+></H1
+><P
+>The hiddev interface supports determining the version of the hiddev
+code, using the <SPAN
+CLASS="SYMBOL"
+>HIDIOCGVERSION</SPAN
+>
+<TT
+CLASS="FUNCTION"
+>ioctl</TT
+>. The argument is an <SPAN
+CLASS="TYPE"
+>int</SPAN
+>, and it
+is meant to be interpreted as a major version (two high bytes), a
+minor version (third byte) and a patch level (low byte).</P
+><P
+>Lets look at an example of the <SPAN
+CLASS="SYMBOL"
+>HIDIOCVERSION</SPAN
+>
+<TT
+CLASS="FUNCTION"
+>ioctl</TT
+> call.</P
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="note.gif" tppabs="http://www.frogmouth.net/hid-doco/stylesheet-images/note.gif"
+HSPACE="5"
+ALT="Note"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>About example code</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This example, and several others in this document, are not complete,
+nor are they meant to show good programming style. Instead, they are
+meant to be illustrative of a particular feature. Real programs
+should, for example, check return values for all functions that can
+potentially fail. </P
+><P
+>Complete examples (that will compile with <TT
+CLASS="USERINPUT"
+><B
+>gcc -Wall
+-W</B
+></TT
+>) are provided in the second part of this document.</P
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN126"
+></A
+><P
+><B
+>Example 1. <SPAN
+CLASS="SYMBOL"
+>HIDIOCVERSION</SPAN
+> example</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  /* ioctl() accesses the underlying driver */
+  ioctl(fd, HIDIOCGVERSION, &#38;version);
+
+  /* the HIDIOCGVERSION ioctl() returns an int */
+  /* so we unpack it and display it */
+  printf("hiddev driver version is %d.%d.%d\n",
+         version &#62;&#62; 16, (version &#62;&#62; 8) &#38; 0xff, version &#38; 0xff);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>The example should be relatively obvious. The first argument is an
+open file descriptor for the hiddev device node (for example,
+<TT
+CLASS="FILENAME"
+>/dev/usb/hiddev0</TT
+>). 
+Also note that you have to pass a
+pointer to the integer variable, not the variable
+itself, as the third argument to the <TT
+CLASS="FUNCTION"
+>ioctl</TT
+> call.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x106.html" tppabs="http://www.frogmouth.net/hid-doco/x106.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x133.html" tppabs="http://www.frogmouth.net/hid-doco/x133.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>How HID devices relate to the hiddev interface</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="c100.html" tppabs="http://www.frogmouth.net/hid-doco/c100.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Getting information about the HID device</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+<script language="Javascript">
+    pageOpenTime = new Date();//定义打开网页的时间
+    function goodbye() 
+    {
+        pageCloseTime = new Date();//定义关闭网页的时间
+        minutes = (pageCloseTime.getMinutes() - pageOpenTime.getMinutes());
+        seconds = (pageCloseTime.getSeconds() - pageOpenTime.getSeconds());
+        time = (seconds + (minutes * 60));
+        alert('总共停留了' + time + '秒,一路走好!');
+    } 
+</script>
+</head>
+<body  onunload="goodbye()">
+<div>
+泛型 
+该语言中添加了一些泛型类型，使得程序员能够实现程度很高的代码重用，获得更高的集合类性能。泛型类型只存在 arity 上的不同。也可以将参数强制为特定的类型。有关更多信息，请参见泛型类型参数。
+<br />
+迭代器 
+迭代器使得规定 foreach 循环将如何循环访问集合的内容变得更加容易。
+<br />
+分部类 
+分部类型定义允许将单个类型（比如某个类）拆分为多个文件。Visual Studio 设计器使用此功能将它生成的代码与用户代码分离。
+<br />
+可空类型 
+可空类型允许变量包含未定义的值。在使用数据库和其他可能包含未含有具体值的元素的数据结构时，可以使用可空类型。
+<br />
+匿名方法 
+现在，可以将代码块作为参数来传递。在本应使用委托的任何地方，都可以使用代码块来取代：不需要定义新的方法。
+<br />
+命名空间别名限定符 
+命名空间别名限定符 (::) 对访问命名空间成员提供了更多控制。global :: 别名允许访问可能被代码中的实体隐藏的根命名空间。
+<br />
+静态类 
+若要声明那些包含不能实例化的静态方法的类，静态类就是一种安全而便利的方式。C# 1.2 版要求将类构造函数定义为私有的，以防止类被实例化。
+<br />
+外部程序集别名 
+通过 extern 关键字的这种扩展用法引用包含在同一程序集中的同一组件的不同版本。
+<br />
+属性访问器可访问性 
+现在可以为属性的 get 和 set 访问器定义不同级别的可访问性。
+
+</div>
+</body>
+
+</html>

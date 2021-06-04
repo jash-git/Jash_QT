@@ -1,0 +1,41 @@
+<html>
+<head>
+<title> 鼠标选择多行</title>
+</head>
+<script language="JavaScript">
+var curObj= null;
+var isTrue =false;
+function setSelectedBgColor()//设置选定行的背景色
+{
+isTrue =true;
+ if(window.event.srcElement.tagName=='TD'){ //如果选中的是单元格
+        curObj=window.event.srcElement.parentElement;//获取其父级节点-表格行
+        curObj.style.background='#ff9999';           //设置背景色
+   }
+}
+</script>
+<body>
+<table border="1" width=220 height=220 onmousemove= "if(isTrue)setSelectedBgColor();" onmousedown="setSelectedBgColor();" onmouseup="isTrue =false;">
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+<tr>
+<td>单元格</td>
+<td>单元格</td>
+<td>单元格</td>
+</tr>
+</table>
+</body>
+</html>

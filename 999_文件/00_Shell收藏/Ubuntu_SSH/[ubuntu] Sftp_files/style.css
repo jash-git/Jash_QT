@@ -1,0 +1,1167 @@
+/*
+Theme Name: Lonesome George
+Theme URI:http://achang.tw
+Description: HTML5 + CSS3 With Slider
+Version:1.1.3
+Author: 阿腸網頁設計工作室
+Author URI: http://achang.tw
+Tags: light, two-columns, right-sidebar, html5, css3,slider,seo
+*/
+* {margin:0 auto}
+a {color:#06C;text-decoration:none;outline:medium none}
+a:hover {color:#1384B0;text-decoration:underline}
+img {border:0}
+small {font-size:12px;color:#999}
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+button, input, select, textarea {margin: 0;}
+blockquote ul{list-style: square;margin:0;}
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.6em;
+    font-family:"微軟正黑體","Microsoft JhengHei","Times New Roman",Times,serif;
+    clear: both;
+}
+h1{font-size: 2em}
+h2{font-size: 1.8em}
+h3{font-size: 1.6em}
+h4{font-size: 1.4em}
+h5{font-size: 1.2em}
+h6{font-size: 1em}
+p, ul, ol, dl, blockquote, table, article, article footer, nav {
+    font: 15px/1.7em "Trebuchet MS","Lucida Grande","Lucida Sans",Arial,sans-serif;
+    letter-spacing: 0.07em;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+.assistive-text{
+	position: absolute !important;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+}
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
+.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.fix{display:block; clear:both;}
+body {
+	background-color: #DDD;
+	color:#444;
+	font:13px "Trebuchet MS","Lucida Grande","Lucida Sans",Arial,Times New Roman, Times
+}
+/*
+ * --- Header ---
+ */
+#header{
+	height: 130px;
+	width: 980px;
+    position: relative;
+}
+#header h1{
+    font-family: "微軟正黑體","Lucida Grande","Arial";
+    font-size: 26px;
+    font-weight: normal;
+    padding: 25px 0 0;
+    color: #000;
+}
+#header h1 a{
+	color: #3A4146;
+}
+#header h1 a img{
+    width: auto;
+    height: 80px;
+}
+#header h1 a:hover{
+	text-decoration: none;
+	color:#666;
+}
+#header p{
+    color: #8C8C8C;
+    font-family: "微軟正黑體",Arial;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 360px;
+}
+
+/*
+ * --- Social Links ---
+ */
+#social-links{
+    position: absolute;
+    right: 0;
+    top: 47px;
+    clear: both;
+}
+#social-links ul{
+    list-style: none;
+    padding:0;
+    margin: 0;
+    float: right;
+}
+#social-links ul li{
+    display: block;
+    float: left;
+    margin-left: 20px;
+}
+*+html #social-links ul li{
+    width: 36px;
+}
+*+html #social-links ul li a{
+}
+#social-links ul li a{
+    background-image: url("img/achang-socials.png");
+    background-repeat: no-repeat;
+    text-indent: -999em;
+    width: 36px;
+    height: 36px;
+    display: block;
+    opacity: .5
+}
+#social-links ul li a:hover{
+    opacity: 1;
+}
+#social-links ul li a#fb{
+    background-position: 0 0;
+}
+#social-links ul li a#gp{
+    background-position: -36px 0;
+}
+#social-links ul li a#in{
+    background-position: -72px 0;
+}
+#social-links ul li a#tw{
+   background-position: -36px -76px;
+}
+#social-links ul li a#pk{
+    background-position: 0 -36px;
+}
+#social-links ul li a#rss{
+    background-position: 0 -72px;
+}
+
+/*
+ * --- Menus ---
+ */
+#achang-menu{
+	width: 980px;
+}
+#access {
+    background-color: #333;
+    clear: both;
+    display: block;
+    float: left;
+    margin: 0 auto;
+    width: 100%;
+}
+#access ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+#access li {
+    float: left;
+    position: relative;
+}
+#access ul li{
+	padding-right: 10px;
+}
+#access ul li:last-child{
+	padding-right: 0;
+}
+#access a {
+	font-size: 15px;
+	font-family: "微軟正黑體",Arial;
+	color: #eee;
+	line-height: 3.333em;
+	padding:5px 20px;
+	text-decoration: none;
+}
+#access ul li ul li a{
+	display: block;
+	background: #333
+}
+#access ul ul {
+	padding: 10px;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.5);
+    background-color: #333333;
+    border-top: 1px solid #DDD;
+    display: none;
+    float: left;
+    left: 0;
+    position: absolute;
+    top: 50px;
+    width: 188px;
+    z-index: 99999;
+}
+#access ul ul a {
+     background: #333;
+     color: #FFF;
+     font-weight: normal;
+     height: auto;
+     line-height: 30px;
+     padding: 0 10px;
+     width: 168px;
+}
+#access ul li ul li{
+	padding: 5px 0;
+}
+#access li:hover > a,
+#access ul ul :hover > a{
+     background: #FFF;
+}
+#access li:hover > a {
+     background: #FFF;
+     color: #000;
+}
+#access ul li:hover > ul {
+     display: block;
+}
+#access ul li ul li:hover > ul{
+    display: none;
+}
+#access .current_page_item > a,
+#access .current_page_ancestor > a {
+	color:#333;
+	background-color: #FFF;
+}
+
+/*
+ * --- Main ---
+ */
+#content {
+	overflow: hidden;
+	padding: 30px 0 50px;
+	width: 980px
+}
+#main{
+    float: left;
+    width: 660px;
+    overflow: hidden;
+}
+#main article img{
+    max-width:660px
+}
+#main p.meta a{
+    color: #939393;
+}
+#main p.meta a:hover{
+    color: #1384B0;
+}
+.top-title{
+    background: url("img/tico.png") no-repeat scroll 0 3px transparent;
+    color: #3F3F3F;
+    font-size: 26px;
+    line-height: 35px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+}
+span.sticky{
+    color: red;padding-right: 5px
+}
+
+/* -- Blopost -- */
+.blog-post figure{
+    display: block;
+    height: 165px;
+    width: 225px;
+    float: left;
+}
+.blog-post figure:hover{
+    opacity: .8
+}
+.blog-post figure img{
+    display: block;
+    height: 165px;
+    width: 225px;
+    float: left;
+}
+.blog-post img{
+    border-radius:2px;
+}
+.blog-post p.meta{
+	font-size: 12px;
+	padding-bottom: 10px;
+	color: #777;
+}
+.blog-post p.meta {
+	font-size: 12px;
+	padding-bottom: 10px;
+	color: #777;
+}
+
+/* -- Page Main -- */
+.page-main{
+	margin-top:0;
+}
+.page-main .blog-post{
+    clear: both;
+    margin-top: 0;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+.article-right{
+    float: right;
+    height: 165px;
+    overflow: hidden;
+    position: relative;
+    width: 420px;
+}
+.page-main .blog-post h1{
+    font-size: 16px;
+    height: 50px;
+    line-height: 26px;
+    overflow:
+}
+.page-main .blog-post h1 a{
+    color:#000;
+    font-size:16px;
+}
+.page-main .blog-post  h1 a:hover{
+    text-decoration: none;
+    color:#1384B0;
+}
+.page-main footer{
+	margin: 0
+}
+.page-main p.meta {
+    bottom: 0;
+    color: #939393;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%
+}
+.page-main .blog-post .summary p{
+	font-size: 13px;
+	margin: 0;
+}
+.page-single .meta{
+    font-size: 13px;
+    margin: 0;
+    color: #939393
+}
+
+/*
+ * --- Footer Social Links ---
+ */
+#social-share{
+    overflow: hidden;
+    padding-top: 35px;
+}
+#social-share ul{
+    padding:0;
+    margin: 0;
+    text-align: center;
+}
+#social-share ul li{
+    list-style: none;
+    display: inline-block;
+
+}
+#social-share ul li a{
+    color: #333333;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 400;
+    height: 30px;
+    line-height: 28px;
+    padding-left: 32px;
+    width: 86px;
+    text-align: left;
+}
+#social-share ul li:after{
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAHCAYAAADJTCeUAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MDFBOEI3QTVGNkVCMTFFMkE1MDRDRDc3NTVBQTQ0REEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MDFBOEI3QTZGNkVCMTFFMkE1MDRDRDc3NTVBQTQ0REEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDowMUE4QjdBM0Y2RUIxMUUyQTUwNENENzc1NUFBNDREQSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDowMUE4QjdBNEY2RUIxMUUyQTUwNENENzc1NUFBNDREQSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsDaxBEAAAAaSURBVHjaYmBgYPjP8P//fwYmBihA5wIEGACqvgj8EDBstQAAAABJRU5ErkJggg==");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 7px;
+    margin-top: -10px;
+    margin-left: 10px;
+    width: 1px;
+    content: " ";
+}
+*+html #social-share ul li,
+*+html #social-share ul li a{
+    display: inline;
+}
+#social-share ul li:last-child:after{
+    background: none;
+    width: 0;
+    margin:0;
+    padding: 0;
+}
+#social-share ul li a:hover{
+    text-decoration: none;
+    color: #FFF
+}
+#social-share ul li a#fb{
+    background: url("img/fb-1.png") no-repeat scroll 7px 7px transparent;
+}
+#social-share ul li a#fb:hover{
+    background: url("img/fb-2.png") no-repeat scroll 7px 7px black;
+}
+#social-share ul li a#gp{
+    background: url("img/g-1.png") no-repeat scroll 7px 7px transparent;
+}
+#social-share ul li a#gp:hover{
+    background: url("img/g-2.png") no-repeat scroll 7px 7px black;
+}
+#social-share ul li a#tw{
+    background: url("img/Twitter-1.png") no-repeat scroll 7px 7px transparent;
+}
+#social-share ul li a#tw:hover{
+    background: url("img/Twitter-2.png") no-repeat scroll 7px 7px black;
+}
+#social-share ul li a#pk{
+    background: url("img/plurk-1.png") no-repeat scroll 7px 7px transparent;
+}
+#social-share ul li a#pk:hover{
+    background: url("img/plurk-2.png") no-repeat scroll 7px 7px black;
+}
+#social-share ul li a#in{
+    background: url("img/linkedin-1.png") no-repeat scroll 7px 7px transparent;
+}
+#social-share ul li a#in:hover{
+    background: url("img/linkedin-2.png") no-repeat scroll 7px 7px black;
+}
+
+/*
+ * --- Pagination ---
+ */
+.post-nav{
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 20px
+}
+.post-nav ul{
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+.post-nav ul li{
+    display: inline-block;
+    list-style: none;
+}
+*+html .post-nav ul li{
+    display: inline;
+    width: 30px
+}
+.post-nav ul li a,.post-nav ul li .current{
+    color: #000;
+    display: block;
+    font-size: 20px;
+    height: 16px;
+    line-height: 16px;
+    padding: 3px;
+    width: 16px;
+}
+.post-nav ul li .current{
+    color:#000;
+}
+.post-nav ul li a:hover{
+    color: #000;
+    text-decoration: none;
+}
+.post-nav ul li a.prev{
+    background: url("img/lrrow.png") no-repeat scroll 0 4px transparent;
+    text-indent: -999em;
+    display: block;
+    height: 16px;
+    width: 16px;
+}
+.post-nav ul li a.next{
+    background: url("img/rrrow.png") no-repeat scroll 0 4px transparent;
+    text-indent: -999em;
+    display: block;
+    height: 16px;
+    width: 16px;
+    margin-left: 10px
+}
+.post-nav ul li a.page-numbers{
+    opacity: .4
+}
+.post-nav ul li a.page-numbers:hover{
+    opacity: 1
+}
+.pagination{
+	margin-top: 10px;
+	line-height:36px;
+	text-align:center;
+	text-decoration:none;
+	width:100%;
+	overflow:hidden;
+	clear: both;
+    padding-bottom: 20px
+}
+.pagination .prev{
+	margin-right:5px
+}
+.pagination a{
+	padding:3px 8px;
+	text-decoration:none;
+	color:#555;
+	border:1px solid #999
+}
+.pagination a.current{
+	padding: 3px 8px;
+	font-weight:bold;
+	text-decoration: none;
+	border: 1px solid #999;
+	background:#FFF;
+	color: #454545;
+}
+.pagination .current,
+.pagination a:hover{
+	background: #666;
+    border: 1px solid #999;
+    padding: 3px 8px;
+    color: #FFF;
+}
+
+/*
+ * --- Profile ---
+ */
+#user-porfile{
+	width: auto;
+    background-color: #B9B9B9;
+	margin: 20px auto 30px;
+    overflow: hidden;
+    padding: 20px;
+}
+#user-porfile .photo{
+	float: left;
+	display: block;
+}
+#user-porfile .nickname{
+    background: url("img/wico.png") no-repeat scroll 0 5px transparent;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.7em;
+    margin-left: 15px;
+    overflow: hidden;
+    padding: 0 0 0 30px;
+}
+#user-porfile .description{
+    font-size: 13px;
+    height: 65px;
+    line-height: 1.7em;
+    overflow: hidden;
+    padding-bottom: 3px;
+    padding-left: 15px;
+    padding-top: 5px;
+}
+#user-porfile .mylinks{
+    font-size: 13px;
+    overflow: hidden;
+    padding-left: 15px;
+}
+
+/*
+ * --- Sidebar ---
+ */
+#sidebar {
+    float: right;
+    letter-spacing: 1px;
+    line-height: 145%;
+    overflow: hidden;
+    width: 280px;
+}
+#sidebar a {
+    color: #6D6D6D
+}
+#sidebar a:hover{
+    text-decoration: none;
+    color: #1384B0
+}
+#sidebar h3{
+	font:15px "微軟正黑體","Microsoft JhengHei",simhei,sans-serif;
+	padding: 3px 0 3px 10px;
+	text-align: left;
+	color: #000
+}
+#sidebar #sidebar-static{
+    background-color: #333;
+    height: 280px;
+    margin-bottom: 35px;
+    overflow: hidden;
+    width: 270px;
+}
+#sidebar #sidebar-static .widget.ww{
+	padding-bottom: 20px;
+}
+#sidebar #sidebar-static h3{
+    background: url("img/hico.jpg") no-repeat scroll 0 10px transparent;
+    color: #FFFFFF;
+    line-height: 20px;
+    padding-left: 25px;
+    padding-bottom: 30px;
+}
+#sidebar #sidebar-static .widget{
+	background-color: #333333;
+	padding: 10px;
+	margin: 0;
+	width: 250px;
+}
+#sidebar #sidebar-static .cat-dropdown select{
+    background-color: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 3px;
+    font-size: 15px;
+    line-height: 15px;
+    padding: 8px;
+    width: 100%;
+}
+#sidebar .widget {
+    background-color: #FFF;
+    line-height: 1.7em;
+    margin-bottom: 35px;
+    overflow: hidden;
+    padding: 20px 10px;
+    width: 250px;
+}
+#sidebar .widget h3{
+    background: url("img/wico.png") no-repeat scroll 0 10px transparent;
+    font-size: 18px;
+    font-weight: 800;
+    padding: 10px 0 10px 20px;
+}
+#sidebar ul {
+	padding-left:5px;
+	margin:0;
+}
+#sidebar ul li {
+    background: url("img/li.gif") no-repeat scroll 0 18px transparent;
+    border-bottom: 1px dotted #CCCCCC;
+    font-size: 13px;
+    list-style: none outside none;
+    margin: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    color: #6D6D6D;
+    text-align: left;
+}
+#sidebar ul li:last-child{
+	border-bottom: none;
+}
+#sidebar .textwidget{
+	padding: 0 5px;
+}
+#sidebar .textwidget a{
+    color:#0066CC;
+    text-decoration: underline;
+}
+#sidebar .textwidget a:hover{
+    text-decoration:none;
+}
+
+/*
+ * --- Widget ---
+ */
+#feature-rand-post {
+    width: 235px
+}
+#feature-rand-post .img{
+    text-align: center;
+}
+#feature-rand-post .img img{
+    width: 235px;
+    height: 170px;
+    display: block;
+    overflow: hidden;
+}
+
+/* -- Similar -- */
+#similar-posts{
+    padding: 25px 0;
+}
+#similar-posts h3{
+    background: url("img/wico.png") no-repeat scroll 0 5px transparent;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 30px;
+    padding-bottom: 10px;
+    padding-left: 26px;
+}
+#similar-posts ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#similar-posts ul li{
+    display: block;
+    float: left;
+    width: 156px;
+    overflow: hidden;
+    padding-right: 12px;
+}
+#similar-posts ul li.item-3{
+    padding-right: 0;
+}
+#similar-posts ul li a{
+    display: block;
+    text-decoration:none;
+    font-size: 13px;
+    text-decoration:none;
+}
+#similar-posts ul li .post-title{
+    line-height: 18px
+}
+#similar-posts ul li:hover{
+    opacity: .8
+}
+#similar-posts ul li a img{
+    width: 156px;
+    height: 104px;
+    display: block;
+    overflow: hidden;
+}
+
+/* -- Sidebar comments -- */
+ul.ac-recent-comments li img{
+    float: left;
+    border-radius:3px;
+}
+#sidebar ul.ac-recent-comments li{
+    background:none;
+    clear: both;
+    overflow: hidden;
+    padding: 10px;
+}
+ul.ac-recent-comments li a{
+    display: block;
+}
+ul.ac-recent-comments li a:hover{
+    opacity: .7
+}
+ul.ac-recent-comments li span{
+    display: block;
+    line-height: 18px;
+    overflow: hidden;
+    padding-left: 10px;
+}
+ul.ac-recent-comments li span.name{
+    font-weight: 800
+}
+ul.ac-recent-comments li span.title{
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+/*
+ * --- Comments ---
+ */
+#comments{
+    padding-top: 0px;
+    border: 8px solid #666
+}
+#comment-inner{
+    padding: 20px
+}
+#comments h1{
+    background: url("img/wico.png") no-repeat scroll 0 5px transparent;
+    color: #333;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 30px;
+    margin-bottom: 19px;
+    padding-left: 30px;
+}
+.commentlist li ul li {
+    padding:15px;
+    margin:15px auto 0;
+    border: 1px solid #DCDCDC
+}
+.nocomments {
+    border-bottom: 5px solid #DCDCDC;
+    color: #555;font-size: 20px;
+    padding: 15px 10px;
+    text-align: center;
+}
+.commentlist {
+    padding: 0;
+    margin-bottom: 30px;
+}
+.commentlist li {
+    padding:0 10px 15px;
+    margin:0;
+    list-style: none;
+}
+.commentlist .children{
+    clear: both;
+    margin: 0 0 0 5.5%;
+    padding: 0;
+}
+.commentlist p {
+    clear: both;
+    margin: 0 ;
+    padding-left: 60px;
+    padding-top: 10px;
+}
+.comment-author{
+    float: left;
+}
+.authormeta{
+    float: left;
+    overflow: hidden;
+    padding-left: 10px;
+}
+.authormeta .timelink{
+    padding-top: 3px;
+}
+.authormeta .timelink a{
+    font-size: 12px;
+}
+.commentlist cite, .commentlist cite a {
+    font-family: "微軟正黑體",Arial,Palatino;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    display: block;
+}
+.commentlist .comment-author img {
+    float: left;
+    border-radius: 3px;
+    box-shadow: 0 0 1px #CCCCCC;
+}
+.comment-body .reply{
+    text-align: right;
+    padding-right: 10px
+}
+.comment-body .reply a {
+    background-color: #666;
+    border-radius: 2px 2px 2px 2px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 16px;
+    opacity: 0.8;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+.comment-body .reply a:hover{
+    background-color: #999
+}
+#commentform{
+    position: relative;
+    height: 225px;
+    overflow: hidden;
+}
+.comment-form-comment{
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.comment-form-comment textarea{
+    height: 140px;
+    width: 350px;
+}
+.comfiled{
+    margin: 0;
+    height: 60px;
+    width: 235px;
+}
+.comfiled label{
+    color: #3F3F3F;
+    display: inline-block;
+    font-size: 13px;
+    padding-right: 0;
+    width: 70px;
+}
+.comfiled input{
+    width: 145px;
+    font-size:12px;
+}
+.comfiled .required{
+    padding-left: 3px;
+    color:#F25123;
+}
+.form-submit{
+    bottom: 0;
+    position: absolute;
+    right: 0;
+}
+.form-submit #submit:hover{
+    background-color: #F26D23
+}
+.unapproved{
+    color: #F25123;
+    font-size: 13px;
+    padding-left: 10px;
+}
+
+/* -- Sencond --*/
+.commentlist ul.children{
+    border-bottom: 2px dashed #999;
+    margin-bottom:35px;
+}
+
+.commentlist ul.children > .children{
+    border: none;
+    margin-bottom: 0;
+}
+
+/* -- Respond --*/
+#respond {
+    overflow: hidden;
+}
+#respond h3{
+	font-family: "微軟正黑體",Arial,sans-serif;
+    background: url("img/tico.png") no-repeat scroll 0 3px transparent;
+    color: #3F3F3F;
+    font-size: 26px;
+    line-height: 35px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+}
+
+/* -- Reply Box -- */
+.commentlist #respond{
+    position: relative;
+}
+.commentlist #respond p{
+    padding-left: 0;
+}
+.commentlist #respond .comfiled{
+    margin: 0;
+    height: 35px;
+    width: 270px;
+}
+.commentlist #respond .comfiled label{
+    color: #3F3F3F;
+    display: inline-block;
+    font-size: 13px;
+    padding-right: 0;
+    width: 70px;
+}
+.commentlist #respond .comfiled  input{
+    width: 60%
+}
+.commentlist #respond .comment-form-comment textarea{
+    width: 100%
+}
+.commentlist #respond .comment-form-comment{
+    position: relative;
+}
+.commentlist #respond #commentform{
+    height: 350px;
+}
+#cancel-comment-reply-link{
+    background-color: #666666;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 16px;
+    padding: 8px 13px;
+    text-decoration: none;
+    bottom: 0;
+    font-family: arial;
+    position: absolute;
+    right: 95px;
+    z-index: 999;
+    border-radius:3px;
+}
+#cancel-comment-reply-link:hover{
+    background-color: #999;
+}
+
+/*
+ * --- FOOTER ---
+ */
+#footer {
+	clear: both;
+	height: 50px;
+	margin: 0 auto;
+	width: 980px
+}
+#copyright{
+	text-align: center;
+	color: #000
+}
+#copyright .title{
+    background: url("img/cico.png") no-repeat scroll 0 2px transparent;
+    padding-left: 20px;
+    color: #F15123;
+    padding-right: 40px;
+}
+#copyright  a{
+	color:#666;
+}
+
+/*
+ * --- Search ---
+ */
+.search-box #s{
+    font-size: 15px;
+    padding: 8px;
+    width: 175px;
+    border-radius: 3px;
+    border:1px solid #FFF;
+}
+*+html .search-box #s{
+    float: left;
+}
+.search-box #searchsubmit{
+	background-color: #F25123;
+    border: medium none;
+    display: block;
+    float: right;
+    font-size: 15px;
+    height: 37px;
+    margin: 0;
+    padding: 2px;
+    width: 50px;
+    border-radius: 3px;
+    color: #FFF;
+    cursor: pointer;
+}
+.search-box #searchsubmit:hover{
+	background-color: #F26D23;
+}
+
+/*
+ * --- Float Share ---
+ */
+#share-box {
+    float: left;
+    margin-left: -100px;
+    background-color: #EEE;
+    position: absolute;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 8px;
+}
+#share-box .sn {
+    float: left;
+    clear: left;
+    padding: 5px;
+    width: 75px
+}
+
+/*
+ * --- Float Box ---
+ */
+.fbbox{
+    background: url("img/fbox.png") no-repeat scroll left center transparent !important;
+    display: block;
+    float: right;
+    height: 245px;
+    padding: 0 0 0 60px;
+    width: 235px;z-index: 99999;
+    position:fixed;right:-250px;
+    top:30%;}
+.fbbox div{
+    margin-left: -7px;
+    border:none;position:relative;display:block;}
+.fbbox div .fb-like-box{
+    background-color: #FFF;
+}
+
+/*
+ * --- AD ---
+ */
+.home-center{
+    border: 1px dashed #666;
+    margin-bottom: 35px;
+    padding: 30px 0;
+    text-align: center;
+    overflow: hidden;
+}
+.single-top,.single-center,.single-bottom{
+    border: 1px dashed #666;
+    padding: 30px 0;
+    text-align: center;
+    margin: 20px 0
+}
+
+/*
+ * --- HTML ---
+ */
+input, textarea {
+    background-color: #FFFFFF;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    color: #000;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 15px;
+    line-height: 1.4;
+    outline: medium none;
+    padding: 6px;
+    resize: none;
+    margin-bottom:10px
+}
+input[type=submit]{
+background-color: #F25123;
+    border: medium none;
+    font-size: 15px;
+    margin: 0;
+    border-radius: 3px;
+    color: #FFF;
+    cursor: pointer;
+}
+input[type=submit]:hover{
+    background: #F26D23
+}
+blockquote{
+    background-color: #EEE;
+    border: 1px solid #DCDCDC;
+    color: #000;
+    margin: 1.5em;
+    padding: 1em;
+}
+pre {
+    border: 1px solid #CCC;color:#333;
+    display:block;
+    font:13px/120% Courier New;
+    overflow:auto;
+    padding:10px 10px 10px 21px;
+    width:93%;
+    margin: 15px 0;
+}
+table {
+    width: 100%;
+    border-radius: 3px;
+    font-family: Arial,Georgia,"Times New Roman",Times,serif;
+    color: #333;
+}
+table td, table th {
+    border-top-color: white;
+    border-bottom: 1px solid #999;
+    color: #555;
+}
+table th {
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-weight: 800;
+    padding: 7px 7px 8px;
+    text-align: left;
+    line-height: 1.3em;
+    font-size: 15px;
+}
+table td {
+    font-size: 12px;
+    padding: 4px 7px 2px;
+    vertical-align: top;
+}
+table tr:hover{
+    background-color: #EEE
+}
+fieldset{
+    border-color: #999;
+}
+fieldset legend{
+    font-weight: 800
+}

@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script type="text/javascript">
+ function testa()
+    {
+        var mydom=document.getElementById("btn1");//获取指定ID的DOM对象
+        var myattri=mydom.getAttribute("type");   //获取元素的类型
+        alert(" 按钮的英文类型是："+myattri);
+    }
+</script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+      <input id="btn1" type="button" value="test" onclick="testa()"/>
+    </form>
+</body>
+</html>

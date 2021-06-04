@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="javascript">
+//参数-url表示要打开的网站，winname表示打开后的窗体名称
+//参数windth表示打开窗体的宽度，height表示打开窗体的高度
+function openwindow( url,winName,width,height) 
+{
+    xposition=0; yposition=0;
+    if ((parseInt(navigator.appVersion) >= 4 ))
+    {
+    xposition = (screen.width - width) / 2;     //窗体居中的x坐标
+    yposition = (screen.height - height) / 2;   //窗体居中的y坐标
+    }
+    theproperty= "width=" + width + ","         //打开窗口的属性
+    + "height=" + height + "," 
+    + "location=0," 
+    + "menubar=0,"
+    + "resizable=1,"
+    + "scrollbars=0,"
+    + "status=0," 
+    + "titlebar=0,"
+    + "toolbar=0,"
+    + "hotkeys=0,"
+    + "screenx=" + xposition + "," //仅适用于Netscape
+    + "screeny=" + yposition + "," //仅适用于Netscape
+    + "left=" + xposition + "," //IE
+    + "top=" + yposition; //IE 
+    window.open( url,winName,theproperty );     //打开窗口
+}
+</script>
+</head>
+<body>
+<a href="javascript:openwindow('http://www.google.com','openwin',300,300)">
+打开窗口</a></body>
+</html>

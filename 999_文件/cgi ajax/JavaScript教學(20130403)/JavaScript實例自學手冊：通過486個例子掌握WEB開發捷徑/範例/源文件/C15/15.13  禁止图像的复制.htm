@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+    <script language="javascript">
+    function noCopy(control)
+    {
+	alert("版权所有，禁止复制！");
+	return false;
+    }
+    function check() 
+    {
+	if(document.images)  //遍历页面中的图像
+	    for(i=0;i<document.images.length;i++)
+		document.images[i].onmousedown = noCopy;
+    }
+    </script>
+    
+</head>
+<body onload="check()">
+<img src='' width=70 height=50 border=1 alt='我的图片'>
+<div> 
+<table width="300" height="50" border="0" cellspacing="2" cellpadding="0" bgcolor="#FFb609">
+  <tr> 
+    <td bgcolor="#ccffff">禁止复制网页中所有图片...</td>
+  </tr>
+</table>
+</div>
+    
+</body>
+</html>

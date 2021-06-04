@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>改变选中项的颜色</title>
+</head>
+<body >
+<script language="javascript">
+    function setColor(_parent, _child) {
+        for (var i=0; i<_parent.options.length; i++) {//遍历所有选项
+             if (_parent.options[i] == _child) {
+                 _parent.options[i].style.color = 'yellow';                 //颜色
+                 _parent.options[i].style.backgroundColor = 'blue';         //背景色
+             } else {
+                 _parent.options[i].style.color = '';                       //取消颜色
+                 _parent.options[i].style.backgroundColor = '';             //取消背景色
+             }
+        }
+        document.body.focus();   //窗体获得焦点
+    }
+</script>
+<select onchange="setColor(this, options[selectedIndex]);">
+    <option style="color:yellow; background-color:blue;">选项1</option>
+    <option>选项2</option>
+    <option>选项3</option>
+    <option>选项4</option>
+    <option>选项5</option>
+</select>
+</body>
+</html>

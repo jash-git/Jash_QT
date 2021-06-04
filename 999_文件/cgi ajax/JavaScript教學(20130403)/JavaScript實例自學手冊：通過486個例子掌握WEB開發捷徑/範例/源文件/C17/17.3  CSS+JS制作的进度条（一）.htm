@@ -1,0 +1,100 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<style>
+.divbody
+{
+	z-index: 2;
+	left: 2%;
+	visibility: hidden;
+	width: 98%;
+	cursor: crosshair;
+	position: absolute;
+	top: 40px;
+	height: 96%;
+	background-color: #ffffcc;
+}
+p
+{
+	color: #cc6633;
+	font-weight: bold;
+}
+.divprogress
+{
+	BORDER-RIGHT: black 1px solid; 
+	PADDING-RIGHT: 3px; 
+	BORDER-TOP: black 1px solid; 
+	PADDING-LEFT: 3px; 
+	FONT-SIZE: 10pt; 
+	PADDING-BOTTOM: 2px; 
+	BORDER-LEFT: black 1px solid; 
+	PADDING-TOP: 2px; 
+	BORDER-BOTTOM: black 1px solid
+}
+
+</style>
+    <script type="text/javascript">
+        //设置span元素的编号
+        var progressEnd = 16; 
+        //设置进度条的颜色为蓝色
+        var progressColor = "blue";
+        //设置进度条的走动时间--毫秒为单位
+        var progressInterval = 350;
+        //进度条的开始标志
+        var progressBegin = 0;
+        var progressTimer;
+        function progress_clear() 
+        {
+           //清空定时器
+            clearTimeout(progressTimer);
+           //隐藏div
+          document.getElementById("framediv").style.visibility="hidden";
+        }
+        function progress_update() 
+        {
+            progressBegin++;
+            //如果开始标志已经大于结束标志
+            if (progressBegin > progressEnd)
+             progress_clear();//清空进度条
+            else 
+            //否则继续更新进度条
+             document.getElementById("progress"+progressBegin).style.backgroundColor = progressColor;
+            //在一定的时间间隔内循环更新进度条
+            progressTimer = setTimeout("progress_update()",progressInterval);
+        }
+        function linkto()
+        {
+          //显示div
+          document.getElementById("framediv").style.visibility="visible";
+          //调用更新进度条的方法
+          progress_update();
+        }
+
+    </script>
+
+</head>
+<body>
+<form id="form1" runat="server">
+    <input id="btn1" type="button" onclick="linkto()" value="连接" />
+    <div id="framediv" class="divbody" >
+        <br />
+        <p>正在连接站点，请稍候...</p>
+        <table align="center">
+            <tr>        <td>
+            <div class="divprogress"><span id="progress1">&nbsp;&nbsp;</span>
+            <span id="progress2">&nbsp;&nbsp;</span> <span id="progress3">&nbsp;&nbsp;</span> 
+            <span id="progress4">&nbsp;&nbsp;</span> <span id="progress5">&nbsp;&nbsp;</span>
+            <span id="progress6">&nbsp;&nbsp;</span> <span id="progress7">&nbsp;&nbsp;</span>
+            <span id="progress8">&nbsp;&nbsp;</span> <span id="progress9">&nbsp;&nbsp;</span>
+            <span id="progress10">&nbsp;&nbsp;</span> <span id="progress11">&nbsp;&nbsp;</span>
+            <span id="progress12">&nbsp;&nbsp;</span> <span id="progress13">&nbsp;&nbsp;</span>
+            <span id="progress14">&nbsp;&nbsp;</span><span id="progress15">&nbsp;&nbsp;</span>
+            <span id="progress16">&nbsp;&nbsp;</span>
+            </div>
+            </td>        </tr>
+        </table>
+    </div>
+  </form>
+
+</body>
+</html>

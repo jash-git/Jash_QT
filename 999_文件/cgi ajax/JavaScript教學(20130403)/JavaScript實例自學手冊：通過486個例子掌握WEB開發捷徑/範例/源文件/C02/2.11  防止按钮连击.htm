@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script LANGUAGE="JavaScript">
+function doubleCheck(){ 
+    if (window.document.readyState != null &&  window.document.readyState != 'complete') //判断页面是否执行完毕
+    { 
+        alert("正在处理，请等待！"); //没有执行完毕提示，并返回false
+        return false; 
+    } 
+    else 
+    { 
+        return true;  //执行完毕
+    } 
+} 
+</script>
+</head>
+<body>
+<input type=text name="txt1" value="this is test!">
+<input type=button value="提交" onClick="doubleCheck()">
+</body>
+</html>

@@ -1,0 +1,28 @@
+<HTML>
+<HEAD>
+<TITLE> 进度条 </TITLE>
+<script language="javascript">
+var i=0;
+var timer;
+function Progress()
+{
+	if(i==200)
+	{
+		clearTimeout(timer);//清除定时器
+		return;
+	}
+	i=(i<200)?(i+4):0;      //步长为4
+	myBar.style.setExpression("width","i","javascript");//设置滚动条的宽度
+	percentBar.innerText=i/2+"%";                       //设置进度的显示
+	timer=setTimeout("Progress()",250);//设置定时器，每隔250毫秒增加一次进度
+}
+</script>
+</HEAD>
+<BODY onload="Progress()">
+<br>
+<table align="center" width="50%">
+<tr><td><span id="myBar" style="background-color:blue"></span></td></tr>
+<tr><td><span width="%100" id="percentBar"></span></td></tr>
+</table>
+</BODY>
+</HTML>

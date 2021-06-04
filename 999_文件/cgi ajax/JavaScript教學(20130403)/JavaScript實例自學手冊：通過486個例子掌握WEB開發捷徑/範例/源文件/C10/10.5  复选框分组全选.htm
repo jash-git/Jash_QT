@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="120" border="0">
+    <tr>
+      <td>教师组/学生组</td>
+    </tr>
+    <tr>
+      <td><input name="check" type="checkbox" id="check" value="yes" />
+      <input name="nocheck" type="checkbox" id="nocheck" value="no" /></td>
+    </tr>
+    <tr>
+      <td><input name="check" type="checkbox" id="Checkbox1" value="yes" />
+        <input name="nocheck" type="checkbox" id="Checkbox2" value="no" /></td>
+    </tr>
+    <tr>
+      <td><input name="check" type="checkbox" id="Checkbox3" value="yes" />
+        <input name="nocheck" type="checkbox" id="Checkbox4" value="no" /></td>
+    </tr>
+    <tr>
+      <td><input name="check" type="checkbox" id="Checkbox5" value="yes" />
+        <input name="nocheck" type="checkbox" id="Checkbox6" value="no" /></td>
+    </tr>
+    <tr>
+      <td><input name="check" type="checkbox" id="Checkbox7" value="yes" />
+        <input name="nocheck" type="checkbox" id="Checkbox8" value="no" /></td>
+    </tr>
+    <tr>
+      <td><input name="check" type="checkbox" id="Checkbox9" value="yes" />
+        <input name="nocheck" type="checkbox" id="Checkbox10" value="no" /></td>
+    </tr>
+    <tr>
+      <td><input name="check" type="checkbox" id="Checkbox11" value="yes" />
+        <input name="nocheck" type="checkbox" id="Checkbox12" value="no" /></td>
+    </tr>
+    <tr>
+      <td>全选教师
+      <input name="checkall" type="checkbox" id="checkall" value="checkbox" onclick="change(document.getElementsByName('check'), this.checked)" /></td>
+    </tr>
+    <tr>
+      <td>全选学生
+      <input name="nocheckall" type="checkbox" id="nocheckall" value="checkbox" onclick="change(document.getElementsByName('nocheck'), this.checked)" /></td>
+    </tr>
+  </table>
+</form>
+<script type="text/javascript">
+var change = function (chkArray, val) 
+{
+	for (var i = 0 ; i < chkArray.length ; i ++) //遍历指定组中的所有项
+	    chkArray[i].checked = val;              //设置项为指定的值-是否选中
+}
+</script>
+</body>
+</html>

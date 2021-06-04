@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+
+	<!--<title>Vimer的程序世界 &raquo; 未找到页面</title>-->
+	<title>Vimer的程序世界 </title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="generator" content="WordPress 3.6.1" /> <!-- leave this for stats please -->
+<meta property="qc:admins" content="1142452673661552636" />
+
+
+        <link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="http://www.vimer.cn/wp-content/themes/AzSands-theme/style.css" type="text/css" media="screen" />
+	<link rel="alternate" type="application/rss+xml" title="Rss 订阅" href="http://www.vimer.cn/feed" />
+	<link rel="pingback" href="http://www.vimer.cn/xmlrpc.php" />
+    <link rel="shortcut icon" href="favicon.ico" />
+
+		<link rel='archives' title='2013年七月' href='http://www.vimer.cn/2013/07' />
+	<link rel='archives' title='2013年六月' href='http://www.vimer.cn/2013/06' />
+	<link rel='archives' title='2012年十月' href='http://www.vimer.cn/2012/10' />
+	<link rel='archives' title='2012年七月' href='http://www.vimer.cn/2012/07' />
+	<link rel='archives' title='2012年五月' href='http://www.vimer.cn/2012/05' />
+	<link rel='archives' title='2012年四月' href='http://www.vimer.cn/2012/04' />
+	<link rel='archives' title='2012年三月' href='http://www.vimer.cn/2012/03' />
+	<link rel='archives' title='2012年二月' href='http://www.vimer.cn/2012/02' />
+	<link rel='archives' title='2012年一月' href='http://www.vimer.cn/2012/01' />
+	<link rel='archives' title='2011年十二月' href='http://www.vimer.cn/2011/12' />
+	<link rel='archives' title='2011年十一月' href='http://www.vimer.cn/2011/11' />
+	<link rel='archives' title='2011年十月' href='http://www.vimer.cn/2011/10' />
+	<link rel='archives' title='2011年九月' href='http://www.vimer.cn/2011/09' />
+	<link rel='archives' title='2011年八月' href='http://www.vimer.cn/2011/08' />
+	<link rel='archives' title='2011年七月' href='http://www.vimer.cn/2011/07' />
+	<link rel='archives' title='2011年六月' href='http://www.vimer.cn/2011/06' />
+	<link rel='archives' title='2011年五月' href='http://www.vimer.cn/2011/05' />
+	<link rel='archives' title='2011年四月' href='http://www.vimer.cn/2011/04' />
+	<link rel='archives' title='2011年三月' href='http://www.vimer.cn/2011/03' />
+	<link rel='archives' title='2011年二月' href='http://www.vimer.cn/2011/02' />
+	<link rel='archives' title='2011年一月' href='http://www.vimer.cn/2011/01' />
+	<link rel='archives' title='2010年十二月' href='http://www.vimer.cn/2010/12' />
+	<link rel='archives' title='2010年十一月' href='http://www.vimer.cn/2010/11' />
+	<link rel='archives' title='2010年十月' href='http://www.vimer.cn/2010/10' />
+	<link rel='archives' title='2010年九月' href='http://www.vimer.cn/2010/09' />
+	<link rel='archives' title='2010年八月' href='http://www.vimer.cn/2010/08' />
+	<link rel='archives' title='2010年七月' href='http://www.vimer.cn/2010/07' />
+	<link rel='archives' title='2010年六月' href='http://www.vimer.cn/2010/06' />
+	<link rel='archives' title='2010年五月' href='http://www.vimer.cn/2010/05' />
+	<link rel='archives' title='2010年四月' href='http://www.vimer.cn/2010/04' />
+	<link rel='archives' title='2010年三月' href='http://www.vimer.cn/2010/03' />
+	<link rel='archives' title='2010年二月' href='http://www.vimer.cn/2010/02' />
+	<link rel='archives' title='2010年一月' href='http://www.vimer.cn/2010/01' />
+	<link rel='archives' title='2009年十二月' href='http://www.vimer.cn/2009/12' />
+	<link rel='archives' title='2009年十一月' href='http://www.vimer.cn/2009/11' />
+	<link rel='archives' title='2009年十月' href='http://www.vimer.cn/2009/10' />
+		<link rel='stylesheet' id='wp-syntax-css-css'  href='http://www.vimer.cn/wp-content/plugins/wp-syntax/css/wp-syntax.css?ver=1.0' type='text/css' media='all' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.vimer.cn/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.vimer.cn/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 3.6.1" />
+<style type="text/css"><!----></style><!-- wp thread comment 1.4.9.4.002 -->
+<style type="text/css" media="screen">
+.editComment, .editableComment, .textComment{
+	display: inline;
+}
+.comment-childs{
+	border: 1px solid #999;
+	margin: 5px 2px 2px 4px;
+	padding: 4px 2px 2px 4px;
+	background-color: white;
+}
+.chalt{
+	background-color: #E2E2E2;
+}
+#newcomment{
+	border:1px dashed #777;width:90%;
+}
+#newcommentsubmit{
+	color:red;
+}
+.adminreplycomment{
+	border:1px dashed #777;
+	width:99%;
+	margin:4px;
+	padding:4px;
+}
+.mvccls{
+	color: #999;
+}
+			
+</style>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-15771608-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<script type="text/javascript">
+/*300*250，创建于2013-3-8*/
+var cpro_id = "u1228769";
+</script>
+<script src="http://cpro.baidustatic.com/cpro/ui/f.js" type="text/javascript"></script>
+
+</head>
+
+
+<body>
+
+
+	<div id="header">
+
+		<div id="header-content">
+
+			<div class="blog-title">
+				<h1> <a title="Vimer的程序世界" href="http://www.vimer.cn">Vimer的程序世界</a> </h1>
+				<h3></h3>
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<div id="wrapper">
+
+
+		<div id="menu">
+
+			<div class="menu-titles">
+			<h2>
+				<a href="http://www.vimer.cn" title="回到主页">主页</a>
+<!--
+				
+								<a href="http://www.vimer.cn/category/vim" title="查看分类 Vim">
+									Vim
+									<span></span>
+								</a>
+								<a href="http://www.vimer.cn/category/webserver" title="查看分类 webserver">
+									webserver
+									<span></span>
+								</a><ul>	<li class="cat-item cat-item-776"><a href="http://www.vimer.cn/category/webserver/nginx" title="查看nginx下的所有文章">nginx</a>
+</li>
+</ul>
+								<a href="http://www.vimer.cn/category/%e4%ba%a7%e5%93%81" title="查看分类 产品">
+									产品
+									<span></span>
+								</a>
+								<a href="http://www.vimer.cn/category/%e5%bc%80%e6%94%be%e5%b9%b3%e5%8f%b0" title="查看分类 开放平台">
+									开放平台
+									<span></span>
+								</a>
+								<a href="http://www.vimer.cn/category/%e5%bc%80%e6%ba%90%e9%a1%b9%e7%9b%ae" title="查看分类 开源项目">
+									开源项目
+									<span></span>
+								</a>
+								<a href="http://www.vimer.cn/category/os" title="查看分类 操作系统">
+									操作系统
+									<span></span>
+								</a><ul>	<li class="cat-item cat-item-5"><a href="http://www.vimer.cn/category/os/linux" title="查看Linux下的所有文章">Linux</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://www.vimer.cn/category/os/windows" title="查看Windows下的所有文章">Windows</a>
+</li>
+</ul>
+								<a href="http://www.vimer.cn/category/database" title="查看分类 数据库">
+									数据库
+									<span></span>
+								</a><ul>	<li class="cat-item cat-item-584"><a href="http://www.vimer.cn/category/database/mysql-database" title="查看MySql下的所有文章">MySql</a>
+</li>
+</ul>
+								<a href="http://www.vimer.cn/category/zaxiang" title="查看分类 杂项">
+									杂项
+									<span></span>
+								</a>
+								<a href="http://www.vimer.cn/category/program" title="查看分类 程序设计">
+									程序设计
+									<span></span>
+								</a><ul>	<li class="cat-item cat-item-442"><a href="http://www.vimer.cn/category/program/web3d" title="查看3D下的所有文章">3D</a>
+</li>
+	<li class="cat-item cat-item-381"><a href="http://www.vimer.cn/category/program/as" title="查看as下的所有文章">as</a>
+</li>
+	<li class="cat-item cat-item-53"><a href="http://www.vimer.cn/category/program/cc" title="查看C/C++下的所有文章">C/C++</a>
+</li>
+	<li class="cat-item cat-item-782"><a href="http://www.vimer.cn/category/program/lua" title="查看lua下的所有文章">lua</a>
+</li>
+	<li class="cat-item cat-item-845"><a href="http://www.vimer.cn/category/program/objc" title="查看objc下的所有文章">objc</a>
+</li>
+	<li class="cat-item cat-item-585"><a href="http://www.vimer.cn/category/program/php-program" title="查看php下的所有文章">php</a>
+</li>
+	<li class="cat-item cat-item-493"><a href="http://www.vimer.cn/category/program/python" title="查看python下的所有文章">python</a>
+</li>
+	<li class="cat-item cat-item-315"><a href="http://www.vimer.cn/category/program/web" title="查看Web下的所有文章">Web</a>
+</li>
+	<li class="cat-item cat-item-625"><a href="http://www.vimer.cn/category/program/algorithm" title="查看算法下的所有文章">算法</a>
+</li>
+</ul>-->
+<!--
+<a href="" title="Vim">Vim</a>
+-->
+
+				<a href="http://www.vimer.cn/category/vim" title="Vim使用技巧">Vim</a>
+				<a href="http://www.vimer.cn/category/program" title="程序设计">程序设计</a>
+				<a href="http://www.vimer.cn/category/os" title="操作系统">操作系统</a>
+				<a href="http://www.vimer.cn/category/database" title="数据库">数据库</a>
+				<a href="http://www.vimer.cn/category/zaxiang" title="杂项">杂项</a>
+				<a href="/index.php/留言" title="给我留言或联系我">留言/联系</a>
+			</h2>
+			</div>
+
+			<div class="social">
+
+				<div class="rss"></div>
+				<a href="http://www.vimer.cn/feed" target="_blank">Rss 订阅</a>
+				<!--<div class="twitter"></div>-->
+				<!--<a href="http://your-twitter-link.html">Follow me</a>-->
+			</div>
+
+		</div>
+
+
+
+
+
+<div id="container">
+	<div class="navigation">
+		<!---->
+			</div>
+	
+		<div class="post">
+			<h2>Not Found</h2>
+		</div>
+
+
+	</div>
+
+
+<div class="sidebar">
+
+
+<!--
+	<div class="about-me">
+
+		<div class="about-me-content">
+			<h3>About Me</h3>
+			<p>Vim非官方中文博客，致力于Vim在中国的普及。 <a href="/index.php/关于">Read more...</a></p>
+		</div>
+
+	</div>
+
+
+	<div class="advertising">
+		<h3>Advertising</h3>
+		<p>
+			<img src="wp-content/themes/AzSands-theme/images/advertising.gif" alt="Advertising" />
+			<img src="wp-content/themes/AzSands-theme/images/advertising.gif" alt="Advertising" />
+			<img src="wp-content/themes/AzSands-theme/images/advertising.gif" alt="Advertising" />
+			<img src="wp-content/themes/AzSands-theme/images/advertising.gif" alt="Advertising" />
+		</p>
+	</div>
+-->
+
+
+	<div id="search">
+
+			<h2>搜索</h2>
+
+				<form method="get" id="searchform" action="http://www.vimer.cn/">
+<div>
+	<input type="text" value="enter search text here..." name="s" id="s" onfocus="if (this.value == 'enter search text here...') {this.value = '';}"
+	onblur="if (this.value == '') {this.value = 'enter search text here...';}" />
+	<input type="submit" id="searchsubmit" value="Go" />
+</div>
+</form>	</div>
+
+
+
+	<ul>
+
+		<li id="text-6" class="widget widget_text"><h2 class="widgettitle">赞助</h2>
+			<div class="textwidget"><div align="center">
+    <script type="text/javascript">
+        /*250*250，创建于2011-3-20*/
+    var cpro_id = "u416696";
+    </script><br />
+<script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+</div>
+</div>
+		</li>
+<li id="text-5" class="widget widget_text"><h2 class="widgettitle">关注我</h2>
+			<div class="textwidget"><div align="center">
+<iframe frameborder="0" scrolling="no" src="http://show.v.t.qq.com/index.php?c=show&a=index&n=dantezhu&w=272&h=402&fl=2&l=6&o=21&co=3" width="272" height="402"></iframe>
+</div></div>
+		</li>
+
+
+		<!--li id="calendar"><h2>日历</h2>
+			<table id="wp-calendar">
+	<caption>2013年十二月</caption>
+	<thead>
+	<tr>
+		<th scope="col" title="星期一">一</th>
+		<th scope="col" title="星期二">二</th>
+		<th scope="col" title="星期三">三</th>
+		<th scope="col" title="星期四">四</th>
+		<th scope="col" title="星期五">五</th>
+		<th scope="col" title="星期六">六</th>
+		<th scope="col" title="星期日">日</th>
+	</tr>
+	</thead>
+
+	<tfoot>
+	<tr>
+		<td colspan="3" id="prev"><a href="http://www.vimer.cn/2013/07" title="查看2013年七月的文章">&laquo; 七</a></td>
+		<td class="pad">&nbsp;</td>
+		<td colspan="3" id="next" class="pad">&nbsp;</td>
+	</tr>
+	</tfoot>
+
+	<tbody>
+	<tr>
+		<td colspan="6" class="pad">&nbsp;</td><td>1</td>
+	</tr>
+	<tr>
+		<td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td id="today">8</td>
+	</tr>
+	<tr>
+		<td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
+	</tr>
+	<tr>
+		<td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td>
+	</tr>
+	<tr>
+		<td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td>
+	</tr>
+	<tr>
+		<td>30</td><td>31</td>
+		<td class="pad" colspan="5">&nbsp;</td>
+	</tr>
+	</tbody>
+	</table>		</li-->
+
+
+
+			<!--<h2>Recent Posts</h2>-->
+<!--
+			<h2>最近更新</h2>
+			<ul>
+						<li><a href="http://www.vimer.cn/2013/07/mac%e4%b8%8bflash-builder-4-64-7-%e5%8d%87%e7%ba%a7-airsdk%e7%9a%84%e7%89%88%e6%9c%ac%e8%87%b33-8%e7%9a%84%e6%96%b9%e6%b3%95.html">mac下flash builder 4.6/4.7 升级 airsdk的版本至3.8的方法</a></li>
+						<li><a href="http://www.vimer.cn/2013/07/%e5%85%b3%e4%ba%8e%e8%bf%9b%e7%a8%8b%e7%9b%91%e6%8e%a7%e5%8f%8a%e8%87%aa%e5%8a%a8%e5%90%af%e5%8a%a8.html">关于进程监控及自动启动</a></li>
+						<li><a href="http://www.vimer.cn/2013/07/%e9%87%8d%e6%96%b0%e5%bc%80%e5%a7%8b%e6%9b%b4%e6%96%b0.html">重新开始更新</a></li>
+						<li><a href="http://www.vimer.cn/2013/06/%e4%b8%80%e4%b8%aa%e4%ba%ba%e5%bc%80%e5%8f%91%e6%89%8b%e6%b8%b8%e6%9c%89%e5%a4%9a%e9%9a%be%ef%bc%88%e6%89%8b%e6%b8%b8%e3%80%8a%e4%bf%9d%e5%8d%ab%e5%a6%9e%e5%a6%9e%e3%80%8b%e5%bc%80%e5%8f%91%e5%8e%86.html">一个人开发手游有多难（手游《保卫妞妞》开发历程）</a></li>
+						<li><a href="http://www.vimer.cn/2012/10/%e7%99%be%e5%ba%a6%e7%ab%99%e5%86%85%e5%ba%94%e7%94%a8%e5%bc%80%e5%8f%91%e4%bd%93%e9%aa%8c%e5%8f%8ademo%e4%bb%a3%e7%a0%81.html">百度站内应用开发体验及demo代码</a></li>
+						<li><a href="http://www.vimer.cn/2012/07/%e6%9c%80%e8%bf%91%e7%9a%84%e6%95%b4%e7%90%8620120730-%e5%9c%a8js%e4%b8%ad%e4%bd%bf%e7%94%a8url_for%e6%9d%a5%e5%8a%a8%e6%80%81%e7%94%9f%e6%88%90url.html">最近的整理(20120730)-在js中使用url_for来动态生成url</a></li>
+						<li><a href="http://www.vimer.cn/2012/05/django1-4%e5%9c%a8%e9%85%8d%e7%bd%ae%e4%b8%8a%e7%9a%84%e4%b8%80%e4%ba%9b%e5%8f%98%e6%9b%b4.html">django1.4在配置上的一些变更</a></li>
+						<li><a href="http://www.vimer.cn/2012/05/vimgvim%e6%94%af%e6%8c%81%e5%af%b9%e9%bd%90%e7%ba%bf.html">vim(gvim)支持对齐线</a></li>
+						<li><a href="http://www.vimer.cn/2012/05/nginx%e8%87%aa%e5%ae%9a%e4%b9%89%e6%a8%a1%e5%9d%97%e7%bc%96%e5%86%99-%e5%ae%9e%e6%97%b6%e7%bb%9f%e8%ae%a1%e6%a8%a1%e5%9d%97.html">nginx自定义模块编写-实时统计模块</a></li>
+						<li><a href="http://www.vimer.cn/2012/04/bottle%e9%ab%98%e7%ba%a7%e4%bd%bf%e7%94%a8%e6%8a%80%e5%b7%a7.html">bottle高级使用技巧</a></li>
+						</ul>
+-->
+
+			<h2>最热文章</h2>
+<ul>
+      <li><a href="http://www.vimer.cn/2009/10/%e6%8a%8avim%e6%89%93%e9%80%a0%e6%88%90%e4%b8%80%e4%b8%aa%e7%9c%9f%e6%ad%a3%e7%9a%84ide2.html"  title="把VIM打造成一个真正的IDE(2)">把VIM打造成一个真正的IDE(2)</a> - 90,721 views</li><li><a href="http://www.vimer.cn/2009/10/vim%e9%85%8d%e8%89%b2%e6%8e%a8%e8%8d%90.html"  title="Vim(gvim)配色方案推荐">Vim(gvim)配色方案推荐</a> - 73,832 views</li><li><a href="http://www.vimer.cn/2009/10/%e6%8a%8avim%e6%89%93%e9%80%a0%e6%88%90%e4%b8%80%e4%b8%aa%e7%9c%9f%e6%ad%a3%e7%9a%84ide3.html"  title="把VIM打造成一个真正的IDE(3)">把VIM打造成一个真正的IDE(3)</a> - 71,746 views</li><li><a href="http://www.vimer.cn/2009/10/%e6%8a%8avim%e6%89%93%e9%80%a0%e6%88%90%e4%b8%80%e4%b8%aa%e7%9c%9f%e6%ad%a3%e7%9a%84ide1.html"  title="把VIM打造成一个真正的IDE(1)">把VIM打造成一个真正的IDE(1)</a> - 71,412 views</li><li><a href="http://www.vimer.cn/2010/06/%e6%9c%ac%e5%8d%9a%e4%bd%bf%e7%94%a8%e7%9a%84vimgvim%e7%9b%b8%e5%85%b3%e6%8f%92%e4%bb%b6%e6%95%b4%e7%90%86.html"  title="本博使用的vim(gvim)相关插件整理">本博使用的vim(gvim)相关插件整理</a> - 66,773 views</li><li><a href="http://www.vimer.cn/2009/11/vim%ef%bc%88gvim%ef%bc%89%e7%bc%96%e7%a8%8b%e5%ad%97%e4%bd%93%e6%8e%a8%e8%8d%90.html"  title="Vim（gvim）编程字体推荐">Vim（gvim）编程字体推荐</a> - 65,476 views</li><li><a href="http://www.vimer.cn/2009/10/%e5%9c%a8vim%e4%b8%ad%e4%bd%bf%e7%94%a8ctags.html"  title="在Vim中使用ctags">在Vim中使用ctags</a> - 64,160 views</li><li><a href="http://www.vimer.cn/2009/10/vim%e6%ad%a3%e5%88%99%e8%a1%a8%e8%be%be%e5%bc%8f%e6%9f%a5%e6%89%be%e6%9b%bf%e6%8d%a2.html"  title="Vim正则表达式查找替换">Vim正则表达式查找替换</a> - 45,523 views</li><li><a href="http://www.vimer.cn/%e7%95%99%e8%a8%80"  title="留言板">留言板</a> - 36,016 views</li><li><a href="http://www.vimer.cn/2009/10/11.html"  title="VIM-一键编译单个源文件">VIM-一键编译单个源文件</a> - 34,214 views</li>
+    </ul>
+
+
+			<h2>最近评论</h2>
+			
+<ul>
+<li>木木菜:<a href="http://www.vimer.cn/2009/10/11.html#comment-35974" title="on VIM-一键编译单个源文件">诶~~~~会中文乱码怎么办？</a></li>
+<li>anne:<a href="http://www.vimer.cn/2009/10/%e9%a9%b3%ef%bc%8c%e5%88%ab%e7%a2%b0%e6%88%91%ef%bc%8cvim.html#comment-35959" title="on 驳《别碰我，VIM》">楼主Q哥吗？</a></li>
+<li>eleven.i386:<a href="http://www.vimer.cn/2010/09/%e3%80%90%e6%80%bb%e7%bb%93%e3%80%91%e7%be%8e%e5%8c%96bashpython%e7%9a%84soap-clientpython%e8%8e%b7%e5%8f%96%e7%b3%bb%e7%bb%9f%e7%bc%96%e7%a0%81%e5%87%bd%e6%95%b0.html#comment-35848" title="on 【总结】美化bash,python的soap client,python获取系统编码函数">.. 这里 都能看见 依云 呢... 果然无处不在,</a></li>
+<li>OoNiceDream:<a href="http://www.vimer.cn/2010/06/%e6%9c%ac%e5%8d%9a%e4%bd%bf%e7%94%a8%e7%9a%84vimgvim%e7%9b%b8%e5%85%b3%e6%8f%92%e4%bb%b6%e6%95%b4%e7%90%86.html#comment-35827" title="on 本博使用的vim(gvim)相关插件整理">请教个问题：单引号打头的文件，打不开。比如在c:\temp\</a></li>
+<li>等你爽:<a href="http://www.vimer.cn/2011/11/%e5%9b%9e%e5%bd%92%e7%ae%80%e5%8d%95%ef%bc%8c%e5%90%91django%e8%af%b4%e5%86%8d%e8%a7%81.html#comment-35560" title="on 回归简单，向Django说再见">django的admin有着许多很亮的创意，平凡的界面却蕴藏</a></li>
+<li>等你爽:<a href="http://www.vimer.cn/2011/11/%e5%9b%9e%e5%bd%92%e7%ae%80%e5%8d%95%ef%bc%8c%e5%90%91django%e8%af%b4%e5%86%8d%e8%a7%81.html#comment-35557" title="on 回归简单，向Django说再见">小项目配置繁琐完全可以通过自定制项目工程模板来解决。
+当然如</a></li>
+<li>等你爽:<a href="http://www.vimer.cn/2011/11/%e5%9b%9e%e5%bd%92%e7%ae%80%e5%8d%95%ef%bc%8c%e5%90%91django%e8%af%b4%e5%86%8d%e8%a7%81.html#comment-35556" title="on 回归简单，向Django说再见">有关分表的问题，pininterest网站他们采用了纯分库架</a></li>
+<li>英雄联盟外挂,lol外挂:<a href="http://www.vimer.cn/%e7%95%99%e8%a8%80#comment-35404" title="on 留言板">不错，看看</a></li>
+<li>Marslo:<a href="http://www.vimer.cn/2010/09/%e5%8f%af%e8%a7%86%e5%8c%96%e7%9a%84%e9%85%8d%e7%bd%aevimgvim%e9%85%8d%e8%89%b2-colorsel-vim.html#comment-35251" title="on 可视化的配置Vim(gVim)配色-colorsel.vim">在vim74上好像显示的那点不起作用了。。。</a></li>
+<li>路人甲:<a href="http://www.vimer.cn/2010/09/python%e7%94%a8httplib%e7%9b%b4%e6%8e%a5%e5%ae%9e%e7%8e%b0soap%e5%8d%8f%e8%ae%ae.html#comment-35239" title="on python用httplib直接实现soap协议">原来还有这样的做法，感谢指教。
+话说那个抓包工具是啥，用fi</a></li>
+<li>英雄联盟外挂,lol外挂:<a href="http://www.vimer.cn/%e7%95%99%e8%a8%80#comment-34959" title="on 留言板">不错，留个言</a></li>
+<li>龍昌:<a href="http://www.vimer.cn/%e7%95%99%e8%a8%80#comment-34953" title="on 留言板">博主，能否交换个链接。本站pr值为3。</a></li>
+<li>yc:<a href="http://www.vimer.cn/%e7%95%99%e8%a8%80#comment-34739" title="on 留言板">好吧 作为一个菜鸟 我配置了一上午也没有弄成功代码自动补全 </a></li>
+<li>favajing:<a href="http://www.vimer.cn/2012/05/vimgvim%e6%94%af%e6%8c%81%e5%af%b9%e9%bd%90%e7%ba%bf.html#comment-34643" title="on vim(gvim)支持对齐线">你好,我的vim7.3里下载了插件也复制了所有文件,可是没有</a></li>
+<li>wangxinalex:<a href="http://www.vimer.cn/2009/10/%e9%a9%b3%ef%bc%8c%e5%88%ab%e7%a2%b0%e6%88%91%ef%bc%8cvim.html#comment-34508" title="on 驳《别碰我，VIM》">现在除了Java开发以外基本全用vim了……很好玩的编辑器</a></li>
+<li>Wizmann:<a href="http://www.vimer.cn/2009/10/%e6%8a%8avim%e6%89%93%e9%80%a0%e6%88%90%e4%b8%80%e4%b8%aa%e7%9c%9f%e6%ad%a3%e7%9a%84ide3.html#comment-34469" title="on 把VIM打造成一个真正的IDE(3)">图挂了～麻烦了～1024～</a></li>
+<li>link:<a href="http://www.vimer.cn/2011/03/%e6%97%a0%e6%89%80%e4%b8%8d%e8%83%bd%e7%9a%84vim-vim%e5%88%b0%e5%ba%95%e8%83%bd%e5%81%9a%e4%bb%80%e4%b9%88.html#comment-34252" title="on 无所不能的vim-vim到底能做什么">驱动开发都是用vim</a></li>
+<li>belonger:<a href="http://www.vimer.cn/2009/10/%e6%8a%8avim%e6%89%93%e9%80%a0%e6%88%90%e4%b8%80%e4%b8%aa%e7%9c%9f%e6%ad%a3%e7%9a%84ide2.html#comment-34212" title="on 把VIM打造成一个真正的IDE(2)">博主 你好 ， 我照你的方法做了。但是在代码补全时提示 “报</a></li>
+<li>taowl2003:<a href="http://www.vimer.cn/2011/03/%e6%97%a0%e6%89%80%e4%b8%8d%e8%83%bd%e7%9a%84vim-vim%e5%88%b0%e5%ba%95%e8%83%bd%e5%81%9a%e4%bb%80%e4%b9%88.html#comment-34186" title="on 无所不能的vim-vim到底能做什么">一直很想用vim来编程，但找了很久也没有搞明白，也许是我太菜</a></li>
+<li>英雄联盟lol外挂:<a href="http://www.vimer.cn/%e7%95%99%e8%a8%80#comment-34148" title="on 留言板">ok</a></li>
+</ul>
+			
+			<h2>文章分类</h2>
+			<ul>
+				<!--	<li class="cat-item cat-item-3"><a href="http://www.vimer.cn/category/vim" title="查看Vim下的所有文章">Vim</a>
+</li>
+	<li class="cat-item cat-item-347"><a href="http://www.vimer.cn/category/webserver" title="查看webserver下的所有文章">webserver</a>
+<ul class='children'>
+	<li class="cat-item cat-item-776"><a href="http://www.vimer.cn/category/webserver/nginx" title="查看nginx下的所有文章">nginx</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-841"><a href="http://www.vimer.cn/category/%e4%ba%a7%e5%93%81" title="查看产品下的所有文章">产品</a>
+</li>
+	<li class="cat-item cat-item-768"><a href="http://www.vimer.cn/category/%e5%bc%80%e6%94%be%e5%b9%b3%e5%8f%b0" title="查看开放平台下的所有文章">开放平台</a>
+</li>
+	<li class="cat-item cat-item-667"><a href="http://www.vimer.cn/category/%e5%bc%80%e6%ba%90%e9%a1%b9%e7%9b%ae" title="查看开源项目下的所有文章">开源项目</a>
+</li>
+	<li class="cat-item cat-item-582"><a href="http://www.vimer.cn/category/os" title="查看操作系统下的所有文章">操作系统</a>
+<ul class='children'>
+	<li class="cat-item cat-item-5"><a href="http://www.vimer.cn/category/os/linux" title="查看Linux下的所有文章">Linux</a>
+</li>
+	<li class="cat-item cat-item-6"><a href="http://www.vimer.cn/category/os/windows" title="查看Windows下的所有文章">Windows</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-583"><a href="http://www.vimer.cn/category/database" title="查看数据库下的所有文章">数据库</a>
+<ul class='children'>
+	<li class="cat-item cat-item-584"><a href="http://www.vimer.cn/category/database/mysql-database" title="查看MySql下的所有文章">MySql</a>
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-314"><a href="http://www.vimer.cn/category/zaxiang" title="查看杂项下的所有文章">杂项</a>
+</li>
+	<li class="cat-item cat-item-581"><a href="http://www.vimer.cn/category/program" title="查看程序设计下的所有文章">程序设计</a>
+<ul class='children'>
+	<li class="cat-item cat-item-442"><a href="http://www.vimer.cn/category/program/web3d" title="查看3D下的所有文章">3D</a>
+</li>
+	<li class="cat-item cat-item-381"><a href="http://www.vimer.cn/category/program/as" title="查看as下的所有文章">as</a>
+</li>
+	<li class="cat-item cat-item-53"><a href="http://www.vimer.cn/category/program/cc" title="查看C/C++下的所有文章">C/C++</a>
+</li>
+	<li class="cat-item cat-item-782"><a href="http://www.vimer.cn/category/program/lua" title="查看lua下的所有文章">lua</a>
+</li>
+	<li class="cat-item cat-item-845"><a href="http://www.vimer.cn/category/program/objc" title="查看objc下的所有文章">objc</a>
+</li>
+	<li class="cat-item cat-item-585"><a href="http://www.vimer.cn/category/program/php-program" title="查看php下的所有文章">php</a>
+</li>
+	<li class="cat-item cat-item-493"><a href="http://www.vimer.cn/category/program/python" title="查看python下的所有文章">python</a>
+</li>
+	<li class="cat-item cat-item-315"><a href="http://www.vimer.cn/category/program/web" title="查看Web下的所有文章">Web</a>
+</li>
+	<li class="cat-item cat-item-625"><a href="http://www.vimer.cn/category/program/algorithm" title="查看算法下的所有文章">算法</a>
+</li>
+</ul>
+</li>
+-->
+					<li class="cat-item cat-item-3"><a href="http://www.vimer.cn/category/vim" title="查看Vim下的所有文章">Vim</a> (82)
+</li>
+	<li class="cat-item cat-item-347"><a href="http://www.vimer.cn/category/webserver" title="查看webserver下的所有文章">webserver</a> (10)
+<ul class='children'>
+	<li class="cat-item cat-item-776"><a href="http://www.vimer.cn/category/webserver/nginx" title="查看nginx下的所有文章">nginx</a> (9)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-841"><a href="http://www.vimer.cn/category/%e4%ba%a7%e5%93%81" title="查看产品下的所有文章">产品</a> (1)
+</li>
+	<li class="cat-item cat-item-768"><a href="http://www.vimer.cn/category/%e5%bc%80%e6%94%be%e5%b9%b3%e5%8f%b0" title="查看开放平台下的所有文章">开放平台</a> (4)
+</li>
+	<li class="cat-item cat-item-667"><a href="http://www.vimer.cn/category/%e5%bc%80%e6%ba%90%e9%a1%b9%e7%9b%ae" title="查看开源项目下的所有文章">开源项目</a> (5)
+</li>
+	<li class="cat-item cat-item-582"><a href="http://www.vimer.cn/category/os" title="查看操作系统下的所有文章">操作系统</a> (95)
+<ul class='children'>
+	<li class="cat-item cat-item-5"><a href="http://www.vimer.cn/category/os/linux" title="查看Linux下的所有文章">Linux</a> (81)
+</li>
+	<li class="cat-item cat-item-6"><a href="http://www.vimer.cn/category/os/windows" title="查看Windows下的所有文章">Windows</a> (32)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-583"><a href="http://www.vimer.cn/category/database" title="查看数据库下的所有文章">数据库</a> (8)
+<ul class='children'>
+	<li class="cat-item cat-item-584"><a href="http://www.vimer.cn/category/database/mysql-database" title="查看MySql下的所有文章">MySql</a> (8)
+</li>
+</ul>
+</li>
+	<li class="cat-item cat-item-314"><a href="http://www.vimer.cn/category/zaxiang" title="查看杂项下的所有文章">杂项</a> (20)
+</li>
+	<li class="cat-item cat-item-581"><a href="http://www.vimer.cn/category/program" title="查看程序设计下的所有文章">程序设计</a> (164)
+<ul class='children'>
+	<li class="cat-item cat-item-442"><a href="http://www.vimer.cn/category/program/web3d" title="查看3D下的所有文章">3D</a> (4)
+</li>
+	<li class="cat-item cat-item-381"><a href="http://www.vimer.cn/category/program/as" title="查看as下的所有文章">as</a> (1)
+</li>
+	<li class="cat-item cat-item-53"><a href="http://www.vimer.cn/category/program/cc" title="查看C/C++下的所有文章">C/C++</a> (95)
+</li>
+	<li class="cat-item cat-item-782"><a href="http://www.vimer.cn/category/program/lua" title="查看lua下的所有文章">lua</a> (2)
+</li>
+	<li class="cat-item cat-item-845"><a href="http://www.vimer.cn/category/program/objc" title="查看objc下的所有文章">objc</a> (1)
+</li>
+	<li class="cat-item cat-item-585"><a href="http://www.vimer.cn/category/program/php-program" title="查看php下的所有文章">php</a> (10)
+</li>
+	<li class="cat-item cat-item-493"><a href="http://www.vimer.cn/category/program/python" title="查看python下的所有文章">python</a> (41)
+</li>
+	<li class="cat-item cat-item-315"><a href="http://www.vimer.cn/category/program/web" title="查看Web下的所有文章">Web</a> (48)
+</li>
+	<li class="cat-item cat-item-625"><a href="http://www.vimer.cn/category/program/algorithm" title="查看算法下的所有文章">算法</a> (8)
+</li>
+</ul>
+</li>
+			</ul>
+			
+
+			<h2>文章归档</h2>
+			<ul>
+					<li><a href='http://www.vimer.cn/2013/07' title='2013年七月'>2013年七月</a></li>
+	<li><a href='http://www.vimer.cn/2013/06' title='2013年六月'>2013年六月</a></li>
+	<li><a href='http://www.vimer.cn/2012/10' title='2012年十月'>2012年十月</a></li>
+	<li><a href='http://www.vimer.cn/2012/07' title='2012年七月'>2012年七月</a></li>
+	<li><a href='http://www.vimer.cn/2012/05' title='2012年五月'>2012年五月</a></li>
+	<li><a href='http://www.vimer.cn/2012/04' title='2012年四月'>2012年四月</a></li>
+	<li><a href='http://www.vimer.cn/2012/03' title='2012年三月'>2012年三月</a></li>
+	<li><a href='http://www.vimer.cn/2012/02' title='2012年二月'>2012年二月</a></li>
+	<li><a href='http://www.vimer.cn/2012/01' title='2012年一月'>2012年一月</a></li>
+	<li><a href='http://www.vimer.cn/2011/12' title='2011年十二月'>2011年十二月</a></li>
+	<li><a href='http://www.vimer.cn/2011/11' title='2011年十一月'>2011年十一月</a></li>
+	<li><a href='http://www.vimer.cn/2011/10' title='2011年十月'>2011年十月</a></li>
+	<li><a href='http://www.vimer.cn/2011/09' title='2011年九月'>2011年九月</a></li>
+	<li><a href='http://www.vimer.cn/2011/08' title='2011年八月'>2011年八月</a></li>
+	<li><a href='http://www.vimer.cn/2011/07' title='2011年七月'>2011年七月</a></li>
+	<li><a href='http://www.vimer.cn/2011/06' title='2011年六月'>2011年六月</a></li>
+	<li><a href='http://www.vimer.cn/2011/05' title='2011年五月'>2011年五月</a></li>
+	<li><a href='http://www.vimer.cn/2011/04' title='2011年四月'>2011年四月</a></li>
+	<li><a href='http://www.vimer.cn/2011/03' title='2011年三月'>2011年三月</a></li>
+	<li><a href='http://www.vimer.cn/2011/02' title='2011年二月'>2011年二月</a></li>
+	<li><a href='http://www.vimer.cn/2011/01' title='2011年一月'>2011年一月</a></li>
+	<li><a href='http://www.vimer.cn/2010/12' title='2010年十二月'>2010年十二月</a></li>
+	<li><a href='http://www.vimer.cn/2010/11' title='2010年十一月'>2010年十一月</a></li>
+	<li><a href='http://www.vimer.cn/2010/10' title='2010年十月'>2010年十月</a></li>
+	<li><a href='http://www.vimer.cn/2010/09' title='2010年九月'>2010年九月</a></li>
+	<li><a href='http://www.vimer.cn/2010/08' title='2010年八月'>2010年八月</a></li>
+	<li><a href='http://www.vimer.cn/2010/07' title='2010年七月'>2010年七月</a></li>
+	<li><a href='http://www.vimer.cn/2010/06' title='2010年六月'>2010年六月</a></li>
+	<li><a href='http://www.vimer.cn/2010/05' title='2010年五月'>2010年五月</a></li>
+	<li><a href='http://www.vimer.cn/2010/04' title='2010年四月'>2010年四月</a></li>
+	<li><a href='http://www.vimer.cn/2010/03' title='2010年三月'>2010年三月</a></li>
+	<li><a href='http://www.vimer.cn/2010/02' title='2010年二月'>2010年二月</a></li>
+	<li><a href='http://www.vimer.cn/2010/01' title='2010年一月'>2010年一月</a></li>
+	<li><a href='http://www.vimer.cn/2009/12' title='2009年十二月'>2009年十二月</a></li>
+	<li><a href='http://www.vimer.cn/2009/11' title='2009年十一月'>2009年十一月</a></li>
+	<li><a href='http://www.vimer.cn/2009/10' title='2009年十月'>2009年十月</a></li>
+			</ul>
+
+
+			<!--<h2>Pages</h2>-->
+			<!--<ul>-->
+				<!--<li class="page_item page-item-2"><a href="http://www.vimer.cn/%e5%85%b3%e4%ba%8e">关于</a></li>
+<li class="page_item page-item-43"><a href="http://www.vimer.cn/%e9%93%be%e6%8e%a5">友情链接</a></li>
+<li class="page_item page-item-39"><a href="http://www.vimer.cn/%e7%95%99%e8%a8%80">留言板</a></li>
+-->
+			<!--</ul>-->
+
+			<h2>友情链接</h2>
+            <ul>
+            <li><a href="http://www.webryan.net" rel="friend co-resident" target="_blank">Ryan&#039;s Blog</a></li>
+<li><a href="http://sinolog.it/" target="_blank">牧码志</a></li>
+<li><a href="http://guojing.me/" target="_blank">Guo Jing&#039;s Blog</a></li>
+<li><a href="http://xbeta.info" target="_blank">善用佳软</a></li>
+<li><a href="http://easwy.com/blog/" title="关注Linux, Scala, Java, 开源软件和嵌入式系统" target="_blank">易水博客</a></li>
+<li><a href="http://www.heiher.info/" target="_blank">Heiher&#039;s Blog</a></li>
+<li><a href="http://www.pjhome.net/" rel="friend" title="关注互联网~ 关注前端技术~" target="_blank">PuterJam&#039;s Blog(pjblog作者)</a></li>
+<li><a href="http://www.webchina110.cn" rel="contact" title="web前端 " target="_blank">web前端</a></li>
+<li><a href="http://lilydjwg.is-programmer.com/" rel="friend" title="Happy coding, happy living!" target="_blank">依云&#039;s Blog</a></li>
+<li><a href="http://leeon.me" rel="friend" title="分享未来" target="_blank">分享未来</a></li>
+<li><a href="http://blog.csdn.net/zdl1016" rel="colleague" title="探路者" target="_blank">探路者</a></li>
+<li><a href="http://s.sousb.com" rel="friend" title="程序员面试之家" target="_blank">程序员面试之家</a></li>
+<li><a href="http://simple-is-better.com" rel="contact" title="Python.cn(news, jobs)" target="_blank">Python.cn(news, jobs)</a></li>
+<li><a href="http://www.vpsee.com/" title="[hi@vpsee.com]$ su root &#8211; " target="_blank">VPSee</a></li>
+<li><a href="http://www.phppan.com" rel="friend" target="_blank">PHPpan</a></li>
+<li><a href="http://www.blags.org/" rel="contact" title="专注于lamp技术" target="_blank">马丁博客</a></li>
+<li><a href="http://icodelogic.com/" rel="friend" target="_blank">CodeLogic</a></li>
+<li><a href="http://blog.liuts.com" rel="colleague" title="热衷于开源技术，一起学习，共同进步。" target="_blank">运维进行时</a></li>
+<li><a href="http://www.8sme.com/" rel="contact" target="_blank">广东省企业信息中心</a></li>
+<li><a href="http://www.zhangzhibo.net/" target="_blank">左手键盘，右手书</a></li>
+<li><a href="http://www.cplusplus.me" title="程序员之家" target="_blank">程序员之家</a></li>
+<li><a href="http://www.bolejiang.com" target="_blank">伯乐奖</a></li>
+<li><a href="http://caitu.xiuchang.info/" rel="me" title="疯狂猜图答案" target="_blank">疯狂猜图答案</a></li>
+			</ul>
+			</li>
+
+	</ul>
+
+</div>
+
+<div id="footer">
+
+	<div id="footer-credits">
+
+    Vimer的程序世界 | <a href="http://www.miibeian.gov.cn/" target="_blank">粤ICP备11073360号</a> | Powered by <a href="http://wordpress.org/" target="_blank">Wordpress</a> | <script src="http://s57.cnzz.com/stat.php?id=1744053&web_id=1744053" language="JavaScript" charset="gb2312"></script> 
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F90eb371330bfc33d1ba84099bb2ca841' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+	</div>
+
+</div>
+
+</div>
+</body>
+</html>

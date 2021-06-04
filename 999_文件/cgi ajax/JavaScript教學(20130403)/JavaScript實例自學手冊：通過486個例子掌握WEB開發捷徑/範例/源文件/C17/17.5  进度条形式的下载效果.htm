@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>无标题文档</title>
+<SCRIPT language="javascript">
+var NUMBER_OF_REPETITIONS = 40;
+var nRepetitions = 0;
+var g_oTimer = null;
+//开始下载的方法
+function startLongProcess()
+{
+   divProgressDialog.style.display = "";
+   resizeModal();
+   btnCancel.focus();
+   // 设置窗口为大小可更改模式
+   window.onresize = resizeModal;
+   //当用户非正常中断时，添加一个提示
+   window.onbeforeunload = showWarning;
+   continueLongProcess();
+}
+function updateProgress(nNewPercent)
+{
+   // 更改进度条的进度
+   divProgressInner.style.width = (parseInt(divProgressOuter.style.width) 
+      * nNewPercent / 100)+ "px";
+}
+//取消进度条的方法
+function stopLongProcess()
+{
+   if (g_oTimer != null)
+   {
+      window.clearTimeout(g_oTimer);
+      g_oTimer = null;
+   }
+   // Hide the fake modal DIV
+   divModal.style.width = "0px";
+   divModal.style.height = "0px";
+   divProgressDialog.style.display = "none";
+
+   // 移除窗体事件
+   window.onresize = null;
+   window.onbeforeunload = null;
+
+   nRepetitions = 0;
+}
+//判断进度是否执行完毕的方法
+function continueLongProcess()
+{
+   if (nRepetitions < NUMBER_OF_REPETITIONS)
+   {
+      var nTimeoutLength = Math.random() * 250;
+      updateProgress(100 * nRepetitions / NUMBER_OF_REPETITIONS);
+
+      g_oTimer = window.setTimeout("continueLongProcess();", nTimeoutLength);
+      nRepetitions++;
+   }
+   else
+   {
+      stopLongProcess();
+   }
+}
+function showWarning()
+{
+   //用户非正常退出时的提示信息
+   return "有一个应用程序正在运行，是否确定要退出";
+}
+
+function resizeModal()
+{
+   divModal.style.width = document.body.scrollWidth;
+   divModal.style.height = document.body.scrollHeight;
+   divProgressDialog.style.left = ((document.body.offsetWidth - 
+divProgressDialog.offsetWidth) / 2);
+   divProgressDialog.style.top = ((document.body.offsetHeight - 
+divProgressDialog.offsetHeight) / 2);
+}
+
+</SCRIPT>
+</head>
+<BODY STYLE="FONT-SIZE: 10pt; FONT-FAMILY: Verdana, Arial, Helvetica">
+<INPUT TYPE="BUTTON" VALUE="开始下载" onclick="startLongProcess();">
+
+<!-- 开始下载 -->
+<DIV STYLE="BORDER: buttonhighlight 2px outset; FONT-SIZE: 8pt; Z-INDEX: 
+4; FONT-FAMILY: Tahoma; POSITION: absolute; BACKGROUND-COLOR: buttonface; 
+DISPLAY: none; WIDTH: 350px; CURSOR: default" ID="divProgressDialog" 
+onselectstart="window.event.returnValue=false;">
+   <DIV STYLE="PADDING: 3px; FONT-WEIGHT: bolder; COLOR: captiontext; 
+BORDER-BOTTOM: white 2px groove; BACKGROUND-COLOR: activecaption">
+      下载对话框
+   </DIV>
+   <DIV STYLE="PADDING: 5px">
+      正在下载，请等待.....
+   </DIV>
+   <DIV STYLE="PADDING: 5px">
+      这个过程需要几分钟
+   </DIV>
+   <DIV STYLE="PADDING: 5px">
+         <DIV ID="divProgressOuter" STYLE="BORDER: 1px solid threedshadow; 
+WIDTH: 336px; HEIGHT: 15px">
+            <DIV ID="divProgressInner" STYLE="COLOR: white; TEXT-ALIGN: 
+center; BACKGROUND-COLOR: infobackground; MARGIN: 0px; WIDTH: 0px; HEIGHT: 
+13px;"></DIV>
+         </DIV>
+   </DIV>
+   <DIV STYLE="BORDER-TOP: white 2px groove; PADDING-BOTTOM: 5px; PADDING-TOP: 3px; 
+BACKGROUND-COLOR: buttonface; TEXT-ALIGN: center">
+         <INPUT STYLE="FONT-FAMILY: Tahoma; FONT-SIZE: 8pt" TYPE="button" 
+ID="btnCancel" onclick="stopLongProcess();" VALUE="取消">
+   </DIV>
+</DIV>
+<!-- 结束下载 -->
+
+<!-- BEGIN FAKE MODAL DIV-->
+<DIV ID="divModal"
+   STYLE="BACKGROUND-COLOR: white; FILTER: alpha(opacity=75); LEFT: 0px; POSITION:
+ absolute; TOP: 0px; Z-INDEX: 3"
+   onclick="window.event.cancelBubble=true; window.event.returnValue=false;">
+</DIV>
+<!-- END FAKE MODAL DIV -->
+</body>
+</html>

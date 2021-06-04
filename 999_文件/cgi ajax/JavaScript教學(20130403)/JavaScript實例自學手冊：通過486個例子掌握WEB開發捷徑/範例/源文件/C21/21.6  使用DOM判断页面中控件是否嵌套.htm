@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script type="text/javascript">
+function testa()
+    {
+        var mydom=document.getElementById("divtest");//获取指定ID的DOM对象
+        if(mydom.hasChildNodes())
+           alert("有子节点");
+       else
+           alert("没有子节点");
+    }
+</script>
+
+</head>
+<body>
+<form id="form1" runat="server">
+      <input type="button" value="test" onclick="testa()"/>
+      <div id="divtest"></div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<title>反选</title>
+<script  language=javascript>  
+function  selectOther(chkObj)
+{
+    for(var  i  =  0;i<chkObj.elements.length;i++)  //遍历窗体中的元素
+    if(chkObj.elements[i].type  ==  "checkbox"  )   //判断元素类型是否是复选框
+    {  
+        if(!chkObj.elements[i].checked)             //如果复选框未选中
+        chkObj.elements[i].checked  =  true;        //改为选中状态
+        else  
+        chkObj.elements[i].checked  =  false;       //改为未选中状态
+    }
+}  
+</script>  
+</HEAD>
+<BODY>
+<form name="form1">
+    <input id="Checkbox1" name="chk" type="checkbox" />旅游<br />
+    <input id="Checkbox2"  name="chk" type="checkbox" />体育<br />
+    <input id="Checkbox3" name="chk"  type="checkbox" />音乐<br />
+    <input id="Button1" type="button"  value="反选" onclick="selectOther(document.form1)" />
+</form>
+</BODY>
+</HTML>

@@ -1,0 +1,1 @@
+ffmpeg -i ./p00614_w1240k.mp4 2> /tmp/a;cat /tmp/a|grep Duration | awk '{FS=",";print $2}'|tr -d ,

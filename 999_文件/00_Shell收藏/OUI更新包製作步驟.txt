@@ -1,0 +1,134 @@
+//=====================
+
+01.更新res
+	RD		─T0(舊電視)	small	normal
+			├T3(STB)	small	normal
+			├T4(新電視)	small	normal
+			
+	Final		─T0	small	normal
+			├T3	small	normal
+			├T4	small	normal
+
+//=====================
+
+02.修改test_main.h(D:\SVN_Client_Repositories\OUI_IP_123_36\oui\trunk\include) 新增或刪除 一行空白列，並上傳到SVN上，之後在下載下來 達到SVN修改版號效果
+	$REV
+	g_nSVN_Version = atoi(pCh)+6670;
+
+//=====================
+
+03.複製修改完成的程式碼到UBUNTU中
+	test_main.h	:D:\SVN_Client_Repositories\OUI_IP_123_36\oui\trunk\include	->	\\192.168.56.101\Project\3.11.0\mrua_SMP8654F_3_11_0_dev.mips\MRUA_src\rmfp\minigui_test_main\include
+	test_main.c	:D:\SVN_Client_Repositories\OUI_IP_123_36\oui\trunk		->	\\192.168.56.101\Project\3.11.0\mrua_SMP8654F_3_11_0_dev.mips\MRUA_src\rmfp\minigui_test_main
+
+//=====================
+
+04.複製正確的libinput9_method
+根據不同機型複製到以下資料夾(有三種)
+	\\192.168.56.101\Project\3.11.0\mrua_SMP8654F_3_11_0_dev.mips\MRUA_src\rmfp\minigui_test_main\src\input9_method
+
+//=====================
+
+05.決定硬體設備(改程式碼 Source Insight 3)\\192.168.56.101\Project\3.11.0\mrua_SMP8654F_3_11_0_dev.mips\MRUA_src\rmfp\minigui_test_main\fefef.PR
+
+在 config.h 裡有幾個 define 如下:
+//#define CHN5TV_forTV 1            // T0 LED-SP-46-FH
+#define Oui_forBox 1                        // T3 STB-SP-LO-01;CHN5TV
+//#define Oui_forTV 1               // T4 LED-SP-46-FH-01(MorningStart-309);CHN5TV
+
+//=====================
+
+06.決定發行狀態(改程式碼 Source Insight 3)
+
+在 config.h
+#define ForRD_Update 1 // define for RD to using defferent XML name to update (rd_XX.xml) 存在= RD測試
+
+存在= RD測試(/flash/rd_T3.xml)
+不存在= 正式(/flash/update_T3.xml3)
+
+//=====================
+
+07.編譯
+
+編譯指令(HOST:UBUNTU中):
+
+cd /Project/3.11.0
+. SourceFile
+cd /Project/3.11.0/mrua_SMP8654F_3_11_0_dev.mips/MRUA_src/rmfp/minigui_test_main
+
+# 以下 # 之指令是為了加速 Compiler, 正式發行不能加.
+. optimize_off 
+#
+make clean ; make
+ls -l test_main
+
+
+
+
+輸出路徑：/Project/3.11.0/mrua_SMP8654F_3_11_0_dev.mips/MRUA_src/rmfp/minigui_test_main/test_main.app
+複製到對應的資料夾下
+
+
+
+/home/code/test/Final/T0/flash/minigui_test_main
+/home/code/test/Final/T3/flash/minigui_test_main
+/home/code/test/Final/T4/flash/minigui_test_main
+/home/code/test\RD\SIGMA8654_3.11.0-T0\T0\flash\minigui_test_main
+/home/code/test\RD\SIGMA8654_3.11.0-T0\T3\flash\minigui_test_main
+/home/code/test\RD\SIGMA8654_3.11.0-T0\T4\flash\minigui_test_main
+/home/code/small/Final/T0/flash/minigui_test_main
+/home/code/small/Final/T3/flash/minigui_test_main
+/home/code/small/Final/T4/flash/minigui_test_main
+/home/code/small\RD\SIGMA8654_3.11.0-T0\T0\flash\minigui_test_main
+/home/code/small\RD\SIGMA8654_3.11.0-T0\T3\flash\minigui_test_main
+/home/code/small\RD\SIGMA8654_3.11.0-T0\T4\flash\minigui_test_main
+
+
+
+
+//=====================
+
+08.修改XML版本號
+	RD		─T0	small	normal
+			├T3	small	normal
+			├T4	small	normal
+			
+	Final		─T0	small	normal
+			├T3	small	normal
+			├T4	small	normal
+
+//=====================
+
+
+
+
+
+09.產生對應的 flash.tar.gz
+	RD		─T0	small	normal
+			├T3	small	normal
+			├T4	small	normal
+			
+	Final		─T0	small	normal
+			├T3	small	normal
+			├T4	small	normal
+
+//=====================
+
+
+針對以下資料夾底下的所有檔案製作tar(名稱都需為flash，大小寫有差)
+/home/code/test/Final/T0/flash/
+/home/code/test/Final/T3/flash/
+/home/code/test/Final/T4/flash/
+/home/code/test\RD\SIGMA8654_3.11.0-T0\T0\flash\
+/home/code/test\RD\SIGMA8654_3.11.0-T0\T3\flash\
+/home/code/test\RD\SIGMA8654_3.11.0-T0\T4\flash\
+
+/home/code/small/Final/T0/flash/
+/home/code/small/Final/T3/flash/
+/home/code/small/Final/T4/flash/
+/home/code/small\RD\SIGMA8654_3.11.0-T0\T0\flash\
+/home/code/small\RD\SIGMA8654_3.11.0-T0\T3\flash\
+/home/code/small\RD\SIGMA8654_3.11.0-T0\T4\flash\
+
+
+

@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="javascript">
+function getColor(color)
+{
+    var sInitColor = color;                                 //获取参数传递的颜色
+    if (sInitColor == null||sInitColor=="")
+            var sColor = myColor.ChooseColorDlg();          //打开颜色对话框
+    else
+            var sColor = myColor.ChooseColorDlg(sInitColor);//设置颜色
+            sColor = sColor.toString(16);                   //转换为16进制颜色
+    if (sColor.length < 6) {                                //如果颜色小于6位
+      var sTempString = "000000".substring(0,6-sColor.length);//格式化为6位
+      sColor = sTempString.concat(sColor);
+    }
+    sColor = "#" + sColor;                                      //添加颜色标签
+    return sColor;
+}
+</script>
+</head>
+<body>
+<input type=text name="txt1" value="这里显示最终调用的颜色">
+<input type=button value="选取颜色" onClick="txt1.value=getColor()">
+<OBJECT id=myColor CLASSID="clsid:3050f819-98b5-11cf-bb82-00aa00bdce0b" width="0px" height="0px"></OBJECT>
+</body>
+</html>

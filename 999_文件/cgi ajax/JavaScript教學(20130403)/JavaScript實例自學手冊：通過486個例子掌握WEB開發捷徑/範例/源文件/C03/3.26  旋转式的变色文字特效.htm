@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT language=javascript>
+myWord="欢迎来看北京奥运会"                                             //要旋转的文字
+tmpStr=""               //连接字符串
+Taille=40;
+wordLength=myWord.length;           //获取文本的长度
+for (x=0;x<wordLength;x++)
+{
+                //动态添加层，设置层的ID，和每个层上显示的文本
+  tmpStr=tmpStr + '<DIV Id=L' + x + ' STYLE="width:3;font-family: Courier New;font-weight:bold;position:absolute;top:40;left:50;z-index:0">' + myWord.charAt(x) + '</DIV>'
+}
+document.write (tmpStr);            //输出动态div层，显示旋转文本
+Time=window.setInterval("txtRound()",10);       //使用定时器，实现文本的不断旋转
+Alpha=5;
+I_Alpha=0.05;
+function txtRound()
+{
+	Alpha=Alpha-I_Alpha;                            //类似步长的功能
+	for (x=0;x<wordLength;x++){
+		Alpha1=Alpha+0.5*x;
+		Cosine=Math.cos(Alpha1);
+		Ob=document.all("L"+x);                         //获取指定的层
+		Ob.style.posLeft=100+100*Math.sin(Alpha1)+50;  //设置div的x坐标
+		Ob.style.zIndex=20*Cosine;                      //设置层的层叠顺序
+		Ob.style.fontSize=Taille+25*Cosine;             //设置层的字体
+		Ob.style.color="rgb("+ (27+Cosine*80+50) + ","+ (127+Cosine*80+50) + ",0)";     //实现颜色的变化
+	}
+}
+</SCRIPT>
+</head>
+<body>
+</body>
+</html>

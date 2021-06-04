@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script LANGUAGE="JavaScript">
+function checkNum(str)
+{
+  
+   if( str.match(/\d/)== null)
+      alert("输入数值错误！");
+   else
+      alert("数值正确！");
+}
+</script>
+</head>
+<body>
+<input type=text name="txt1" value="a">
+<input type=button name="btn1" value="测试" onclick="checkNum(txt1.value)">
+</body>
+</html>

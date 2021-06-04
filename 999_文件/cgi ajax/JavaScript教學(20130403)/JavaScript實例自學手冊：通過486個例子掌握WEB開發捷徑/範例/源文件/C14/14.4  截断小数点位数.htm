@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language=javascript>
+function sts()
+{
+    var txt=eval(document.getElementById("Text1").value);  //获取要截取的数据
+    alert(txt.toFixed(2));                                 //显示截取后的数据
+}
+</script>
+</head>
+<body>
+    <input id="Text1" type="text"  value="12345.267514" />
+    <input id="Button1" type="button" value="截取2位" onclick="sts()" />
+</body>
+</html>

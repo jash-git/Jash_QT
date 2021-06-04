@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+</head>
+<body>
+<form name="form1" id="form1" method="post" action="#">
+<input type="file" name="file1" id="file1" onchange="preview()"/>
+</form>
+<script type="text/javascript">
+function preview()
+{ 
+var x = document.getElementById("file1");       //获取上传控件
+if(!x || !x.value) return;
+var patn = /\.jpg$|\.jpeg$|\.gif$/i;            //使用正则判断用户选择的文件类型
+if(patn.test(x.value)){ 
+var y = document.getElementById("img1");        //获取图像控件
+if(y){ y.src = 'file://localhost/' + x.value; } //获取图像源
+else{ var img=document.createElement('img');    //创建图像文件，并设置图像的高度、宽度和id
+img.setAttribute('src','file://localhost/'+x.value); 
+img.setAttribute('width','120'); 
+img.setAttribute('height','90'); 
+img.setAttribute('id','img1'); 
+document.getElementById('form1').appendChild(img); } }
+else{ alert("您选择的不是图像文件。"); }}
+</script>
+</body>
+</html>

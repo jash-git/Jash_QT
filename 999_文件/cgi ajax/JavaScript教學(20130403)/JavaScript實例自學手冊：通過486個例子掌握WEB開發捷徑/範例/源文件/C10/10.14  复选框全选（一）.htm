@@ -1,0 +1,30 @@
+<html  xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>全选</title>
+<script type="text/javascript">
+    function SelectAll()
+    {
+        oEl = event.srcElement;                      //获取当前单击的元素
+        for(i = 0;i < document.all.length; i++)
+        {
+            // 遍历所有的checkbox
+            if(document.all(i).id.indexOf("Checkbox") != -1)
+            {
+                if(oEl.checked)                      //如果选择了全选
+                    document.all(i).checked = true;  //全选
+                else
+                    document.all(i).checked = false; //全不选
+            }
+        }
+    }
+</script>
+</head>
+<body>
+
+	<input id="Checkbox1" type="checkbox" value="a" /><label >争取举办奥运会的城市</label><br />
+	<input id="Checkbox2" type="checkbox"  value="b"/><label >举办过奥运会的城市</label><br />
+	<input id="Checkbox3" type="checkbox"value="c" /><label >成功举办奥运会的城市</label><br />
+	<input id="Checkbox4" type="checkbox" value="d" /><label >亚洲举办过奥运会的城市</label><br />
+    <input id="Checkbox5" type="checkbox"  onclick="SelectAll()"/>全选或全不选
+</body>
+</html>

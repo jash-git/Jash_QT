@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="javascript">
+    var Windowsheight=100;
+    var Windowswidth=100;
+    var numx=5;
+ function openwindow(thelocation){ 　　
+   temploc=thelocation;
+    if (!(window.resizeTo&&document.all)&&!(window.resizeTo&&document.getElementById)) 
+　　{ 　　　　
+      window.open(thelocation);   //打开新窗口
+      return ;　　} 　　
+     windowsize=window.open("","","scrollbars");
+     windowsize.moveTo(0,0);　    //移动窗口到0,0坐标处
+     windowsize.resizeTo(100,100);//改变窗口大小
+ 　　tenumxt();　
+ } 　　
+ function tenumxt(){ 　　
+    if (Windowsheight>=screen.availHeight-3) //高度超过窗体最大高度时
+        numx=0 ;　
+     windowsize.resizeBy(5,numx);　
+     Windowsheight+=5;     //高度逐次加5
+    Windowswidth+=5;　     //宽度逐次加5
+     if (Windowswidth>=screen.width-5) 　{  //宽度超过窗体最大宽度时
+    　　　　windowsize.location=temploc 　　
+            Windowsheight=100
+            Windowswidth=100 　　　　
+            numx=5 　　　　
+            return 　　
+       } 　　
+     setTimeout("tenumxt()",50) 　       //通过计时器，逐渐变大窗口　
+   } 　
+</script>
+
+</head>
+<body>
+<a href="javascript:openwindow('http://www.google.com')">进入搜索</a>
+</body>
+</html>

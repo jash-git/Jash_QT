@@ -1,0 +1,67 @@
+ <html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+ <style type="text/css">
+  /* 定义ul根级目录项的样式*/
+  ul#menu{
+   list-style-type: none;
+   margin: 50px;
+   width:200px;
+   float: left;
+   display: inline;
+   clear: both;
+  }
+ /* 定义ul根级目录下li项的样式*/
+  ul#menu li{
+   float: left;
+   display: inline;
+   width:20px;
+   height: 20px;
+   margin: 2px;
+  }
+ /* 定义ul根级目录下li项中链接的样式*/
+  ul#menu li a {
+   text-decoration: none;
+   display: block;
+   width:20px;
+   height:20px;
+   border:1px red solid;
+   background-color: White;
+   line-height: 20px;
+   font-size: 12px;
+   text-align: center;
+  }
+ /* 定义ul根级目录下li项中鼠标滑过链接时的样式*/
+  ul#menu li a:hover{
+  position: absolute;
+  width:40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 32px;
+  z-index:100;
+  margin: -10px 0 0 -10px;
+  }
+  /* 定义ul根级目录下鼠标滑过li时的样式*/
+  ul#menu li:hover + li a{
+  position: absolute;
+  width:30px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 24px;
+  z-index:99;
+  margin: -5px 0 0 -5px;
+  }
+ </style>
+</head>
+<body>
+<ul id="menu">
+ <li><a href="#" title="big"><span>1</span></a></li>
+ <li><a href="#" title="big"><span>2</span></a></li>
+ <li><a href="#" title="big"><span>3</span></a></li>
+ <li><a href="#" title="big"><span>4</span></a></li>
+ <li><a href="#" title="big"><span>5</span></a></li>
+ <li><a href="#" title="big"><span>6</span></a></li>
+ <li><a href="#" title="big"><span>7</span></a></li>
+</ul>
+</body>
+</html>

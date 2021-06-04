@@ -1,0 +1,3 @@
+shell腳本中sudo 自動輸入密碼
+echo "yourpasswd" |sudo -S your command
+[ The -S (stdin) option causes sudo to read the password from the standard input instead of the terminal device. ]

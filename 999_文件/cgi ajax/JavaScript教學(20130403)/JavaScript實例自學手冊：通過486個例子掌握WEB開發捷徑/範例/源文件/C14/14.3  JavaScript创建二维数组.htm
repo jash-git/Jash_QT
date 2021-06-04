@@ -1,0 +1,60 @@
+<HTML>
+<HEAD>
+<TITLE>二维数组示例</TITLE>
+</HEAD>
+<SCRIPT LANGUAGE=javascript>
+//定义二维数组oArray,用于存放城市名称。
+var aCity=new Array();
+aCity[0]=new Array();
+aCity[1]=new Array();
+aCity[2]=new Array();
+aCity[3]=new Array();
+//为二维数组赋值
+aCity[0][0]="--请选择--";
+aCity[1][0]="--请选择--";
+aCity[1][1]="朝阳区";
+aCity[1][2]="海淀区";
+aCity[1][3]="东城区";
+aCity[1][4]="西城区";
+aCity[2][0]="--请选择--";
+aCity[2][1]="济南市";
+aCity[2][2]="青岛市";
+aCity[2][3]="潍坊市";
+aCity[3][0]="--请选择--";
+aCity[3][1]="浦东区";
+aCity[3][2]="徐汇区";
+aCity[3][3]="虹桥";
+function selectCity()
+{
+var i,iIndex;
+iIndex=document.form1.oProvince.selectedIndex;  //获取选择的省或区
+iCityCount=0;
+while (aCity[iIndex][iCityCount]!=null)
+     iCityCount++;                              //计算选定省份的市或区个数
+document.form1.oCity.length=iCityCount;         //改变第二个下拉框的选项数
+for (i=0;i<=iCityCount-1;i++)                   //改变第二个下拉框的内容
+    document.form1.oCity[i]=new Option(aCity[iIndex][i]); //创建区或市的下拉列表
+document.form1.oCity.focus();                   //第二个下拉框获得焦点
+} 
+</SCRIPT>
+<BODY onfocus=selectCity()>
+<H3>选择所在的省份及城市</H3>
+<FORM NAME="form1">
+<P>省份：
+<SELECT NAME="oProvince" SIZE="1" ONCHANGE=selectCity()>
+<OPTION>--请选择--</OPTION>
+<OPTION>北京</OPTION>
+<OPTION>山东省</OPTION>
+<OPTION>上海</OPTION>
+</SELECT>
+</P>
+<P>城市：
+<SELECT NAME="oCity" SIZE="1">
+<OPTION>--请选择--</OPTION> 
+</SELECT>
+</P>
+</FORM>
+</BODY>
+</HTML> 
+
+

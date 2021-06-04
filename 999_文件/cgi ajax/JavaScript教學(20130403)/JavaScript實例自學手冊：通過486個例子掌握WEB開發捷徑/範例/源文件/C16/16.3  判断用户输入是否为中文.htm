@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script LANGUAGE="JavaScript">
+function ischinese(s){
+    var ret=true;
+    for(var i=0;i<s.length;i++)           //遍历每一个文本字符
+      ret=ret && (s.charCodeAt(i)>=10000);//判断文本字符的unicode值
+    return ret;
+} 
+function chk(str)
+{
+  var val= ischinese(str);               //判断是否包含中文
+  if(!val)
+     alert("您输入的字符不是全中文");
+  else
+     alert("您输入的字符是全中文");
+}
+</script>
+</head>
+<body>
+<input type=text name="txt1" value="this is test!">
+<input type=button value="转换文本" onClick="javascript:chk(txt1.value)">
+</body>
+</html>

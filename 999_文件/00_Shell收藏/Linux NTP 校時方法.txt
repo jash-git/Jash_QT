@@ -1,0 +1,37 @@
+Linux NTP 校時方法
+
+資料來源:http://blog.yam.com/iq180/article/9425617
+
+在 Linux 系統上 , 這網路校時的指令相當簡單 , 
+只要可以連上 NTP Server(時間伺服器) , 下一行指令即可 . 
+請執行 
+ntpdate  time.stdtime.gov.tw
+
+
+其中 time.stdtime.gov.tw 就是 國家時間與頻率標準實驗室  所提供的 "時間伺服器 " 
+stdtime.gov.tw 提供的 NTP Service 不只一台 Server , 以下皆是 :
+time.stdtime.gov.tw
+clock.stdtime.gov.tw
+tick.stdtime.gov.tw
+tock.stdtime.gov.tw
+watch.stdtime.gov.tw
+
+
+
+執行後若看到大致如下的畫面 , 表示 "校正" 成功 . 
+[root@fc5 ~]# ntpdate   time.stdtime.gov.tw 
+16 Oct 15:20:57 ntpdate[25963]: step time server 220.130.158.52 offset 28788.622489 sec 
+[root@fc5 ~]#
+
+
+這時這台 Linux Server 的系統時間就與 "時間伺服器" 同步過了 . 
+但主機板 BIOS 的時間並不會同時校正 . 
+可以執行 
+clock  -w
+或者是執行
+hwclock  -w
+來修正 BIOS 的時間 . 
+
+
+可以把上述兩個指令 , 寫到 "自動工作排程" 內 , 
+這樣我們就不用想到才連到 Linux Server 上 "對時" 囉 ! 

@@ -1,0 +1,31 @@
+<html>
+<head>
+<SCRIPT LANGUAGE="JavaScript">
+    var d=new Date()    //获取当天日期
+    document.write("<select id=selyear>");  //输出一个下拉框
+    var int;
+    int=new Array()                         //创建数组
+    for(i=2003;i<2013;i++){                 //依次添加年份到数组
+    int[i]=i;
+    document.write("<option "+((d.getYear()==i)?"selected":"")+" value=" + int[i] + ">" + int[i] + "</option>");
+    }
+    document.write("</select>年");
+    //实现年份加减的方法
+    function DateAdd(n){
+        var dlt = document.getElementById("selyear");   //获取年份下拉框
+        var len = dlt.options.length;                   //获取有多少个年份
+        var idx = dlt.selectedIndex  - n ;              //年份的索引
+        dlt.selectedIndex = idx < 0? 0 : (idx > len-1 ? len-1 : idx); //选定年份
+}
+</SCRIPT>
+<title>无标题</title>
+</head>
+
+<body>
+<form name="form1" method="post" action="">
+ <input type="button" id="YearPre" name="YearPre" value="上一年" class="button" onclick="DateAdd(1);" />
+<input type="button" id="YearNext" name="YearNext" value="下一年" class="button" onclick="DateAdd(-1);" />
+
+</form>
+</body>
+</html>

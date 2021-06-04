@@ -1,0 +1,29 @@
+改 Linux 系統時區
+
+資料來源:http://uiop7890.pixnet.net/blog/post/25324258-%5B%E5%8E%9F%E5%89%B5%5D-%E6%94%B9-linux-%E7%B3%BB%E7%B5%B1%E6%99%82%E5%8D%80
+
+某些情況, 可能會把 時區 變更 ,一般是透過 Linux 的 Setup 去調整時區 ,
+
+除了那個方式以外 ,直接複製 
+
+ /usr/share/zoneinfo/Asia/Taipei (或其它時區的檔案)
+
+蓋掉原有的 localtime 也是一個非常快速的方式. 請參考以下步驟:
+
+修改前:
+
+[root@Frank ~]# date
+四 11月  5 03:55:06 CET 2009
+
+複製檔案:
+
+[root@Frank ~]# cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime
+cp：是否覆寫 ‘/etc/localtime’? y
+
+修改後:
+
+[root@Frank ~]# date
+四 11月  5 10:55:36 CST 2009
+[root@Frank ~]#
+
+時間已經修改完成.

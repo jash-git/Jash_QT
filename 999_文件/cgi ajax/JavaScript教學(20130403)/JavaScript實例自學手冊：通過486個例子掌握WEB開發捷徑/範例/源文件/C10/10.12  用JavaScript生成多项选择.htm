@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<input type="checkbox" name="ck" value="子目录A">子目录A
+<input type="checkbox" name="ck" value="子目录B">子目录B
+<input type="checkbox" name="ck" value="子目录C">子目录C
+<input type="checkbox" name="ck" value="子目录D">子目录D
+<input type="checkbox" name="ck" value="子目录E">子目录E
+<input type="button" value="生成" onclick="create();"><br>
+<div id="子目录E" style="color:gray"></div>
+<script>
+function create()
+{
+    var arr = document.getElementsByName("ck");     //获取所有的复选框元素，保存在数组中
+    var newarr = [];
+    for(var i=0;i<arr.length;i++){                  //遍历所有的复选框
+	    if(arr[i].checked){                         //判断某项是否被选中
+		    newarr.push(arr[i].value);              //添加到新数组中
+	    }
+    }
+    子目录E.innerHTML = newarr.join("->");          //生成面包屑效果
+}
+</script>
+</body>
+</html>

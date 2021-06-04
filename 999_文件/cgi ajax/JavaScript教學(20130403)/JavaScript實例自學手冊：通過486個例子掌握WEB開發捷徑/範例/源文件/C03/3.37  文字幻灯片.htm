@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>文字幻灯片</title>
+<style type="text/css">
+.trans {filter:revealTrans(Transition=12,Duration=2)}
+</style>
+</head>
+<body>
+<script language="JavaScript">
+//用数组存放循环显示的信息
+Text = new Array(
+	"<a href='http://www.google.com' target='_blank' class='cr4'>我们的理工科学生必须要学习语文</a>",
+	"<a href='http://www.google.com' class='cr4'>英语不过不能毕业，现在汉语不过也不能毕业</a>",
+	"<a href='http://www.google.com' target='_blank' class='cr4'>要求所有理工科学生必须要学习语言、文学等方面的两门...</a>",
+	"<a href='http://www.google.com' target='_blank' class='cr4'>文化素质教育核心课程”北京航空航天</a>",
+	"<a href='http://www.google.com' target='_blank' class='cr4'>有必要。中国人国语不行还谈什么</a>"
+)
+var IDX= -1;
+//用来循环显示内容的方法
+function playAd() 
+{
+	if (IDX==Text.length-1) {
+		IDX=0;
+	} else {
+		IDX++;
+	}
+	var prefix = "";
+	divText.filters[0].apply();            //应用滤镜效果
+	divText.innerHTML = prefix + Text[IDX];//注意divText是表格中单元格的ID
+	divText.filters[0].play();
+	to = setTimeout("playAd()",6000);      //定时器用来循环显示
+}
+</script>
+<table width=453 border=0 cellspacing=3 cellpadding=0>
+          <tr bgcolor=CCF4B9> 
+            <td height=30 bgcolor=CCF4B9 id=divText class=trans></td>
+          </tr>
+	  <script>playAd()</script>
+ </table>
+</body>
+</html>

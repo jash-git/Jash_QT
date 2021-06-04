@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>页面特效--屏幕式左右拉开</title>
+<style type="text/css">
+ A:link {text-decoration: none; color:#000000}
+     A:visited {text-decoration: none; color: #000000}
+     A:active {text-decoration: none; color: #FF0000}
+     A:hover {text-decoration: underline; color: FF0000}
+       body{font-size=9pt}
+	        TH{FONT-SIZE: 9pt}
+           TD{ FONT-SIZE: 9pt}
+.intro{
+    position:absolute;
+    left:0;
+    top:0;
+    layer-background-color:#9999ff;
+    background-color:#9999ff;
+    border:0.1px solid red
+}
+</style>
+</head>
+<body bgcolor="#cc99cc">
+<div id="i1" class="intro"></div><div id="i2" class="intro"></div>
+<script language="JavaScript">
+var speed=20  //改变拉开速度，数值大速度快。
+var temp=new Array();
+var temp2=new Array();
+//如果浏览器是Netscape的情况
+if (document.layers){
+    for (i=1;i<=2;i++){
+        temp[i]=eval("document.i"+i+".clip");
+        temp2[i]=eval("document.i"+i);
+        temp[i].width=window.innerWidth/2;
+        temp[i].height=window.innerHeight;
+        temp2[i].left=(i-1)*temp[i].width;
+        }
+    }
+//是IE浏览器的情况
+else if (document.all){
+    var clipright=document.body.clientWidth/2,clipleft=0
+    for (i=1;i<=2;i++){
+    //定义div的区域，高度、宽度和X坐标
+    temp[i]=eval("document.all.i"+i+".style");
+    temp[i].width=document.body.clientWidth/2;
+    temp[i].height=document.body.offsetHeight;
+    temp[i].left=(i-1)*parseInt(temp[i].width);
+    }
+}
+//拉开页面的主要方法
+function openWindow(){
+    window.scrollTo(0,0);            //定位窗体
+    //Netscape浏览器
+    if (document.layers){
+        temp[1].right-=speed;
+        temp[2].left+=speed;
+        if (temp[2].left>window.innerWidth/2)
+        clearInterval(stopWindow);
+    }
+    //IE浏览器
+    else if (document.all){
+        //通过rect剪裁，实现拉开效果
+        clipright-=speed;
+        temp[1].clip="rect(0 "+clipright+" auto 0)";
+        clipleft+=speed;
+        temp[2].clip="rect(0 auto auto "+clipleft+")";
+        if (clipright<=0)
+        clearInterval(stopWindow);              //清除定时器
+    }
+}
+function init(){
+    stopWindow=setInterval("openWindow()",100)  //循环执行打开窗口的操作
+}
+    init();
+</script>
+　　轻轻的我走了，正如我轻轻的来；<br/>
+　　我轻轻的招手，作别西天的云彩。<br/>
+　　<br/>
+　　那河畔的金柳，是夕阳中的新娘；<br/>
+　　波光里的艳影，在我心头荡漾。<br/>
+　　<br/>
+　　软泥上的青荇，油油的在水底招摇；<br/>
+　　在康河的柔波里，我甘心作一条水草。<br/>
+　　<br/>
+　　那榆荫下的一潭，不是清泉是天上的虹；<br/>
+　　揉碎在浮藻间，沉淀彩虹似的梦。<br/>
+　　<br/>
+　　寻梦，撑支长篙，向青草更青处漫溯；<br/>
+　　满载一船星辉，在星辉斑烂里放歌。<br/>
+　　<br/>
+　　但我不能放歌，悄悄是别离的笙箫；<br/>
+　　夏虫也为我沉默，沉默是今晚的康桥。<br/>
+　　<br/>
+　　悄悄的我走了，正如我悄悄的来；<br/>
+　　我挥一挥衣袖，不带走一片云彩。<br/>
+ </body> 
+</html> 
+
+

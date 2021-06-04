@@ -1,0 +1,33 @@
+[RedHat]笆本更(mount)SMBFS
+īㄓ方:http://cmh1017.pixnet.net/blog/post/75007932-%5Bredhat%5D%E8%87%AA%E5%8B%95%E6%8E%9B%E8%BC%89smbfs
+Configure a system to automount a Samba share with /etc/fstab
+
+by Vivek Gite on April 25, 2006  31 comments
+
+As explained earlier you can use the mount command to mount a remote windows partition or a windows share under Linux.
+
+/etc/fstab file contains static information about the filesystems. The file fstab contains descriptive information about the various file systems. fstab is only read by programs, and not written; it is the duty of the system administrator to properly create and maintain this file.
+
+To mount a Samba share to be mounted when a Linux system comes up after reboot edit the /etc/fstab file and put entry as follows for your Windows/Samba share:
+//ntserver/share /mnt/samba smbfs username=username,password=password 0 0
+
+For example, if you want to mount a share called //ntserver/docs then you need to write following entry in /etc/fstab file://ntserver/docs /mnt/samba smbfs username=docsadm,password=D1Y4x9sw 0 0Where,
+
+    * //ntserver/docs: Windows 2003/NT/Samba share name璶本更竚
+    * /mnt/samba: Local mount point (you may need to create this directory first)璶本更ヘ魁
+    * smbfs: File system type (samba file system) 本更Α
+    * username=docsadm,password=D1Y4x9sw: Share username and password眀腹盞絏
+
+Open file /etc/fstab using vi text editor:# vi /etc/fstabAppend line //ntserver/docs /mnt/samba smbfs username=docsadm,password=D1Y4x9sw 0 0, at the end your file should read as follows:
+
+proc            /proc           proc    defaults        0       0
+/dev/hdb1       /               ext3    defaults,errors=remount-ro 0       1
+/dev/hdb2       none            swap    sw              0       0
+/dev/hdc        /media/cdrom0   iso9660 ro,user,noauto  0       0
+//ntserver/docs /mnt/samba      smbfs   username=docsadm,password=D1Y4x9sw 0 0
+
+Replace sharename, username and password with your actual parameters.
+
+ 
+
+把σ竚 http://www.cyberciti.biz/faq/configure-a-system-to-automount-a-samba-share-with-etcfstab/

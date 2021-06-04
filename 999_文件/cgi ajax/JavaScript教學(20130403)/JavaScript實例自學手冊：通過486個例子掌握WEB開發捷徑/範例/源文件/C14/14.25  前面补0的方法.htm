@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body >
+<div align="center"> 
+<script language="javascript">
+function addZero(a,b,c)
+{
+	while(a<b)                      //判断范围
+	{
+		t=a+"";                     //t为字符型
+		while(t.length<c)t="0"+t;   //通过一个循环，判断字符的宽度，不够宽度则补0
+		a++;
+		document.write(t+"<br>");   //输出补0后的数据
+	}
+}
+addZero(1,8,5);
+</script>
+</div>
+</body>
+</html>

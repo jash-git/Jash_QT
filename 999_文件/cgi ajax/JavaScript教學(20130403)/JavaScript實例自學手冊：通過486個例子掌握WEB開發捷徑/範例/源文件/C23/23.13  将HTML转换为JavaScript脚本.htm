@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>无标题文档</title>
+<script>
+    function toScript(val)
+    {
+         var value = val.value;
+         //特殊字符的转换
+         value  = value.replace(/\\/gi,"\\\\").replace(/"/gi,"\\\"").replace(/'/gi,"\\\'");
+         valArr = value.split("\r\n");//分行
+         value="";
+         for (i=0; i<valArr.length; i++)
+         {
+          value += (i==0) ? "info =" : ""
+          value += "  \"" + valArr[i];
+          value += (i!=valArr.length-1) ? "\" +\"\\n\"+\n" : "\"\n" ;//字符串的间隔符号
+         }
+         value+="\ndocument.write(info)";
+         val.value = value;
+     }
+</script> 
+</head>
+<body>
+<input type=button value="将 HTML 转为 JavaScript" onclick=toScript(document.all["mytxt"])><br>
+<textarea id=mytxt cols=60 rows=8>
+    <table width="300">
+    <tr><td align="right">A</td></tr>
+    </table>
+</textarea>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<HTML>
+<HEAD>
+<title>弹出窗口生成器</title>
+<STYLE type="text/css">
+<!--
+BODY {font-family:"宋体";; font-size: 9pt; margin-top: 0px}
+.pt9 {  font-family: "宋体"; font-size: 9pt}
+td { font-size: 9pt }
+-->
+</STYLE>
+<script Language="JavaScript">
+function popup(url, name, width, height)
+{
+settings=
+"toolbar=yes,location=yes,directories=yes,"+
+"status=no,menubar=no,scrollbars=yes,"+
+"resizable=yes,width="+width+",height="+height;
+MyNewWindow=window.open(""+url,name,settings);
+}
+function testmywindow()
+{
+result=new Array(7);
+for (i=1; i<=7; i++){result[i]="no"};
+with (document.detectform)
+{
+if (R1[0].checked) {result[1]="yes"};
+if (R2[0].checked) {result[2]="yes"};
+if (R3[0].checked) {result[3]="yes"};
+if (R4[0].checked) {result[4]="yes"};
+if (R5[0].checked) {result[5]="yes"};
+if (R6[0].checked) {result[6]="yes"};
+if (R7[0].checked) {result[7]="yes"};
+settings="toolbar="+result[1]+",location="+result[2]+",directories="+result[3]+",status="+result[4]+",menubar="+result[5]+",scrollbars="+result[6]+",resizable="+result[7]+",width="+newwidth.value+",height="+newheight.value;
+code.value="\<a href=\"#\" onClick=\"MyWindow=window.open(\'"+url.value+"\',\'MyWindow\',\'"+settings+"\')\;\">这里是打开窗口的代码</a>";
+}
+}
+</script>
+</HEAD>
+
+<BODY leftmargin=0 topmargin=0 marginwidth="5" marginheight="0" bgcolor="#FFFFFF" link="#000000" vlink="#000000">
+<p>&nbsp; </p>
+<div align="center"></div>
+<div align="center"></div>
+<table align="CENTER" width="362">
+  <tr valign="top"> 
+    <td height="610"> 
+      <h1 align="center"> <font color="#C40000" face="Arial">弹出窗口生成器</font> 
+      </h1>
+      <form name="detectform">
+        <div align="center"> 
+          <center>
+            <table border="1" width="323">
+              <tr> 
+                <td bgcolor="#C0C0C0" colspan="2"> 
+                  <div align="center"> 
+                    <center>
+                      打开哪个窗口？ 
+                    </center>
+                  </div>
+                </td>
+              </tr>
+              <tr align="center"> 
+                <td bgcolor="#E4E4E4" colspan="2"> 
+                  <div align="center"> 
+                    <center>
+                      <font color="#000000"><strong> 
+                      <p> 
+                        <input
+              type="text" name="url" size="30" value="http://www.google.com">
+                      </strong></font> 
+                    </center>
+                  </div>
+                </td>
+              </tr>
+              <tr align="center"> 
+                <td bgcolor="#C0C0C0" colspan="2"> 
+                  <div align="center"> 
+                    <center>
+                      <p>窗口设置参数 
+                    </center>
+                  </div>
+                </td>
+              </tr>
+              <tr align="center"> 
+                <td bgcolor="#E4E4E4"><font color="#000000" face="Arial, Helvetica, sans-serif">toolbar 
+                  = </font></td>
+                <td bgcolor="#E4E4E4"><font color="#000000" face="Arial, Helvetica, sans-serif">yes 
+                  <input type="radio" value="V15" name="R1"
+              checked>
+                  | no 
+                  <input type="radio" name="R1" value="V16">
+                  </font></td>
+              </tr>
+              <tr align="center"> 
+                <td bgcolor="#E4E4E4"><font color="#000000" face="Arial, Helvetica, sans-serif">location 
+                  = </font></td>
+                <td bgcolor="#E4E4E4"><font color="#000000" face="Arial, Helvetica, sans-serif">yes 
+                  <input type="radio" value="V17" name="R2"
+              checked>
+                  | no 
+                  <input type="radio" name="R2" value="V18">
+                  </font></td>
+              </tr>
+              <tr align="center"> 
+                <td bgcolor="#E4E4E4"><font color="#000000" face="Arial, Helvetica, sans-serif">directories 
+                  = </font></td>
+                <td bgcolor="#E4E4E4"><font color="#000000" face="Arial, Helvetica, sans-serif">yes 
+                  <input type="radio" value="V19" name="R3"
+              checked>
+                  | no 
+                  <input type="radio" name="R3" value="V20">
+                  </font></td>
+              </tr>
+              <tr align="center"> 
+                <td bgcolor="#E4E4E4"><font color="#000000" face="Arial, Helvetica, sans-serif">status 
+                  = </font></td>
+                <td bgcolor="#E4E4E4"><font color="#000000" face="Arial, Helvetica, sans-serif">yes 
+                  <input type="radio" value="V21" name="R4"
+              checked>
+                  | no 
+                  <input type="radio" name="R4" value="V22">
+                  </font></td>
+              </tr>
+              <tr align="center"> 
+                <td bgcolor="#E4E4E4"><font color="#000000" face="Arial, Helvetica, sans-serif">menubar 
+                  = </font></td>
+                <td bgcolor="#E4E4E4"><font color="#000000" face="Arial, Helvetica, sans-serif">yes 
+                  <input type="radio" value="V23" name="R5"
+              checked>
+                  | no 
+                  <input type="radio" name="R5" value="V24">
+                  </font></td>
+              </tr>
+              <tr align="center"> 
+                <td bgcolor="#E4E4E4"><font color="#000000" face="Arial, Helvetica, sans-serif">scrollbars 
+                  = </font></td>
+                <td bgcolor="#E4E4E4"><font color="#000000" face="Arial, Helvetica, sans-serif">yes 
+                  <input type="radio" value="V25" name="R6"
+              checked>
+                  | no 
+                  <input type="radio" name="R6" value="V26">
+                  </font></td>
+              </tr>
+              <tr align="center"> 
+                <td bgcolor="#E4E4E4"><font color="#000000" face="Arial, Helvetica, sans-serif">resizable 
+                  = </font></td>
+                <td bgcolor="#E4E4E4"><font color="#000000" face="Arial, Helvetica, sans-serif">yes 
+                  <input type="radio" value="V27" checked
+              name="R7">
+                  | no 
+                  <input type="radio" name="R7" value="V28">
+                  </font></td>
+              </tr>
+              <tr align="center"> 
+                <td bgcolor="#E4E4E4"><font color="#000000" face="Arial, Helvetica, sans-serif">width 
+                  = </font></td>
+                <td bgcolor="#E4E4E4"><font color="#000000" face="Arial, Helvetica, sans-serif"> 
+                  <input type="text" name="newwidth" size="3"
+              value="600">
+                  </font></td>
+              </tr>
+              <tr align="center"> 
+                <td bgcolor="#E4E4E4"><font color="#000000" face="Arial, Helvetica, sans-serif">height 
+                  =&nbsp; </font></td>
+                <td bgcolor="#E4E4E4"><font color="#000000" face="Arial, Helvetica, sans-serif"> 
+                  <input type="text" name="newheight" size="3"
+              value="300">
+                  </font></td>
+              </tr>
+              <tr align="center"> 
+                <td colspan="2" bgcolor="#C0C0C0"> 
+                  <div align="center"> 
+                    <center>
+                      <p><font color="#FFFFFF"> 
+                        <input
+              type="button" value="生成代码" name="B1" onClick="testmywindow()" class="pt9">
+                        <br>
+                        <input type="reset" value="清除重写" name="B2" class="pt9">
+                        </font> 
+                    </center>
+                  </div>
+                </td>
+              </tr>
+            </table>  
+            <div align="center">这里是生成的代码：<br>
+            </div>
+          </center>
+        </div>
+        <div align="center"> 
+          <center>
+            <p> 
+              <textarea rows="8" name="code" cols="50" wrap="VIRTUAL" class="pt9"></textarea>
+            </p>
+          </center>
+        </div>
+        </form>
+      
+    </td>
+  </tr>
+</table>
+</HTML>

@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script type="text/javascript">
+ function test()
+    {
+        var mydom1=document.getElementById("divlist1");//获取指定ID的DOM对象
+        var mydom2=document.getElementById("divlist2");//获取指定ID的DOM对象
+        mydom2.appendChild(mydom1.childNodes[0].cloneNode(true));
+    }
+</script>
+</head>
+<body>
+ <form id="form1" runat="server">
+      <input id="btn1" type="button" value="test" onclick="test()"/>
+      <div id="divlist1"><p>this is test1</p></div>
+      <div id="divlist2"></div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,62 @@
+編譯指令(HOST):
+
+cd /Project/3.11.0
+. SourceFile
+cd /Project/3.11.0/mrua_SMP8654F_3_11_0_dev.mips/MRUA_src/rmfp/minigui_test_main
+
+# 以下 # 之指令是為了加速 Compiler, 正式發行不能加.
+. optimize_off 
+#
+make clean ; make
+ls -l test_main
+
+mount code 指令(Target):
+
+////////////////////////////////////////////////////////////////////////////////////
+
+cd /
+mount -o remount,rw /flash
+killall switch.sh
+killall test_main
+killall MainBOX
+killall hp_dsp
+
+/////////////////////////////////////////////////////////////////////////////////
+
+udhcpc
+mkdir /mnt1
+mount -t nfs -o nolock -o tcp 10.10.20.164:/Project /mnt1/
+cp /mnt1/3.11.0/mrua_SMP8654F_3_11_0_dev.mips/MRUA_src/rmfp/minigui_test_main/test_main /flash/minigui_test_main/
+
+killall udhcpc
+#pkill telnetd
+umount /flash
+umount /mnt1
+┌
+	fuser -m /flash/
+	kill -9 PID
+」
+
+mount -o remount,ro /flash
+mount |grep /flash
+
+reboot
+
+///////////////////////////////////////////////////////////////////
+
+mount /dev/sda1 /mnt
+df -h
+
+cp /mnt/test_m~1 /flash/minigui_test_main/test_main
+
+////////////////////////////////////////////////////////////////////
+
+mount /dev/sda1 /mnt
+df -h
+
+cd /flash
+gunzip /mnt/flasht~1.gz -c | tar xvf -
+
+////////////////////////////////////////////////////////////////////
+
+

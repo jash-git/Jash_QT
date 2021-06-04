@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+    <form>
+    <input name="txt1" value="10"><br />
+    <input name="txt2" value="20"><br />
+    <input type="checkbox" value="5" />
+    <input type="button" id="btnSave" value="保存" />
+    </form>
+<script type="text/javascript">
+//判断表单是否已经修改的方法
+function IsModified()
+{
+    var result = false;                                    //初始化返回值
+    var colInput = document.getElementsByTagName("input"); //获取输入框控件
+    for (var i=0; i<colInput.length; i++)                  //逐个判断页面中的input控件
+    {
+        if (colInput[i].value != colInput[i].defaultValue) //判断输入的值是否等于初始值
+        {
+            result = true;                                 //如果不相等，返回true，表示已经修改
+            colInput[i].style.backgroundColor = "#ff9000"; //改变被修改控件的背景色
+        }
+    }
+    return result;
+}
+document.getElementById("btnSave").onclick = function ()   //重定义按钮的单击事件
+{
+    if (IsModified())
+    {
+        return window.confirm("表单已经修改，是否继续保存？");
+    }
+}
+</script>
+ </body>
+</html>

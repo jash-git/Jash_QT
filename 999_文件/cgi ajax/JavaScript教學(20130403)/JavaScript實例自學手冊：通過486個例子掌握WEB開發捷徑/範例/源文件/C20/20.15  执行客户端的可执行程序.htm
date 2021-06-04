@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="javascript">
+function exec (command) {
+    window.oldOnError = window.onerror;  //错误处理的默认事件
+    window._command = command;           //要执行的命令
+    window.onerror = function (err) {    //重新设置错误处理事件
+      if (err.indexOf('Automation') != -1) { //如果因权限问题被终止
+        alert('命令已经被用户禁止！');         
+        return true;
+      }
+      else 
+          return false;
+      }
+    var wsh = new ActiveXObject('WScript.Shell');//创建可执行应用程序对象
+    if (wsh)
+      wsh.Run(command);                          //执行指定的命令
+    window.onerror = window.oldOnError;          //恢复默认的错误处理事件
+}
+</script>
+</head>
+<body> 
+<a href="#" onclick="exec('C:/NTDETECT.COM')">执行文件</a>
+ </body>
+</html>

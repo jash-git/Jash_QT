@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT language="JavaScript">
+var i
+//viewTr是要保留的行ID,sumTr是总的行数
+function trdisplay(viewTr,sumTr){
+	for (i = 0; i < sumTr; i++) {
+		eval("document.getElementById('tr_" + (i+1) + "').style.display='none';");//隐藏所有的行
+	}
+	eval("document.getElementById('tr_" + viewTr + "').style.display='';");//显示指定要显示的行
+}
+</script>
+</head>
+<body>
+<table width="70%"  border="1" cellspacing="0" cellpadding="0">
+  <tr id="tr_1" onClick="trdisplay(1,5)">
+    <td>第一行</td>
+  </tr>
+  <tr id="tr_2" onClick="trdisplay(2,5)">
+    <td>第二行</td>
+  </tr>
+  <tr id="tr_3" onClick="trdisplay(3,5)">
+    <td>第三行</td>
+  </tr>
+  <tr id="tr_4" onClick="trdisplay(4,5)">
+    <td>第四行</td>
+  </tr>
+  <tr id="tr_5" onClick="trdisplay(5,5)">
+    <td>第五行</td>
+  </tr>
+</table>
+</body>
+</html>

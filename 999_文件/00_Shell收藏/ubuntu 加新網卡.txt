@@ -1,0 +1,25 @@
+ubuntu 加新網卡
+
+資料來源:http://noteofmar.blogspot.tw/2010/03/ubuntu.html
+
+ubnutu 增加新網卡後似乎不會自動啟動
+
+所以要手動更改
+
+1.用 dmesg | grep eth 找出網卡
+
+mar@ubuntu-hadoop:~$ dmesg | grep eth
+[ 2.013388] eth0: registered as PCnet/FAST III 79C973
+
+2.修改 /etc/network/interfaces ,加入
+auto eth0
+iface eth0 inet dhcp
+以上是 dhcp 的設定法, 如果要指定網路位置的話要設
+auto eth0
+iface eth0 inet static
+address 192.168.0.1
+netmask 255.255.255.0
+gateway 192.168.0.254
+
+3.重啟網路
+sudo /etc/init.d/networking restart

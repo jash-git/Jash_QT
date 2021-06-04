@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>Untitled</title>
+<script>  
+document.onkeydown=noway;           //绑定窗体加载事件
+function  noway(){  
+    if(event.keyCode==116){         //通过键值判断是否是F5
+        event.keyCode=0;  
+        event.returnValue=false;    //不进行任何操作
+    }  
+}
+</script>
+</head>
+<body>
+按F5测试是否能刷新页面
+</body>
+</html>

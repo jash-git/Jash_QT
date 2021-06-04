@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="javascript">
+function getMyDate(tmpDate)
+{  
+    var date1,date2;               //定义两个变量
+    date1 =tmpDate.getMonth()+1+"";  //获取当前月份+1的值
+    if(date1.length<2)            //判断当前月份是否是双位数，10以上
+        date1="0"+date1;          //单位数的情况下，需要在月份前补0
+    date2 =tmpDate.getDate()+"";    //获取当前日期 
+     if(date2.length<2)           //判断日期的位数是否是双位
+         date2="0"+date2;         //不足双位补0
+   return tmpDate.getYear()+"-"+date1+"-"+date2;   //返回完整的日期
+}
+</script>
+</head>
+<body>
+    <input id="Button1" type="button" value="当前日期" onclick="alert(getMyDate(new Date()))" />
+</body>
+</html>

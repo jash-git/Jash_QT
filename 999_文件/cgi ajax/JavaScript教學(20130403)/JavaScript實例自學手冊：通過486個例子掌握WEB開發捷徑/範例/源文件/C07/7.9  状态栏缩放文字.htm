@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script LANGUAGE="JavaScript">
+myTime = 50;
+valtmp = 10;
+msg = "欢迎支持北京奥运会！";//要显示的文本
+amsg = new Array(33);
+amsg[0] = msg;
+blnk = "                                                               ";//设置一段空格
+for (i = 1; i < 32; i++) {
+    b = blnk.substring(0, i);
+    amsg[i] = "";
+    for (j = 0; j < msg.length; j++)    //循环用空格间隔字符串
+    amsg[i] = amsg[i] + msg.charAt(j) + b;//形成最终的字符串数组
+}
+function viewMsg() {
+    if (valtmp > -1) str = amsg[valtmp];
+    else str = amsg[0];
+    if (valtmp-- < -40) valtmp = 31;
+    status = str;                      //依次展示字符串数组
+    clearTimeout(myTime);
+    myTime = setTimeout("viewMsg()", 150);//循环执行当前方法
+}
+</script>
+<body OnLoad="viewMsg()">
+</head>
+<body>
+</body>
+</html>

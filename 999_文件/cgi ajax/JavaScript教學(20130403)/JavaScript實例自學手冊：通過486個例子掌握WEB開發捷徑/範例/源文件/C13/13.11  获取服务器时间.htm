@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script>
+var XmlHttp = new ActiveXObject("Microsoft.XmlHttp");//创建XMLHTTP对象
+XmlHttp.open("HEAD","http://www.google.com",false);  //从哪个服务器上获取时间
+XmlHttp.send();                                      //连接服务器
+var offset = Date.parse(XmlHttp.getResponseHeader("Date"));//获取标头中的时间
+offset -= (new Date).getTime();                            //获取本地时间与服务器时间的间隔
+function ShowTime()                                         //显示时间的方法
+{
+	var d = new Date;                                       //获取当前时间                                     
+	d.setTime(d.getTime()+offset);                          //通过服务器和本地的时间间隔获取当前服务器时间
+	document.body.innerHTML=d.toLocaleString();             //显示服务器时间
+}
+setInterval("ShowTime()", "1000");
+</script>
+</head>
+<body>
+</body>
+</html>

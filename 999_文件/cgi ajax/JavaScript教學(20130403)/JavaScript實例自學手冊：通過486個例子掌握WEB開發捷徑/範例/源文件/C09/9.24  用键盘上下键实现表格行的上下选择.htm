@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>键盘方向键控制表格</title>
+</head>
+<body onKeyDown="keyCheck();">
+<table width="80" bgcolor="#FFFFFF" height="60" border="1" bordercolor="#FFFFFF" cellpadding="0" cellspacing="0">
+  <tr>
+	<td id="td1" width="80">第一行</td>
+  </tr>
+  <tr>
+	<td id="td2" width="80">第二行</td>
+  </tr>
+  <tr>
+	<td id="td3" width="80">第三行</td>
+  </tr>
+  <tr>
+	<td id="td4" width="80">第四行</td>
+  </tr>
+  <tr>
+	<td id="td5" width="80">第五行</td>
+  </tr>
+  <tr>
+	<td id="td6" width="80">第六行</td>
+  </tr>
+</table>
+<script language="javascript">
+var tdIndex = 1;                                    //获取当前行的索引变量
+document.all.td1.style.backgroundColor='#3366aa';  //设置列1的背景色
+function keyCheck() {
+	if (window.event.keyCode==38) {         //向上键
+		for (var i=1;i<=6;i++) {
+			eval("document.all.td"+i+".style.backgroundColor='#FFFFFF'");//更改所有的行背景色
+		}
+		if (tdIndex<=1) {
+			document.all.td1.style.backgroundColor='#3366aa';       //到顶端时，只第一行颜色改变
+			alert('已到顶端');
+			return false;
+		}
+		else {
+			tdIndex -= 1;                                            //行索引减小
+			eval("document.all.td"+tdIndex+".style.backgroundColor='#3366aa'");//改变行的背景色
+		}
+	}
+	if (window.event.keyCode==40) {             //向下键
+		for (var i=1;i<=6;i++) {
+			eval("document.all.td"+i+".style.backgroundColor='#FFFFFF'");//更改所有的行背景色
+		}
+		if (tdIndex>=6) {
+			document.all.td6.style.backgroundColor='#3366aa';      //到顶端时，只第一行颜色改变
+			alert('已到底端');
+			return false;
+		}
+		else {
+			tdIndex += 1;                                            //行索引增加
+			eval("document.all.td"+tdIndex+".style.backgroundColor='#3366aa'");//改变行的背景色
+		}
+	}
+}
+</script>
+</body>
+</html>

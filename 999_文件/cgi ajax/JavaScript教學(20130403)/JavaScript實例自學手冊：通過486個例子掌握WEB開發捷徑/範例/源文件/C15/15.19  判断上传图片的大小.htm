@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script LANGUAGE="JavaScript">
+function Judge()
+{
+   //判断图片的大小是否大于50，或者小于0（没有选择图片）
+   if(document.all.myImg.fileSize>1024*50||document.all.myImg.fileSize<=0)
+   {
+     alert('请选择小于50K的图片！');
+     return false;                 //不执行任何操作
+   }
+   else{
+    alert('上传没问题');
+   }
+}
+</script>
+</head>
+<body>
+<input type="file" id="jia" onchange="document.all.myImg.src=this.value"/>
+<img src="" id="myImg" style="display:none">
+<button onclick="Judge()">上传图片</button>
+</body>
+</html>

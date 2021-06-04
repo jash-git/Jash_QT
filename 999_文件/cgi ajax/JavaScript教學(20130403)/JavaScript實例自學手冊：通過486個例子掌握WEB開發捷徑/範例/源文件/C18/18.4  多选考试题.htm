@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<Script Language="javascript">
+  function selectV(obj)
+  {
+       try{ 
+           var oTd = obj.parentElement;                                     //获取表格的列
+           var oTr = oTd.parentElement;                                     //获取表格的行
+           var oTable = oTr.parentElement;                                  //获取表格
+           var oTd_Answer = oTable.rows[oTr.rowIndex-1].cells[0].innerText;   //获取问题答案所在的单元格内容
+           var oBegin = oTd_Answer.indexOf("（") + 1;                       //获取（所在的位置
+           var str = '';
+           for(var i=0;i<oTd.children.length;i++){                          //遍历问题选项
+               if(oTd.children[i].tagName=='INPUT' && oTd.children[i].checked){//如果选中
+                  str += oTd.children[i].value;                                 //输出value值
+               }
+           }                                                                    //输出结束符号）
+           oTable.rows[oTr.rowIndex-1].cells[0].innerText = oTd_Answer.substring(0,oBegin) + str + '）';
+       }catch(error){
+           window.alert(error.description);                                 //显示错误信息
+       }
+  }
+</Script>
+</head>
+<body>
+<table>
+     <tr>
+         <td>1.你喜欢的国家（）</td>
+     </tr>
+     <tr>
+         <td>
+             <input type="checkbox" value="A" onclick="selectV(this);">A、北京<br>
+             <input type="checkbox" value="B" onclick="selectV(this);">B、东京<br>
+             <input type="checkbox" value="C" onclick="selectV(this);">C、纽约<br>
+             <input type="checkbox" value="D" onclick="selectV(this);">D、韩国
+         </td>
+    </tr>
+     <tr>
+         <td>2.你喜欢的颜色（）</td>
+     </tr>
+     <tr>
+         <td>
+             <input type="checkbox" value="A" onclick="selectV(this);">A、黑色<br>
+             <input type="checkbox" value="B" onclick="selectV(this);">B、白色<br>
+             <input type="checkbox" value="C" onclick="selectV(this);">C、红色<br>
+             <input type="checkbox" value="D" onclick="selectV(this);">D、蓝色
+         </td>
+    </tr>
+</table></body>
+</html>

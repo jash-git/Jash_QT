@@ -1,0 +1,70 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>pubs</title>
+<style>
+ table {
+  border:2 groove black;
+  position:absolute;
+  top:10;
+  left:10;
+ }
+ td {
+  border:1 ridge blue;
+ } 
+</style>
+</head>
+<script language="Javascript">
+ var path="c:\\";      //文件路径
+ var fname="test.txt"  //文件名
+ window.status="邮件信息"; //状态栏信息
+ function getFileName(){
+  if (txtFile.value != "" && txtFile.value != " ") //如果用户不输入文件名
+   fname=txtFile.value;         //使用默认文件名
+ }
+ function saveFile(){           //保存文件的方法
+  var fso,file;
+  if (txtContent.value == ""){  //判断是否填写了文件内容
+   alert("请输入文件内容!");
+   return;
+  }else{
+   getFileName();               //获取文件名
+   fso=new ActiveXObject("Scripting.FileSystemObject");//创建文件对象
+   file = fso.CreateTextFile(path + fname,true);       //指定文件详细路径
+   file.WriteLine(txtContent.value);                   //输出文件内容
+   file.close();          //关闭文件写入流
+   alert("保存完毕!");
+  }
+ }
+ function readFile(){             //读取文件的方法
+  var fso,str,file;
+  getFileName();
+  fso = new ActiveXObject("Scripting.FileSystemObject");//创建文件对象
+  str = "文件内容为空";
+  if (fso.FileExists(path + fname)){               //判断文件是否存在
+   file=fso.OpenTextFile(path + fname,1);          //打开文件
+   str=file.readall();         //读取文件所有内容
+   file.close();     //关闭文件读取流
+  }
+  txtContent.value = str; //显示文件内容
+ }
+
+</script>
+<body>
+<table width="437" height="157" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="433" height="28">文件名：
+      <input type="text" id="txtFile">
+   <button name="save" onClick="Javascript:saveFile()">保存</button>
+   <button name="read" onClick="Javascript:readFile()">读取</button>
+    </td>
+  </tr>
+  <tr>
+    <td height="23"><div align="center">文件内容</div></td>
+  </tr>
+  <tr>
+    <td><textarea name="txtContent" rows="18" cols="60"></textarea></td>
+  </tr>
+</table>
+</body>
+</html>

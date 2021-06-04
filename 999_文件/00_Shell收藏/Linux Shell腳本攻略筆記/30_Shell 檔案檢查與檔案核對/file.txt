@@ -1,0 +1,16 @@
+﻿Shell 檔案檢查與檔案核對
+
+在Shell中實做檔案檢查與檔案核對
+
+###########################
+
+#!/bin/bash
+
+#Filename:file_md5.sh
+
+# sh ./file_md5.sh
+md5sum file.txt
+md5sum file.txt > file.md5
+###########################
+
+參考出處:Linux Shell 腳本攻略 P52

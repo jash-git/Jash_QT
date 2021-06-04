@@ -1,0 +1,153 @@
+<HTML><HEAD><TITLE>LOGO从上落下</TITLE>
+<SCRIPT language=JavaScript>
+//窗口改变时重新加载页面  -Netscape的浏览器
+function MM_reloadPage(init) {  
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+//窗口改变时重新加载页面  -IE浏览器
+function MM_preloadImages() { 
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+  sjLayer.style.visibility='hidden';
+  eslayer.style.visibility='hidden';
+}
+
+function MM_swapImgRestore() { 
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) {
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+
+function MM_showHideLayers() {
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) if ((obj=MM_findObj(args[i]))!=null) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+</SCRIPT>
+</HEAD>
+<BODY  >
+<SCRIPT language=JavaScript>
+//判断浏览器
+var ns4up = (document.layers) ? 1 : 0;  
+var ie4up = (document.all) ? 1 : 0;
+var no = 3;                             // 显示的图像数量
+var speed = 20;                         // 图像移动的速度
+var snowflake ="LOGO1.gif";      //图像地址
+var filen = "http://www.baidu.com"         	            // 单击图像时的链接
+var dx, xp, yp;                        
+var am, stx, sty;                      
+var i, doc_width = 400, doc_height = 600;
+if (ns4up) {
+doc_width = self.innerWidth;
+doc_height = self.innerHeight;
+} else if (ie4up) {
+doc_width = document.body.clientWidth;
+doc_height = document.body.clientHeight;
+}
+dx = new Array();
+xp = new Array();
+yp = new Array();
+am = new Array();
+stx = new Array();
+sty = new Array();
+for (i = 0; i < no; ++ i) 
+{  
+dx[i] = 0;                             // set coordinate variables
+xp[i] = Math.random()*(doc_width-50);  // set position variables
+yp[i] = Math.random()*doc_height;
+am[i] = Math.random()*20;              // set amplitude variables
+stx[i] = 0.02 + Math.random()/10;      // set step variables
+sty[i] = 0.7 + Math.random();          // set step variables
+if (ns4up) {                           // set layers
+if (i == 0) {
+document.write("<html><title></title><body>");
+document.write("<layer name=\"dot"+ i +"\" left=\"15\" ");
+document.write("top=\"15\" visibility=\"show\"><A href=\"" + filen + "\" target=\"_blank\"><img src=\"");
+document.write(snowflake + "\" border=\"0\"></layer>");
+document.write("</body></html>");
+} else {
+document.write("<html><title></title><body>");
+document.write("<layer name=\"dot"+ i +"\" left=\"15\" ");
+document.write("top=\"15\" visibility=\"show\"><A href=\"" + filen + "\" target=\"_blank\"><img src=\"");
+document.write(snowflake + "\" border=\"0\"></layer>");
+document.write("</body></html>");
+}
+} else if (ie4up) {
+if (i == 0) {
+document.write("<html><title></title><body>");
+document.write("<div id=\"dot"+ i +"\" style=\"POSITION: ");
+document.write("absolute; Z-INDEX: "+ i +"; VISIBILITY: ");
+document.write("visible; TOP: 15px; LEFT: 15px;\"><a href=\""+filen+"\" target=\"_blank\"><img src=\"");
+document.write(snowflake + "\" border=\"0\"></div>");
+document.write("</body></html>");
+} else {
+document.write("<html><title></title><body>");
+document.write("<div id=\"dot"+ i +"\" style=\"POSITION: ");
+document.write("absolute; Z-INDEX: "+ i +"; VISIBILITY: ");
+document.write("visible; TOP: 15px; LEFT: 15px;\"><a href=\""+filen+"\" target=\"_blank\"><img src=\"");
+document.write(snowflake + "\" border=\"0\"></div>");
+document.write("</body></html>");
+}
+}
+}
+//实现Netscape浏览器中动画效果的方法
+function snowNS() { 
+    for (i = 0; i < no; ++ i) 
+    { 
+        yp[i] += sty[i];
+        if (yp[i] > doc_height-50) {
+        xp[i] = Math.random()*(doc_width-am[i]-30);
+        yp[i] = 0;
+        stx[i] = 0.02 + Math.random()/10;
+        sty[i] = 0.7 + Math.random();
+        doc_width = self.innerWidth;
+        doc_height = self.innerHeight;
+        }
+        dx[i] += stx[i];
+        //指定图像的显示位置：x和y坐标
+        document.layers["dot"+i].top = yp[i];
+        document.layers["dot"+i].left = xp[i] + am[i]*Math.sin(dx[i]);
+    }
+    setTimeout("snowNS()", speed);
+}
+//实现IE浏览器中动画效果的方法
+function snowIE() 
+{  
+    //判断图像的数量
+    for (i = 0; i < no; ++ i) {  
+        yp[i] += sty[i];
+        if (yp[i] > doc_height-50) {
+        xp[i] = Math.random()*(doc_width-am[i]-30);
+        yp[i] = 0;
+        stx[i] = 0.02 + Math.random()/10;
+        sty[i] = 0.7 + Math.random();
+        //重新获取文档的高度和宽度
+        doc_width = document.body.clientWidth;
+        doc_height = document.body.clientHeight;
+        }
+        dx[i] += stx[i];
+        //指定图像的显示位置：x和y坐标
+        document.all["dot"+i].style.pixelTop = yp[i];
+        document.all["dot"+i].style.pixelLeft = xp[i] + am[i]*Math.sin(dx[i]);
+    }
+    setTimeout("snowIE()", speed);  //根据速度循环执行动画方法
+}
+//判断浏览器类型，并调用不同的动画方法
+if (ns4up) {
+ snowNS();
+} else if (ie4up) {
+ snowIE();
+}
+</SCRIPT>
+</TABLE>
+</BODY></HTML> 

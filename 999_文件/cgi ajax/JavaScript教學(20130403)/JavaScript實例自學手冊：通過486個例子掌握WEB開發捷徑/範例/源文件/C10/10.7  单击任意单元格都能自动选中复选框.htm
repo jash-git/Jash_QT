@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<script language="javascript" type="text/javascript">   
+function chkSelect(){
+	var tr = event.srcElement.parentElement; //获取当前操作对象的父级对象
+	tr.cells[0].children[0].checked=true;    //选中父对象的第一个元素-即复选框
+}	
+</script>
+<table width="285" border="1">
+  <tr ondblclick='chkSelect();'>
+          <td><input type="checkbox" name="checkbox" value="checkbox">
+    </td>
+          <td>第一行第一列</td>
+          <td>第一行第二列</td>
+  </tr>
+  <tr ondblclick='chkSelect();'>
+    <td><input type="checkbox" name="checkbox2" value="checkbox"></td>
+    <td>第二行第一列</td>
+    <td>第二行第二列</td>
+  </tr>
+</table></body>
+</html>

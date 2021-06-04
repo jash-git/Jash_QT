@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="javascript">
+    function CheckWord()
+    {
+    try
+     {new ActiveXObject("WScript.Shell");}   //创建新控件
+    catch(x) {return false;}
+    try
+     {new ActiveXObject("Word.Application");}//创建word新应用程序
+    catch(x){return null;}
+    return true;
+    }
+    res=CheckWord();                         //检查是否安装了word
+    switch(res)
+    {
+    case true:
+     alert("安装了Word"); break;
+    case null:
+     alert("没有安装Word"); break;
+    case false:
+     alert("当前机器的ActiveX被禁用");
+    }
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<table width=500 cellspacing=0 rules=groups border
+onmouseout="setColor0(event.fromElement)"
+onmouseover="setColor1(event.srcElement)">
+<col><col><col><col>
+<tr><td>第一列</td><td>第二列</td><td>第三列</td><td>第四列</td></tr>
+<tr><td>第一列</td><td>第二列</td><td>第三列</td><td>第四列</td></tr>
+<tr><td>第一列</td><td>第二列</td><td>第三列</td><td>第四列</td></tr>
+<tr><td>第一列</td><td>第二列</td><td>第三列</td><td>第四列</td></tr>
+</table><script>
+var cols=document.getElementsByTagName("table")[0].children[0].children;   //获取所有列
+function setColor0(sender)
+{
+	if(sender.tagName=="TD")
+	    cols[sender.cellIndex].style.backgroundColor="";//鼠标移走时，取消颜色
+}
+function setColor1(sender)
+{
+	if(sender.tagName=="TD")
+	    cols[sender.cellIndex].style.backgroundColor="gray";//鼠标移过来时，改变颜色
+}
+</script>
+</body>
+</html>

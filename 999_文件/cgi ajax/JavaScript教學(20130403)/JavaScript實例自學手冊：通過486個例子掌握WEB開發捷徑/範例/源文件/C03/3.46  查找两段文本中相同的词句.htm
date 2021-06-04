@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+    <SCRIPT LANGUAGE="JavaScript"> 
+function compare(a, b, n) 
+{ 
+var c=a.length>b.length?b:a;
+//减少循环 
+if(b==c) b=a; a=c; 
+if(!n) n=1; 
+//创建数组，逐字比较文本
+var mm = new Array(); 
+for(var i=0; i<a.length; i++) 
+{ 
+for(var j=i+n; j<=a.length; j++) 
+{ 
+var s = a.substring(i, j); 
+    if(b.indexOf(s)==-1) 
+    { 
+      if(s.length>n) { 
+         mm[mm.length] = a.substring(i, j-1); 
+         i = j-2; } 
+      break; 
+    }  
+    else { 
+      if(j==a.length) {
+      mm[mm.length]=s; } 
+    } 
+} } 
+return mm.Unique().join(","); //去除数组里的重复项 
+} 
+//为Array数组定义方法Unique
+Array.prototype.Unique = function() 
+{ 
+var a = {};
+ for(var i=0; i<this.length; i++) 
+{ 
+if(typeof a[this[i]] == "undefined") 
+a[this[i]] = 1; 
+} 
+this.length = 0; 
+for(var i in a) 
+this[this.length] = i; 
+return this; 
+}; 
+//定义变量，并调用比较方法
+var a = "北京要举办奥运会"; 
+var b = "上海要举办世博会"; 
+alert("返回的结果："+ compare(a, b, 2)); 
+</SCRIPT>
+</head>
+<body>
+
+</body>
+</html>

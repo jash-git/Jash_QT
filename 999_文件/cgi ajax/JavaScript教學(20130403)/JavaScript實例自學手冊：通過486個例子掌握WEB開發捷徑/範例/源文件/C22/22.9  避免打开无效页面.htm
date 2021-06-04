@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+<script language="javascript">
+function getURL(url)
+{
+    var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");//创建XMLHTTP对象
+    xmlhttp.open("GET",url,false);                       //打开用户指定的导航页
+    xmlhttp.send();                                      //发送信息
+    if (xmlhttp.readyState==4 && xmlhttp.Status==200)
+   	 return false;                                   //返回false表示发送不成功
+}
+function test(e, url)
+{
+  if(!getURL(e.href)) 
+        e.href = url;                                    //转换导航链接
+}
+</script>
+</head>
+<body>
+<a href="http://www.google.com" onclick="test(this, 'http://www.baidu.com/')">打开测试页</a>
+    
+</body>
+</html>

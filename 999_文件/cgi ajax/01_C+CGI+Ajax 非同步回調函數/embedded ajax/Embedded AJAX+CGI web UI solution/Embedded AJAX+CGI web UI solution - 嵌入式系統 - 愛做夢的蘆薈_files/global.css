@@ -1,0 +1,16 @@
+ body{
+	font-size:12px;
+    margin:0px;
+	padding:0px;
+	text-align:center;
+	background:#fff;
+	color:#000;
+	font-family: Verdana, Arial;
+	scrollbar-face-color: #F5F5F5; scrollbar-shadow-color: #CCCCCC;
+	scrollbar-highlight-color: #FFFFFF; scrollbar-3dlight-color: #FFFFFF;
+	scrollbar-darkshadow-color: #F5F5F5; scrollbar-track-color: #EFEFEF;
+	scrollbar-arrow-color: #7E7E7E;
+}
+ img {max-width: 100%;height: auto;}
+ select{font-family: Verdana, Arial}
+ th{background:#f5f5f1;}

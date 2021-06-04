@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>检测输入框的统一方法</title>
+<script language="JavaScript">
+function chk()
+{
+    var b=document.getElementsByTagName("input")//获取所有的输入框
+    for(var i=0;i<b.length;i++){                //遍历所有的输入框
+        if(b[i].name.substr(0,4)=="item"){      //判断输入框的前4位
+            if(b[i].value==""){
+                alert("请输入第"+(i+1)+"项的值。");//如果值为空，给出提示
+                b[i].focus();                       //值空的文本框获得焦点
+            return false;                           //返回
+            }
+        }
+    }
+    return true
+}
+</script>
+</head>
+<body>
+<form name="form1" action="http://www.google.com" onSubmit="return chk()">
+1.<input name="item1" type="text" value="" > 
+2.<input name="item2" type="text" value=""><br />
+3.<input name="item3" type="text" value="">
+4.<input name="item4" type="text" value=""><br />
+<input name="btn" type="submit" value="提交">
+</form>
+</body>
+</html>

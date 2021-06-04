@@ -1,0 +1,291 @@
+<html>
+<head>
+<title>组织结构图</title>
+<style>
+ .ItemCss
+ {
+   position:absolute;
+   width:24px;
+   border:1px solid #999999;
+   font-size:12px;
+   padding:5px;
+   height:70px;
+   z-index:9;
+   background-color:#FFFFFF;
+   line-height:16px;
+ }
+ a
+ {
+ text-decoration:none;
+ color:#333333;
+ }
+ .divhline
+ {
+  position:absolute;
+  z-index:17;
+  padding:0px;
+  margin:0px;
+  border-top:1px solid #999999;
+ }
+ .divvline
+ {
+ color:blue;
+ position:absolute;
+ background-color:#999999;
+ width:1px;
+ z-index:17;
+ }
+</style>
+<script language="javascript">
+ var dItem = new Array();
+ var w = 600;
+ var h = 40;
+ var iw = 60;
+ var ih = 70;
+ var boxh = 70;
+ var startleft = 350;
+ var starttop = 30;
+ var hr = "<hr size=\"1\" noshade>"
+ var labledv = "<div class=\"ItemCss\" style=\""
+ var hdv = "<div class=\"divhline\" style=\"width:";
+ var vdv = "<div class=\"divvline\" style=\"height:" + h + "px;\"";
+ var endsdv = "\">";
+ var enddv = "</div>";
+ var htm = "";
+ var len;
+ var maxn=0;                            //深度初始变量
+ function createStruct()
+ {
+     dItem[0] = "1|教育部|0|";           //设置要显示的结构内容-以“|”间隔
+     dItem[1] = "2|东部教育局|1|";       //注意第三项为父级节点
+     dItem[2] = "3|西部教育局|1|";
+     dItem[3] = "4|东部高校|2|";
+     dItem[4] = "5|东部高中|2|";
+     dItem[5] = "6|商务代表|5|";
+     dItem[6] = "7|东部初中|2|";
+     dItem[7] = "8|西部高校|3|";
+     dItem[8] = "9|西部高中|3|";
+     len = dItem.length;                //获取结构数组的长度
+     Set_Item(0,0);             //设置开始的节点
+     Set_Max();
+     Write_Item(0,0,0,1);
+     var htm1 = "";
+     for(var i=0;i<len;i++)
+     {
+       htm1 = htm1 +dItem[i]+"<br>";
+     }
+     document.getElementById("divStruct").innerHTML = htm;
+ }
+
+ function Set_Item(pid,ni)   //设置节点层次
+ {
+  var n = ni + 1;                   //子节点的序号
+ var iAry = new Array();
+  for(var i=0;i<len;i++)
+ {
+     iAry = dItem[i].split("|");      //分解数组中的当前节点
+  if(iAry[2] == pid)                  //是当前节点的子节点
+  {
+   dItem[i] = dItem[i] + ni;          //当前节点中添加一项
+   if(maxn < ni)              //改变结构的深度
+   {
+    maxn = ni;
+   }
+   Set_Item(iAry[0],n);        //循环设置层次
+  }
+ }
+ }
+
+ function Set_Max()   //设置节点子节点中最大数
+ {
+ var iAry = new Array();
+ var childnum;
+  for(var i=0;i<len;i++)
+ {
+     iAry = dItem[i].split("|");//分解数组中的当前节点
+  childnum = Get_Child_Num(iAry[0]);//获取当前节点的子节点
+  if(childnum <= 1)          //如果子节点数为0或1
+  {
+   dItem[i] = dItem[i] + "|0";         //当前节点中添加一项
+  }
+  else
+  {
+   dItem[i] = dItem[i] + "|" + Get_Max(iAry[0],iAry[3]);//获取最大节点
+  }
+ }
+ }
+ function Get_Max(pid,start)//获取指定节点的最大节点
+ {
+  var iAry = new Array();
+ var m = 0;
+ var n = 0;
+  for(var j=start;j<=maxn;j++)
+ {
+  for(var i=0;i<len;i++)
+  {
+   iAry = dItem[i].split("|");
+   if(iAry[3] == j)
+   {
+    if(Get_RootID(pid,iAry[0]))  //获取当前节点的根节点
+    {
+     m = m + 1;
+    }
+   }
+   if(n < m)
+   {
+    n = m;
+   }
+  }
+  m = 0;
+ }
+ return n;
+ }
+ function Get_RootID(pid,id) //获取当前节点的根节点
+ {
+ var iAry = new Array();
+  for(var i=0;i<len;i++)
+ {
+  iAry = dItem[i].split("|");//分解当前节点
+  if(iAry[0] == id)
+  {
+   if(iAry[2] == pid)
+   {
+    return true;
+    break;
+   }
+   else
+   {
+    return Get_RootID(pid,iAry[2]);//返回根节点
+   }
+  }
+ }
+ return false;
+ }
+
+ function Get_Item(id) //取得指定节点号所在的数组
+ {
+     var i;
+  var items;
+  var iAry = new Array();
+  for(i=0;i<len;i++)  //边界节点组
+  {
+   iAry = dItem[i].split("|");//分解当前节点
+  if(iAry[0] == id)
+  {
+   items = dItem[i];  //获取节点
+   break;
+  }
+  }
+  return items;
+ }
+
+ function Get_Child_Num(pid) //根据父节点取得子节点个数
+ {
+     var i;
+  var rnum = 0;
+  var iAry = new Array();
+  for(i=0;i<len;i++)         //遍历组织结构数组
+  {
+   iAry = dItem[i].split("|"); //将每一项再分离出数据
+  if(iAry[2] == pid)          //第三项便是父节点
+  {
+   rnum = rnum + 1;           //是当前节点的子节点
+  }
+  }
+  return rnum;
+ }
+
+ function Write_Item(ipid,ltmp,wtmp,cnt)
+ {
+   var iAry = new Array();
+ var id;
+ var txt;
+ var pid;
+ var lens;
+ var maxnum;
+ var t;
+ var l;
+ var hline_width;
+ var dvline = "";
+ var childnum = 0;
+ var itxt;
+ var tmpcnt = 0;
+ for(var i=0;i<len;i++)
+ {
+  itxt = dItem[i];
+  iAry = itxt.split("|");  //分解节点项
+ if(iAry[2] == ipid)
+ {
+ id = iAry[0];
+ txt = "<a href=\"?id=" + id + "\">" + iAry[1] + "</a>";//动态创建链接，链接内容来自节点数据
+ pid = iAry[2];
+ lens = iAry[3];
+ maxnum = iAry[4];
+ childnum = Get_Child_Num(id);
+ hline_width = maxnum * iw;
+ if(pid == 0)
+ {
+   t =  starttop;
+   l =  startleft;
+ }
+ else
+ {
+  t = starttop + 2 * lens * h + lens * ih;
+  l = ltmp - wtmp/2 + (wtmp / 2) * tmpcnt;
+ }
+ dvline = "";
+ if(childnum > 1)
+ {
+   var t1;
+   var l1;
+   var t2;
+   var l2;
+   var w2;
+   t1 = t + ih;
+   l1 = l + 12;
+   w2 = hline_width/2;
+   t2 = t1 + h;
+   l2 = l - w2 + 10;   //使用div实现边框效果
+   dvline = "<div class=\"divvline\" style=\"height:" + h + "px;left:" + l1 +"px;top:" + t1 + "\"></div>";
+   dvline = dvline + "<div class=\"divhline\" style=\"width:" + hline_width + "px;left:" + l2 +"px;top:" + t2 + "\"></div>";
+   for(var j=0;j<childnum;j++)
+   {
+     var t3;
+  var l3;
+  t3 = t1 + h;
+  l3 = l2 + (hline_width/(childnum-1)) * j;
+    var tmpline =  "<div class=\"divvline\" style=\"height:" + h + "px;left:" + l3 +"px;top:" + t3 + "\"></div>";
+  dvline = dvline + tmpline;
+   }
+   dvline = dvline
+   
+ }
+ else if(childnum == 1)
+ {
+  var t4;
+  var l4;
+  l4 = l + 12;//使用div实现边框效果
+  dvline = "<div class=\"divvline\" style=\"height:" + h + "px;left:" + l4 +"px;top:" + (t + ih) + "\"></div>";
+  dvline = dvline + "<div class=\"divvline\" style=\"height:" + h + "px;left:" + l4 +"px;top:" + (t + ih + h) + "\"></div>";
+  
+ }
+ htm = htm + labledv + "left:" + l + "px;top:" + t + "px" + endsdv + txt + enddv + dvline;
+ if(cnt % 2 == 0)
+ {
+  tmpcnt = tmpcnt + 2;
+ }
+ else
+ {
+  tmpcnt = tmpcnt + 1;
+ }
+ Write_Item(id,l,hline_width,childnum);//循环输出
+ 
+  }
+ }
+ }
+</script>
+</head>
+<body onLoad="createStruct()">
+<div id="divStruct"></div>
+</body>
+</html>

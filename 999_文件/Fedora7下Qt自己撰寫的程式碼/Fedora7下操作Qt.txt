@@ -1,0 +1,11 @@
+方法1-純手工
+利用 KDevelop C/C++建立 Qt Make的基本專案，之後其他的東西自己用手動輸入
+方法二-半自動
+01 利用 Qt Design設計相關畫面和事件程式
+02 使用 ucit產生相對應CPP和H檔
+   EX: 
+	uic -o form1.h form1.ui
+	uic -i form1.h -o form1.cpp form1.ui
+
+03 利用 KDevelop C/C++建立 Qt Make的基本專案
+04 加入 XXX.CPP、XXX.H、XXX.UI.H

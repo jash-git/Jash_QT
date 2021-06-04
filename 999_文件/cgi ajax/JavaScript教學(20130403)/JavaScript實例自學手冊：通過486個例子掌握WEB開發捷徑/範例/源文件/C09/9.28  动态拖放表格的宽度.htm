@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<script language="javascript">
+var dragenable=false;
+var x;
+var y;
+var w;
+var h;
+var obj;
+function init() 
+{
+    x=event.clientX+document.body.scrollLeft;  //获取x坐标
+    obj=event.srcElement;                      //获取鼠标触发的元素
+    w=event.srcElement.offsetWidth;            //对象的宽度
+    obj.setCapture();                          //接受鼠标消息
+    if(x>event.srcElement.offsetLeft+w-5 && x<event.srcElement.offsetLeft+w) {//鼠标移动到对象边界时
+    dragenable=true;obj.style.cursor='e-resize';}//改变鼠标的样式-左右拖动型
+}
+function drag() 
+{
+	if(event.clientX+document.body.scrollLeft>event.srcElement.offsetLeft+event.srcElement.offsetWidth-5 && event.clientX+document.body.scrollLeft<event.srcElement.offsetLeft+event.srcElement.offsetWidth)
+	 {event.srcElement.style.cursor='e-resize';} //改变鼠标的样式-左右拖动型
+	else 
+	  event.srcElement.style.cursor='default';//改变鼠标的样式-默认型
+    if(dragenable==true) {
+	if(event.clientX+document.body.scrollLeft-x+w>0) {
+	var i=obj.cellIndex;
+	var j;
+	for(j=0;j<obj.parentNode.parentNode.rows.length;j++) {  //更改表格的宽度
+		obj.parentNode.parentNode.rows[j].cells[i].width=event.clientX+document.body.scrollLeft-x+w;
+		}
+	}
+	else {
+		var i=obj.cellIndex;
+		var j;
+		for(j=0;j<obj.parentNode.parentNode.rows.length;j++) {
+			obj.parentNode.parentNode.rows[j].cells[i].width=1; //最小也要保持宽度为1
+			}
+		}
+	}
+}
+function end()                           //结束更改
+{
+    dragenable=false;
+    obj.releaseCapture();                //释放鼠标的捕获
+    obj.style.cursor='default';          //更改鼠标的样式为默认
+}
+</script>
+</head>
+<body bgcolor="#FFFFFF" text="#000000" leftmargin=0 topmargin=0>
+表格宽度设置为百分比显示
+<br>
+<table width="60%" border="1" cellpadding="0" cellspacing="2" onmousedown=init() onmouseup=end() onmousemove=drag() id=table1 style="table-layout:fixed">
+  <tr>
+    <td height="18" align="top">&nbsp;</td>
+    <td align="top">&nbsp;</td>
+    <td align="top">&nbsp;</td>
+    <td align="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="18" align="top">&nbsp;</td>
+    <td align="top">&nbsp;</td>
+    <td align="top">&nbsp;</td>
+    <td align="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="18" align="top">&nbsp;</td>
+    <td align="top">&nbsp;</td>
+    <td align="top">&nbsp;</td>
+    <td align="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="18" align="top">&nbsp;</td>
+    <td align="top">&nbsp;</td>
+    <td align="top">&nbsp;</td>
+    <td align="top">&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

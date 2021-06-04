@@ -1,0 +1,28 @@
+<html>
+<script language="javascript">
+var node;
+var inited=false;
+var init=function()                         //初始化方法
+{
+    node=document.getElementById("chk1");   //找到页面中的checkbox控件
+    inited=true;
+}
+var check_over=function()                   //鼠标移入事件绑定的方法
+{
+        if(!inited)
+             return;
+    node.style.borderStyle="solid";         //设置边框
+    node.style.borderColor="#FFCC00";       //设置边框颜色
+    node.style.backgroundColor="#EEEEEE";   //设置背景色
+}
+var check_out=function()                    //鼠标移入事件绑定的方法                  
+{
+    node.style.borderStyle="none";        //设置边框
+    node.style.borderColor="#FFFFFF";       //设置边框颜色-白色
+    node.style.backgroundColor="#FFFFFF";   //设置背景色
+}
+</script>
+<body onload="init()">
+<input type="checkbox" id="chk1" onmouseover="check_over()" onmouseout="check_out()" />把鼠标移过来
+</body>
+</html>

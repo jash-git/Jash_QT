@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>加载效果</title>
+<script language="javascript">
+function hideMsg()
+{
+   document.getElementById("msgDiv").innerHTML="";//取消等待状态的显示
+}
+</script>
+</head>
+<body onunload="window.open('http://http://www.google.com')" scroll=no topmargin=0 leftmargin=0 rightmargin=0 bottommargin=0>
+<div style="position:absolute;top:10;left:10;" id="msgDiv"><font color=red>loading.........</font></div>
+<iframe onload="hideMsg()" style="position:absolute;top:40;left:10;" src="http://www.sina.com.cn" width=300 height=200></iframe>
+</body>
+</html>

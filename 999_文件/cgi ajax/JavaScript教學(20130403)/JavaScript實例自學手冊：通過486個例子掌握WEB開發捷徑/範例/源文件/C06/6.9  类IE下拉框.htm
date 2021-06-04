@@ -1,0 +1,22 @@
+<html>
+<head>
+<script language="javascript">
+    function selectChange()
+    {
+        document.all.text.value = document.all.select.value;
+        window.location.href=  document.all.text.value;
+    }
+</script>
+</head>
+<body>
+<div>
+<select id='select' style="position:absolute;width:300px;clip: rect(0 320 260 280)" onchange="selectChange()">
+<option value='http://www.google.com'>"http://www.google.com</option>
+<option value='>http://www.baidu.com'>http://www.baidu.com </option>
+<option value='http://www.sina.com.cn '> http://www.sina.com.cn </option>
+<option value='http://www.sohu.com'> http://www.sohu.com </option>
+</select>
+<input type='text' id='text'style="position:absolute;width:300px;" value="http://www.google.com" onfocus="this.value='';document.all.select.value='';">
+</div>
+</body>
+</html>

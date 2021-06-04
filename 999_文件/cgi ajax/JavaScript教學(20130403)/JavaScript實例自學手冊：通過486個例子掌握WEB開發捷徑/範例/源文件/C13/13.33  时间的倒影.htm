@@ -1,0 +1,42 @@
+<html>
+<head>
+<style type="text/css">
+.time{font-family : Comic Sans Ms;
+font-size : 16pt;font-weight : bold;color: #00008D;}
+</style>
+<script Language="JavaScript">
+    var circletimer;
+    function init()  
+    {
+        if (document.all)
+        {
+            //初始化2个div的默认位置
+            time2.style.left=time1.style.posLeft;
+            time2.style.top=time1.style.posTop+time1.offsetHeight-5;
+            settimes();
+        }
+    }
+    function settimes()
+    {
+       //获取当前时间
+        var time= new Date();
+        hours= time.getHours();
+        mins= time.getMinutes();
+        secs= time.getSeconds();
+        if (hours<10)
+          hours="0"+hours;
+        if(mins<10)
+           mins="0"+mins;
+        if (secs<10)
+          secs="0"+secs;
+        time1.innerHTML=hours+":"+mins+":"+secs;
+        time2.innerHTML=hours+":"+mins+":"+secs;
+        circletimer=setInterval('settimes()',10000); //循环时间显示
+    }
+</script>
+</head>
+<body onload="init()">
+<div Id="time1" Style="position:absolute; width:10; height:10; top:10; left:50"  class="time"></div>
+<div Id="time2"  Style="position:absolute; filter:flipv() alpha(opacity=20); font-style:italic"class="time"></div>
+</body>
+</html>

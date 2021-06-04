@@ -1,0 +1,5 @@
+echo "jash liao 1" >>/home/jash/data.txt
+cat /dev/null >/home/jash/data.txt
+
+tail -f /home/jash/data.txt
+tail -f /home/jash/data.txt|awk -F" " '{print $1" "$2}' 

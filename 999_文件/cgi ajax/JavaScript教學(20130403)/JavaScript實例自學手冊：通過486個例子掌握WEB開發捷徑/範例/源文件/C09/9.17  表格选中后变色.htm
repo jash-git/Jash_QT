@@ -1,0 +1,72 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+<script language="javascript">
+    var searchResult=new Array();//鼠标滑过时显示背景色
+    //改变背景色和边框颜色的方法
+	function colorChange(table,color,color2)
+	{
+		table.style.borderColor=color;
+		table.style.backgroundColor=color2;
+	}
+	//鼠标移动过来后，更改颜色
+	function colorChange_on(e)
+	{
+		if (document.all)
+			source1=event.srcElement
+		else if (document.getElementById)
+			source1=e.target;
+		if (source1.id=="mytable"){
+			colorChange(source1,"#999999","#F8F8F6");
+		}
+		else{
+			while(source1.tagName!="TABLE")
+			{
+				source1=document.getElementById? source1.parentNode : source1.parentElement;
+				if (source1.id=="mytable")
+					colorChange(source1,"#999999","#F8F8F6");
+			}
+		}
+	}
+    //鼠标移走后，将颜色设置为白色
+	function colorChange_off(e)
+	{
+		if (document.all)
+			source2=event.srcElement
+		else if (document.getElementById)
+			source2=e.target
+		if (source2.id=="mytable")
+			colorChange(source2,"white","white")
+		else{
+			while(source2.tagName!="TABLE")
+			{
+				source2=document.getElementById? source2.parentNode : source2.parentElement
+				if (source2.id=="mytable")
+					colorChange(source2,"white","white")
+			}
+		}
+	} 		
+</script>
+</head>
+<body>
+  <table width="80%" border="0" onMouseOver="colorChange_on(event)" 
+onMouseOut="colorChange_off(event)" id="mytable" >
+    <TR>
+	    <TD>鼠标移动</TD>
+	    <TD>鼠标移动</TD>
+    </TR>
+    <TR>
+	    <TD>鼠标移动</TD>
+	    <TD>鼠标移动</TD>
+    </TR>
+    <TR>
+	    <TD>鼠标移动</TD>
+	    <TD>鼠标移动</TD>
+    </TR>
+    <TR>
+	    <TD>鼠标移动</TD>
+	    <TD>鼠标移动</TD>
+    </TR>
+</table>
+</body>
+</html>

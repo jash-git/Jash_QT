@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script>
+window.onerror=function(){      //错误事件重写
+	throw new Error("出错了");
+}
+function setError(){
+	throw new Error("出错了");
+}
+try{
+	setError("mm")      //触发错误
+	}
+	catch(e){           //捕获错误
+		alert(e.description);//显示错误内容
+	}
+
+</script>
+</head>
+<body>
+</body>
+</html>

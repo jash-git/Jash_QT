@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script LANGUAGE="JavaScript">
+function deleteRow (tableID, rowIndex) 
+{  
+  var table =document.all[tableID]  //获得当前表格
+  table.deleteRow(rowIndex);        //通过行索引删除行
+} 
+</script>
+</head>
+<body>
+<table id=mytable border=1><tr>
+<td>第1行</td><td onclick="deleteRow('mytable',this.parentElement.rowIndex)">删除当前行</td>
+</tr><tr><td>第2行</td><td onclick="deleteRow('mytable',this.parentElement.rowIndex)">删除当前行</td>
+</tr><tr><td>第3行</td><td onclick="deleteRow('mytable',this.parentElement.rowIndex)">删除当前行</td>
+</tr><tr><td>第4行</td><td onclick="deleteRow('mytable',this.parentElement.rowIndex)">删除当前行</td>
+</tr></table>  
+</body>
+</html>

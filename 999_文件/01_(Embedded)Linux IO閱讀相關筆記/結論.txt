@@ -1,0 +1,7 @@
+要閱讀清楚每一個ARM最快方法就是下載對應的PDF+對應原廠的LIB
+
+例如:Broadcom BCM2835.pdf+bcm2835-1.36.tar.gz
+
+GOOGLE查詢對應的LIB方法: s3c2410(IC名稱) gpio code
+
+(2014/09/16 by jash)

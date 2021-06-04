@@ -1,0 +1,9 @@
+在Ubuntu 10.10 要掛載網路磁碟機並且可以讀寫權限
+拷貝來源:http://louis3c.blogspot.tw/2013/03/untuntumount-smbfs-with-read-and-write.html
+
+1. 建立目錄(Create folder)
+cd /media
+sudo mkdir temp 
+
+2.掛載網路磁碟機 (Mount samba share folder)
+sudo smbmount //ip_address/foldername /media/temp -o user=username,pass=password,iocharset=utf8,dir_mode=0777,file_mode=0777,uid=current login user name

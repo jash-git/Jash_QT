@@ -1,0 +1,474 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<HTML
+><HEAD
+><TITLE
+>HIDDEV examples</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.64
+"><LINK
+REL="HOME"
+TITLE="USB HID for Linux USB"
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"><LINK
+REL="UP"
+TITLE="Examples"
+HREF="p512.html" tppabs="http://www.frogmouth.net/hid-doco/p512.html"><LINK
+REL="PREVIOUS"
+TITLE="Examples"
+HREF="p512.html" tppabs="http://www.frogmouth.net/hid-doco/p512.html"><LINK
+REL="NEXT"
+TITLE="EVDEV examples"
+HREF="c537.html" tppabs="http://www.frogmouth.net/hid-doco/c537.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>USB HID for Linux USB</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="p512.html" tppabs="http://www.frogmouth.net/hid-doco/p512.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="c537.html" tppabs="http://www.frogmouth.net/hid-doco/c537.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="AEN514"
+>HIDDEV examples</A
+></H1
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="note.gif" tppabs="http://www.frogmouth.net/hid-doco/stylesheet-images/note.gif"
+HSPACE="5"
+ALT="Note"></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>These complete examples will compile with <TT
+CLASS="USERINPUT"
+><B
+>gcc -Wall
+-W</B
+></TT
+>.</P
+><P
+>If you have updated your linux kernel, and have not updated your header
+files, you may need to use the <TT
+CLASS="USERINPUT"
+><B
+>-I</B
+></TT
+> option to
+pick up the version of <TT
+CLASS="FILENAME"
+>hiddev.h</TT
+> from your new
+kernel. For example, if you have the kernel in a directory
+<TT
+CLASS="FILENAME"
+>/a/b/c</TT
+>, then you would compile the first example
+with the command <TT
+CLASS="USERINPUT"
+><B
+>gcc -Wall -W -I/a/b/c/include example1.c
+-o example1</B
+></TT
+>. Naturally, you replace
+<TT
+CLASS="FILENAME"
+>/a/b/c</TT
+> with the directory you really used.</P
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN525"
+></A
+><P
+><B
+>Example 1. HIDIOCVERSION example</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>/*
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or 
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+
+#include &#60;stdlib.h&#62;
+#include &#60;stdio.h&#62;
+#include &#60;sys/ioctl.h&#62;
+#include &#60;sys/types.h&#62;
+#include &#60;sys/stat.h&#62;
+#include &#60;asm/types.h&#62;
+#include &#60;fcntl.h&#62;
+#include &#60;unistd.h&#62;
+#include &#60;linux/hiddev.h&#62;
+
+
+int main (int argc, char **argv) {
+
+  int fd = -1;
+  int version;
+
+  /* ioctl() requires a file descriptor, so we check we got one, and then open it */
+  if (argc != 2) {
+    fprintf(stderr, "usage: %s hiddevice - probably /dev/usb/hiddev0\n", argv[0]);
+    exit(1);
+  }
+  if ((fd = open(argv[1], O_RDONLY)) &#60; 0) {
+    perror("hiddev open");
+    exit(1);
+  }
+
+  /* ioctl() accesses the underlying driver */
+  ioctl(fd, HIDIOCGVERSION, &#38;version);
+
+  /* the HIDIOCGVERSION ioctl() returns an int */
+  /* so we unpack it and display it */
+  printf("hiddev driver version is %d.%d.%d\n",
+	 version &#62;&#62; 16, (version &#62;&#62; 8) &#38; 0xff, version &#38; 0xff);
+
+  close(fd);
+
+  exit(0);
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN529"
+></A
+><P
+><B
+>Example 2. HIDIOCGDEVINFO example</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>/*
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or 
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+
+#include &#60;stdlib.h&#62;
+#include &#60;stdio.h&#62;
+#include &#60;sys/ioctl.h&#62;
+#include &#60;sys/types.h&#62;
+#include &#60;sys/stat.h&#62;
+#include &#60;asm/types.h&#62;
+#include &#60;fcntl.h&#62;
+#include &#60;unistd.h&#62;
+#include &#60;linux/hiddev.h&#62;
+
+
+int main (int argc, char **argv) {
+
+  int fd = -1;
+  struct hiddev_devinfo device_info;
+
+  /* ioctl() requires a file descriptor, so we check we got one, and then open it */
+  if (argc != 2) {
+    fprintf(stderr, "usage: %s hiddevice - probably /dev/usb/hiddev0\n", argv[0]);
+    exit(1);
+  }
+  if ((fd = open(argv[1], O_RDONLY)) &#60; 0) {
+    perror("hiddev open");
+    exit(1);
+  }
+
+  /* suck out some device information */
+  ioctl(fd, HIDIOCGDEVINFO, &#38;device_info);
+
+  /* the HIDIOCGDEVINFO ioctl() returns hiddev_devinfo
+   * structure - see &#60;linux/hiddev.h&#62; 
+   * So we work through the various elements, displaying 
+   * each of them 
+   */
+  printf("vendor 0x%04hx product 0x%04hx version 0x%04hx ",
+          device_info.vendor, device_info.product, device_info.version);
+  printf("has %i application%s ", device_info.num_applications,
+         (device_info.num_applications==1?"":"s"));
+  printf("and is on bus: %d devnum: %d ifnum: %d\n",
+         device_info.busnum, device_info.devnum, device_info.ifnum);
+
+  close(fd);
+
+  exit(0);
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN533"
+></A
+><P
+><B
+>Example 3. HIDIOCAPPLICATION example</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>/*
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or 
+ * (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ */
+
+
+#include &#60;stdlib.h&#62;
+#include &#60;stdio.h&#62;
+#include &#60;sys/ioctl.h&#62;
+#include &#60;sys/types.h&#62;
+#include &#60;sys/stat.h&#62;
+#include &#60;asm/types.h&#62;
+#include &#60;fcntl.h&#62;
+#include &#60;unistd.h&#62;
+#include &#60;linux/hiddev.h&#62;
+
+
+int main (int argc, char **argv) {
+
+  int fd = -1;
+  unsigned int yalv;
+  int appl;
+  struct hiddev_devinfo device_info;
+
+  /* ioctl() requires a file descriptor, so we check we got one, and then open it */
+  if (argc != 2) {
+    fprintf(stderr, "usage: %s hiddevice - probably /dev/usb/hiddev0\n", argv[0]);
+    exit(1);
+  }
+  if ((fd = open(argv[1], O_RDONLY)) &#60; 0) {
+    perror("hiddev open");
+    exit(1);
+  }
+
+  /* suck out some device information */
+  ioctl(fd, HIDIOCGDEVINFO, &#38;device_info);
+
+ /* Now that we have the number of applications (in the
+  * device_info.num_applications field), 
+  * we can retrieve them using the HIDIOCAPPLICATION ioctl()
+  * applications are indexed from 0..{num_applications-1}
+  */
+  for (yalv = 0; yalv &#60; device_info.num_applications; yalv++) {
+    appl = ioctl(fd, HIDIOCAPPLICATION, yalv);
+    if (appl &#62; 0) {
+	printf("Application %i is 0x%x ", yalv, appl);
+	/* The magic values come from various usage table specs */
+	switch ( appl &#62;&#62; 16)
+	    {
+	    case 0x01 :
+		printf("(Generic Desktop Page)\n");
+		break;
+	    case 0x0c :
+		printf("(Consumer Product Page)\n");
+		break;
+	    case 0x80 :
+		printf("(USB Monitor Page)\n");
+		break;
+	    case 0x81 :
+		printf("(USB Enumerated Values Page)\n");
+		break;
+	    case 0x82 :
+		printf("(VESA Virtual Controls Page)\n");
+		break;
+	    case 0x83 :
+		printf("(Reserved Monitor Page)\n");
+		break;
+	    case 0x84 :
+		printf("(Power Device Page)\n");
+		break;
+	    case 0x85 :
+		printf("(Battery System Page)\n");
+		break;
+	    case 0x86 :
+	    case 0x87 :
+		printf("(Reserved Power Device Page)\n");
+		break;
+	    default :
+		printf("(Unknown page - needs to be added)\n");
+	    }
+    }
+  }
+
+  close(fd);
+
+  exit(0);
+}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="p512.html" tppabs="http://www.frogmouth.net/hid-doco/p512.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="c537.html" tppabs="http://www.frogmouth.net/hid-doco/c537.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Examples</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="p512.html" tppabs="http://www.frogmouth.net/hid-doco/p512.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>EVDEV examples</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

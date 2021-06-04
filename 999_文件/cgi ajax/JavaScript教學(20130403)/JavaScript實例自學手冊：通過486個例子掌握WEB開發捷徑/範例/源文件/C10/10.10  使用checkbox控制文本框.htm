@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+<title>Untitled Document</title>
+<script language="javascript">
+function chkOper(chk)
+{
+	var inputs = chk.parentNode.parentNode.cells[1].getElementsByTagName("input");//通过父级节点获取输入框
+	var status = chk.checked;                                                   //判断复选框是否选中的变量
+	for(var i=0,j=inputs.length;i<j;i++)                                          //遍历每个input控件
+		inputs[i].disabled = status;                                              //通过复选框的值设置每个input控件的可用性
+}
+</script>
+</head>
+
+<body>
+<table width="500" border="1" cellspacing="1" cellpadding="1">
+  <tr>
+    <td width="40px" align="center">
+    <input type="checkbox" name="checkbox" id="" onclick="chkOper(this)"/></td>
+    <td width="230px">
+      <input type="text" name="textfield" id="Text1" />
+    </td>
+    <td width="230px">第一行</td>
+  </tr>
+  <tr>
+    <td align="center"><input type="checkbox" name="checkbox" id="Checkbox1"  onclick="chkOper(this)"/></td>
+    <td><input type="text" name="textfield2" id="textfield2" /></td>
+    <td>第二行</td>
+  </tr>
+  <tr>
+    <td align="center"><input type="checkbox" name="checkbox" id="Checkbox2" / onclick="chkOper(this)"></td>
+    <td><input type="text" name="textfield3" id="textfield3" /></td>
+    <td>第三行</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script>
+var starNum=0;
+function chgStar()
+{
+    starNum=event.srcElement.id.slice(-1);                  //从第一个到结束
+    for (var i=1;i<=6;i++) eval("id"+i).innerText="☆";     //显示的星星
+    for (var j=1;j<=starNum;j++) eval("id"+j).innerText="★";//选中的星星
+}
+
+function getStar()
+{
+    alert("用户的评价是"+starNum+"颗星!");          //显示评级数
+}
+
+for (var i=1;i<=6;i++)
+{ 
+    //动态输出span，并设置span的样式和事件
+    document.write('<span id="id'+i+'" onclick="chgStar()" style="cursor:hand;">☆</span>');
+}
+document.write('<br/><br/><button onclick="getStar()">评级分数</button>');//动态输出按钮，包括其事件
+</script>
+</head>
+<body>
+</body>
+</html>

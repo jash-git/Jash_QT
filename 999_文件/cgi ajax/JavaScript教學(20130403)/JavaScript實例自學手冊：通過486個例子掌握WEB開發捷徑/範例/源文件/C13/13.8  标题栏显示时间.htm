@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+var clocktext;
+var pagetitle = document.title;  // 获取页面标题
+function viewTime() 
+{
+today = new Date();             //获取当前日期
+sec = today.getSeconds();       //获取秒
+hr = today.getHours();          //获取小时
+min = today.getMinutes();       //获取分钟
+if (hr <= 9) hr = "0" + hr;     //显示2位的小时
+if (min <= 9) min = "0" + min;  //显示2位的分钟
+if (sec <= 9) sec = "0" + sec;  //显示2位的秒
+var clocktext = " 当前时间是: " + hr + ":" + min + ":" + sec;
+//间隔1000毫秒实现时间的更新
+clocktimer = setTimeout("viewTime()", 1000);
+document.title = pagetitle + clocktext;  //重新显示标题
+}
+if (document.all) viewTime();            //如果是IE浏览器
+</script>
+</head>
+<body>
+</body>
+</html>

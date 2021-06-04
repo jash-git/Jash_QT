@@ -1,0 +1,64 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+<style>
+    .resizeDivClass
+    {
+    position:relative;
+    background-color:gray;
+    width:2;
+    z-index:1;
+    left:expression(this.parentElement.offsetWidth-1);
+    cursor:e-resize;
+}
+</style>
+
+<script language=javascript>
+//鼠标按下时的方法
+function MouseDownToResize(obj)
+{
+    obj.mouseDownX=event.clientX;                 //当前鼠标X坐标
+    obj.pareneTdW=obj.parentElement.offsetWidth;  //父元素的宽度
+    obj.pareneTableW=table1.offsetWidth;          //表格的宽度
+    obj.setCapture();                             //捕获鼠标方法
+}
+//鼠标移动时的方法
+function MouseMoveToResize(obj)
+{
+    if(!obj.mouseDownX) return false;             //判断是否是否已经按下
+    var newWidth=obj.pareneTdW*1+event.clientX*1-obj.mouseDownX;
+    if(newWidth>0)
+    {
+        obj.parentElement.style.width = newWidth;
+        table1.style.width=obj.pareneTableW*1+event.clientX*1-obj.mouseDownX;//重新设计宽度
+    }
+}
+//鼠标抬起时的方法
+function MouseUpToResize(obj)
+{
+    obj.releaseCapture();                      //释放鼠标的捕获
+    obj.mouseDownX=0;                          //鼠标抬起
+}
+
+</script>
+</head>
+<body>
+<table id=table1 STYLE="table-layout:fixed" >
+<tr bgcolor=cccccc >
+<td valign=top >
+<font class="resizeDivClass" onmousedown="MouseDownToResize(this);" onmousemove="MouseMoveToResize(this);" onmouseup="MouseUpToResize(this);"></font>
+姓名</td>
+<td valign=top >
+<font class="resizeDivClass" onmousedown="MouseDownToResize(this);" onmousemove="MouseMoveToResize(this);" onmouseup="MouseUpToResize(this);"></font>
+年龄</td>
+<td valign=top >
+<font class="resizeDivClass" onmousedown="MouseDownToResize(this);" onmousemove="MouseMoveToResize(this);" onmouseup="MouseUpToResize(this);"></font>
+所在城市</td>
+</tr>
+
+<tr>
+<td>长三</td><td>35</td><td>中国山东省济南市天桥区</td>
+</tr>
+</table>
+</body>
+</html>

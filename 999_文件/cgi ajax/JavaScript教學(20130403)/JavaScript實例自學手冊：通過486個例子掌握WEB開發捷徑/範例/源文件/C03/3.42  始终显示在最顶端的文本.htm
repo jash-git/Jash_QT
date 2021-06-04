@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+                    
+<script language="JavaScript">
+    function StaticDiv(theName,Top,Left) 
+    {
+        RealTop=parseInt(document.body.scrollTop);  //获取当前屏幕的X坐标
+        TrueTop=Top+RealTop;                        
+        document.all[theName].style.top=TrueTop;    //指定div的X坐标位置
+        RealLeft=parseInt(document.body.scrollLeft);//获取当前屏幕的Y坐标
+        TrueLeft=Left+RealLeft;
+        document.all[theName].style.left=TrueLeft; //指定div的Y坐标位置
+    }
+    setInterval('StaticDiv("AlwaysDiv",0,0)',1);  //定时重置div的位置
+</script>
+</head>
+<body>
+<div id="AlwaysDiv" style="position:absolute; left:1.5px; top:0px; width:230px; height:30px; z-index:10"> 
+       <font size="5"><b>保持最顶端的文字</b></font>
+</div>
+    <p>
+        调试其他进程的能力赋予您极广泛的权力，这是无法通过其他途经获得的，在进行远程调试时更是如此。恶意的调试器可能对正在调试的计算机造成大范围的损害。因此，对可能进行调试的人要有所限制。有关更多信息，请参见<a
+           >远程调试权限</a>。</p>
+    <p>
+        但是，许多开发人员没有意识到安全威胁也可以从相反的方向产生。调试对象进程中的恶意代码可能危害调试计算机的安全：有许多必须防范的不道德的安全利用。</p>
+    <h1 >
+        安全性最佳做法</h1>
+    <div>
+        <p>
+            正在调试的代码与调试器之间有一种隐式信任关系。如果想调试代码，您还应该乐于运行它。您起码必须能够信任要调试的代码。如您无法信任它，就不应对它进行调试，或者应在可以承担风险且处于独立环境的计算机上对其进行调试。</p>
+        <p>
+            为了缩小潜在的攻击面，应在生产计算机上禁用调试。出于同样的原因，永远不应无限制地启用调试。
+        </p>
+</div>
+
+</body>
+</html>

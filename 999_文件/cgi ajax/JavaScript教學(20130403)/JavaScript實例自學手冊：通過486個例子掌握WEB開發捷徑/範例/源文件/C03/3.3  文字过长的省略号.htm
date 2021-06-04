@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+<script Language="javascript"> 
+var sText="这是一段很长的文本，希望通过省略号实现";
+var content;
+function OmitText()
+{
+   content="<nobr>" +sText +"</nobr>";
+   document.getElementById("mydiv").innerHTML=content;
+} 
+</script>
+</head>
+<body>
+<input type=button value=加载 onclick="OmitText()"> 
+<DIV STYLE="width: 150px; height: 50px; border: 1px solid black; 
+            overflow: hidden; text-overflow:ellipsis" id="mydiv"> 
+</DIV>
+
+</body>
+</html>

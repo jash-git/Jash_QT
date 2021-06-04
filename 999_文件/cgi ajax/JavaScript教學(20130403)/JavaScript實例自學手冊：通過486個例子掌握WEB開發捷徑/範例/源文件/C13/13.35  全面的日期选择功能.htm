@@ -1,0 +1,102 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+当前：<br />
+<input type="text" id="date1" value="">
+<input type="text" id="date2" value="">
+<BR>
+<select onchange="eval(this.options[this.selectedIndex].touch)">
+<option touch="today()">本日</option>
+<option touch="yesterday()">昨日</option>
+<option touch="toWeek()">本周</option>
+<option touch="lastWeek()">上周</option>
+<option touch="toMonth()">本月</option>
+<option touch="toYear()">本年</option>
+</select>
+<SCRIPT LANGUAGE="JavaScript">
+	function today(){
+		var now=new Date();       //获取当前日期
+		var tmpStr = now.getYear()+ "-"; //当前年
+		tmpStr += now.getMonth()+1 +"-";//当前月
+		tmpStr += now.getDate();       //当前日
+		date1.value=tmpStr;           
+		date2.value=tmpStr;            //显示当前的月日年连接字符串
+	}
+
+	function yesterday(){             //获取昨天的日期
+		var now=new Date();
+		var tmpStr = now.getYear()+ "-"; //当前年
+		tmpStr += now.getMonth()+1 +"-"; //当前月
+		tmpStr += (now.getDate() - 1);    //当前日
+		date1.value=tmpStr;
+		date2.value=tmpStr;            //显示昨天的月日年连接字符串
+	}
+
+	function toYear(){
+		var now=new Date();
+		var tmpStr;
+		tmpStr = now.getYear()+ "-";  //当前年
+		date1.value=tmpStr+"1-1";     //年的开始
+		date2.value=tmpStr+"12-31";   //年的结束
+	}
+
+	function toMonth(){
+		var now=new Date();
+		var tmpStr,dt;
+		tmpStr = now.getYear()+ "-";  //当前年
+		tmpStr += now.getMonth()+1 +"-"; //月份+1    
+		tmpStr += (now.getDate() - now.getDate())+1; //天数+1
+		date1.value=tmpStr;
+		dt = new Date(now.getFullYear(), now.getMonth() + 1, 0); 
+		date2.value=replStr(dt.toLocaleDateString());
+	}
+
+	function lastWeek(){                //上周
+		var now=new Date();
+		var currentWeek = now.getDay();//获取一周中的第几天
+		if ( currentWeek == 0 )        //0在英文中表示第一天，中文表示最后一天
+			 {
+			 currentWeek = 7;
+			 } 
+
+		var monday = now.getTime() - (currentWeek+6)*24*60*60*1000;
+		monday = replStr(new Date(monday).toLocaleDateString());//获取周一
+		var sunday = now.getYear()+ "-"; 
+		sunday += now.getMonth()+1 +"-";                        //获取周日
+		if ( currentWeek == 7 )
+		{
+			sunday += (now.getDate() - 7); 
+		}else{
+			sunday += (now.getDate() - currentWeek); 
+		}		
+		date1.value=monday;
+		date2.value=sunday;                                    //显示周一到周日的时间
+	}
+
+	function toWeek(){
+		var now=new Date();
+		var currentWeek = now.getDay();
+		if ( currentWeek == 0 )
+			 {
+			 currentWeek = 7;
+			 } 
+		var monday = now.getTime() - (currentWeek-1)*24*60*60*1000;//获取周一
+		var sunday = now.getTime() + (7-currentWeek)*24*60*60*1000;
+		monday = replStr(new Date(monday).toLocaleDateString());//获取周日
+		sunday = replStr(new Date(sunday).toLocaleDateString());
+		date1.value=monday;
+		date2.value=sunday;//显示周一到周日的时间
+	}
+
+	function replStr(str)
+	{
+		str = str.replace("年","-");//替换字符串-显示中文日期
+		str = str.replace("月","-");
+		str = str.replace("日","");
+		return str;
+	}
+</SCRIPT>
+</body>
+</html>

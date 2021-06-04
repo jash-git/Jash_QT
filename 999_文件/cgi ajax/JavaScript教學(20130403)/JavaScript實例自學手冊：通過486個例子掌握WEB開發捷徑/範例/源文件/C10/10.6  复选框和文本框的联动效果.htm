@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="javascript">
+function chk(obj,txtIndex)
+{
+	var tmpInput = document.getElementsByName("textfield")[txtIndex];	//获取指定的文本框
+	obj.checked?tmpInput.disabled=false:tmpInput.disabled=true;         //判断文本框是否处于选中状态
+}
+</script>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <input name="che" type="checkbox" value="" onclick="chk(this,'0')"/>
+  <input type="text" name="textfield" disabled=true /><BR/>
+  <input name="che" type="checkbox" value="" onclick="chk(this,'1')"/>
+  <input type="text" name="textfield" disabled=true /><BR/>
+  <input name="che" type="checkbox" value="" onclick="chk(this,'2')"/>
+  <input type="text" name="textfield" disabled=true /><BR/>
+</form>
+</body>
+</html>

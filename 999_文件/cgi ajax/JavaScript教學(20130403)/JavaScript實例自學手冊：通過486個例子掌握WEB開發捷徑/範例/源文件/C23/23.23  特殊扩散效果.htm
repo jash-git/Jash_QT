@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+<script language="javascript">
+var x,y;
+var timer;
+var i_fontsize=0;
+var step=0;
+var thisx,thisy;
+//根据不同浏览器下的鼠标位置
+function handlerMM(e)
+{
+x = (document.layers) ? e.pageX : event.clientX;
+y = (document.layers) ? e.pageY : event.clientY;
+}
+function mydivup() 
+{
+if (document.all) {
+thisx = x;
+thisy = y;
+mydivup2();
+}
+}
+//实现特殊效果的方法
+function mydivup2() 
+{
+if (i_fontsize<=1000) { 
+document.all.mydiv.style.fontSize=i_fontsize;
+document.all.mydiv.style.color="rgb(255,"+Math.floor(i_fontsize/6)+","+Math.floor(i_fontsize/6)+")";
+document.all.mydiv.style.posLeft=thisx-(Math.floor(i_fontsize/3));  //X坐标的变化
+document.all.mydiv.style.posTop=thisy-(Math.floor(i_fontsize/1.4)); //Y坐标的变化
+step+=2;
+i_fontsize+=step;    //字体逐渐变大
+timer=setTimeout("mydivup(2)",50);
+}
+else {
+clearTimeout(timer);
+i_fontsize=0;
+step=0;
+document.all.mydiv.style.posTop=-10000;}
+}
+document.onmousemove = handlerMM;
+</script>
+<style>
+.mydivstyle {
+position:absolute;
+visibility:visible;
+top:-50px;
+font-size:5pt;
+font-family:Verdana;
+color:FF0000
+}
+.explain {
+position:absolute;
+top:80px; 
+left:40px; 
+width:300px; 
+color:000000;
+text-align:center;
+font-size:20pt;
+font-family:Times;
+}
+</style>
+</head>
+<body>
+<div id="mydiv" class="mydivstyle">
+<p><font color="#eec0cc"><<>>)</font></p>
+</div><div id="redirection" class="explain">
+<p><a target="_blank" onMouseOver="mydivup()"
+href="http://www.google.com">把鼠标移动到此处</a></p>
+</div>
+</body>
+</html>

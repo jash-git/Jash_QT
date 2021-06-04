@@ -1,0 +1,62 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style type="text/css">
+#divMsg{
+line-height:20px;
+height:20px;
+overflow:hidden;
+}
+</style>
+<script type="text/javascript">
+var Scroll = new function(){
+    this.delay   = 2000;    //延迟的时间
+    this.height  = 20;      //行的高度
+    this.step    = 4;       //步长
+    this.curHeight= 0;
+    this.stimer  = null;
+    this.timer   = null; 
+    this.start   = function(){                  //开始翻页-调用move方法
+        this.move();
+    }
+    this.move  = function(){
+        var self = this;
+        if(this.curHeight == this.height)       //如果显示完一行
+        {
+            this.timer = setTimeout(function(){ //使用定时器-定时下一行的翻页时间
+            self.move();
+        }, this.delay);
+        this.curHeight = 0;
+        if(this.element.scrollTop >= this.element.scrollHeight - this.height){ //滚动信息已经完毕
+        this.element.scrollTop = 0;
+        }
+        return true;
+        }
+        this.element.scrollTop += this.step;
+        this.curHeight += this.step;
+        this.timer = setTimeout(function(){   //设置自动翻页定时器
+        self.move();
+        }, 30);
+    }
+    this.stop = function(){        //清除定时期，停止滚动翻页
+        clearTimeout(this.timer);
+    }
+}
+</script>
+</head>
+<body>
+<div id="divMsg">
+    张三奥运会历史性的突破，拿到了男子100米金牌<br/>
+    奥运会历史上的首位8金得主<br/>
+    北京奥运会欢迎志愿者的参与<br/>
+    奥运会带来了什么样的商机<br/>
+    北京奥运会2008年举行<br/>
+    娱乐新闻请转到娱乐主页<br/>
+    今天又获得一枚金牌<br/>
+</div><script type="text/javascript">
+Scroll.element = document.getElementById('divMsg');
+Scroll.start();
+</script>
+<input type="button" value="开始" onclick="Scroll.start()"/>
+<input type="button" value="停止" onclick="Scroll.stop()"/>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+  <title>Check Score</title>
+<style type="text/css">
+#name div.text{
+    float:left;
+    width:118px;
+    font-size:12px;
+    text-align:right;
+    font-weight:bold;
+    }
+#name div.redstar {
+float:right;
+width:10px;
+font-size:12px;
+text-align:right;
+font-weight:normal;
+color:#ff0000;
+margin-right:3px;
+}
+div.input{
+width:257px;
+text-align:left;
+float:left;
+font-size:12px;
+}
+div.note{
+width:310px;
+float:right;
+text-align:left;
+font-size:12px;
+color:#999999;
+padding:3px;
+line-height:130%;
+background:#ffffff;
+border:#ffffff 1px solid;
+}
+div.notetrue{
+width:310px;
+float:right;
+text-align:left;
+font-size:12px;
+padding:3px;
+line-height:130%;
+color:#485E00;
+background:#F7FFDD;
+border:#485E00 1px solid;
+}
+div.noteawoke{
+        display: none;
+width:310px;
+float:right;
+text-align:left;
+        font-size:12px;
+        color:#ff0000;
+padding:3px;
+line-height:130%;
+background:#fff5d8;
+border:#ff7300 1px solid;
+background-repeat:no-repeat;
+background-position:2 3px;
+margin:0px;
+}
+</style>
+ </head>
+ <body>
+ <table>
+    <tr>
+        <td id="name"><div class="text">得分</div><div class="redstar">*</div></td>
+        <td><div class="input"><input type="text" id="txtScore" /><div></td>
+        <td><div class="note" id="divTipInfo">请输入 0-100 之间的数字！</div><div class="noteawoke" id="divAlarmInfo">数据输入错误，重新输入！</div></td>
+    </tr>
+ </table>
+<script type="text/javascript">
+var oScore = document.getElementById("txtScore");    //获取输入文本框
+var oNote = document.getElementById("divTipInfo");   //获取提示信息框
+var oAlarm = document.getElementById("divAlarmInfo");//获取警告信息框
+oScore.onfocus = function()
+{
+    oNote.className = "notetrue"; //获取焦点时改变样式
+}
+oScore.onblur = function()　　　　//失去焦点时的方法
+{
+    if (this.value != "")
+    {
+        var score = parseInt(this.value);　　//转换数值类型
+        //判断输入内容是否符合条件
+        if (isNaN(score) || !(score>=0 && score<=100))
+        {
+            oAlarm.style.display = "block";
+            oNote.style.display = "none";
+        }
+        else
+        {
+            this.value = score;
+            oAlarm.style.display = "none";
+            oNote.className = "note";
+            oNote.style.display = "block";
+        }
+    }
+    else
+    {
+    　　//用户没有输入的情况下
+        oAlarm.style.display = "none";
+        oNote.className = "note";
+        oNote.style.display = "block";
+    }
+}
+  </script>
+ </body>
+</html>

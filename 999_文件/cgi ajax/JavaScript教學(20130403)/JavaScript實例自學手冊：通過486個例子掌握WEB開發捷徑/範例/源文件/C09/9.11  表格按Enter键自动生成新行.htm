@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script LANGUAGE="JavaScript">
+function newRow()
+{
+   if(event.keyCode=="13")       //如果单击的是回车键
+   {
+     var row= tbl.insertRow(1);  //添加行
+         row.height="50";  //设置行高 
+     var cell1=    row.insertCell(0); //添加列
+     var cell2=    row.insertCell(1);  //添加列
+       cell1.innerHTML="第二行"         //指定列内容
+       cell2.innerHTML="第二行第二列"
+   }
+}
+</script>
+</head>
+<body>
+鼠标放到第二列，然后按回车键<br />
+<table id="tbl" border="1"><tr><td>第一行第一列</td>
+<td onkeypress="newRow()">第一行第二列</td></tr>
+</table>
+</body>
+</html>

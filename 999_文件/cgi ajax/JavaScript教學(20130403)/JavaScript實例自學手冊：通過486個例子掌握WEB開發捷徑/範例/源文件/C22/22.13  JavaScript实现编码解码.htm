@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<script  language="javascript">
+function tt(obj,str){
+    if(str==null){
+      obj.value=escape(obj.value);//编码后的效果
+      alert(obj.value);
+    }else{
+    obj.value=unescape(obj.value);//解码后的效果
+    alert(obj.value);
+    }
+}
+</script>
+<textarea name=mytxt cols=30 rows=5></textarea><br>
+<input type=button value="编码" onclick=tt(document.all.mytxt)>
+<input type=button value="解码" onclick=tt(document.all.mytxt,1)>
+</body>
+</html>

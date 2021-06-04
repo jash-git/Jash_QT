@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>小小购物篮</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<script language="JavaScript">
+var messages = new Array(11); //价格数组
+messages[0] = "";
+messages[1] = "12.30元";
+messages[2] = "13.00元";	   
+messages[3] = "14.20元";
+messages[4] = "15.00元";
+messages[5] = "21.30元";
+messages[6] = "22.70元";
+messages[7] = "23.20元";
+messages[8] = "24.40元";
+messages[9] = "31.80元";
+messages[10] = "32.60元";
+function numChange()
+{
+	with (document.form1)
+	{
+		var numIndex = bookNum.selectedIndex;//判断用户选择的本数
+		bookPrice.value = messages[numIndex];//获取价格
+		bookTotal.value =  messages[numIndex].slice(0,-1)*numIndex+"元";//计算总价
+	}
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<form name="form1" method="post" action="">
+ 数量 <select name="bookNum" onChange="numChange()">
+    <option value="0">购买数量</option>
+    <option>1本</option>
+    <option>2本</option>
+    <option>3本</option>
+    <option>4本</option>
+    <option>5本</option>
+    <option>6本</option>
+    <option>7本</option>
+    <option>8本</option>
+    <option>9本</option>
+    <option>10本</option>
+  </select>
+ 单价
+ <input name="bookPrice"   readonly />　
+ 总价
+  <input name="bookTotal" type="text" id="bookTotal" />
+</form>
+</body>
+</html>

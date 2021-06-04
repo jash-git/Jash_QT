@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script LANGUAGE="JavaScript">
+function test(frmObj)
+{
+   //考虑到input有多种类型，所以还需要判断type属性
+   if(frmObj.tagName=="INPUT")
+      alert("您操作的控件类型是："+ frmObj.type) ;
+   else
+      alert("您操作的控件类型是："+ frmObj.tagName);
+}
+</script>
+</head>
+<body>
+<input type=text name="txt1" value="this is test!" onchange="test(this)">
+<input type=button value="判断" onClick="test(this)">
+</body>
+</html>

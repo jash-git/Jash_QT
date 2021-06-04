@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+var Message="欢迎购买JavaScript实例大全，希望您能继续支持！";
+var place=1;
+//文字显示的方法
+function scrollIn() 
+{
+//从第一个文字开始在状态栏显示
+window.status=Message.substring(0, place);
+if (place >= Message.length) {
+  place=1;
+window.setTimeout("scrollOut()",300); //间隔300毫秒，循环收回文字
+} else {
+  place++;
+window.setTimeout("scrollIn()",50);  //间隔50毫秒，循环显示文字
+   } 
+}
+//文字收回的方法
+function scrollOut() 
+{
+window.status=Message.substring(place, Message.length);
+if (place >= Message.length) {
+   place=1;
+window.setTimeout("scrollIn()", 100);//间隔100毫秒，循环显示文字
+} else {
+   place++;
+window.setTimeout("scrollOut()", 50);//间隔50毫秒，循环收回文字
+   }
+}
+</SCRIPT>
+</head>
+<body bgcolor="#eaf4d9" onLoad="scrollIn()">
+</body>
+</html>

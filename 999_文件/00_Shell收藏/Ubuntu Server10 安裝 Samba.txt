@@ -1,0 +1,28 @@
+Ubuntu Server10 安裝 Samba
+拷貝來源:http://linadonis.pixnet.net/blog/post/29846792-ubuntu-server10-%E5%AE%89%E8%A3%9D-samba
+將Linux分享在網路芳鄰上分享資料夾共享or存檔
+1.安裝Samba套件
+#sudo apt-get install samba
+
+2.更改設定檔案
+#vim /etc/samba/smb.conf 
+[Share]                              ;分享的名稱   
+path = /share                  ;路徑位置   
+browseable = yes            ;瀏覽權限   
+read only = no                 ;可以讀取   
+create mask = 0644        ;檔案權限
+directory mask = 0755    ;資料夾權限
+
+3.變更資料夾權限==>否則不能新增資料夾
+#chmod 777 /share
+
+4.建立帳號密碼
+# sudo smbpasswd -a <帳號>  ;一定要passwd裡面有的帳號
+輸入兩次密碼
+
+5.啟動Samba
+#sudo /etc/init.d/smbd start
+
+6.在windows XP輸入
+\\ubuntu_IP
+接者會跳出帳號與密碼輸入完就OK

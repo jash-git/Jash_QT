@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script LANGUAGE="JavaScript">
+//选择文本时保存光标位置-单击时同样
+function storePos (txtobj) 
+{ 
+    if (txtobj.createTextRange)                      //获取选中的内容
+        txtobj.caretPos = document.selection.createRange().duplicate(); 
+} 
+function insertTextArea (txtobj, text) 
+{ 
+    if (txtobj.createTextRange && txtobj.caretPos) { 
+       var caretPos = txtobj.caretPos;               //获取光标所在的位置
+       //替换光标处位置
+       caretPos.text =caretPos.text.charAt(caretPos.text.length - 1) =='' ?text + '' : text; 
+       } 
+    else 
+       txtobj.value = text;                          //直接显示插入的文本
+} 
+</script>
+</head>
+<body>
+<TEXTAREA NAME="mytxt" ROWS="5" COLS="25" WRAP="soft" onselect="storePos(this);" onclick="storePos(this);" onkeyup="storePos(this);"> 实现文本的插入，文本框可以实现增、删、改功能</TEXTAREA> 
+<br /> 
+<INPUT TYPE="text" NAME="insertTxt" SIZE="20" VALUE="要插入的文本"><br /> 
+<INPUT TYPE="button" VALUE="插入文本" onclick="insertTextArea(mytxt, insertTxt.value);"> 
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script type="text/javascript">
+ function test()
+    {
+        var mydom=document.getElementById("divlist1");//获取指定ID的DOM对象
+        var childnode=mydom.firstChild;//获取被删除的节点
+        mydom.removeChild(childnode);//删除节点
+    }
+</script>
+</head>
+<body>
+ <form id="form1" runat="server">
+      <input id="btn1" type="button" value="test" onclick="test()"/>
+      <div id="divlist1"><p>this is test1</p></div>
+    </form>
+</body>
+</html>

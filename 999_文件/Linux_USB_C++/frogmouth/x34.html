@@ -1,0 +1,338 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<HTML
+><HEAD
+><TITLE
+>USB Devices and Transfer Characteristics</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.64
+"><LINK
+REL="HOME"
+TITLE="USB HID for Linux USB"
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"><LINK
+REL="UP"
+TITLE="Introduction"
+HREF="c15.html" tppabs="http://www.frogmouth.net/hid-doco/c15.html"><LINK
+REL="PREVIOUS"
+TITLE="Host Controllers"
+HREF="x30.html" tppabs="http://www.frogmouth.net/hid-doco/x30.html"><LINK
+REL="NEXT"
+TITLE="USB Device Drivers"
+HREF="x78.html" tppabs="http://www.frogmouth.net/hid-doco/x78.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>USB HID for Linux USB</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x30.html" tppabs="http://www.frogmouth.net/hid-doco/x30.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>Introduction</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x78.html" tppabs="http://www.frogmouth.net/hid-doco/x78.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN34"
+>USB Devices and Transfer Characteristics</A
+></H1
+><P
+>There are a wide range of USB devices intended for a wide range of
+purposes, and this means that implementation details can vary widely. </P
+><P
+>A device can be self powered,  bus powered or both. The USB can provide
+a power supply up to 500mA for its devices. If there are only bus powered
+devices on the bus the maximum power dissipation could be exceeded and
+therefore self powered devices exist. They need to have their own power
+supply. Devices that support both power types can switch to self powered mode
+when attaching an external power supply. </P
+><P
+>Even the maximum communication speed can differ for particular USB devices.
+The USB specification differentiates between low speed and  full speed devices.
+Low speed devices (such as mice, keyboards, joysticks etc.) communicate
+at 1.5MBit/s and have only limited capabilities. Full speed devices (such
+as audio and video systems) can use up to 90% of the 12Mbit/s which is about
+10Mbit/s including the protocol overhead. High speed devices (introduced in
+USB 2.0) can theoretically get to around 400Mbps, although a lot of other
+factors come into play at this speed.</P
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN39"
+>Hubs</A
+></H2
+><P
+>Physically there exist one, two or four USB ports at the rear, front or side panel of a
+computer. These ports can be used to attach normal devices or a hub. A
+hub is a USB device which extends the number of ports to
+connect other USB devices. The maximum number of user devices is reduced
+by the number of hubs on the bus (i.e. if you attach 50 hubs, then at most 
+77 (=127-50) additional devices can be attached. Hubs are always full speed
+(for USB 1.1 compliant hubs) or high speed (for USB 2.0 compliant hubs)
+devices . If the hub is self powered, then any device can be attached to it.
+However if the hub is bus powered, then only low power (100mA max) devices
+can be attached to it. A bus powered hub should not be connected to another
+bus powered hub - you should alternate between bus powered and self powered
+hubs.</P
+><P
+>Normally the physical ports of the host controller are handled by a
+virtual root hub. This hub is simulated by the host
+controllers device driver and helps to unify the bus topology. So every port can
+be handled in the same way by the USB subsystem's hub driver.</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN43"
+>Data Flow Types</A
+></H2
+><P
+>The communication on the USB is done in two directions and uses four different
+transfer types. Data directed from the host to a device is called
+downstream or OUT transfer. The other direction is called
+upstream or IN transfer. Depending on the device type different
+transfer variants are used:
+
+<P
+></P
+><UL
+><LI
+><P
+><I
+CLASS="EMPHASIS"
+>Control transfers</I
+> are used to request and
+send reliable short data packets. It is used to configure devices and every one
+is required to support a minimum set of control commands. The 
+standard commands are:
+<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>GET_STATUS</TD
+></TR
+><TR
+><TD
+>CLEAR_FEATURE</TD
+></TR
+><TR
+><TD
+>SET_FEATURE</TD
+></TR
+><TR
+><TD
+>SET_ADDRESS</TD
+></TR
+><TR
+><TD
+>GET_DESCRIPTOR</TD
+></TR
+><TR
+><TD
+>SET_DESCRIPTOR</TD
+></TR
+><TR
+><TD
+>GET_CONFIGURATION</TD
+></TR
+><TR
+><TD
+>SET_CONFIGURATION</TD
+></TR
+><TR
+><TD
+>GET_INTERFACE</TD
+></TR
+><TR
+><TD
+>SET_INTERFACE</TD
+></TR
+><TR
+><TD
+>SYNCH_FRAME</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+>
+
+Further control commands can be used to transfer vendor specific data.&#13;</P
+></LI
+><LI
+><P
+><I
+CLASS="EMPHASIS"
+>Bulk transfers</I
+> are used to request or send
+reliable data packets up to the full bus bandwidth. Devices like scanners or
+scsi adapters use this transfer type.</P
+></LI
+><LI
+><P
+><I
+CLASS="EMPHASIS"
+>Interrupt transfers</I
+> are similar to bulk
+transfers which are polled periodically. If an interrupt transfer was submitted
+the host controller driver will automatically repeat this request in a specified
+interval (1ms - 127ms).</P
+></LI
+><LI
+><P
+><I
+CLASS="EMPHASIS"
+>Isochronous transfers</I
+> send or receive
+data streams in realtime with guaranteed bus bandwidth but without any
+reliability. In general these transfer types are used for audio and video
+devices.</P
+></LI
+></UL
+>&#13;</P
+></DIV
+><DIV
+CLASS="SECT2"
+><H2
+CLASS="SECT2"
+><A
+NAME="AEN71"
+>Human Interface Devices (HID)</A
+></H2
+><P
+>The HID class consists primarily of devices that are used by humans to
+control the operation of computer systems. Typical examples of HID class devices
+include:
+
+<P
+></P
+><TABLE
+BORDER="0"
+><TBODY
+><TR
+><TD
+>Keyboards and pointing devices for example, standard mouse devices,
+trackballs, and joysticks.</TD
+></TR
+><TR
+><TD
+>Front-panel controls for example: knobs, switches, buttons, and sliders.</TD
+></TR
+><TR
+><TD
+>Controls that might be found on devices such as telephones, VCR remote
+controls, games or simulation devices for example: data gloves, throttles,
+steering wheels, and rudder pedals.</TD
+></TR
+></TBODY
+></TABLE
+><P
+></P
+></P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x30.html" tppabs="http://www.frogmouth.net/hid-doco/x30.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x78.html" tppabs="http://www.frogmouth.net/hid-doco/x78.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Host Controllers</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="c15.html" tppabs="http://www.frogmouth.net/hid-doco/c15.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>USB Device Drivers</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

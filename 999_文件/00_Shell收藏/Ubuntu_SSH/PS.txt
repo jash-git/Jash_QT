@@ -1,0 +1,5 @@
+ubuntu_SSH_sftp.pdf			基本安裝 和指令介紹
+windows_virtualbox_ubuntu_ssh.pdf	
+[ubuntu] Sftp.pdf
+深入淺出OpenSSH於日常工作的應用(一) 安裝與使用ssh - 玩物尚誌.pdf
+深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌.pdf

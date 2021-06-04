@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="JavaScript">
+function checkradio()
+{
+   var parms=document.getElementsByName("radio1");//获取所有的单选框
+   var i;
+   for( i=0;i<parms.length;i++)              //遍历单选框
+   {
+       if(parms[i].checked)                     //如果选择了此单选框
+          alert("您选择了"+ parms[i].value);     //提示用户的选择
+   }
+}
+</script>
+</head>
+<body>
+<input name="radio1" type="radio" value="体育运动" checked=checked />体育运动
+<input name="radio1" type="radio" value="旅游休闲"/>旅游休闲
+<input type="button"  name="btn1" value="检查" onclick="checkradio()" />
+</body>
+</html>

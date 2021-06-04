@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<style>
+      .userData {behavior:url(#default#userdata);}
+</style>
+</head>
+<body>
+随便选择一项，重新启动页面，看是否保存住了选择项<br />
+<select id="select1"  class="userData">
+<option>选项一</option>
+<option>选项二</option>
+<option>选项三</option>
+<option>选项四</option>
+</select>
+<script>
+    var obj=document.all.select1;                       //获取页面中的复选框
+    obj.attachEvent('onchange',saveSelectedIndex)       //为复选框绑定更改事件
+    function saveSelectedIndex(){                       //保存数据到UserData中的方法
+    obj.setAttribute("sSelectValue",obj.selectedIndex);
+    obj.save("oSltIndex");
+    }
+    window.attachEvent('onload',loadSelectedIndex)      //加载数据的事件
+    function loadSelectedIndex(){                       //从UserData中获取数据的方法
+    obj.load("oSltIndex");
+    obj.selectedIndex=obj.getAttribute("sSelectValue");
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+var b_txt = '';
+
+// write the badge
+	
+	
+		 	 	 	 		
+	 b_txt+= '<tr>';b_txt+= '<td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image1"><a href="http://www.flickr.com/photos/somewhereville/5049171489/in/set-72157624965705221/"><img src="http://farm5.staticflickr.com/4150/5049171489_b28950c577_t.jpg" alt="Flickr 上的一張相片" title="aerial_IMG_0760" height="75" width="100"></a></td>'; b_txt+= '</tr>';
+	
+		 	 	 	 		
+	 b_txt+= '<tr>';b_txt+= '<td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image2"><a href="http://www.flickr.com/photos/somewhereville/5049791562/in/set-72157624965705221/"><img src="http://farm5.staticflickr.com/4109/5049791562_512228bd84_t.jpg" alt="Flickr 上的一張相片" title="aerial_IMG_2744_may_29_2007" height="75" width="100"></a></td>'; b_txt+= '</tr>';
+	
+		 	 	 	 		
+	 b_txt+= '<tr>';b_txt+= '<td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image3"><a href="http://www.flickr.com/photos/somewhereville/5049822632/in/set-72157624965705221/"><img src="http://farm5.staticflickr.com/4110/5049822632_95fcf7c984_t.jpg" alt="Flickr 上的一張相片" title="aerial_IMG_2006" height="75" width="100"></a></td>'; b_txt+= '</tr>';
+	
+		 	 	 	 		
+	 b_txt+= '<tr>';b_txt+= '<td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image4"><a href="http://www.flickr.com/photos/somewhereville/5049166553/in/set-72157624965705221/"><img src="http://farm5.staticflickr.com/4106/5049166553_5bbbc95634_t.jpg" alt="Flickr 上的一張相片" title="aerial_IMG_2474_july_14_2007" height="100" width="75"></a></td>'; b_txt+= '</tr>';
+	
+		 	 	 	 		
+	 b_txt+= '<tr>';b_txt+= '<td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image5"><a href="http://www.flickr.com/photos/somewhereville/5049229147/in/set-72157624965705221/"><img src="http://farm5.staticflickr.com/4146/5049229147_1d5060c7d9_t.jpg" alt="Flickr 上的一張相片" title="aerial_12_september_2009_a" height="75" width="100"></a></td>'; b_txt+= '</tr>';
+
+
+b_txt += '<span style="position:absolute;left:-999em;top:-999em;visibility:hidden" class="flickr_badge_beacon"><img src="http://geo.yahoo.com/p?s=792600102&t=4482d333be6106821911fa00f65ce8ef&fl_ev=0&lang=zh&intl=tw" width="0" height="0" alt="" /></span>';
+
+document.write(b_txt);

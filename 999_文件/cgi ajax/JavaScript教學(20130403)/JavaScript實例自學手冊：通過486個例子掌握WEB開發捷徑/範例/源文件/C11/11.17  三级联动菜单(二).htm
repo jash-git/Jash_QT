@@ -1,0 +1,99 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+</head>
+<body>
+<form method="post" name="form1"> 
+<select name="select1" onchange="select()"></select> 
+<select name="select2"></select> 
+<select name="select3"></select> 
+</form> 
+<script language="javascript"> 
+var arrText = new Array(3); 
+var arrValue = new Array(arrText.length); 
+//设置3个下拉框的值
+function objSetOption(select1, select2, select3) { 
+this.select1 = select1; 
+this.select2 = select2; 
+this.select3 = select3; 
+} 
+//指定3个下拉框的值
+arrText[0]= new objSetOption("选择A:", "选择B_1:,选择B_2:", "选择C_1:,选择C_2:"); 
+arrText[1] = new objSetOption("论文:A", "语文:A,数学:B,英语:C", "初中:A,高中:B"); 
+arrText[2] = new objSetOption("例题:A", "显示A2_1:值B2_1,显示A2_2:值B2_2", "显示A3_1:值B3_1,显示B3_2:值B3_2"); 
+//判断用户的选择
+function select() { 
+var eltSelect1 = document.form1.select1; 
+var eltSelect2 = document.form1.select2; 
+var eltSelect3 = document.form1.select3; 
+var arrSelect1, arrSelect2, arrSelect3; 
+var arrData1, arrData2, arrData3; 
+//如果选择的是第一个下拉框
+with(eltSelect1) { 
+var strSelect = options[selectedIndex].value; 
+} 
+for(i = 0;i < arrText.length;i ++) { 
+arrSelect1 = arrText[i].select1; 
+arrData1 = arrSelect1.split(":"); 
+if (arrData1[1] == strSelect) { 
+arrSelect2 = (arrText[i].select2).split(","); 
+for(j = 0;j < arrSelect2.length;j++) { 
+arrData2 = arrSelect2[j].split(":"); 
+//如果选择的是第二个下拉框
+with(eltSelect2) { 
+length = arrSelect2.length; 
+options[j].text = arrData2[0]; 
+options[j].value = arrData2[1]; 
+} 
+} 
+arrSelect3 = (arrText[i].select3).split(","); 
+for(j = 0;j < arrSelect3.length;j++) { 
+arrData3 = arrSelect3[j].split(":");
+//如果选择的是第三个下拉框 
+with(eltSelect3) { 
+length = arrSelect3.length; 
+options[j].text = arrData3[0]; 
+options[j].value = arrData3[1]; } 
+} 
+break; } 
+} 
+} 
+//初始化设置3个下拉框
+function init() { 
+var eltSelect1 = document.form1.select1; 
+var eltSelect2 = document.form1.select2; 
+var eltSelect3 = document.form1.select3; 
+var arrSelect1, arrSelect2, arrSelect3; 
+var arrData1, arrData2, arrData3; 
+if (eltSelect1 != undefined && eltSelect2 != undefined && eltSelect3 != undefined) { 
+with(eltSelect1) { 
+length = arrText.length; 
+for(i = 0;i < arrText.length;i ++) { 
+arrSelect1 = arrText[i].select1; 
+arrData1 = arrSelect1.split(":"); 
+options[i].text = arrData1[0]; 
+options[i].value = arrData1[1]; 
+} 
+} 
+with(eltSelect2) { 
+arrSelect2 = (arrText[0].select2).split(","); 
+length = arrSelect2.length; 
+for(i = 0;i < length;i ++) { 
+arrData2 = arrSelect2[i].split(":"); 
+options[i].text = arrData2[0]; 
+options[i].value = arrData2[1]; 
+} 
+} 
+with(eltSelect3) { 
+arrSelect3 = (arrText[0].select3).split(","); 
+length = arrSelect3.length; 
+for(i = 0;i < length;i ++) { 
+arrData3 = arrSelect3[i].split(":"); 
+options[i].text = arrData3[0]; 
+options[i].value = arrData3[1]; } } 
+} 
+} 
+init(); 
+</script> 
+</body>
+</html>

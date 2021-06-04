@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+  function birthday(year,month,date,person)                         //一个生日对象，包括年、月日和人名
+  {
+    this.year=year
+    this.month=month
+    this.date=date
+    this.person=person
+  }
+  function personList()                                             //创建一个空的列表对象
+  {  }
+  pList=new personList()                                            //创建用户列表项
+  pList[0]= new birthday(82,1,16,"张三")                         //在列表项中添加生日对象
+  pList[1]= new birthday(33,9,27,"李四")
+  pList[2]= new birthday(66,3,1,"王五")
+  pList[3]= new birthday(79,4,27,"赵六")
+  pList[4]= new birthday(80,6,2,"小明")
+  pList[5]= new birthday(50,11,24,"晓红")
+  var now=new Date()                                                //获取今天的日期
+  today=new Date(now.getYear(),now.getMonth(),now.getDate())        //设置一个对象，一般为年月日0:00:00
+  function daysFromToday(sdate) {
+    return Math.round((sdate.getTime()-today.getTime())/(24*60*60*1000))//返回一个指定日期距今天的时间
+  }
+  function writeNextBirthday(list) 
+  {
+    var daysToClosest=366
+    var closest
+    for (var i in list)                                                 //遍历列表中的每一项
+    {
+      thisDate=new Date(today.getYear(),list[i].month,list[i].date)     //获取朋友生日的月日
+      if (daysFromToday(thisDate)<0)                                    //如果生日已经过了，则计算到下一年
+        thisDate.setYear(today.getYear()+1)
+      if (daysFromToday(thisDate)<daysToClosest) {
+        daysToClosest=daysFromToday(thisDate)                           //计算距生日的天数-找出最近的一个
+        closest=i
+      }
+    }
+    if (daysToClosest==0)
+      document.write("<B>今天 "+list[closest].person+" 已经 "+(today.getYear()-list[closest].year)+" 岁了 !!!</B><P>")
+    else if (daysToClosest==1)
+      document.write("明天 "+list[closest].person+" 即将 "+(today.getYear()-list[closest].year)+" 岁了!<P>")
+    else
+      document.write("最近一个过生日的是"+list[closest].person+" 还有 "+daysToClosest+" 天.<P>")
+
+  }
+</SCRIPT>
+</head>
+<body>
+<SCRIPT LANGUAGE="JavaScript">
+  writeNextBirthday(pList)                                              //动态输出最近要过生日的对象
+</SCRIPT>
+</body>
+</html>

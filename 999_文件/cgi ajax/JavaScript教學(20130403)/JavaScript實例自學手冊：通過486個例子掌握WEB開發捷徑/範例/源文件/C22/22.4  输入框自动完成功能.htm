@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<input onkeyup="showtips();if(event.keyCode==27)hideDiv();" id=txt onkeydown='enterTips()'>(如：ShanDong)<br/>
+<select id=sel style='display:none' onclick=viewTxt() onkeydown='if(event.keyCode==13)viewTxt()'></select>
+<script>
+var city = new Array("Guangdong","Tianjing","Shanghai","Beijing","ShanDong","Shanxi","Hunan","shangdi");
+var city2=new Array("广东","天津","上海","北京","山东","陕西","湖南","上地");
+function showtips(){
+    obj=event.srcElement;           //获取操作对象
+    sel.length=0;                   //列表框的长度
+    var len=city.length;             //数组的长度
+    var re=new RegExp("^"+obj.value,"i")//正则表达式-搜索用户输入的值
+    var j=0
+    for(i=0;i<len;i++) 
+        if(re.test(city[i])==true){      //如果存在搜索的值
+            sel.style.display='';       //显示提示层
+            sel.add(new Option(city[i],city2[i]));j++}//提示信息
+    sel.size = (j>1)?j:2;
+}
+
+function enterTips(){
+    e=event.keyCode;
+    if(sel.style.display!='none'){      //如果提示层没有隐藏
+    if(e==13) event.srcElement.value=sel.value,sel.style.display='none';//回车
+    if(e==40) sel.focus();              //使用下箭头时，提示层获得焦点
+    }
+}
+function viewTxt(){
+    txt.value=sel.value;            //显示选择的内容
+    hideDiv()                       //隐藏提示层
+}
+function hideDiv(){
+    sel.style.display='none';       //隐藏提示层的显示
+    txt.focus()                     //文本框获得焦点
+}
+    document.onclick=function(){    //单击窗体时，隐藏提示层
+    hideDiv()
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<HTML>
+<HEAD>
+	<TITLE>骇客帝国</TITLE>
+	<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+</HEAD>
+<style type="text/css">
+body
+{
+	overflow:hidden;
+	margin:0;
+	background-color:#000000;
+	font-family:宋体;
+}
+DIV.#heike
+{
+	overflow:hidden;
+	position:relative;
+	top:5%;
+	width:90%;
+	height:90%;
+	border-style:solid;
+	border-width:1;
+	border-color:#009900;
+}
+</style>
+<script language="javascript">
+var strCount;
+var str;
+var Color;
+var Font;
+var sLine = "W<br>W<br>W<br>.<br>B<br>a<br>i<br>D<br>u<br>.<br>C<br>O<br>M";
+function OnLoad()
+{
+	strCount = 40;
+	str = [];
+	Color = [];
+	Font = [];
+	Color[0] = "#002211";//文字的颜色
+	Color[1] = "#003311";
+	Color[2] = "#005511";
+	Color[3] = "#008811";
+	Color[4] = "#00BB99";
+	Color[5] = "#114411";
+	Color[6] = "#335566";
+	Color[7] = "#668899";
+	Color[8] = "#99BBAA";
+	Color[9] = "#CECECC";
+	Font[0] = "10px";    //文字的大小
+	Font[1] = "12px";
+	Font[2] = "14px";
+	Font[3] = "16px";
+	Font[4] = "18px";
+	setTimeout("strik()",50);
+}
+function strik()
+{
+	for(var i=0;i<strCount;i++)
+	{
+		if(typeof(str[i]) != "undefined")   //如果字符串存在
+		{
+			if(str[i]["Carch"].style.pixelTop > heike.clientHeight)
+			{
+				str[i]["Carch"].outerHTML = "";
+				delete str[i]["Level"];//删除数组元素
+				delete str[i]["Speed"];
+				delete str[i]["Carch"];
+				delete str[i];
+			}
+			else
+			{
+				str[i]["Carch"].style.pixelTop += str[i]["Speed"];
+			}
+		}
+		else if(Math.random()<0.25)             //随机小数
+		{
+			str[i] = new Array();
+			str[i]["Level"] = Math.round(Math.random()*4);
+			str[i]["Speed"] = (Math.round(Math.random()*str[i]["Level"])<<2)+10;
+			document.all["heike"].insertAdjacentHTML("AfterBegin","<span id='SPAN_"+i+"'>"+sLine+"</span>");
+			str[i]["Carch"] = document.all["SPAN_"+i];
+			str[i]["Carch"].style.fontSize = Font[str[i]["Level"]];             //字体
+			str[i]["Carch"].style.position = "absolute";                        //位置
+			str[i]["Carch"].style.pixelLeft = Math.round(Math.random()*heike.clientWidth);  //x坐标
+			str[i]["Carch"].style.pixelTop = -str[i]["Carch"].offsetHeight;                 //y坐标
+			str[i]["Carch"].style.color = Color[str[i]["Level"]+5];                         //颜色
+			str[i]["Carch"].style.filter = "glow(Color="+Color[str[i]["Level"]]+",Strength=5)";//滤镜效果
+			str[i]["Carch"].style.zIndex = str[i]["Level"];                                    //z-Index
+		}
+	}
+	setTimeout("strik()",50);
+}
+</script>
+<BODY onload="OnLoad()">
+<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
+<tr><td align="center" height="100%"><div id="heike"></div></td></tr>
+<tr><td align="center" style="padding:5;font-size:9pt;color:#FFFFFF;">使用 IE 6.0 以上版本或以 IE 为核心的浏览器浏览本页，1024*768分辨率为佳</td></tr>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<HTML
+><HEAD
+><TITLE
+>The event interface</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.64
+"><LINK
+REL="HOME"
+TITLE="USB HID for Linux USB"
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"><LINK
+REL="UP"
+TITLE="How Linux handles USB HID devices"
+HREF="p13.html" tppabs="http://www.frogmouth.net/hid-doco/p13.html"><LINK
+REL="PREVIOUS"
+TITLE="Reading from the HID device interface"
+HREF="x190.html" tppabs="http://www.frogmouth.net/hid-doco/x190.html"><LINK
+REL="NEXT"
+TITLE="Getting the version of the evdev interface"
+HREF="x200.html" tppabs="http://www.frogmouth.net/hid-doco/x200.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>USB HID for Linux USB</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x190.html" tppabs="http://www.frogmouth.net/hid-doco/x190.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x200.html" tppabs="http://www.frogmouth.net/hid-doco/x200.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="AEN193"
+>The event interface</A
+></H1
+><P
+>This chapter provides information on using the event interface. While
+the examples are based on USB devices, this information is actually
+applicable to just about any input device.</P
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN196"
+>How HID relates to the event interface</A
+></H1
+><P
+>There is a character event device created for each USB HID
+interface (that has an application field that indicates it is an
+input device), and potentially for other input devices (if any) that are
+attached to the system. Note that a single device may have more than
+one HID interface (for example, some "multimedia" keyboards have the
+additional buttons on a seperate interface, since they can't be
+supported by the boot protocol) and hence may have more than one event
+device.</P
+><P
+>This event interface is in addition to other, legacy, character
+devices that may also be created (for example, normal keyboard input,
+/dev/input/mouse0 and /dev/input/mice, or /dev/input/js0). Refer to
+the next Chapter for options for these legacy character devices.</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x190.html" tppabs="http://www.frogmouth.net/hid-doco/x190.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x200.html" tppabs="http://www.frogmouth.net/hid-doco/x200.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Reading from the HID device interface</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="p13.html" tppabs="http://www.frogmouth.net/hid-doco/p13.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Getting the version of the evdev interface</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

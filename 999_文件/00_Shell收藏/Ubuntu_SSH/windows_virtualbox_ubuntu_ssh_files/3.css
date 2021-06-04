@@ -1,0 +1,50 @@
+#border{
+	border:1px solid #386D02;
+	background:#DDE9D8;
+}
+h1{
+	background:url(http://mat1.gtimg.com/app/vt/images/show/s3/bgst.png) repeat-x;
+}
+h1 a{
+	background:url(http://mat1.gtimg.com/app/vt/images/show/s3/bgs4.gif) no-repeat left top;
+}
+#userInfo{
+	background:url(http://mat1.gtimg.com/app/vt/images/show/s3/bgs0.png) repeat-x;
+}
+.userInfo a{
+	color:#35594F;
+}
+#tweetList li{
+    border-bottom:1px solid #DDE9D8;
+}
+
+#tweetList {
+	border-top:1px solid;
+	background:#ffffff;
+}
+#tweetArea .source{
+	background:#fdfeff;
+	border:1px solid #DDE9D8; 
+}
+#fansArea{
+	border-top:1px solid;
+}
+.tweetinfo{
+	color:#a3a3a3;
+}
+#hisFans a{
+	color:#33594E;
+}
+#fansList li a{
+	color:#33594E;
+}
+.imgshow img{
+	border:1px solid #f1f6f8;
+}
+.button{
+	background:url(http://mat1.gtimg.com/app/vt/images/show/s3/button.gif) no-repeat;
+}
+.sendbox textarea{
+	border-color:#386D02;
+}
+.toppat b{color:#386D02;}/*  |xGv00|3631ba0973992e0f4bbe6e5c653529bd */

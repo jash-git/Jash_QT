@@ -1,0 +1,69 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+function setVariables() {
+imgwidth=235;               //图像的宽度
+imgheight=19;               //图像的高度
+if (navigator.appName == "Netscape") { //netscape下的位置设置
+    horz=".left";
+    vert=".top";
+    docStyle="document.";
+    styleDoc="";
+    innerW="window.innerWidth";
+    innerH="window.innerHeight";
+    offsetX="window.pageXOffset";
+    offsetY="window.pageYOffset";
+}
+else {                              //ie下的位置设置
+    horz=".pixelLeft";
+    vert=".pixelTop";
+    docStyle="";
+    styleDoc=".style";
+    innerW="document.body.clientWidth";
+    innerH="document.body.clientHeight";
+    offsetX="document.body.scrollLeft";
+    offsetY="document.body.scrollTop";
+   }
+}
+function checkLocation() 
+{
+    objectXY="rightBottom";         //获取始终显示在右下角的div
+    var availableX=eval(innerW);    //最大x坐标
+    var availableY=eval(innerH);    //最大y坐标
+    var currentX=eval(offsetX);     //鼠标当前的x坐标
+    var currentY=eval(offsetY);     //鼠标当前的y坐标
+    x=availableX-(imgwidth+30)+currentX; //最终div的x坐标
+    y=availableY-(imgheight+20)+currentY;//最终div的y坐标
+    evalMove();
+    setTimeout("checkLocation()",10);    //定时移动
+}
+function evalMove() {               //移动到指定位置
+    eval(docStyle + objectXY + styleDoc + horz + "=" + x);
+    eval(docStyle + objectXY + styleDoc + vert + "=" + y);
+}
+</script>
+
+</head>
+<body bgcolor="#fef4d9" onload="setVariables(); checkLocation();">
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aaa<br />
+aa<br />
+a<br />
+aa<br />
+a<br />
+a<br />
+a<br />
+a<br />
+<div id="rightBottom" style="position:absolute; visibility:show; left:235px; top:50px; z-index:2">
+<table width=10 bgcolor=#ffffff><td>
+<a href="http://www.google.net" onmouseover="window.status='我爱的搜索';return true" onmouseout="window.status='';return true"><center><img src="logo1.gif" width="240" height="20" border="0"></center></a></td>
+</table>
+
+
+</body>
+</html>

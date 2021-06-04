@@ -1,0 +1,44 @@
+<html>
+<head>
+<script>
+<!--
+function Helpor_net(seed)
+{ var m1 = "把這段文字換成你想顯示的文字。" ;
+var m2 = "" ;
+var msg=m1+m2;
+var out = " ";
+var c = 1;
+var speed = 120;
+if (seed > 100)
+{ seed-=2;
+var cmd="Helpor_net(" + seed + ")";
+timerTwo=window.setTimeout(cmd,speed);}
+else if (seed <= 100 && seed > 0)
+{ for (c=0 ; c < seed ; c++)
+{ out+=" ";}
+out+=msg; seed-=2;
+var cmd="Helpor_net(" + seed + ")";
+window.status=out;
+timerTwo=window.setTimeout(cmd,speed); }
+else if (seed <= 0)
+{ if (-seed < msg.length)
+{
+out+=msg.substring(-seed,msg.length);
+seed-=2;
+var cmd="Helpor_net(" + seed + ")";
+window.status=out;
+timerTwo=window.setTimeout(cmd,speed);}
+else { window.status=" ";
+timerTwo=window.setTimeout("Helpor_net(100)",speed);
+}
+}
+}
+Helpor_net(100);
+-->
+</script>
+
+</head>
+<body>
+狀態欄走馬燈效果
+</body>
+</html>

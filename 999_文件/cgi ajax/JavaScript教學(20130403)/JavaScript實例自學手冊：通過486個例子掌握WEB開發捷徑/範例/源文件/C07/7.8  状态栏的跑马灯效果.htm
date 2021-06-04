@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+<SCRIPT Language="JavaScript">
+var msg="欢迎光临北京特色奥运会，期待志愿者的参与!";
+var interval = 400;
+seq = 0;
+function marquee() 
+{
+len = msg.length;
+window.status = msg.substring(0, seq+1);  //逐字增加文本
+seq++;
+if ( seq >= len ) { seq = 0 };   //如果文本已经显示完，则从头开始
+window.setTimeout("marquee();", interval);
+} 
+</SCRIPT>
+</head>
+<body  onload="marquee()">
+</body>
+</html>

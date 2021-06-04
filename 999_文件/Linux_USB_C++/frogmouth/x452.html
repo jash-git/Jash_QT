@@ -1,0 +1,294 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<HTML
+><HEAD
+><TITLE
+>Sending information to the device</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.64
+"><LINK
+REL="HOME"
+TITLE="USB HID for Linux USB"
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"><LINK
+REL="UP"
+TITLE="The event interface"
+HREF="c193.html" tppabs="http://www.frogmouth.net/hid-doco/c193.html"><LINK
+REL="PREVIOUS"
+TITLE="Getting user input from the device"
+HREF="x401.html" tppabs="http://www.frogmouth.net/hid-doco/x401.html"><LINK
+REL="NEXT"
+TITLE="Modifying key repeat settings"
+HREF="x481.html" tppabs="http://www.frogmouth.net/hid-doco/x481.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>USB HID for Linux USB</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x401.html" tppabs="http://www.frogmouth.net/hid-doco/x401.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>The event interface</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x481.html" tppabs="http://www.frogmouth.net/hid-doco/x481.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN452"
+>Sending information to the device</A
+></H1
+><P
+>While input devices don't normally have a lot of data sent to them,
+there are certain situations where it is useful. For example, a
+keyboard might have LEDs, or perhaps a buzzer, to indicate mode or
+error conditions. This section looks at how to send information to an
+input device.</P
+><P
+>Sending information to the device is done using the
+<TT
+CLASS="FUNCTION"
+>write</TT
+> function call on the event interface. This
+function call takes a <SPAN
+CLASS="STRUCTNAME"
+>input_device</SPAN
+>
+structure. The <TT
+CLASS="STRUCTFIELD"
+><I
+>time</I
+></TT
+> element is not
+used. The <TT
+CLASS="STRUCTFIELD"
+><I
+>type</I
+></TT
+> is the type of event that is
+being sent out (for example, <SPAN
+CLASS="SYMBOL"
+>EV_LED</SPAN
+>,
+<SPAN
+CLASS="SYMBOL"
+>EV_SND</SPAN
+>, <SPAN
+CLASS="SYMBOL"
+>EV_REP</SPAN
+> or
+<SPAN
+CLASS="SYMBOL"
+>EV_FF</SPAN
+>). The <TT
+CLASS="STRUCTFIELD"
+><I
+>code</I
+></TT
+> is the
+particular feature that is being manipulated (for example,
+<SPAN
+CLASS="SYMBOL"
+>LED_NUML</SPAN
+>, <SPAN
+CLASS="SYMBOL"
+>LED_CAPSL</SPAN
+>,
+<SPAN
+CLASS="SYMBOL"
+>REP_DELAY</SPAN
+> or <SPAN
+CLASS="SYMBOL"
+>SND_BELL</SPAN
+>. The
+<TT
+CLASS="STRUCTFIELD"
+><I
+>value</I
+></TT
+> is the value to set the particular
+feature to.</P
+><P
+>Lets look at an example of the <TT
+CLASS="FUNCTION"
+>write</TT
+>
+function. This example manipulates the LEDs that are provided on most
+keyboards and some gamepads.</P
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="note.gif" tppabs="http://www.frogmouth.net/hid-doco/stylesheet-images/note.gif"
+HSPACE="5"
+ALT="Note"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>About this example</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This example is intentionally a code fragment, and is not complete, nor
+is it meant to show good programming style. </P
+><P
+>A complete form of this example (that will compile with
+<TT
+CLASS="USERINPUT"
+><B
+>gcc -Wall -W</B
+></TT
+>) is provided in the second part of
+this document.</P
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN477"
+></A
+><P
+><B
+>Example 8. <TT
+CLASS="FUNCTION"
+>write</TT
+> example</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>    struct input_event ev;
+&#8230;
+    ev.type = EV_LED;
+    ev.code = LED_CAPSL;
+    ev.value = 1;
+    retval = write(fd, &#38;ev, sizeof(struct input_event));
+    ev.code = LED_NUML;
+    retval = write(fd, &#38;ev, sizeof(struct input_event));
+    ev.code = LED_SCROLLL;
+    retval = write(fd, &#38;ev, sizeof(struct input_event));</PRE
+></TD
+></TR
+></TABLE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x401.html" tppabs="http://www.frogmouth.net/hid-doco/x401.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x481.html" tppabs="http://www.frogmouth.net/hid-doco/x481.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Getting user input from the device</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="c193.html" tppabs="http://www.frogmouth.net/hid-doco/c193.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Modifying key repeat settings</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

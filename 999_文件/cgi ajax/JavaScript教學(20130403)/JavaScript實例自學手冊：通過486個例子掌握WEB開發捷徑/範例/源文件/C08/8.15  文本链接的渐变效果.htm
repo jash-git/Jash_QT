@@ -1,0 +1,117 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+<script language="javascript">
+//内部变量
+startColor = "#671700"; // 定义链接颜色
+endColor = "#D8D1C5";   // 定义要渐变到最后的颜色
+stepIn = 17; 
+stepOut = 23; 
+autoFade = true;       //定义是否让所有的文本链接自动渐变
+sloppyClass = false;   //特殊样式
+hexa = new makearray(16);
+for(var i = 0; i < 10; i++)
+    hexa[i] = i;
+hexa[10]="a"; hexa[11]="b"; hexa[12]="c";
+hexa[13]="d"; hexa[14]="e"; hexa[15]="f";
+//定义窗体事件
+document.onmouseover = domouseover;
+document.onmouseout = domouseout;
+//初始设置
+startColor = dehexize(startColor.toLowerCase());
+endColor = dehexize(endColor.toLowerCase());
+var fadeId = new Array();
+
+function dehexize(Color)
+{
+ var colorArr = new makearray(3);
+ for (i=1; i<7; i++){
+  for (j=0; j<16; j++){
+   if (Color.charAt(i) == hexa[j]){
+    if (i%2 !=0)
+     colorArr[Math.floor((i-1)/2)]=eval(j)*16;
+    else
+     colorArr[Math.floor((i-1)/2)]+=eval(j);
+   }
+  }
+ }
+ return colorArr;
+}
+//鼠标移动到链接时的颜色变换
+function domouseover() 
+{
+  if(document.all){
+   var srcElement = event.srcElement;
+   if ((srcElement.tagName == "A" && autoFade) || srcElement.className == "fade" || (sloppyClass && srcElement.className.indexOf("fade") != -1))
+        fade(startColor,endColor,srcElement.uniqueID,stepIn);      
+   }
+}
+//鼠标移走时的颜色变换
+function domouseout() 
+{
+  if (document.all){
+   var srcElement = event.srcElement;
+    if ((srcElement.tagName == "A" && autoFade) || srcElement.className == "fade" || (sloppyClass && srcElement.className.indexOf("fade") != -1))
+        fade(endColor,startColor,srcElement.uniqueID,stepOut);
+    }
+}
+function makearray(n) //定义数组
+{
+    this.length = n;
+    for(var i = 1; i <= n; i++)
+        this[i] = 0;
+    return this;
+}
+//考虑到颜色的16进制表示方法，实现转换
+function hex(i) 
+{
+    if (i < 0)
+        return "00";
+    else if (i > 255)
+        return "ff";
+    else
+       return "" + hexa[Math.floor(i/16)] + hexa[i%16];
+}
+//定义颜色的方法
+function setColor(r, g, b, element) 
+{
+      var hr = hex(r); var hg = hex(g); var hb = hex(b);
+      element.style.color = "#"+hr+hg+hb;
+}
+//实现颜色渐变的关键方法
+function fade(s,e, element,step)
+{
+ var sr = s[0]; var sg = s[1]; var sb = s[2];
+ var er = e[0]; var eg = e[1]; var eb = e[2];
+ 
+ if (fadeId[0] != null && fade[0] != element){
+  setColor(sr,sg,sb,eval(fadeId[0]));
+  var i = 1;
+  while(i < fadeId.length){
+   clearTimeout(fadeId[i]);
+   i++;
+   }
+  }
+    for(var i = 0; i <= step; i++) {
+     fadeId[i+1] = setTimeout("setColor(Math.floor(" +sr+ " *(( " +step+ " - " +i+ " )/ " +step+ " ) + " +er+ " * (" +i+ "/" +
+   step+ ")),Math.floor(" +sg+ " * (( " +step+ " - " +i+ " )/ " +step+ " ) + " +eg+ " * (" +i+ "/" +step+
+   ")),Math.floor(" +sb+ " * ((" +step+ "-" +i+ ")/" +step+ ") + " +eb+ " * (" +i+ "/" +step+ ")),"+element+");",i*step);
+  }
+ fadeId[0] = element;
+}
+</script>
+</head>
+<body>
+<a href="http://www.google.com">最可爱的文本链接</a>
+
+<br />
+       <p>
+        调试其他进程的能力赋予您极广泛的权力，这是无法通过其他途经获得的，在进行远程调试时更是如此。恶意的调试器可能对正在调试的计算机造成大范围的损害。因此，对可能进行调试的人要有所限制。有关更多信息，请参见<a
+           >远程调试权限</a>。</p>
+    <p>
+        但是，许多开发人员没有意识到安全威胁也可以从相反的方向产生。调试对象进程中的恶意代码可能危害调试计算机的安全：有许多必须防范的不道德的安全利用。</p>
+    <h1 >
+        安全性最佳做法</h1>
+  
+</body>
+</html>

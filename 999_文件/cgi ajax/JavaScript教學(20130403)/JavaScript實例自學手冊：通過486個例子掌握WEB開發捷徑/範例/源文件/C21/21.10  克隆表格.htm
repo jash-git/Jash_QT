@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<input type=button value=克隆表格 name=mytxt onclick=add()>
+<table border=1>
+<tr id=r1 name=r1>
+  <td>第一列</td><td>第二列</td>
+</tr>
+</table>
+<script language=JavaScript>
+i=1;
+function add()
+{
+++i;                           //用于表格id的自增长
+var newTr= r1.cloneNode(true); //克隆指定的行
+newTr.id="r"+i;                //指定新行的id
+newTr.name="r"+i;              //指定新行的name
+r1.parentNode.insertAdjacentElement("beforeEnd",newTr);  //在当前表格中插入行
+}
+</script>
+</body>
+</html>

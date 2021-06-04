@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<script>
+if (!document.layers&&!document.all)
+event="test"
+//显示提示的方法
+function shownote(current,e,text)
+{
+//IE浏览器的情况下
+if (document.all&&document.readyState=="complete"){
+//滚动显示提示内容
+document.all.tip.innerHTML='<marquee style="border:1px solid black">'+text+'</marquee>'
+//根据鼠标位置设置提示位置
+document.all.tip.style.pixelLeft=event.clientX+document.body.scrollLeft+10
+document.all.tip.style.pixelTop=event.clientY+document.body.scrollTop+10
+document.all.tip.style.visibility="visible"
+}
+//Netscape浏览器的情况下
+else if (document.layers){
+document.tip.document.nstip.document.write('<b>'+text+'</b>')
+document.tip.document.nstip.document.close()
+document.tip.document.nstip.left=0
+currentscroll=setInterval("scrolltip()",100)
+document.tip.left=e.pageX+10
+document.tip.top=e.pageY+10
+document.tip.visibility="show"
+}
+}
+//隐藏提示的方法
+function hidenote()
+{
+if (document.all)
+document.all.tip.style.visibility="hidden"  //隐藏div的显示
+else if (document.layers){
+clearInterval(currentscroll)
+document.tip.visibility="hidden"
+}
+}
+//提示信息的滚动方法
+function scrolltip()
+{
+if (document.tip.document.nstip.left>=-document.tip.document.nstip.document.width)
+document.tip.document.nstip.left-=5
+else
+document.tip.document.nstip.left=150
+}
+</script>
+<div id="tip" style="position:absolute;clip:rect(0 150 50 0);width:150px;background-color:#99FF99; top: 31px; left: 103px; visibility: hidden; height: 13px"> 
+</div>
+<a href="http://google.com" onMouseOver="shownote(this,event,'国外第一搜索引擎，欢迎使用')" onMouseOut="hidenote()">国外搜索</a>
+</body>
+</html>

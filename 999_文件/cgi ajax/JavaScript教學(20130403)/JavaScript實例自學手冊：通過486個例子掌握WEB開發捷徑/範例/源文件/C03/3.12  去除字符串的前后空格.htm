@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script  language="JavaScript">
+function KillSpace(txtvalue)
+{
+  //判断文本内容是否为空，判断第一个字符是否是空格
+  if((txtvalue.value.length>0) && (txtvalue.value.charAt(0)==' '))
+    txtvalue.value = txtvalue.value.substring(1,txtvalue.value.length); //从第二位开始取
+  //判断文本的长度
+  if(txtvalue.value.length>0 && (txtvalue.value.charAt(txtvalue.value.length-1)==' '))
+    txtvalue.value = txtvalue.value.substring(0,txtvalue.value.length-1);//去掉最后一位
+}  
+
+</script>
+</head>
+<body>
+<input type="text" name="txt1" value=" 空格 " />
+<input type="button" value="去除空格" name="btn1" onclick="KillSpace(txt1)" />
+</body>
+</html>

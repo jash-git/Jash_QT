@@ -1,0 +1,22 @@
+<HTML>    
+<head>
+<title>无标题</title>
+</head>
+<BODY>    
+<INPUT  type="button"  value="关闭Excel"  name=btn1 onclick="StartExcel()">    
+<SCRIPT  LANGUAGE=Javascript>    
+   var  idTmr  =  "";  
+   function  StartExcel()  {    
+       var  oExcel;    
+       oExcel  =  new  ActiveXObject("Excel.Application");              //创建excel对象
+       oExcel.Quit();                                                   //关闭excel
+       oExcel  =  null;                                                 //释放对象
+       idTmr  =  window.setInterval("QuitExcel();",1);                    //定时清除 
+   }    
+   function  QuitExcel()  {  
+       window.clearInterval(idTmr);                                     //清除定时器                                 
+       CollectGarbage();                                                //kill进程
+   }  
+</SCRIPT>    
+</BODY>    
+</HTML>

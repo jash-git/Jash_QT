@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+<style>
+.xmenu td{font-size:12px;font-family:verdana,arial;font-weight:bolder;color:#ffffff;
+border:1px solid #336699;background:#336699;filter:blendtrans(duration=0.5);
+cursor:hand;text-align:center;}
+</style>
+<script language=javascript>
+// 绑定菜单的事件
+function attachXMenu(objid)
+{
+	var tds=objid.getElementsByTagName('td');
+	for(var i=0;i<tds.length;i++){
+		with(tds[i]){
+			onmouseover=function(){
+				with(this){
+					filters[0].apply();
+					style.background='#66CCFF';        //鼠标移上去时的背景颜色
+					style.border='1px solid #ffffff';  //边框
+					style.color='black';               //文字颜色
+					filters[0].play();
+				}
+			}
+			onmouseout=function(){
+				with(this){
+					filters[0].apply();
+					style.background='#336699';       //这是鼠标离开时的背景颜色
+					style.border='1px solid #336699'; //边框
+					style.color='#ffffff';            //文字颜色
+					filters[0].play();
+				}
+			}
+		}
+	}
+}
+</script>
+</head>
+<body>
+ <table class="xmenu" id="xmenu1" width="100" cellpadding="1" cellspacing="4" border="0" bgcolor="#336699" align="center">
+	<tr><td>Name</td></tr>
+	<tr><td>Age</td></tr>
+	<tr><td>Address</td></tr>
+	<tr><td>City</td></tr>
+	<tr><td>Grade</td></tr>
+	<tr><td>Teacher</td></tr>
+</table>
+<script>attachXMenu(xmenu1);</script> 
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<script language="JavaScript">
+//---变量----------释义--
+//idNumber -------音乐编号
+//songName----------音乐名称
+//mCompany-------制作公司
+//mSinger--------演唱歌手
+//mPlace---------发行区域
+//mKind----------音乐类型
+//mTime----------加入日期
+//mSize----------音乐大小
+//mType----------音乐格式
+//mUrl-----------音乐地址
+//mHits----------点播次数
+
+function createTR(idNumber,songName,mPlace,mCompany,mSinger)
+{
+	document.writeln("<TR onmouseover=\"this.style.backgroundColor='#FFccdd';this.style.color='BLUE'\" onmouseout=\"this.style.backgroundColor='';this.style.color=''\">");
+        document.writeln("<TD height=10>"+idNumber+"</TD>"); 
+        document.writeln("<TD height=10><a href='#'>"+songName+"</a></TD>");
+        document.writeln("<TD height=10>"+mPlace+"</TD>"); 
+        document.writeln("<TD height=10>"+mCompany+"</TD>");            
+        document.writeln("<TD height=10>"+mSinger+"</TD>");
+        document.writeln("</TR>");
+}
+</script>
+<TABLE width="90%" bgcolor="#BCBCBC" cellSpacing=1 cellPadding=0 align=center border=1>
+ <TR>
+    <Th width="20%">音乐编号</Th> 
+    <Th width="20%">音乐名称</Th> 
+    <Th width="20%">发行区域</Th> 
+    <Th width="20%">所属公司</Th> 
+    <Th width="20%">演唱歌手</Th> 
+ </TR>
+<TR>
+<script>
+createTR("编号1","歌曲名称1","中国大陆","公司1","歌手1");
+createTR("编号2","歌曲名称2","中国香港","公司2","歌手2");
+createTR("编号3","歌曲名称3","中国台湾","公司3","歌手3");
+createTR("编号4","歌曲名称4","中国澳门","公司4","歌手4");
+createTR("编号5","歌曲名称5","中国大陆","公司5","歌手5");
+</script>
+
+</TR>
+</table></body>
+</html>

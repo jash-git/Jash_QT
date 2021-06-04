@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<script LANGUAGE="JavaScript">
+    rnd.today=new Date();                      //获取当前时间
+    rnd.seed=rnd.today.getTime();              //获取一个毫秒数
+    function rnd() {                           //返回浮点数的随机数
+　　　　rnd.seed = (rnd.seed*9301+49297) % 233280;  
+　　　　return rnd.seed/(233280.0);            //返回随机浮点数
+    };  
+    function rand(number) {                    //返回整数的随机数（1-10之间）
+　　　　return Math.ceil(rnd()*number);        //返回随机整数
+    };  
+</script>
+<input type=button name="btn1" value="获取整数随机数" onClick="alert(rand(20))">
+<input type=button value="获取浮点数随机数" onClick="alert(rnd())">
+</body>
+</html>

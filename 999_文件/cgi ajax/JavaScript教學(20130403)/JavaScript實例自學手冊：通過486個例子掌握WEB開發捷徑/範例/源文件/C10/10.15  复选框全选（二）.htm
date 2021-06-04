@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+function checkAll(str)
+{
+  var a = document.getElementsByName(str);       //获取所有复选框
+  var n = a.length;                              //获取复选框的个数
+  for (var i=0; i<n; i++)
+  a[i].checked = window.event.srcElement.checked;//通过单击的按钮判断是选中还是未选
+}
+</script>
+</head>
+<body>
+<input type=checkbox name=All onclick="checkAll('ck')">全选<br/>
+<input type=checkbox name=ck  >体育<br/>
+<input type=checkbox name=ck  >旅游<br/>
+<input type=checkbox name=ck  >饮食<br/>
+<input type=checkbox name=ck  >影视<br/>
+<input type=checkbox name=ck  >音乐<br/><br/></body>
+</html>

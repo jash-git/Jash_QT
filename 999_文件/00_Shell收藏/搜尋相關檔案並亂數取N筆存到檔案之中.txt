@@ -1,0 +1,6 @@
+ls *.c -l |awk '{print $9}' | while read x; do echo "`expr $RANDOM % 1000`:$x"; done | sort -n| sed 's/[0-9]*://' | head -15
+
+find . -name "*.c" | while read x; do echo "`expr $RANDOM % 1000`:$x"; done | sort -n| sed 's/[0-9]*://' | head -15
+
+
+find . -name "*.c" > /tmp/list;n=`cat /tmp/list |wc -l|tr -d "\n"`;cat /tmp/list | while read x; do echo "`expr $RANDOM % $n`:$x"; done | sort -n| sed 's/[0-9]*://' | head -15 >/tmp/playlist.txt

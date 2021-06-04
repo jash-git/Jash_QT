@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<form name="addresses">
+请选择给谁发信<select name="list" onChange="update()">
+<option value="mailto:admin@google.com">给Google管理员写信
+<option value="mailto:support@263.com">给263客服写信
+<option value="mailto:admin@263.net">给263管理员写信
+</select> 
+<a href="updatelink">发信!</a>
+</form>
+<script language="javascript">
+pos = 666;
+for(num=0;num<document.links.length;num++) {
+if (document.links[num].href.indexOf("updatelink") != -1) {//判断用户是否已经作了选择
+pos = num;                                                    //如果已经选择了，则更改pop变量
+num = 300;
+   }
+}
+function update() {
+if (pos!=666) {                                //主要是判断第一次加载时不执行
+sel = document.addresses.list.selectedIndex;   //判断选择的邮件
+document.links[pos].href = document.addresses.list[sel].value;//通过窗体发信
+   }
+}
+update();
+</script>
+</body>
+</html>

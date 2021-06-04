@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>±êÌâÒ³</title>
+<SCRIPT LANGUAGE="JavaScript">
+function isip(s){
+ var check=function(v){
+    try{return (v<=255 && v>=0)}catch(x){return false}
+    };
+ var re=s.split(".");
+ return (re.length==4)?(check(re[0]) && check(re[1]) && check(re[2]) && check(re[3])):false
+}
+
+var s="202.168.54.215";
+alert(isip(s));
+</script>
+</head>
+<body>
+</body>
+</html>

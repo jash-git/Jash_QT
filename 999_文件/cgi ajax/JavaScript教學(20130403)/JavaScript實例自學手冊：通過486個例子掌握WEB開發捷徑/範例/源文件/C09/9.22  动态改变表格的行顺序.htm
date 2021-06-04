@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+<script language="javascript">
+var beginMoving=false;   //判断是否移动的标识-移动开关
+//鼠标按下时的操作
+function MouseDownToMove(obj){
+    obj.style.zIndex=1;               //样式
+    obj.mouseDownY=event.clientY;     //鼠标Y坐标
+    obj.mouseDownX=event.clientX;     //鼠标X坐标
+    beginMoving=true;                 //开始移动
+    obj.setCapture();                 //捕获鼠标操作
+}
+//鼠标按下并移动时的操作
+function MouseMoveToMove(obj){
+  if(!beginMoving) return false;
+    //改变目标行的X.Y坐标
+    obj.style.top = (event.clientY-obj.mouseDownY);
+    obj.style.left = (event.clientX-obj.mouseDownX);
+}
+//鼠标抬起时的操作
+function MouseUpToMove(obj){
+    if(!beginMoving) return false;   
+    obj.releaseCapture();           //释放对鼠标的捕获
+    obj.style.top=0;              
+    obj.style.left=0;
+    obj.style.zIndex=0;
+    beginMoving=false;             //关闭移动开关
+    var tempTop=event.clientY-obj.mouseDownY;
+    var tempRowIndex=(tempTop-tempTop%20)/20;  //根据行高度获取行位置索引
+    if(tempRowIndex+obj.rowIndex <0 )
+        tempRowIndex=-1;
+    else tempRowIndex=tempRowIndex+obj.rowIndex;            //实际的行索引
+    if(tempRowIndex >= obj.parentElement.rows.length-1) tempRowIndex = obj.parentElement.rows.length-1;
+    obj.parentElement.moveRow(obj.rowIndex,tempRowIndex);  //移动行到指定位置
+}
+</script>
+</head>
+<body>
+<TABLE WIDTH="300" BORDER="1" >
+<TR  style='height:20;position:relative;' onmousedown='MouseDownToMove(this)' onmousemove='MouseMoveToMove(this)' onmouseup='MouseUpToMove(this);'><TD >第一行</TD><TD>第一行</TD><TD>第一行</TD></TR>
+<TR  style='height:20;position:relative;' onmousedown='MouseDownToMove(this)' onmousemove='MouseMoveToMove(this)' onmouseup='MouseUpToMove(this);'><TD >第二行</TD><TD>第二行</TD><TD>第二行</TD></TR>
+<TR  style='height:20;position:relative;' onmousedown='MouseDownToMove(this)' onmousemove='MouseMoveToMove(this)' onmouseup='MouseUpToMove(this);'><TD >第三行</TD><TD>第三行</TD><TD>第三行</TD></TR>
+</TABLE>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<HTML>
+<HEAD>
+<TITLE> 新文档</TITLE>
+</HEAD>
+ <script Language="javascript">
+function aline(x,y,color)
+{
+   //实际画线的方法
+   document.write("<img border='0' style='position: absolute; left: "+(x+20)+"; top: "+(y+20)+";background-color: "+color+"'  width=1 height=1>")
+}
+</script>
+<body leftmargin=20 topmargin=20>
+<TABLE border=0 bgcolor="000000" cellspacing="1" width=400>
+<TR bgcolor="FFFFFF">
+    <TD id="td1"> </TD>
+    <TD>环境分</TD>
+    <TD>人文分</TD>
+    <TD>印象分</TD>
+</TR>
+<TR bgcolor="FFFFFF">
+    <TD>北京</TD>
+    <TD>80</TD>
+    <TD>90</TD>
+    <TD>80</TD>
+</TR>
+<TR bgcolor="FFFFFF">
+    <TD>上海</TD>
+    <TD>80</TD>
+    <TD>70</TD>
+    <TD>90</TD>
+</TR>
+<TR bgcolor="FFFFFF">
+    <TD>天津</TD>
+    <TD>80</TD>
+    <TD>70</TD>
+    <TD>70</TD>
+</TR>
+</TABLE>
+<script>
+function line(x1,y1,x2,y2,color)  //画线的方法
+{
+    var tmp
+    if(x1>=x2)
+    {
+        tmp=x1;
+        x1=x2;
+        x2=tmp;
+        tmp=y1;
+        y1=y2;
+        y2=tmp;
+    }
+    for(var i=x1;i<=x2;i++)     //设置斜线的坐标
+    {
+        x = i;
+        y = (y2 - y1) / (x2 - x1) * (x - x1) + y1;
+        aline(x,y,color);
+    }
+}
+line(td1.offsetLeft,td1.offsetTop,td1.offsetLeft+td1.offsetWidth,td1.offsetTop+td1.offsetHeight,'#000000')  //指定画线位置
+</script>
+</BODY>
+</HTML>

@@ -1,0 +1,6 @@
+¤â°Ê±¾¸ü Windows Share (ºôªÚ/Samba) Ubuntu 12.04
+$ sudo apt-get install smbfs
+$ sudo mkdir -p /data/samba
+$ sudo smbmount //WindowsSambaIP/Path /data/samba -o username=user,password=pass,rw
+$ sudo smbmount //WindowsSambaIP/Path /data/samba -o username=guest
+$ sudo umount /data/samba

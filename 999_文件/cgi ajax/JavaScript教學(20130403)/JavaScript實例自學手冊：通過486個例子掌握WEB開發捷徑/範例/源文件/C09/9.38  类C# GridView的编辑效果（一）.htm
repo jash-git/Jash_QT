@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>test</title>
+</head>
+<body>
+<table>
+    <tr><td id="td1">张三</td>
+    <td><a href="javascript:edit()">编辑</a></td></tr>
+</table>
+<script language="javascript">
+function edit()
+{
+    var cell = document.getElementById('td1');　　//获取表格
+    var v = cell.innerHTML;　　　　　　　　　　　//获取表格的内容
+    cell.innerHTML = '<input type="text" name="text1" id="text1">';  //动态添加文本框
+    document.getElementById('text1').value = v;　　　　　　　　　　　//设置文本框的值
+}
+</script>
+</body>
+</html>

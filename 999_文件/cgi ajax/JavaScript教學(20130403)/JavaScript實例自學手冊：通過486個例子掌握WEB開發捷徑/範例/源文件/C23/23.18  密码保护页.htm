@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+function password() 
+{
+var inputCount = 1;
+//弹出密码输入框
+var pass1 = prompt('请输入密码(密码默认为password):','');
+//判断输入密码是否超过3次
+while (inputCount < 3) {
+if (!pass1) 
+history.go(-1);
+if (pass1 == "password") {
+alert('密码正确!');
+break;
+} 
+inputCount+=1;
+//弹出错误信息提示
+var pass1 = prompt('密码错误!请重新输入:');
+}
+if (pass1!="password" & inputCount ==3)               
+history.go(-1);
+return " ";
+}						
+document.write(password());
+</SCRIPT>
+</head>
+<body>
+</body>
+</html>

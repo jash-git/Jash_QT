@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="JavaScript1.2">
+function extractlinks()
+{
+var links=document.all.tags("A")  //获取所有a元素
+var total=links.length            //a元素的个数
+var win2=window.open("","","menubar,scrollbars,toolbar")
+//在新窗口中显示所有链接
+win2.document.write("<font size='2'>一共有"+total+"个连接</font><br>")
+for (i=0;i<total-1;i++){
+win2.document.write("<font size='2'>"+links[i].outerHTML+"</font><br>")}
+}
+</script>
+</head>
+<body>
+<p align="center">
+<a href="expand.htm" OLDREF="#">首页</a> 
+<a href="expand.htm" OLDREF="#">链接1</a>
+ <a href="expand.htm" OLDREF="#">链接2 </a>
+<a href="expand.htm" OLDREF="#">链接3</a> 
+  <a href="expand.htm" OLDREF="#">链接4</a> 
+<a href="expand.htm" OLDREF="#">链接5</a> 
+<a href="expand.htm" OLDREF="#">链接6</a> </p>
+<input type="button" onClick="extractlinks()" value="显示所有的连接">
+</body>
+</html>

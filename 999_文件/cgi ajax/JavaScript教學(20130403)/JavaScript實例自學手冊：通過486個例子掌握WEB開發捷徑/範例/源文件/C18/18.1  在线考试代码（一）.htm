@@ -1,0 +1,107 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+function scoreCacu(form) {
+ list=0
+ if(form.Q1.value!=null && form.Q1.value=="*")
+  {list=list+1}                                 //如果返回的值带*，则为正确，分数值自增
+ if(form.Q2.value!=null && form.Q2.value=="*") 
+ {list=list+1}
+ if(form.Q3.value!=null && form.Q3.value=="*")
+  {list=list+1}
+ if(form.Q4.value!=null && form.Q4.value=="*") 
+ {list=list+1}
+ if(form.Q5.value!=null && form.Q5.value=="*") 
+ {list=list+1}
+ form.SCORE.value =eval(list)
+ 	if (form.SCORE.value<=3){                   //5题中，分数值小于3为不及格
+	ok="不及格！"}
+}
+
+function clearScore(form) {                     //清空用户选择的项
+ list=0
+ form.Q1.value="?"
+ form.Q2.value="?"
+ form.Q3.value="?"
+ form.Q4.value="?"
+ form.Q5.value="?"
+ form.SCORE.value =eval(list)
+}
+
+function msg() {                                //发送邮件前的提示
+ alert("感谢参加测试，您的成绩已经将mail给Webmaster。")
+ }
+</SCRIPT>
+
+</head>
+<body>
+<table width="75%" border="0" align="center">
+  <tr>
+    <td> 
+      <form name="kaoshi1" 
+ action ="mailto:championchen@263.net?subject=测试结果反馈" method="post" enctype="text/plain" 
+ onLoad="clearScore(this.form)" onSubmit="msg()">
+        您的姓名: 
+        <input type="Text" name="Name" value="" class="pt9">
+        <br>
+        <hr>
+        1. Internet上使用的网络协议是：__________ 
+        <ol>
+          <input type="radio" name="Q1" value="*TCP/IP" onClick=Q1.value="*">
+          TCP/IP<br>
+          <input type="radio" name="Q1" value="FTP" onClick=Q1.value="FTP">
+          FTP<br>
+          <input type="radio" name="Q1" value="HTTP" onClick=Q1.value="HTTP">
+          HTTP<br>
+        </ol>
+        2. 我们通过__________长距离连接两台计算机使它们通讯。 
+        <ol>
+          <input type="radio" name="Q2" value="LAN" onClick=Q2.value="A">
+          LAN<br>
+          <input type="radio" name="Q2" value="*WAN" onClick=Q2.value="*">
+          WAN<br>
+          <input type="radio" name="Q2" value="WAIS" onClick=Q2.value="C">
+          WAIS<br>
+        </ol>
+        3. HUB是指：__________ 
+        <ol>
+          <input type="radio" name="Q3" value="网关" onClick=Q3.value="网关">
+          网关<br>
+          <input type="radio" name="Q3" value="网桥" onClick=Q3.value="网桥">
+          网桥<br>
+          <input type="radio" name="Q3" value="路由器" onClick=Q3.value="路由器">
+          路由器<br>
+          <input type="radio" name="Q3" value="*集线器" onClick=Q3.value="*">
+          集线器<br>
+        </ol>
+        4. 家用宽带的传输速度为：__________ 
+        <ol>
+          <input type="radio" name="Q4" value="56Kbytes" onClick=Q4.value="A">
+          每秒传输56K bytes的数据。 <br>
+          <input type="radio" name="Q4" value="*128kbps" onClick=Q4.value="*">
+          每秒传输128k bits的数据。 <br>
+        </ol>
+        5. wireless是指：__________ 
+        <ol>
+          <input type="radio" name="Q5" value="*宽带" onClick=Q5.value="*">
+          宽带<br>
+          <input type="radio" name="Q5" value="有线" onClick=Q5.value="B">
+          有线<br>
+          <input type="radio" name="Q5" value="无线" onClick=Q5.value="C">
+          无线<br>
+        </ol>
+        <hr>
+        <input type="button" name="submit" value="开始评分" onClick=scoreCacu(this.form) class="pt9">
+        <input type="reset" name="reset" value="重新测试" onClick=clearScore(this.form) class="pt9">
+        <input type="submit" value="将成绩MAIL给管理员" onClick=mailScore(this.form) name="submit" class="pt9">
+        <br>
+        <br>
+        您的考试成绩： 
+        <input  name="SCORE" type="text" class="pt9">
+      </form>
+</td>
+  </tr>
+</table>
+</body>
+</html>

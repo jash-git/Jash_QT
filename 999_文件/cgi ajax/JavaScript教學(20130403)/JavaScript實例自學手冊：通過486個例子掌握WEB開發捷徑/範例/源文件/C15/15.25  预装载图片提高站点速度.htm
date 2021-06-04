@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+    <script language="javascript">
+//用数组存储需要的图片
+var imgList = []; 
+imgList[0] = "logo1.gif" ; 
+imgList[1] = "logo2.gif" ; 
+//用户单击按钮时，提取图像的方法
+function getImage(index)
+{
+    var imgsrc= imgList[index];
+    document.getElementById("img1").src=imgsrc;
+}
+</script>
+</head>
+<body>
+<table id="mytbl" width="300" height="50" border="0" cellspacing="2" cellpadding="0" bgcolor="#FFb609">
+  <tr> 
+    <td> 显示第一张图片<input id="Button1" type="button" value="显示" onclick="getImage(0)" /></td><td><img id="img1" src=""></td>
+  </tr>
+  <tr> 
+    <td> 显示第二章图片<input id="Button1" type="button" value="显示" onclick="getImage(1)" /></td><td>预先装载图片</td>
+  </tr>
+</table>
+</body>
+</html>

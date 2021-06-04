@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+var phrase = "北京奥运会，欢迎各路英雄和志愿者！！期待您的参与！ "; //要显示的信息
+var lenPhrase = phrase.length;                                      //信息的长度
+var phraseOut = "";
+var pause = 100;                                                    //间隔时间
+var i=0;
+var j=0;
+function statusTxt() 
+{
+    i++;
+    phraseOut = "";
+    for (j=1; j<=(lenPhrase/2)-i; j++) {       //添加一半内容的空格
+      phraseOut += "  ";
+    } 
+    for (j=1; j<=i; j++) {
+      phraseOut += phrase.charAt(j-1);          //开始从中间往左显示文本
+    }
+    for (j=i; j>=1; j--) {
+      phraseOut += phrase.charAt(lenPhrase-j);//开始从中间往右显示文本
+    }
+
+    window.status = phraseOut;              //在状态栏中输出
+    if (i<lenPhrase/2) {                    //还没到一半的时候，循环执行。
+        setTimeout("statusTxt()",pause);
+    }
+}
+</SCRIPT>
+</head>
+<body bgcolor="#fff4d9" OnLoad="statusTxt()">
+</body>
+</html>

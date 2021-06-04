@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script LANGUAGE="JavaScript">
+function DragEvent()
+{
+ //参数
+ //x,y 开始时的鼠标在对象中的偏移位置
+ //DargFlag 0:拖曳停止 1:拖曳开始
+ this.x = 0;
+ this.y = 0;
+ this.DragFlag=0;
+}
+var DragObject  = new DragEvent();
+
+function DragMoveObject(obj)
+{
+ if(event.button == 1)    //如果按下的是鼠标左键
+ {
+  obj.style.position="absolute";  //设置对象为绝对定位模式
+  if(DragObject.DragFlag==0)   //拖曳开始
+  {  
+   DragObject.DragFlag = 1;
+   DragObject.x = event.offsetX;//鼠标的x坐标
+   DragObject.y = event.offsetY;//鼠标的y坐标
+  }
+  obj.style.left = event.x-DragObject.x;  //保持鼠标在对象中的位置不变
+  obj.style.top = event.y-DragObject.y;
+ }
+ else
+ {
+  DragObject.DragFlag = 0;  //拖曳停止
+ }
+}
+</script>
+</head>
+<body>
+<textarea cols="30" rows="5" onmousedown="DragMoveObject(this);" ></textarea><br />
+<input type=button value="拖拽"  onmousedown="DragMoveObject(this);" />
+<input id="Button1" type="button" value="button"onmousedown="DragMoveObject(this);"  />
+</body>
+</html>

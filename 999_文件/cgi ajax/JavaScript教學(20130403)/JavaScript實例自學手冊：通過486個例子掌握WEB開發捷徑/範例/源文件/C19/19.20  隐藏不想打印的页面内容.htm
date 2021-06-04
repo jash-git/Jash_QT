@@ -1,0 +1,32 @@
+<HTML>
+<HEAD>
+<TITLE>去除不想打印出的页面元素</TITLE>
+<script type="text/javascript">
+function preview()
+    {
+       //获取页面内容
+      var bdhtml=document.body.innerHTML;
+       var beginstr="<!--startprint-->";
+       var endstr="<!--endprint-->";
+       //获取要打印的内容
+      var  prnhtml=bdhtml.substr(bdhtml.indexOf(beginstr)+17);
+       prnhtml=prnhtml.substr(0,prnhtml.indexOf(endstr));
+      //预览
+       window.document.body.innerHTML=prnhtml
+       //打印
+      window.print()
+}
+</script>
+</HEAD>
+<BODY background="" leftMargin=0 topMargin=0 rightMargin=0 bottomMargin=0 style="BACKGROUND-POSITION: center 50%">
+    <!--startprint-->
+    <DIV align=center>
+    <span>这里是我需要的内容</span>..........
+     </DIV>
+     <!--endprint-->
+    <div align="center">
+      <span>这里不是我要的内容</span><br />
+      <input type="button" value="打印" onclick="preview()" />
+    </div>
+</BODY>
+</HTML>

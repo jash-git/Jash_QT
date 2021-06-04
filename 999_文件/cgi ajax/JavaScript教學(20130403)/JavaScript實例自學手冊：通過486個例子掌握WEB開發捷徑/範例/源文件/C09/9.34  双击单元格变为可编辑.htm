@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script>
+function editCell(obj){
+    if(obj.innerText==""){
+      obj.innerHTML="<input value='' onblur='update(this.value)'>";               //插入输入框，失去焦点时更新
+    }else{
+      obj.innerHTML="<input value="+obj.innerText+" onblur='update(this.value)'>";//插入文本框，且指定内容
+    }
+}
+function update(txt){
+    document.getElementById("Td2").innerText=txt;                                //文本框失去焦点时，需要更新表格的内容
+}
+</script>
+</head>
+<body>
+<table border="1"><tr><td id="Td2" onDblClick="editCell(this)">第一行第一列</td>
+</tr></table></body>
+</html>

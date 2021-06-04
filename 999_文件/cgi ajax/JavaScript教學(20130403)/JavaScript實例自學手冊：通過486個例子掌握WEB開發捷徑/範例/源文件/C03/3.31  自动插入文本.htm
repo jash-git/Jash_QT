@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+document.onclick =function(){            //重写onclick事件
+    var sel = document.selection;        //判断文本的选择
+    if (sel!=null) {
+            var rng = sel.createRange(); // 获取光标位置（也可以是选择的一段文本）
+            if (rng!=null)
+                 rng.pasteHTML("<font color=blue>插入的文字</font>");//插入HTML文本
+    }
+}
+</SCRIPT>
+</head>
+<body>
+这是一段测试文本
+</body>
+</html>

@@ -1,0 +1,8 @@
+tail -f /var/log/wowzalog/log-120/wowzastreamingengine_access.log|grep "    disconnect"|awk -F"     " '{print $2","$16","$17}' >> tmp.txt
+
+cat tmp.txt >123.txt
+cat /dev/null > tmp.txt
+
+
+
+ssh¤U¼gTab : ctrl+V+Tab

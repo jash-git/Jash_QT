@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="javascript">
+function sel1(obj){
+   if(obj.checked){                     //如果当前项被选中了
+      document.all.chk2.checked=false   //则不能选择第二组
+	  document.all.sel1.selectedIndex=4 //指定下拉框中选择的项
+   }
+}
+function sel2(obj){
+   if(obj.checked){                     //如果当前项被选中了
+   document.all.chk1.checked=false  //则不能选择第一组
+   document.all.sel1.selectedIndex=0 //指定下拉框中选择的项
+   }
+}       
+</script>
+</head>
+<body>
+<p>A组
+  <input type="checkbox" name="checkbox" value="checkbox" id="chk1" onClick="sel1(this)">
+</p>
+<p>B组
+  <input type="checkbox" name="checkbox2" value="checkbox" id="chk2" onClick="sel2(this)">
+</p>
+<p>C
+  <select name="select" id="sel1">
+  <option selected="selected">个人</option>
+  <option>200米</option>
+  <option>400米</option>
+  <option>800米</option>
+  <option>200米接力</option>
+  </select>
+</p>
+</body>
+</html>

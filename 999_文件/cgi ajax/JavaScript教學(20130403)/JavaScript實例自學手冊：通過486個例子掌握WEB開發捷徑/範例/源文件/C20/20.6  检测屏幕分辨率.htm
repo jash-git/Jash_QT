@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+     <script language="JavaScript">
+     function getScreen() 
+     {
+	if ((screen.width == 640) && (screen.height == 480)) 
+	    size = "640 x 480";
+	else if ((screen.width == 800) && (screen.height == 600))
+	    size = "800 x 600";
+	else if ((screen.width == 1024) && (screen.height == 768))
+	    size = "1024 x 768";
+	else if ((screen.width == 1280) && (screen.height == 1024))
+	    size = "1280x1024";
+	else 
+            size = "默认值为640 x 480";
+	alert("屏幕分辨率为 " + size );
+    }
+    </script>
+</head>
+<body>
+<input id="Button1" type="button" value="获取屏幕分辨率" onclick="getScreen()" />
+</body>
+</html>

@@ -1,0 +1,51 @@
+Samba for Ubuntu (簡單教學)
+拷貝來源:http://www.wretch.cc/blog/vieriking/6795640
+我是Ubuntu 8.0.4.1版
+只要這樣安裝就好....
+apt-get install samba
+
+安裝完畢後，先暫停服務修改設定檔...
+/etc/init.d/samba stop
+
+編輯設定檔...
+基本上如果你用視窗來使用是比較方便與直覺....
+vim /etc/samba/smb.conf
+
+以下是設定檔的部份介紹
+
+workgroup = WORKGROUP <= 預設WORKGROUP,你可以改成自己喜歡的工作群組
+server string = %h server (Samba, Ubuntu) <=自己電腦的名稱，自己改自己喜歡的，%h就是hostname
+security = user <= 預設要輸入帳號密碼，如果不想這麼麻煩可以改成share...
+
+在尾巴加上你要的分享資料夾
+[SHARE]
+path = /var/lib/share ;分享路徑
+browseable = yes ;是否可瀏覽
+read only = no ;是否唯讀
+create mask = 0644 ;檔案遮罩
+directory mask = 0755 ;資料夾遮罩
+
+記得要打開分享路徑的權限喔chmod 777 /var/lib/share
+或者設定user以及group...在改成chmod 770 /var/lib/share
+
+編輯完後，存檔並重新啟動samba
+/etc/init.d/samba start
+
+如果你需要設定帳號密碼才能使用，除了在smn.conf把security設定成user外
+請作以下命令來新增使用者...
+sudo smbpasswd -a 帳號
+
+另外請記得養成好習慣，每次編輯完smb.conf的時候請用testparm來檢查是否有問題
+執行..testparm
+結果..
+Load smb config files from /etc/samba/smb.conf
+Processing section "[printers]"
+Processing section "[print$]"
+Processing section "[SHARE]"
+Loaded services file OK.
+Server role: ROLE_STANDALONE
+Press enter to see a dump of your service definitions
+
+這樣是沒問題的...
+
+以上...夠簡單吧

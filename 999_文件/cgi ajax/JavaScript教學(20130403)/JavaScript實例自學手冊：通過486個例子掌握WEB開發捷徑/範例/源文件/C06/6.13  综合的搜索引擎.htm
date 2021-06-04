@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<form Name="InputForm">
+<div align="center"><center><p>
+<script language="JavaScript">
+var FirstForm;
+function StartSearch()
+{
+//使用隐藏控件保存用户输入的查询参数
+document.forms[FirstForm+document.InputForm.SearchSelect.
+selectedIndex].elements[0].value=document.InputForm.SearchWords.value;
+//提交查询参数到指定网站
+document.forms[FirstForm+document.InputForm.SearchSelect.selectedIndex].submit();
+}
+</script>
+<span style="font-size: 9pt">查找内容:</span>
+<input name="SearchWords" type="text" size="21" style=" margin-left: 1px"><br>
+<span style="font-size: 9pt">搜索引擎:</span>
+<select Name="SearchSelect" size="1" >
+<option selected>英文Yahoo</option>
+<option value="Google搜索">中文Google</option>
+<option value="百度搜索">百度中文搜索</option>
+</select><br>
+<input type="button" value=" 开始查找 " onClick="StartSearch()"> 
+<script language="JavaScript">
+FirstForm=document.forms.length
+</script></p>
+</center></div>
+</form>
+<form action="http://search.yahoo.com/bin/search" method="get">
+<input type="hidden" name="p" value>
+</form>
+<form action="http://www.google.com/search">
+<input type="hidden" name="q" value>
+</form>
+<form action="http://www.baidu.com/s">
+<input type="hidden" name="wd" value>
+</form>
+</body>
+</html>

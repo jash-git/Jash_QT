@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>绑定到Table</title>
+</head>
+<body>
+<xml id="cdcat" src="19.13  将XML文件绑定到Table.xml" tppabs="将XML文件绑定到Table.xml"></xml>
+<table border="1" datasrc="#cdcat">
+<thead>
+<tr><th>演唱者</th><th>歌名</th></tr>
+</thead>
+<tfoot>
+<tr><th colspan="2">这是我喜欢的CD</th></tr>
+</tfoot>
+<tbody>
+<tr>
+<td><span datafld="artist"></span></td>
+<td><span datafld="title"></span></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

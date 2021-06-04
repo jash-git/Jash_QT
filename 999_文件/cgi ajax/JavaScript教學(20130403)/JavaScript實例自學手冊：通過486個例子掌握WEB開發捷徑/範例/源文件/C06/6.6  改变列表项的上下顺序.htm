@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<select size="10" name="select">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+</select>
+<input type=button value=向上移动 onclick="doUp()">
+<input type=button value=向下移动 onclick="doDown()">
+<script>
+function doOrder(select,sequence)  //将上、下两个方法合并成一个
+{
+   if (!select||select.selectedIndex==-1) //如果没有选择列表项，不进行任何操作
+        return false;
+   with (select)
+   {   
+	   var newIndex = selectedIndex + sequence; //获取移动后的索引
+	   var oldIndex = selectedIndex;	        //旧索引
+	   if (newIndex>=options.length||newIndex<0||sequence==0||newIndex<0) //判断是否超出边界
+	   {
+	       return false; 
+	   }
+	   options[newIndex].swapNode(options[oldIndex])  //交换指定索引处的节点
+	}
+	return true;
+}
+function doUp()
+{
+   doOrder(document.all.select,-1);  //向上移动的方法
+}
+function doDown()
+{
+   doOrder(document.all.select,1);   //向下移动的方法
+}
+</script>
+</body>
+</html>

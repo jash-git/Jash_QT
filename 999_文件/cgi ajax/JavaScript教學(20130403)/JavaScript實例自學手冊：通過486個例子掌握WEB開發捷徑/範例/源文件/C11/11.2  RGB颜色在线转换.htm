@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+function showRGB(f) 
+{
+//获取用户输入的RGB值
+red = f.red.value;
+green = f.green.value;
+blue = f.blue.value;
+//将RGB转换为16进制Hex值
+hexcode = "#" +toHex(red) + toHex(green) + toHex(blue);
+document.bgColor  = f.hexval.value = hexcode;
+}
+function toHex(d){
+if (isNaN(d)){
+d=0;
+}
+//16进制转换方法
+var n=new Number(d).toString(16);
+return (n.length==1?"0"+n:n);
+}
+</script>
+</head>
+<body>
+<form name="rgbform">
+<b>请输入RGB颜色值(0 to 255)</b><br>
+Red:   <input type="text" name="red" size="5"><br>
+Green: <input type="text" name="green" size="5"><br>
+Blue:  <input type="text" name="blue" size="5"><br>
+<input type="button" value="显示Hex #" onClick="showRGB(this.form)"> 
+Hex值为:  <input type="text" name="hexval" size="7">
+</form>
+</body>
+</html>

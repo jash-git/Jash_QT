@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="javascript">
+    var Person = new Object();      //创建对象
+    Person.name = "张三";           //为对象添加属性
+    Person.age = "26";
+    Person.phone = "010-88888888";
+    for (var parm in Person)
+    {
+        //依次显示对象中的所有属性
+        alert("属性： '" + parm + "' 值： " + Person[parm]);
+    }
+</script>
+</head>
+<body>
+</body>
+</html>

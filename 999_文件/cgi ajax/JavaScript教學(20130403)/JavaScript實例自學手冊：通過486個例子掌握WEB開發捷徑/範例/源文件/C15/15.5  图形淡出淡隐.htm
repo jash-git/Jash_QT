@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body onLoad="fade()">
+<img src="logo1.gif" name="img" border=0
+alt="Image" style="filter:alpha(opacity=0)"> 
+<script language="JavaScript">
+var bOpa = 1;
+var c = true;
+function fade()
+{
+    if(document.all);
+    if(c == true) {
+      bOpa++;
+    }
+    if(bOpa==100) {   //透明度到100时，开始减少
+      bOpa--;
+    c = false         
+    }
+    if(bOpa==10) {   //透明度到10时，控制透明度增减的参数变为true
+    bOpa++;
+    c = true;
+    }
+    if(c == false) {  //控制透明度是加还是减
+    bOpa--;
+    }
+    img.filters.alpha.opacity=0 + bOpa; //改变图像的透明度
+    setTimeout("fade()",50);            //定时执行fade方法
+}
+</script></body>
+</html>

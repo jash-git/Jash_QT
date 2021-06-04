@@ -1,0 +1,33 @@
+<HTML>
+  <HEAD>
+    <title>Javascript</title>
+    <meta name="GENERATOR" Content="Microsoft Visual Studio .Net 7.1">
+    <meta name="CODE_LANGUAGE" Content="C#">
+    <meta name=vs_defaultClientScript content="JavaScript">
+    <meta name=vs_targetSchema content="http://schemas.microsoft.com/intellisense/ie5">
+    <script language="Javascript">
+    function callMethod()
+    {
+        service.useService("http://localhost/website1/HelloWorld.asmx?wsdl","calService");//创建服务对象
+        var parm1 = Form1.all.mul1.value;  //获取第一个参数 
+        var parm2 = Form1.all.mul2.value;  //获取第二个参数
+        service.calService.callService(callback,"Hello_World",parm1,parm2);        //调用方法
+    }
+    
+    function callback(res)
+    {
+        if (!res.error)
+                Form1.all.retValue.value=res.value; //判断返回值
+        else
+            Form1.all.retValue.value='计算错误';    //计算错误
+    }
+   </script>
+</HEAD>
+  <body>
+    <div id="service" style="BEHAVIOR:url(webservice.htc)"></div>
+    <form id="Form1" method="post" runat="server">
+    <FONT face=宋体><INPUT type=text id=mul1 name=mul1>*<INPUT type=text id=mul2 name=mul2><INPUT style="WIDTH: 50px" onclick=callMethod() type=button value="="><INPUT 
+type=text id=retValue name=retValue></FONT>
+     </form>
+  </body>
+</HTML>

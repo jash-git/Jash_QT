@@ -1,0 +1,30 @@
+Ubuntu下samba安裝設定
+拷貝來源:http://flykof.pixnet.net/blog/post/23028119-ubuntu%E4%B8%8Bsamba%E5%AE%89%E8%A3%9D%E8%A8%AD%E5%AE%9A
+安裝Samba
+sudo apt-get install samba
+
+設定Samba 
+編輯 /etc/samba/smb.conf
+ 
+(1)
+[global]
+workgroup = root
+security = share
+ 
+(2)尾部加入
+[分享資料夾的名稱]
+path = 分享資料夾的路徑
+writable = yes
+guest account = root
+force user = root
+public = yes
+force group = root
+ 
+[3]重新啟動 Samba Server
+sudo /etc/init.d/samba restart
+ 
+[4]在Windows設定
+在網路上的芳鄰圖示下按右鍵，
+選 "連線網路磁碟機"
+磁碟機: 任選
+資料夾: \\Ubuntu下所設IP\分享資料夾的名稱

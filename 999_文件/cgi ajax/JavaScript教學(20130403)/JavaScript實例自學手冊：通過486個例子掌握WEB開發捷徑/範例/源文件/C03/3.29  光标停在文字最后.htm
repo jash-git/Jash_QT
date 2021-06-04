@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+    <script language="javascript">
+    function last()
+    {
+        var e = event.srcElement;
+        var r =e.createTextRange();
+        r.moveStart("character",e.value.length);
+        r.collapse(true);
+        r.select();
+    }
+    </script>
+</head>
+<body>
+<textarea rows=6 cols=30 onfocus="last()">
+这是一个测试；
+这是一个测试；
+这是测试；
+</textarea>
+</body>
+</html>

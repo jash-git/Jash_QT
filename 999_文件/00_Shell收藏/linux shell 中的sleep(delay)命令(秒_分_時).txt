@@ -1,0 +1,19 @@
+linux shell 中的sleep命令
+
+ 
+
+資料來源: http://blog.chinaunix.net/uid-26738765-id-3141776.html
+
+ 
+
+在有的shell（比如linux中的bash）中sleep還支持睡眠（分，小時）
+
+
+sleep 1 睡眠1秒
+
+sleep 1s 睡眠1秒
+
+sleep 1m 睡眠1分
+
+sleep 1h 睡眠1小時
+

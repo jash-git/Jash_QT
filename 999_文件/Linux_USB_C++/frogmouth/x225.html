@@ -1,0 +1,485 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<HTML
+><HEAD
+><TITLE
+>Getting information about the HID device identity</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.64
+"><LINK
+REL="HOME"
+TITLE="USB HID for Linux USB"
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"><LINK
+REL="UP"
+TITLE="The event interface"
+HREF="c193.html" tppabs="http://www.frogmouth.net/hid-doco/c193.html"><LINK
+REL="PREVIOUS"
+TITLE="Getting the version of the evdev interface"
+HREF="x200.html" tppabs="http://www.frogmouth.net/hid-doco/x200.html"><LINK
+REL="NEXT"
+TITLE="Determining the device capabilities and features"
+HREF="x286.html" tppabs="http://www.frogmouth.net/hid-doco/x286.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>USB HID for Linux USB</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x200.html" tppabs="http://www.frogmouth.net/hid-doco/x200.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>The event interface</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x286.html" tppabs="http://www.frogmouth.net/hid-doco/x286.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN225"
+>Getting information about the HID device identity</A
+></H1
+><P
+>The evdev interface supports getting information associated with
+the device using
+the <SPAN
+CLASS="SYMBOL"
+>EVIOCGID</SPAN
+> <TT
+CLASS="FUNCTION"
+>ioctl</TT
+>.
+The argument is a pointer to
+a <SPAN
+CLASS="STRUCTNAME"
+>input_devinfo</SPAN
+> structure.</P
+><P
+>The <SPAN
+CLASS="STRUCTNAME"
+>input_devinfo</SPAN
+> structure is defined as:
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct input_devinfo {
+        uint16_t bustype;
+        uint16_t vendor;
+        uint16_t product;
+        uint16_t version;
+};</PRE
+></TD
+></TR
+></TABLE
+></P
+><P
+>The <TT
+CLASS="STRUCTFIELD"
+><I
+>bustype</I
+></TT
+> field is always
+<SPAN
+CLASS="SYMBOL"
+>BUS_USB</SPAN
+> for USB devices, but has other values for
+other devices. In the <TT
+CLASS="LITERAL"
+>2.5.x</TT
+> and later series
+kernels, the input subsytem is used for all input devices, and this
+value can take a wide range of values. In the <TT
+CLASS="LITERAL"
+>2.4.x</TT
+>
+series kernels, the input subsystem has restricted application (for
+example, USB and Apple Desktop Bus).</P
+><P
+>The <TT
+CLASS="STRUCTFIELD"
+><I
+>vendor</I
+></TT
+>,
+<TT
+CLASS="STRUCTFIELD"
+><I
+>product</I
+></TT
+> and
+<TT
+CLASS="STRUCTFIELD"
+><I
+>version</I
+></TT
+> elements are associated with the
+device. For a USB device, they have one-to-one correspondence
+with <TT
+CLASS="STRUCTFIELD"
+><I
+>wVendor</I
+></TT
+>,
+<TT
+CLASS="STRUCTFIELD"
+><I
+>wProduct</I
+></TT
+> and
+<TT
+CLASS="STRUCTFIELD"
+><I
+>bcdRevision</I
+></TT
+> fields in the USB device
+descriptor.</P
+><P
+>Lets look at an example of the <SPAN
+CLASS="SYMBOL"
+>EVIOCGID</SPAN
+>
+<TT
+CLASS="FUNCTION"
+>ioctl</TT
+> call.</P
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="note.gif" tppabs="http://www.frogmouth.net/hid-doco/stylesheet-images/note.gif"
+HSPACE="5"
+ALT="Note"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>About this example</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This example is intentionally a code fragment, and is not complete,nor
+is it meant to show good programming style. </P
+><P
+>A complete form of this example (that will compile with
+<TT
+CLASS="USERINPUT"
+><B
+>gcc -Wall -W</B
+></TT
+>) is provided in the second part of
+this document.</P
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN254"
+></A
+><P
+><B
+>Example 2. <SPAN
+CLASS="SYMBOL"
+>EVIOCGID</SPAN
+> example</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  ioctl(fd, EVIOCGID, &#38;device_info);
+
+  printf("vendor 0x%04hx product 0x%04hx version 0x%04hx is on",
+         device_info.vendor, device_info.product,
+         device_info.version);
+  switch ( device_info.bustype)
+      {
+      case BUS_USB :
+          printf(" a Universal Serial Bus\n");
+          break;
+      default:
+          printf(" an unknown bus type: 0x%04hx", device_info.bustype);
+      }</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>Another useful <TT
+CLASS="FUNCTION"
+>ioctl</TT
+> for getting information on
+the device is <SPAN
+CLASS="SYMBOL"
+>EVIOCGNAME</SPAN
+>. It returns a
+<SPAN
+CLASS="TYPE"
+>char</SPAN
+> array, containing the name of the device.</P
+><P
+>Lets look at an example of the <SPAN
+CLASS="SYMBOL"
+>EVIOCGNAME</SPAN
+>
+<TT
+CLASS="FUNCTION"
+>ioctl</TT
+> call.</P
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="note.gif" tppabs="http://www.frogmouth.net/hid-doco/stylesheet-images/note.gif"
+HSPACE="5"
+ALT="Note"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>About this example</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This example is intentionally a code fragment, and is not complete,nor
+is it meant to show good programming style. </P
+><P
+>A complete form of this example (that will compile with
+<TT
+CLASS="USERINPUT"
+><B
+>gcc -Wall -W</B
+></TT
+>) is provided in the second part of
+this document.</P
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN270"
+></A
+><P
+><B
+>Example 3. <SPAN
+CLASS="SYMBOL"
+>EVIOCGNAME</SPAN
+> example</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  char name[256]= "Unknown";
+
+  if(ioctl(fd, EVIOCGNAME(sizeof(name)), name) &#60; 0) {
+      perror("evdev ioctl");
+  }
+
+  printf("The device on %s says it's name is %s\n", argv[1], name);</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>The <SPAN
+CLASS="SYMBOL"
+>EVIOCGNAME</SPAN
+> <TT
+CLASS="FUNCTION"
+>ioctl</TT
+> returns the
+length of the string if it succeeds, and a negative number if it
+fails. For USB devices, the string is made by concatenating the
+strings from <TT
+CLASS="STRUCTFIELD"
+><I
+>iManufacturer</I
+></TT
+> and
+<TT
+CLASS="STRUCTFIELD"
+><I
+>iProduct</I
+></TT
+> string descriptors reported by the
+USB device. Note that these are both optional.</P
+><P
+>If the string is too long to fit into the argument, it will be
+truncated.</P
+><P
+>If it seems strange that the third argument isn't
+<TT
+CLASS="LITERAL"
+>&#38;name</TT
+>, remember that the name of an array is the
+same as a pointer to the first element. Therefore
+<TT
+CLASS="LITERAL"
+>&#38;name</TT
+> would be a pointer to a pointer to the first
+element, which is not what we want. If you really want to use a
+dereference, use <TT
+CLASS="LITERAL"
+>&#38;(name[0])</TT
+>.</P
+><P
+>On my system, with a joystick, running a version of this code produces:</P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="SCREEN"
+>[root@localhost evdev-example3]# ./example3 /dev/input/event0
+The device on /dev/input/event0 says it's name is Microsoft SideWinder
+Joystick</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x200.html" tppabs="http://www.frogmouth.net/hid-doco/x200.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x286.html" tppabs="http://www.frogmouth.net/hid-doco/x286.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Getting the version of the evdev interface</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="c193.html" tppabs="http://www.frogmouth.net/hid-doco/c193.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Determining the device capabilities and features</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

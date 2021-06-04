@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<HTML
+><HEAD
+><TITLE
+>How HID devices relate to the hiddev interface</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.64
+"><LINK
+REL="HOME"
+TITLE="USB HID for Linux USB"
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"><LINK
+REL="UP"
+TITLE="The HID device interface"
+HREF="c100.html" tppabs="http://www.frogmouth.net/hid-doco/c100.html"><LINK
+REL="PREVIOUS"
+TITLE="The HID device interface"
+HREF="c100.html" tppabs="http://www.frogmouth.net/hid-doco/c100.html"><LINK
+REL="NEXT"
+TITLE="Getting the version of the hiddev interface"
+HREF="x112.html" tppabs="http://www.frogmouth.net/hid-doco/x112.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>USB HID for Linux USB</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="c100.html" tppabs="http://www.frogmouth.net/hid-doco/c100.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>The HID device interface</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x112.html" tppabs="http://www.frogmouth.net/hid-doco/x112.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN106"
+>How HID devices relate to the hiddev interface</A
+></H1
+><P
+>As stated in a prior chapter, the USB host controller interacts with
+the USB devices on its bus. The USB core functionality ensures that
+information associated with HID devices is delivered to the HID device
+driver (<TT
+CLASS="FILENAME"
+>hid.o</TT
+>). The HID device driver then uses
+the Application of the particular USB device interface to determine
+whether the device is an input type device (such as a keyboard, mouse,
+joystick or gamepad) or is some other HID device (such as a USB
+monitor control, or a uninterruptable power supply).</P
+><P
+>If the device appears to be an input type device, and the HID device
+driver was compliled to support the input subsystem, then the
+information from the HID device will be provided to the input
+subsystem (where it can be accessed using joystick, mouse, keyboard or
+event interfaces, as discussed in later chapters).</P
+><P
+>If the device does not appear to be an input device (or there is no
+input subsystem support in the HID device driver) and the HID device
+driver has been compiled to support the hiddev driver, then the
+information provided by the HID device will be made available on the
+hiddev interface, which is the subject of this chapter.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="c100.html" tppabs="http://www.frogmouth.net/hid-doco/c100.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x112.html" tppabs="http://www.frogmouth.net/hid-doco/x112.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>The HID device interface</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="c100.html" tppabs="http://www.frogmouth.net/hid-doco/c100.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Getting the version of the hiddev interface</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

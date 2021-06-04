@@ -1,0 +1,47 @@
+nohup: 讓command在遠端執行，不因登出而中斷
+
+資料來源:http://dragonspring.pixnet.net/blog/post/33257496-%5Blinux%5Btips%5Dnohup%3A-%E8%AE%93command%E5%9C%A8%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8C%EF%BC%8C%E4%B8%8D%E5%9B%A0%E7%99%BB%E5%87%BA
+
+
+對於寫程式的人，有些時候程式要跑得比較久，但是因為下班等原因必須關閉連線（不管是telnet或SSH）時，nohup就是你的好朋友！又或者你利用wget抓取一些需要好幾小時才能抓完的檔案時，你也可以利用nohup來幫祝你在離線後繼續抓取。
+
+nohup是什麼？
+
+nohup是由兩個字組成的命令：no-hup，hup指的是SIGHUP（hangup)這個信號，nohup就是忽略SIGHUP這個信號的意思。當我們從一個連線登出的時候，每個process都會收到一個SIGHUP信號，透過nohup所下達的命令就可以不受影響，繼續執行。
+
+ 
+
+nohup如何使用？
+
+nohup最傳統的用法就是在你要執行的命令之前加上nohup，然後在後面加上一個背景執行的 &，像這樣：
+
+$ nohup your_command &
+$
+ 
+
+所有執行產生的輸出，將自動導出到nohup.txt。你也可以參考我之前的文章：
+
+Linux Shell IO redirect (資料流重導向）
+
+ 
+
+將輸出重新導出到新的檔案，例如myout.txt:
+
+$ nohup your_command &>myout.txt &
+$
+ 
+
+察看nohup執行結果
+
+一旦透過nohup執行命令，所有的輸出都會存到檔案，而不是直接顯示在螢幕上。如果你想要看執行結果的話，你可以用 tail 命令加上 -f  參數，讓shell自動為你在檔案有所更新時一併印出，也就是說看起來就好像你在看螢幕上的執行結果一樣：
+
+$ tail –f nohup.txt
+ 
+
+ ------------
+ 
+ 自己測試內容:
+ 
+nohup ./WowzaDisconnectAnalytics &
+
+ ps -ef|grep WowzaDisconnectAnalytics

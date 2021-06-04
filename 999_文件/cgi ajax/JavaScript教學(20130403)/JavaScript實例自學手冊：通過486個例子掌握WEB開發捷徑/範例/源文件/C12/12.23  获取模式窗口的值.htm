@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+<script language="javascript">
+function openwin()
+{
+    var url="12.23  获取模式窗口的值1.htm";
+    //打开模式窗口，注意模式窗口的样式
+    var mydata=showModalDialog(url,null,"dialogWidth:300px;dialogHeight:120px;center:yes;help:No;status:no;resizable:Yes;edge:sunken");
+    if(mydata)
+     alert("您输入的值为：" +mydata.value);
+}
+</script>
+</head>
+<body>
+    <input id="Button1" type="button" value="打开窗口" onclick="openwin()" />
+</body>
+</html>

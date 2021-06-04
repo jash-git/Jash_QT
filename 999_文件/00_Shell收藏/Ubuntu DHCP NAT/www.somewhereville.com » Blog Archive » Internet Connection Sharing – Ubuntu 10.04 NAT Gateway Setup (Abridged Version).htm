@@ -1,0 +1,978 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- saved from url=(0037)http://www.somewhereville.com/?p=1196 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <meta name="verify-v1" content="/RL0jWBNx97qfmZY3DUEPgcQGNh7DznPBMXedSApJtI=">
+		
+		<title>www.somewhereville.com  » Blog Archive   » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)</title>
+		<meta name="generator" content="WordPress 3.7.1">
+                <meta name="tags" content="www.somewhereville.com">
+                <meta name="keywords" content="www.somewhereville.com">
+		<!-- leave this for stats -->
+		<link rel="stylesheet" href="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/style.css" type="text/css" media="screen">
+		<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.somewhereville.com/?feed=rss2">
+		<link rel="alternate" type="text/xml" title="RSS .92" href="http://www.somewhereville.com/?feed=rss">
+		<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="http://www.somewhereville.com/?feed=atom">
+		<link rel="pingback" href="http://www.somewhereville.com/xmlrpc.php">
+			<link rel="archives" title="June 2013" href="http://www.somewhereville.com/?m=201306">
+	<link rel="archives" title="April 2013" href="http://www.somewhereville.com/?m=201304">
+	<link rel="archives" title="March 2013" href="http://www.somewhereville.com/?m=201303">
+	<link rel="archives" title="January 2013" href="http://www.somewhereville.com/?m=201301">
+	<link rel="archives" title="November 2012" href="http://www.somewhereville.com/?m=201211">
+	<link rel="archives" title="August 2012" href="http://www.somewhereville.com/?m=201208">
+	<link rel="archives" title="June 2012" href="http://www.somewhereville.com/?m=201206">
+	<link rel="archives" title="April 2012" href="http://www.somewhereville.com/?m=201204">
+	<link rel="archives" title="March 2012" href="http://www.somewhereville.com/?m=201203">
+	<link rel="archives" title="December 2011" href="http://www.somewhereville.com/?m=201112">
+	<link rel="archives" title="July 2011" href="http://www.somewhereville.com/?m=201107">
+	<link rel="archives" title="June 2011" href="http://www.somewhereville.com/?m=201106">
+	<link rel="archives" title="March 2011" href="http://www.somewhereville.com/?m=201103">
+	<link rel="archives" title="December 2010" href="http://www.somewhereville.com/?m=201012">
+	<link rel="archives" title="November 2010" href="http://www.somewhereville.com/?m=201011">
+	<link rel="archives" title="October 2010" href="http://www.somewhereville.com/?m=201010">
+	<link rel="archives" title="September 2010" href="http://www.somewhereville.com/?m=201009">
+	<link rel="archives" title="August 2010" href="http://www.somewhereville.com/?m=201008">
+	<link rel="archives" title="July 2010" href="http://www.somewhereville.com/?m=201007">
+	<link rel="archives" title="May 2010" href="http://www.somewhereville.com/?m=201005">
+	<link rel="archives" title="April 2010" href="http://www.somewhereville.com/?m=201004">
+	<link rel="archives" title="March 2010" href="http://www.somewhereville.com/?m=201003">
+	<link rel="archives" title="February 2010" href="http://www.somewhereville.com/?m=201002">
+	<link rel="archives" title="January 2010" href="http://www.somewhereville.com/?m=201001">
+	<link rel="archives" title="December 2009" href="http://www.somewhereville.com/?m=200912">
+	<link rel="archives" title="November 2009" href="http://www.somewhereville.com/?m=200911">
+	<link rel="archives" title="October 2009" href="http://www.somewhereville.com/?m=200910">
+	<link rel="archives" title="September 2009" href="http://www.somewhereville.com/?m=200909">
+	<link rel="archives" title="August 2009" href="http://www.somewhereville.com/?m=200908">
+	<link rel="archives" title="July 2009" href="http://www.somewhereville.com/?m=200907">
+	<link rel="archives" title="June 2009" href="http://www.somewhereville.com/?m=200906">
+	<link rel="archives" title="May 2009" href="http://www.somewhereville.com/?m=200905">
+	<link rel="archives" title="April 2009" href="http://www.somewhereville.com/?m=200904">
+	<link rel="archives" title="March 2009" href="http://www.somewhereville.com/?m=200903">
+	<link rel="archives" title="February 2009" href="http://www.somewhereville.com/?m=200902">
+	<link rel="archives" title="January 2009" href="http://www.somewhereville.com/?m=200901">
+	<link rel="archives" title="December 2008" href="http://www.somewhereville.com/?m=200812">
+	<link rel="archives" title="November 2008" href="http://www.somewhereville.com/?m=200811">
+	<link rel="archives" title="October 2008" href="http://www.somewhereville.com/?m=200810">
+	<link rel="archives" title="September 2008" href="http://www.somewhereville.com/?m=200809">
+	<link rel="archives" title="August 2008" href="http://www.somewhereville.com/?m=200808">
+	<link rel="archives" title="July 2008" href="http://www.somewhereville.com/?m=200807">
+	<link rel="archives" title="June 2008" href="http://www.somewhereville.com/?m=200806">
+	<link rel="archives" title="May 2008" href="http://www.somewhereville.com/?m=200805">
+	<link rel="archives" title="March 2008" href="http://www.somewhereville.com/?m=200803">
+	<link rel="archives" title="February 2008" href="http://www.somewhereville.com/?m=200802">
+	<link rel="archives" title="January 2008" href="http://www.somewhereville.com/?m=200801">
+	<link rel="archives" title="December 2007" href="http://www.somewhereville.com/?m=200712">
+	<link rel="archives" title="November 2007" href="http://www.somewhereville.com/?m=200711">
+	<link rel="archives" title="October 2007" href="http://www.somewhereville.com/?m=200710">
+	<link rel="archives" title="July 2007" href="http://www.somewhereville.com/?m=200707">
+	<link rel="archives" title="June 2007" href="http://www.somewhereville.com/?m=200706">
+	<link rel="archives" title="May 2007" href="http://www.somewhereville.com/?m=200705">
+	<link rel="archives" title="April 2007" href="http://www.somewhereville.com/?m=200704">
+	<link rel="archives" title="March 2007" href="http://www.somewhereville.com/?m=200703">
+	<link rel="archives" title="February 2007" href="http://www.somewhereville.com/?m=200702">
+	<link rel="archives" title="January 2007" href="http://www.somewhereville.com/?m=200701">
+	<link rel="archives" title="December 2006" href="http://www.somewhereville.com/?m=200612">
+	<link rel="archives" title="November 2006" href="http://www.somewhereville.com/?m=200611">
+	<link rel="archives" title="October 2006" href="http://www.somewhereville.com/?m=200610">
+	<link rel="archives" title="September 2006" href="http://www.somewhereville.com/?m=200609">
+	<link rel="archives" title="August 2006" href="http://www.somewhereville.com/?m=200608">
+	<link rel="archives" title="June 2006" href="http://www.somewhereville.com/?m=200606">
+	<link rel="archives" title="May 2006" href="http://www.somewhereville.com/?m=200605">
+	<link rel="archives" title="April 2006" href="http://www.somewhereville.com/?m=200604">
+	<link rel="archives" title="March 2006" href="http://www.somewhereville.com/?m=200603">
+	<link rel="archives" title="February 2006" href="http://www.somewhereville.com/?m=200602">
+	<link rel="archives" title="January 2006" href="http://www.somewhereville.com/?m=200601">
+	<link rel="archives" title="December 2005" href="http://www.somewhereville.com/?m=200512">
+	<link rel="archives" title="November 2005" href="http://www.somewhereville.com/?m=200511">
+		<link rel="alternate" type="application/rss+xml" title="www.somewhereville.com » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version) Comments Feed" href="http://www.somewhereville.com/?feed=rss2&p=1196">
+<link rel="stylesheet" id="sharedaddy-css" href="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/sharing.css" type="text/css" media="all">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.somewhereville.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.somewhereville.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Some Light Science Reading. The Constellations: Cygnus" href="http://www.somewhereville.com/?p=1183">
+<link rel="next" title="chown/chmod Your Way To A Backup Free Of The MemeodHelper Error in OSX 10.6.x (Snow Leopard) &amp; A Seagate Vs. Western Digital Experience" href="http://www.somewhereville.com/?p=1225">
+<meta name="generator" content="WordPress 3.7.1">
+<link rel="canonical" href="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version).htm">
+<link rel="shortlink" href="http://wp.me/p2E8Gz-ji">
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Internet Connection Sharing - Ubuntu 10.04 NAT Gateway Setup (Abridged Version)">
+<meta property="og:url" content="http://www.somewhereville.com/?p=1196">
+<meta property="og:description" content="Had I known it would be this straightforward, I would have done it much sooner. As is the case in many posts here, what follows is a summary of what I had to do to do what it is I&#39;m writing about, ...">
+<meta property="og:site_name" content="www.somewhereville.com">
+<meta property="og:image" content="http://www.somewhereville.com/blogimages/2010august_nat_gateway_example.jpg">
+<meta property="og:image" content="http://www.somewhereville.com/blogimages/2010august_nat_gateway_setup.jpg">
+<meta name="twitter:site" content="@jetpack">
+<meta name="twitter:image" content="http://www.somewhereville.com/blogimages/2010august_nat_gateway_example.jpg?w=240">
+<meta name="twitter:card" content="summary">
+	</head>
+
+	<body style="">
+		<div id="page">
+			<div id="top"> <!-- this calls the top bar image -->
+			<a href="http://www.somewhereville.com/index.php">
+			<img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/blank.gif" alt="home" title="home" width="1100" height="150"></a>
+			</div>
+		<div id="wrapper">
+
+	<div id="content">
+				
+  	
+		<div class="post">
+			<h1 id="post-1196"><a href="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version).htm" rel="bookmark" title="Permanent Link: Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)">Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)</a></h1>
+
+			<div class="entrytext">
+				<p>Had I known it would be this straightforward, I would have done it much sooner.</p>
+<p>As is the case in many posts here, what follows is a summary of what I had to do to do what it is I’m writing about, kept largely for reference purposes but around just in case someone wants to do the same and would rather not take several web pages and combine them into one procedure that they may still have the stumble through to make work.  </p>
+<p>This page would not have been possible without the procedure outlined at <a href="http://ubuntuforums.org/showthread.php?t=713874">ubuntuforums.org/showthread.php?t=713874</a>.</p>
+<p></p><center><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/2010august_nat_gateway_example.jpg"></center><p></p>
+<p>My current cluster configuration (say, as the one shown above) contains one system board dedicated to web access (with a single available IP address from my provider) and general file transfer hosting, then several boards dedicated to computation.  As an <a href="http://www.ubuntu.org/">Ubuntu</a> user, every fresh install of some new program may require the addition of libraries or subordinate programs not available in the “standard” Ubuntu installation.  </p>
+<p>With a single IP address to the room, the procedure for performing a proper install of a library or program involves either running <strong>sudo apt-get install <em>program/library</em></strong> on the web-accessible machine and saving all of the .deb files from a first machine, transferring those .deb files to all other machines, and installing, or, still more involved, “walking” the ethernet cable down the line of ports on each system board, reassigning IP addresses in <strong>/etc/network/interfaces</strong>, and performing installations.  This long involved set of different processes are then also required for system updates.  Not only is this tedious, it requires taking machines “offline” from your cluster one-at-a-time (that is, if you don’t have second ethernet cards on each system board to keep each ready for walking the ethernet cable down the line).  It’s the “other” IPv4 exhaustion.</p>
+<p>The easiest solution that keeps your hardware from otherwise ever being touched (and keeps you from having to sit in front of it) is to set up a <a href="http://en.wikipedia.org/wiki/Network_address_translation">NAT Gateway</a>, an approach that uses one host machine to share the outside world connection to the other machines.  The whole setup procedure consists of a simple hardware setup, some configuration of the machine that has the hard-coded (or not) IP address, and modifications to the <strong>/etc/network/interfaces</strong> file of all associated machines to direct their search for the outside.  After, all machines attached to the switch also connected to the Host Machine can use the “world” IP address of the Host Machine to update OS, transfer files, host pages (with some port work, which I won’t go into), etc.</p>
+<p>The steps are as below that are all I have to follow to get this working in Ubuntu 10.04 (and should be very, very similar in all cases).</p>
+<h2>Hardware Setup</h2>
+<p></p><center><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/2010august_nat_gateway_setup.jpg"></center><p></p>
+<p>The image above tells it all.  This procedure uses 1 machine with 2 ethernet cards (which likely means one on the system board and a used PCI slot), 1 switch, and X number of other machines.  </p>
+<h2>Software Setup On Host Machine</h2>
+<p>Starting from a fresh installation on the Host Machine (although not necessary.  This first pass was set up on a machine already the recipient of several updates and software installations) which properly recognizes the two ethernet cards, the procedure is as follows.</p>
+<h3>1. sudo pico /etc/network/interfaces</h3>
+<p>First we change the interfaces file to reflect that the two ethernet cards are two be divided into “public” (the internet.  Here, <strong>eth0</strong>) and “private” (the intranet. Here, <strong>eth1</strong>).  The contents of my file are as below:</p>
+<pre>auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+address mm.nn.oo.pp
+netmask qq.rr.ss.tt
+gateway uu.ww.xx.yy
+
+auto eth1
+iface eth1 inet static
+address aa.bb.cc.dd
+netmask 255.0.0.0
+network aa.bb.cc.0
+broadcast aa.bb.cc.255
+</pre>
+<p>Several things.  <strong>eth0</strong> connects to the outside world.  <strong>mm.nn.oo.pp</strong> is the IP address provided by your provider.  The values for <strong>netmask</strong> and <strong>gateway</strong> (and <strong>network</strong> and <strong>broadcast</strong> if you have them) should be available from your provider (they may not be obvious).</p>
+<p><strong>eth1</strong> is being used for connection to the intranet.  Letter pairs can be anything (but keep all <strong>aa</strong>‘s the same, <strong>bb</strong>‘s the same, etc.).</p>
+<h3>2. sudo pico /etc/resolv.conf</h3>
+<pre>nameserver ee.ff.gg.hh
+nameserver ee.ff.gg.ii
+</pre>
+<p><strong>nameserver</strong> information should be available from your provider.  Add this info to <strong>resolv.conf</strong>.</p>
+<h3>3. sudo pico /etc/sysctl.conf</h3>
+<p>From within this long file…</p>
+<pre>#
+# /etc/sysctl.conf - Configuration file for setting system variables
+# See /etc/sysctl.d/ for additional system variables.
+# See sysctl.conf (5) for information.
+#
+
+#kernel.domainname = example.com
+
+# Uncomment the following to stop low-level messages on console
+#kernel.printk = 4 4 1 7
+
+##############################################################3
+# Functions previously found in netbase
+#
+
+# Uncomment the next two lines to enable Spoof protection (reverse-path filter)
+# Turn on Source Address Verification in all interfaces to
+# prevent some spoofing attacks
+#net.ipv4.conf.default.rp_filter=1
+#net.ipv4.conf.all.rp_filter=1
+
+# Uncomment the next line to enable TCP/IP SYN cookies
+#net.ipv4.tcp_syncookies=1
+
+# Uncomment the next line to enable packet forwarding for IPv4
+# net.ipv4.ip_forward=1
+
+# Uncomment the next line to enable packet forwarding for IPv6
+#net.ipv6.conf.all.forwarding=1
+
+###################################################################
+# Additional settings - these settings can improve the network
+# security of the host and prevent against some network attacks
+# including spoofing attacks and man in the middle attacks through
+# redirection. Some network environments, however, require that these
+# settings are disabled so review and enable them as needed.
+#
+# Ignore ICMP broadcasts
+#net.ipv4.icmp_echo_ignore_broadcasts = 1
+#
+# Ignore bogus ICMP errors
+#net.ipv4.icmp_ignore_bogus_error_responses = 1
+# 
+# Do not accept ICMP redirects (prevent MITM attacks)
+#net.ipv4.conf.all.accept_redirects = 0
+#net.ipv6.conf.all.accept_redirects = 0
+# _or_
+# Accept ICMP redirects only for gateways listed in our default
+# gateway list (enabled by default)
+# net.ipv4.conf.all.secure_redirects = 1
+#
+# Do not send ICMP redirects (we are not a router)
+#net.ipv4.conf.all.send_redirects = 0
+#
+# Do not accept IP source route packets (we are not a router)
+#net.ipv4.conf.all.accept_source_route = 0
+#net.ipv6.conf.all.accept_source_route = 0
+#
+# Log Martian Packets
+#net.ipv4.conf.all.log_martians = 1
+</pre>
+<p>Uncomment the line that reads:</p>
+<pre># net.ipv4.ip_forward=1</pre>
+<p>so it reads:</p>
+<pre>net.ipv4.ip_forward=1</pre>
+<p>And save.  This change will be made upon restart but can be started up on-the-fly by typing the following:</p>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3a. sudo sysctl -w net.ipv4.ip_forward=1</h3>
+<h3>4. sudo pico /etc/rc.local</h3>
+<pre>#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+exit 0
+</pre>
+<p>To the <strong>rc.local</strong> file add the following two lines at the bottom (above the <em>exit 0</em>):</p>
+<pre>/sbin/iptables -P FORWARD ACCEPT
+/sbin/iptables --table nat -A POSTROUTING -o eth0 -j MASQUERADE
+</pre>
+<p>And save.  This change will be made upon restart but can be started up on-the-fly by typing the following:</p>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4a. sudo iptables -P FORWARD ACCEPT</h3>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4b. sudo iptables –table nat -A POSTROUTING -o eth0 -j MASQUERADE</h3>
+<h3>5. sudo apt-get install dhcp3-server</h3>
+<p>This is the online machine after all.  As one of the ubuntuforum pages (<a href="http://ubuntuforums.org/showthread.php?t=713874">ubuntuforums.org/showthread.php?t=713874</a>) I worked from stated: “The start will fail, but that is nothing to worry about.”</p>
+<h3>6. sudo pico /etc/dhcp3/dhcpd.conf</h3>
+<p>Now we configure the dhcp server on this Host Machine so it knows how to assign addresses.</p>
+<p>The dhcpd.conf example at <a href="http://ubuntuforums.org/showthread.php?t=713874">ubuntuforums.org/showthread.php?t=713874</a> worked good enough.</p>
+<pre>ddns-update-style none;
+option domain-name "mynetwork";
+option domain-name-servers ee.ff.gg.hh, ee.ff.gg.ii;
+option routers nn.mm.oo.pp;
+
+default-lease-time 42300;
+max-lease-time 84600;
+authoritative;
+
+log-facility local7;
+
+subnet aa.bb.cc.0 netmask 255.0.0.0 {
+  range aa.bb.cc.AA aa.bb.cc.ZZ;
+}
+</pre>
+<p>Note: letter pairs here need to match up with the interfaces file.  The <strong>range</strong> is for the Client Machines looking for IP addresses.  My strong preference is to hard-code IP addresses for these Client Machines, so just have the range account for the number of machines from AA to ZZ.</p>
+<h3>7. sudo pico /etc/default/dhcp3-server</h3>
+<p>Finally, one last change on this Host Machine, to configure the dhcp server interface (for this cluster, eth1).</p>
+<pre># Defaults for dhcp initscript
+# sourced by /etc/init.d/dhcp
+# installed at /etc/default/dhcp3-server by the maintainer scripts
+
+#
+# This is a POSIX shell fragment
+#
+
+# On what interfaces should the DHCP server (dhcpd) serve DHCP requests?
+#	Separate multiple interfaces with spaces, e.g. "eth0 eth1".
+</pre>
+<p>Simply add the following to the bottom of this file</p>
+<pre>INTERFACES="eth1"
+</pre>
+<p>My <strong>strong</strong> bias at this point is to restart this machine and confirm that the network works (that you can open web pages and ping accordingly), but you can restart the dhcp server by typing:</p>
+<h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7a. sudo /etc/init.d/dhcp3-server start</h3>
+<h2>Client Machines</h2>
+<p>This could not be easier. </p>
+<h3>1. sudo pico /etc/network/interfaces</h3>
+<pre>auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+ address aa.bb.cc.AA (up to ZZ)
+ netmask 255.0.0.0
+ network aa.bb.cc.0
+ broadcast aa.bb.cc.255
+ gateway aa.bb.cc.dd
+</pre>
+<p>Note!  The gateway should be the IP address of the Host Machine eth1 card (<strong>aa.bb.cc.dd</strong>).  That is all of the direction that is needed.</p>
+<h3>2. sudo pico /etc/resolv.conf</h3>
+<pre>nameserver ee.ff.gg.hh
+nameserver ee.ff.gg.ii
+</pre>
+<h3>3. sudo /etc/init.d/networking restart</h3>
+<p>Either reboot the machine or use the above to restart the network.  Following the above, the Client Machine can see the outside world, run system updates (that is, <strong>sudo aptitude update</strong> and <strong>sudo aptitude upgrade</strong>), etc.</p>
+<div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" class="share-twitter sd-button share-icon" href="http://www.somewhereville.com/?p=1196&share=twitter&nb=1" title="Click to share on Twitter" id="sharing-twitter-1196"><span>Twitter<span class="share-count">1</span></span></a></li><li class="share-facebook"><a rel="nofollow" class="share-facebook sd-button share-icon" href="http://www.somewhereville.com/?p=1196&share=facebook&nb=1" title="Share on Facebook" id="sharing-facebook-1196"><span>Facebook<span class="share-count">4</span></span></a></li><li class="share-google-plus-1"><a rel="nofollow" class="share-google-plus-1 sd-button share-icon" href="http://www.somewhereville.com/?p=1196&share=google-plus-1&nb=1" title="Click to share on Google+" id="sharing-google-1196"><span>Google</span></a></li><li class="share-stumbleupon"><a rel="nofollow" class="share-stumbleupon sd-button share-icon" href="http://www.somewhereville.com/?p=1196&share=stumbleupon&nb=1" title="Click to share on StumbleUpon"><span>StumbleUpon</span></a></li><li class="share-linkedin"><a rel="nofollow" class="share-linkedin sd-button share-icon" href="http://www.somewhereville.com/?p=1196&share=linkedin&nb=1" title="Click to share on LinkedIn" id="sharing-linkedin-1196"><span>LinkedIn</span></a></li><li class="share-email share-service-visible"><a rel="nofollow" class="share-email sd-button share-icon" href="http://www.somewhereville.com/?p=1196&share=email&nb=1" title="Click to email this to a friend"><span>Email</span></a></li><li class="share-end"></li></ul></div></div></div>	
+				
+<h6>Tags: <a href="http://www.somewhereville.com/?tag=client-machine" rel="tag">client machine</a> • <a href="http://www.somewhereville.com/?tag=host-machine" rel="tag">host machine</a> • <a href="http://www.somewhereville.com/?tag=nat-gateway" rel="tag">NAT gateway</a> • <a href="http://www.somewhereville.com/?tag=ubuntu" rel="tag">ubuntu</a><br></h6>
+	
+				<p class="postmetadata alt">
+						This entry was posted
+						 
+						on Sunday, August 29th, 2010 at 7:31 PM						and is filed under <a href="http://www.somewhereville.com/?cat=138" title="View all posts in linux issues" rel="category">linux issues</a>, <a href="http://www.somewhereville.com/?cat=20" title="View all posts in scripts" rel="category">scripts</a>, <a href="http://www.somewhereville.com/?cat=149" title="View all posts in ubuntu" rel="category">ubuntu</a>.
+						You can follow any responses to this entry through the <a href="http://www.somewhereville.com/?feed=rss2&p=1196">RSS 2.0</a> feed. 
+						
+													You can <a href="http://www.somewhereville.com/?p=1196#respond">leave a response</a>, or <a href="http://www.somewhereville.com/wp-trackback.php?p=1196">trackback</a> from your own site.
+						
+												
+				</p>
+	
+			</div>
+		</div>
+		
+	
+<!-- You can start editing here. -->
+
+	<h3 id="comments">One Response to “Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)”</h3> 
+
+	<ol class="commentlist">
+
+	
+	
+		<li class="commentbody" id="comment-40233">
+			<a href="http://codeghar.wordpress.com/2012/05/02/ubuntu-12-04-ipv4-nat-gateway-and-dhcp-server/" rel="external nofollow" class="url">Ubuntu 12.04 IPv4 NAT Gateway and DHCP Server « Code Ghar</a>						<br>
+			<a class="commentlink" href="http://www.somewhereville.com/?p=1196#comment-40233" title="">May 2nd, 2012 18:00</a> 			
+			<div class="commentcount">1</div>
+			
+			<p>[...] I begin this post, I want to thank Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version) for providing the bulk of the tutorial. I have made some modifications for Ubuntu [...]</p>
+		</li>
+		
+		
+	
+	</ol>
+
+ 
+
+
+<h3 id="respond">Leave a Reply</h3>
+
+<p>You must be <a href="http://www.somewhereville.com/wp-login.php?redirect_to=http://www.somewhereville.com/?p=1196">logged in</a> to post a comment.</p>
+
+	
+		<div class="navigation">
+			<div class="alignleft">« <a href="http://www.somewhereville.com/?p=1183">Some Light Science Reading. The Constellations: Cygnus</a></div>
+			<div class="alignright"> <a href="http://www.somewhereville.com/?p=1225">chown/chmod Your Way To A Backup Free Of The MemeodHelper Error in OSX 10.6.x (Snow Leopard) &amp; A Seagate Vs. Western Digital Experience</a> »</div>
+		</div>
+	
+	 
+ 		<div id="footer">
+    		www.somewhereville.com is proudly powered by <a href="http://wordpress.org/">WordPress</a>.
+    		<a href="http://www.somewhereville.com/?feed=rss2">Entries (RSS)</a> and <a href="http://www.somewhereville.com/?feed=comments-rss2">Comments (RSS)</a>.
+			23 queries. 0.972 seconds. © #8^(=)+&lt;, ph.d.
+		</div>
+   	
+	</div>
+
+</div>
+
+<div id="sidebar">
+
+<h1><a href="http://www.somewhereville.com/">Home</a></h1><br>
+
+<h2>About</h2>
+<ul>quantum chemist computer geek nanotechnologist graphic artist amateur astronomer jazz/rock drummer.</ul>
+<!-- <ul>#8^(=)+< </ul> -->
+
+<h2>Connect</h2>
+<ul><strong>email</strong> • <a href="mailto:damian@somewhereville.com">damian@svw</a><br>
+<strong>aim</strong> • somewhereville<br>
+<strong>gtalk</strong> • somewhereville<br>
+<strong>skype</strong> • somewhereville<br>
+<strong>facebook</strong> • <a href="http://www.facebook.com/profile.php?id=604590178">profile</a><br>
+<strong>google+</strong> • <a href="https://plus.google.com/u/0/115873577924369621719/posts?hl=en">profile</a><br>
+<strong>myspace</strong> • <a href="http://www.myspace.com/damianallis">profile</a><br>
+<strong>academia</strong> • <a href="http://syr.academia.edu/DamianAllis/">profile</a><br>
+<strong>twitter</strong> • <a href="http://twitter.com/somewhereville">profile</a><br>
+<strong>researchgate</strong> • <a href="http://www.researchgate.net/profile/Damian_Allis/">profile</a><br>
+<!-- <strong>pownce</strong> • <a href="http://pownce.com/somewhereville/">profile</a><br /> -->
+<!-- <strong>friendster</strong> • <a href="http://www.friendster.com/user.php?uid=8516528">profile</a><br /> -->
+<strong>linkedin</strong> • <a href="https://www.linkedin.com/in/damianallis">profile</a><br>
+<strong>flickr</strong> • <a href="http://www.flickr.com/photos/somewhereville/">profile</a></ul>
+
+<h2>Search</h2>
+<ul>
+<form method="get" id="searchform" action="http://www.somewhereville.com/index.php">
+<div><input type="text" alt="searched for: " value="" name="s" id="s">
+</div>
+</form></ul>
+
+<h2>Family Links</h2>
+<ul>• <a href="http://www.christopherallis.com/wordpress/">Christopher Allis</a><br>
+• <a href="http://rachelhiller.com/">Rachel Hiller</a><br>
+• <a href="http://livehighfive.com/">Live High Five</a><br>
+• <a href="http://instantclassicrecords.com/">Instant Classic</a><br>
+• <a href="http://wthtorg.wordpress.com/">W T H T</a><br>
+• <a href="http://www.somewhereville.com/gnw/">George Wong</a><br>
+• <a href="http://gouncledaddy.com/Home/Home.html">Uncle Daddy</a><br>
+• <a href="https://twojewsandanitalian.wordpress.com/">2 Js And An I</a><br>
+</ul>
+
+<h2>CV, Press &amp; Publications</h2>
+<ul>• <a href="http://www.somewhereville.com/rescv/dgacv.pdf">full cv (pdf)</a><br>
+<!-- • <a href="http://www.somewhereville.com/rescv/dgacv_nih.pdf">NIH cv (pdf)</a><br /> -->
+• <a href="http://www.somewhereville.com/?page_id=52">cv (html)</a><br>
+• <a href="http://www.somewhereville.com/rescv/damianallis_dissertation_december_2004.pdf">phd thesis (153 MB)</a><br>
+• <a href="http://www.somewhereville.com/?page_id=5">papers</a><br>
+• <a href="http://www.somewhereville.com/?page_id=67">books and chapters</a><br>
+• <a href="http://www.somewhereville.com/?page_id=6">posters</a><br>
+• <a href="http://www.somewhereville.com/?page_id=7">patents</a><br>
+• <a href="http://www.somewhereville.com/?page_id=8">talks</a><br>
+• <a href="http://www.somewhereville.com/?page_id=9">interviews and essays</a><br>
+• <a href="http://www.somewhereville.com/?page_id=106">slidecasts</a><br>
+• <a href="http://www.somewhereville.com/?page_id=985">journal &amp; mag covers</a><br>
+• <a href="http://www.somewhereville.com/?page_id=676">ubuntu mpich crystal06 intel-fort tutorial</a></ul>
+
+<h2>Galleries</h2>
+<ul>• <a href="http://www.somewhereville.com/?page_id=10">nano gallery</a><br>
+• <a href="http://www.flickr.com/photos/somewhereville/sets/72157624965705221/">aerial photography</a><br>
+<!-- <a href="?page_id=12">aerial photos</a><br /> -->
+<!-- <a href="?page_id=27">syracuse scenes</a><br /> -->
+• <a href="http://www.flickr.com/photos/somewhereville/sets/72157625090915762/">syracuse scenes</a><br>
+• <a href="http://www.somewhereville.com/?page_id=133">panoramas</a></ul>
+
+<!-- <h2>Tag Half-Cloud</h2> -->
+<!-- <ul><a href='http://www.somewhereville.com/?tag=abinit' class='tag-link-162' title='5 topics' style='font-size: 8.7349397590361pt;'>abinit</a>
+<a href='http://www.somewhereville.com/?tag=amber' class='tag-link-74' title='5 topics' style='font-size: 8.7349397590361pt;'>amber</a>
+<a href='http://www.somewhereville.com/?tag=apt-get' class='tag-link-161' title='11 topics' style='font-size: 11.626506024096pt;'>apt-get</a>
+<a href='http://www.somewhereville.com/?tag=asterism' class='tag-link-326' title='8 topics' style='font-size: 10.373493975904pt;'>asterism</a>
+<a href='http://www.somewhereville.com/?tag=astronomical-chronicle' class='tag-link-237' title='12 topics' style='font-size: 11.915662650602pt;'>astronomical chronicle</a>
+<a href='http://www.somewhereville.com/?tag=b12' class='tag-link-130' title='4 topics' style='font-size: 7.9638554216867pt;'>b12</a>
+<a href='http://www.somewhereville.com/?tag=big-dipper' class='tag-link-332' title='5 topics' style='font-size: 8.7349397590361pt;'>big dipper</a>
+<a href='http://www.somewhereville.com/?tag=cassiopeia' class='tag-link-338' title='4 topics' style='font-size: 7.9638554216867pt;'>cassiopeia</a>
+<a href='http://www.somewhereville.com/?tag=charles-messier' class='tag-link-201' title='5 topics' style='font-size: 8.7349397590361pt;'>charles messier</a>
+<a href='http://www.somewhereville.com/?tag=chemmedchem' class='tag-link-134' title='4 topics' style='font-size: 7.9638554216867pt;'>chemmedchem</a>
+<a href='http://www.somewhereville.com/?tag=constellation' class='tag-link-203' title='9 topics' style='font-size: 10.855421686747pt;'>constellation</a>
+<a href='http://www.somewhereville.com/?tag=crystal06' class='tag-link-169' title='7 topics' style='font-size: 9.8915662650602pt;'>crystal06</a>
+<a href='http://www.somewhereville.com/?tag=cyanocobalamin' class='tag-link-131' title='6 topics' style='font-size: 9.4096385542169pt;'>cyanocobalamin</a>
+<a href='http://www.somewhereville.com/?tag=cygnus' class='tag-link-273' title='4 topics' style='font-size: 7.9638554216867pt;'>cygnus</a>
+<a href='http://www.somewhereville.com/?tag=darling-hill' class='tag-link-69' title='5 topics' style='font-size: 8.7349397590361pt;'>darling hill</a>
+<a href='http://www.somewhereville.com/?tag=darling-hill-observatory' class='tag-link-200' title='4 topics' style='font-size: 7.9638554216867pt;'>darling hill observatory</a>
+<a href='http://www.somewhereville.com/?tag=density-functional-theory' class='tag-link-96' title='14 topics' style='font-size: 12.590361445783pt;'>density functional theory</a>
+<a href='http://www.somewhereville.com/?tag=dmol3' class='tag-link-8' title='7 topics' style='font-size: 9.8915662650602pt;'>dmol3</a>
+<a href='http://www.somewhereville.com/?tag=dna' class='tag-link-77' title='10 topics' style='font-size: 11.240963855422pt;'>DNA</a>
+<a href='http://www.somewhereville.com/?tag=draco' class='tag-link-614' title='4 topics' style='font-size: 7.9638554216867pt;'>draco</a>
+<a href='http://www.somewhereville.com/?tag=gromacs' class='tag-link-53' title='8 topics' style='font-size: 10.373493975904pt;'>gromacs</a>
+<a href='http://www.somewhereville.com/?tag=inelastic-neutron-scattering-spectroscopy' class='tag-link-137' title='6 topics' style='font-size: 9.4096385542169pt;'>inelastic neutron scattering spectroscopy</a>
+<a href='http://www.somewhereville.com/?tag=insulin' class='tag-link-129' title='6 topics' style='font-size: 9.4096385542169pt;'>insulin</a>
+<a href='http://www.somewhereville.com/?tag=jupiter' class='tag-link-269' title='5 topics' style='font-size: 8.7349397590361pt;'>jupiter</a>
+<a href='http://www.somewhereville.com/?tag=macbook-pro' class='tag-link-62' title='3 topics' style='font-size: 7pt;'>macbook pro</a>
+<a href='http://www.somewhereville.com/?tag=messier-objects' class='tag-link-350' title='4 topics' style='font-size: 7.9638554216867pt;'>messier objects</a>
+<a href='http://www.somewhereville.com/?tag=milky-way' class='tag-link-122' title='10 topics' style='font-size: 11.240963855422pt;'>Milky Way</a>
+<a href='http://www.somewhereville.com/?tag=molecular-dynamics' class='tag-link-83' title='5 topics' style='font-size: 8.7349397590361pt;'>Molecular Dynamics</a>
+<a href='http://www.somewhereville.com/?tag=mpich2' class='tag-link-57' title='3 topics' style='font-size: 7pt;'>mpich2</a>
+<a href='http://www.somewhereville.com/?tag=namot' class='tag-link-84' title='3 topics' style='font-size: 7pt;'>NAMOT</a>
+<a href='http://www.somewhereville.com/?tag=openmpi' class='tag-link-56' title='6 topics' style='font-size: 9.4096385542169pt;'>openmpi</a>
+<a href='http://www.somewhereville.com/?tag=osx' class='tag-link-60' title='5 topics' style='font-size: 8.7349397590361pt;'>osx</a>
+<a href='http://www.somewhereville.com/?tag=ptolemy' class='tag-link-245' title='4 topics' style='font-size: 7.9638554216867pt;'>ptolemy</a>
+<a href='http://www.somewhereville.com/?tag=starry-night-pro' class='tag-link-339' title='8 topics' style='font-size: 10.373493975904pt;'>starry night pro</a>
+<a href='http://www.somewhereville.com/?tag=syracuse' class='tag-link-128' title='5 topics' style='font-size: 8.7349397590361pt;'>syracuse</a>
+<a href='http://www.somewhereville.com/?tag=syracuse-astronomical-society' class='tag-link-66' title='26 topics' style='font-size: 15pt;'>syracuse astronomical society</a>
+<a href='http://www.somewhereville.com/?tag=syracuse-university' class='tag-link-154' title='4 topics' style='font-size: 7.9638554216867pt;'>syracuse university</a>
+<a href='http://www.somewhereville.com/?tag=terahertz-spectroscopy' class='tag-link-47' title='7 topics' style='font-size: 9.8915662650602pt;'>terahertz spectroscopy</a>
+<a href='http://www.somewhereville.com/?tag=terminal' class='tag-link-160' title='4 topics' style='font-size: 7.9638554216867pt;'>terminal</a>
+<a href='http://www.somewhereville.com/?tag=ubuntu' class='tag-link-149' title='15 topics' style='font-size: 12.78313253012pt;'>ubuntu</a>
+<a href='http://www.somewhereville.com/?tag=ursa-major' class='tag-link-537' title='4 topics' style='font-size: 7.9638554216867pt;'>ursa major</a>
+<a href='http://www.somewhereville.com/?tag=ursa-minor' class='tag-link-790' title='4 topics' style='font-size: 7.9638554216867pt;'>ursa minor</a>
+<a href='http://www.somewhereville.com/?tag=vibrational-spectroscopy' class='tag-link-98' title='5 topics' style='font-size: 8.7349397590361pt;'>vibrational spectroscopy</a>
+<a href='http://www.somewhereville.com/?tag=xcode' class='tag-link-63' title='3 topics' style='font-size: 7pt;'>xcode</a>
+<a href='http://www.somewhereville.com/?tag=zodiac' class='tag-link-327' title='5 topics' style='font-size: 8.7349397590361pt;'>zodiac</a></ul> -->
+
+<h2>Categories</h2>
+<ul>	<li class="cat-item cat-item-6"><a href="http://www.somewhereville.com/?cat=6" title="View all posts filed under (pc-)gamess-us">(pc-)gamess-us</a> (7)
+</li>
+	<li class="cat-item cat-item-162"><a href="http://www.somewhereville.com/?cat=162" title="View all posts filed under abinit">abinit</a> (6)
+</li>
+	<li class="cat-item cat-item-74"><a href="http://www.somewhereville.com/?cat=74" title="View all posts filed under amber">amber</a> (11)
+</li>
+	<li class="cat-item cat-item-21"><a href="http://www.somewhereville.com/?cat=21" title="View all posts filed under astronomy">astronomy</a> (51)
+</li>
+	<li class="cat-item cat-item-139"><a href="http://www.somewhereville.com/?cat=139" title="View all posts filed under audio and production">audio and production</a> (7)
+</li>
+	<li class="cat-item cat-item-713"><a href="http://www.somewhereville.com/?cat=713" title="View all posts filed under bioinformatics">bioinformatics</a> (9)
+</li>
+	<li class="cat-item cat-item-17"><a href="http://www.somewhereville.com/?cat=17" title="View all posts filed under biomedical theory">biomedical theory</a> (37)
+</li>
+	<li class="cat-item cat-item-27"><a href="http://www.somewhereville.com/?cat=27" title="View all posts filed under chem3d/draw">chem3d/draw</a> (1)
+</li>
+	<li class="cat-item cat-item-229"><a href="http://www.somewhereville.com/?cat=229" title="View all posts filed under crystal06">crystal06</a> (8)
+</li>
+	<li class="cat-item cat-item-598"><a href="http://www.somewhereville.com/?cat=598" title="View all posts filed under crystal09">crystal09</a> (4)
+</li>
+	<li class="cat-item cat-item-8"><a href="http://www.somewhereville.com/?cat=8" title="View all posts filed under dmol3">dmol3</a> (29)
+</li>
+	<li class="cat-item cat-item-25"><a href="http://www.somewhereville.com/?cat=25" title="View all posts filed under drums &amp; percussion">drums &amp; percussion</a> (10)
+</li>
+	<li class="cat-item cat-item-55"><a href="http://www.somewhereville.com/?cat=55" title="View all posts filed under fftw">fftw</a> (3)
+</li>
+	<li class="cat-item cat-item-16"><a href="http://www.somewhereville.com/?cat=16" title="View all posts filed under free press">free press</a> (70)
+</li>
+	<li class="cat-item cat-item-13"><a href="http://www.somewhereville.com/?cat=13" title="View all posts filed under gaussian98/03">gaussian98/03</a> (18)
+</li>
+	<li class="cat-item cat-item-53"><a href="http://www.somewhereville.com/?cat=53" title="View all posts filed under gromacs">gromacs</a> (15)
+</li>
+	<li class="cat-item cat-item-26"><a href="http://www.somewhereville.com/?cat=26" title="View all posts filed under legislation">legislation</a> (2)
+</li>
+	<li class="cat-item cat-item-138"><a href="http://www.somewhereville.com/?cat=138" title="View all posts filed under linux issues">linux issues</a> (17)
+</li>
+	<li class="cat-item cat-item-19"><a href="http://www.somewhereville.com/?cat=19" title="View all posts filed under molecular electronics theory">molecular electronics theory</a> (5)
+</li>
+	<li class="cat-item cat-item-7"><a href="http://www.somewhereville.com/?cat=7" title="View all posts filed under molecular manufacturing and nanotechnology">molecular manufacturing and nanotechnology</a> (27)
+</li>
+	<li class="cat-item cat-item-65"><a href="http://www.somewhereville.com/?cat=65" title="View all posts filed under mpi">mpi</a> (12)
+</li>
+	<li class="cat-item cat-item-18"><a href="http://www.somewhereville.com/?cat=18" title="View all posts filed under namd/vmd">namd/vmd</a> (6)
+</li>
+	<li class="cat-item cat-item-14"><a href="http://www.somewhereville.com/?cat=14" title="View all posts filed under NanoEngineer-1">NanoEngineer-1</a> (28)
+</li>
+	<li class="cat-item cat-item-4"><a href="http://www.somewhereville.com/?cat=4" title="View all posts filed under nanotech gallery">nanotech gallery</a> (12)
+</li>
+	<li class="cat-item cat-item-15"><a href="http://www.somewhereville.com/?cat=15" title="View all posts filed under neutron scattering spectroscopy">neutron scattering spectroscopy</a> (10)
+</li>
+	<li class="cat-item cat-item-163"><a href="http://www.somewhereville.com/?cat=163" title="View all posts filed under openmpi">openmpi</a> (6)
+</li>
+	<li class="cat-item cat-item-9"><a href="http://www.somewhereville.com/?cat=9" title="View all posts filed under operating systems">operating systems</a> (18)
+</li>
+	<li class="cat-item cat-item-60"><a href="http://www.somewhereville.com/?cat=60" title="View all posts filed under osx">osx</a> (4)
+</li>
+	<li class="cat-item cat-item-29"><a href="http://www.somewhereville.com/?cat=29" title="View all posts filed under povray">povray</a> (23)
+</li>
+	<li class="cat-item cat-item-3"><a href="http://www.somewhereville.com/?cat=3" title="View all posts filed under publications">publications</a> (55)
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.somewhereville.com/?cat=5" title="View all posts filed under qc/mm/md progs">qc/mm/md progs</a> (73)
+</li>
+	<li class="cat-item cat-item-126"><a href="http://www.somewhereville.com/?cat=126" title="View all posts filed under quantum chemistry">quantum chemistry</a> (28)
+</li>
+	<li class="cat-item cat-item-20"><a href="http://www.somewhereville.com/?cat=20" title="View all posts filed under scripts">scripts</a> (11)
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.somewhereville.com/?cat=1" title="View all posts filed under site miscellany">site miscellany</a> (9)
+</li>
+	<li class="cat-item cat-item-10"><a href="http://www.somewhereville.com/?cat=10" title="View all posts filed under six degrees">six degrees</a> (22)
+</li>
+	<li class="cat-item cat-item-28"><a href="http://www.somewhereville.com/?cat=28" title="View all posts filed under slidecasts">slidecasts</a> (2)
+</li>
+	<li class="cat-item cat-item-78"><a href="http://www.somewhereville.com/?cat=78" title="View all posts filed under structural dna nanotechnology">structural dna nanotechnology</a> (12)
+</li>
+	<li class="cat-item cat-item-11"><a href="http://www.somewhereville.com/?cat=11" title="View all posts filed under supramolecular chemistry and molecular building blocks">supramolecular chemistry and molecular building blocks</a> (20)
+</li>
+	<li class="cat-item cat-item-12"><a href="http://www.somewhereville.com/?cat=12" title="View all posts filed under terahertz (THz) spectroscopy">terahertz (THz) spectroscopy</a> (25)
+</li>
+	<li class="cat-item cat-item-149"><a href="http://www.somewhereville.com/?cat=149" title="View all posts filed under ubuntu">ubuntu</a> (16)
+</li>
+	<li class="cat-item cat-item-2"><a href="http://www.somewhereville.com/?cat=2" title="View all posts filed under various photos">various photos</a> (21)
+</li>
+</ul>
+
+<!-- <h2>Archive</h2> -->
+<!-- <ul>	<a href='http://www.somewhereville.com/?m=201306'>June 2013</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=201304'>April 2013</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=201303'>March 2013</a>&nbsp;(2)<br />
+	<a href='http://www.somewhereville.com/?m=201301'>January 2013</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=201211'>November 2012</a>&nbsp;(3)<br />
+	<a href='http://www.somewhereville.com/?m=201208'>August 2012</a>&nbsp;(10)<br />
+	<a href='http://www.somewhereville.com/?m=201206'>June 2012</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=201204'>April 2012</a>&nbsp;(3)<br />
+	<a href='http://www.somewhereville.com/?m=201203'>March 2012</a>&nbsp;(2)<br />
+	<a href='http://www.somewhereville.com/?m=201112'>December 2011</a>&nbsp;(5)<br />
+	<a href='http://www.somewhereville.com/?m=201107'>July 2011</a>&nbsp;(4)<br />
+	<a href='http://www.somewhereville.com/?m=201106'>June 2011</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=201103'>March 2011</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=201012'>December 2010</a>&nbsp;(3)<br />
+	<a href='http://www.somewhereville.com/?m=201011'>November 2010</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=201010'>October 2010</a>&nbsp;(4)<br />
+	<a href='http://www.somewhereville.com/?m=201009'>September 2010</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=201008'>August 2010</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=201007'>July 2010</a>&nbsp;(2)<br />
+	<a href='http://www.somewhereville.com/?m=201005'>May 2010</a>&nbsp;(5)<br />
+	<a href='http://www.somewhereville.com/?m=201004'>April 2010</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=201003'>March 2010</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=201002'>February 2010</a>&nbsp;(2)<br />
+	<a href='http://www.somewhereville.com/?m=201001'>January 2010</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=200912'>December 2009</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=200911'>November 2009</a>&nbsp;(2)<br />
+	<a href='http://www.somewhereville.com/?m=200910'>October 2009</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=200909'>September 2009</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=200908'>August 2009</a>&nbsp;(3)<br />
+	<a href='http://www.somewhereville.com/?m=200907'>July 2009</a>&nbsp;(3)<br />
+	<a href='http://www.somewhereville.com/?m=200906'>June 2009</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=200905'>May 2009</a>&nbsp;(5)<br />
+	<a href='http://www.somewhereville.com/?m=200904'>April 2009</a>&nbsp;(3)<br />
+	<a href='http://www.somewhereville.com/?m=200903'>March 2009</a>&nbsp;(8)<br />
+	<a href='http://www.somewhereville.com/?m=200902'>February 2009</a>&nbsp;(4)<br />
+	<a href='http://www.somewhereville.com/?m=200901'>January 2009</a>&nbsp;(2)<br />
+	<a href='http://www.somewhereville.com/?m=200812'>December 2008</a>&nbsp;(2)<br />
+	<a href='http://www.somewhereville.com/?m=200811'>November 2008</a>&nbsp;(2)<br />
+	<a href='http://www.somewhereville.com/?m=200810'>October 2008</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=200809'>September 2008</a>&nbsp;(3)<br />
+	<a href='http://www.somewhereville.com/?m=200808'>August 2008</a>&nbsp;(4)<br />
+	<a href='http://www.somewhereville.com/?m=200807'>July 2008</a>&nbsp;(2)<br />
+	<a href='http://www.somewhereville.com/?m=200806'>June 2008</a>&nbsp;(5)<br />
+	<a href='http://www.somewhereville.com/?m=200805'>May 2008</a>&nbsp;(4)<br />
+	<a href='http://www.somewhereville.com/?m=200803'>March 2008</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=200802'>February 2008</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=200801'>January 2008</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=200712'>December 2007</a>&nbsp;(5)<br />
+	<a href='http://www.somewhereville.com/?m=200711'>November 2007</a>&nbsp;(4)<br />
+	<a href='http://www.somewhereville.com/?m=200710'>October 2007</a>&nbsp;(6)<br />
+	<a href='http://www.somewhereville.com/?m=200707'>July 2007</a>&nbsp;(3)<br />
+	<a href='http://www.somewhereville.com/?m=200706'>June 2007</a>&nbsp;(3)<br />
+	<a href='http://www.somewhereville.com/?m=200705'>May 2007</a>&nbsp;(6)<br />
+	<a href='http://www.somewhereville.com/?m=200704'>April 2007</a>&nbsp;(4)<br />
+	<a href='http://www.somewhereville.com/?m=200703'>March 2007</a>&nbsp;(3)<br />
+	<a href='http://www.somewhereville.com/?m=200702'>February 2007</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=200701'>January 2007</a>&nbsp;(3)<br />
+	<a href='http://www.somewhereville.com/?m=200612'>December 2006</a>&nbsp;(2)<br />
+	<a href='http://www.somewhereville.com/?m=200611'>November 2006</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=200610'>October 2006</a>&nbsp;(2)<br />
+	<a href='http://www.somewhereville.com/?m=200609'>September 2006</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=200608'>August 2006</a>&nbsp;(8)<br />
+	<a href='http://www.somewhereville.com/?m=200606'>June 2006</a>&nbsp;(2)<br />
+	<a href='http://www.somewhereville.com/?m=200605'>May 2006</a>&nbsp;(2)<br />
+	<a href='http://www.somewhereville.com/?m=200604'>April 2006</a>&nbsp;(4)<br />
+	<a href='http://www.somewhereville.com/?m=200603'>March 2006</a>&nbsp;(1)<br />
+	<a href='http://www.somewhereville.com/?m=200602'>February 2006</a>&nbsp;(4)<br />
+	<a href='http://www.somewhereville.com/?m=200601'>January 2006</a>&nbsp;(6)<br />
+	<a href='http://www.somewhereville.com/?m=200512'>December 2005</a>&nbsp;(4)<br />
+	<a href='http://www.somewhereville.com/?m=200511'>November 2005</a>&nbsp;(5)<br />
+</ul> -->
+
+<!-- <li id="linkcat-23" class="linkcat"><h2>Affiliations</h2>
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.act4chemistry.org/" title="act4chemistry">act4chemistry</a></li>
+<li><a href="http://www.aaas.org/">am. as. ad. sc.</a></li>
+<li><a href="http://www.acs.org/">am. chem. soc.</a></li>
+<li><a href="http://www.cia.gov/">cent. int. agency</a></li>
+<li><a href="http://www.cloudynights.com" title="Cloudy Nights">cloudy nights</a></li>
+<li><a href="http://www.commonthreadcsa.com/">Common Thread Community Farm</a></li>
+<li><a href="http://chemistry.syr.edu/">dept. chem. s.u.</a></li>
+<li><a href="http://www.excelsiorcornetband.com">excelsior cornet band (emeritus)</a></li>
+<li><a href="http://www.foresight.org/">foresight institute</a></li>
+<li><a href="http://www.myspace.com/funktionkey3" title="funktion key 3">funktion key 3</a></li>
+<li><a href="http://www.icpostdoc.org/">icpostdoc</a></li>
+<li><a href="http://www.isnsce.org/" title="International Society of Nanoscale Science, Computation, and Engineering">isnsce</a></li>
+<li><a href="http://www.jamesvilledewitt.org/">jamesville-dewitt</a></li>
+<li><a href="http://www.kiva.org" title="Kiva">kiva.org</a></li>
+<li><a href="http://lifeboat.com" title="lifeboat foundation">lifeboat foundation</a></li>
+<li><a href="http://www.marquiswhoswho.com/" title="marquis who&#8217;s who">marquis who&#8217;s who</a></li>
+<li><a href="http://www.molecularinsight.com/">molec. insight pharm.</a></li>
+<li><a href="http://www.molecularassembler.com/Nanofactory/DMS.htm" title="molecular assembler nanofactory collab.">molecular assembler nanofactory collab.</a></li>
+<li><a href="http://www.nanoengineer-1.com/">nanorex, inc.</a></li>
+<li><a href="http://www.nanoscienceworks.org/people/content/allis-damian-gregory" title="www.nanoscienceworks.org">nanoscienceworks</a></li>
+<li><a href="http://neutronscattering.org/">neutron scattering society of america</a></li>
+<li><a href="http://www.pbk.org/">phi beta kappa</a></li>
+<li><a href="http://www.planetary.org/">planetary society</a></li>
+<li><a href="http://www.sefora.org/" title="sefora.org">sefora</a></li>
+<li><a href="http://www.syracuse-astro.org/" title="syracuse astronomical society">syracuse astro. org.</a></li>
+<li><a href="http://syracusejazz.ning.com/" title="Syracuse Jazz">syracuse jazz</a></li>
+<li><a href="http://www.syr.edu/">syracuse university</a></li>
+<li><a href="http://www.tacny.org/" title="TACNY">tacny</a></li>
+<li><a href="http://www.foresight.org/roadmaps/">tech. roadmap for prod. nanosystems</a></li>
+<li><a href="http://www.thenanotechnologygroup.org/">the nanotech group</a></li>
+<li><a href="http://www.thznetwork.org/">thz network</a></li>
+<li><a href="http://www.tsintzinasociety.com/">tsintzina society</a></li>
+
+	</ul>
+</li>
+<li id="linkcat-22" class="linkcat"><h2>Amass Media</h2>
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.acceleratingfuture.com/michael/blog/">accelerating future</a></li>
+<li><a href="http://www.archive.org/" title="Archive.org">archive.org</a></li>
+<li><a href="http://www.c-span.org" title="c-span">c-span</a></li>
+<li><a href="http://www.coasttocoastam.com/">C2C am</a></li>
+<li><a href="http://www.classicartsshowcase.org/" title="classic arts showcase">classic arts showcase</a></li>
+<li><a href="http://www.ccl.net">comp. chem. listserve</a></li>
+<li><a href="http://crnano.typepad.com/crnblog/">crn blog</a></li>
+<li><a href="http://www.digg.com/" title="digg.com">digg.com</a></li>
+<li><a href="http://www.factcheck.org" title="factcheck.org">factcheck.org</a></li>
+<li><a href="http://apps.isiknowledge.com/" title="ISI Knowledge">isiknow</a></li>
+<li><a href="http://www.johnbatchelorshow.com/" title="john batchelor show">john batchelor show</a></li>
+<li><a href="http://www.mondoglobo.net/" title="mondoglobo">mondoglobo</a></li>
+<li><a href="http://www.foresight.org/nanodot/" title="nanodot">nanodot</a></li>
+<li><a href="http://www.nanohedron.com" title="nanohedron">nanohedron</a></li>
+<li><a href="http://nanoscale-materials-and-nanotechnolog.blogspot.com/" title="nanoscale-materials-and-nanotechnolog.blogspot.com">nanoscale materials &amp; nanotech</a></li>
+<li><a href="http://www.thenewatlantis.com/">new atlantis</a></li>
+<li><a href="http://www.pandora.com">pandora</a></li>
+<li><a href="http://www.gutenberg.org/wiki/Main_Page" title="project gutenberg">project gutenberg</a></li>
+<li><a href="http://www.slashdot.org/" title="slashdot.org">slashdot</a></li>
+<li><a href="http://stardate.org/">stardate</a></li>
+<li><a href="http://www.wrvo.org/" title="wrvo">wrvo</a></li>
+
+	</ul>
+</li>
+<li id="linkcat-24" class="linkcat"><h2>Friends &#38; Collaborators</h2>
+	<ul class='xoxo blogroll'>
+<li><a href="http://www.sweatyfunk.com" title="Sweaty Funk">Adam Gold</a></li>
+<li><a href="http://amyinspace.blogspot.com/" rel="friend met" title="Amy in Space">Amy Pollman</a></li>
+<li><a href="http://b.auguie.free.fr/links/science/index.html">Baptiste Auguie</a></li>
+<li><a href="http://www.pelloverton.com/">Ben Pell</a></li>
+<li><a href="http://www.helcorp.com/bhelfrich/">Brian Helfrich</a></li>
+<li><a href="http://hudsonlab.syr.edu/">Bruce Hudson</a></li>
+<li><a href="http://www.hamilton.edu/academics/faculty.html?dept=Chemistry">Camille Jones</a></li>
+<li><a href="http://www.crnano.org/about_us.htm#Principals">Chris Phoenix</a></li>
+<li><a href="http://www.christopherallis.com/">Christopher Allis</a></li>
+<li><a href="http://www.mndoci.com/">Deepak Singh</a></li>
+<li><a href="http://p0pularscience.blogspot.com/" rel="friend met" title="Denver Warner">Denver Warner</a></li>
+<li><a href="http://chemistry.syr.edu/faculty/doyle_group/index.html">doyle group</a></li>
+<li><a href="http://www.nanoappsconsulting.com" title="Frank Boehm">Frank Boehm</a></li>
+<li><a href="http://www.somewhereville.com/gnw/">George Wong</a></li>
+<li><a href="http://www.chemie.uni-freiburg.de/orgbio/prinz/welcome.html">Horst Prinzbach</a></li>
+<li><a href="http://nanobot.blogspot.com/">Howard Lovy</a></li>
+<li><a href="http://www.xconomy.com/detroit/">Howard Lovy @ xconomy</a></li>
+<li><a href="http://radonc.ucsf.edu/faculty/physicians/barani_i.html" title="Igor Barani">Igor Barani</a></li>
+<li><a href="http://instantclassicrecords.com/" title="instantclassicrecords.com">Instant Classic Records</a></li>
+<li><a href="http://www.pssrc.org/index.php?id=axel_zeitler" title="Axel Zeitler">J. Axel Zeitler</a></li>
+<li><a href="http://autogeny.org/" title="J. Storrs Hall">J. Storrs Hall</a></li>
+<li><a href="http://bionano.univalle.edu.co/">Jaime Velasco-Medina</a></li>
+<li><a href="http://chemistry.syr.edu/faculty/spencer.html">James Spencer</a></li>
+<li><a href="http://www.jessecollinsmusic.com/">Jesse Collins</a></li>
+<li><a href="http://www.lizardfire.com/">John Burch</a></li>
+<li><a href="http://www.john-hayes.com/">John Micaela and Maggie Hayes</a></li>
+<li><a href="http://www.jolierickman.com/" rel="friend met colleague" title="Jolie Rickman">Jolie Rickman</a></li>
+<li><a href="http://chemistry.syr.edu/faculty/zubieta.html">Jon Zubieta</a></li>
+<li><a href="http://www.e-drexler.com/">K. Eric Drexler</a></li>
+<li><a href="http://www.goinggahlai.blogspot.com/">Kar-Lai Leung</a></li>
+<li><a href="http://chemistry.syr.edu/faculty/ruhlandt.html">Karin Ruhlandt</a></li>
+<li><a href="http://livehighfive.com/" title="livehighfive.com">Live High Five</a></li>
+<li><a href="http://www.lizardfire.com/">lizard fire studios</a></li>
+<li><a href="http://www.mackenziegrant.com/" title="MacKenzie Grant">MacKenzie Grant</a></li>
+<li><a href="http://www.burginger.com/">Mark Burginger</a></li>
+<li><a href="http://metamodern.com" title="metamodern">metamodern</a></li>
+<li><a href="http://www.metropolisunderground.wordpress.com" title="metropolis blog">metropolis blog</a></li>
+<li><a href="http://www.pecinc.com/">Michael Feng</a></li>
+<li><a href="http://puenteflamenco.com/">puente flamenco</a></li>
+<li><a href="http://www.merkle.com/">Ralph Merkle</a></li>
+<li><a href="http://www.myspace.com/razbarisumthing">razbari sumthing</a></li>
+<li><a href="http://www.softmachines.org/wordpress/">Richard Jones</a></li>
+<li><a href="http://www.rfreitas.com/">Rob Freitas, Jr.</a></li>
+<li><a href="http://chemistry.syr.edu/faculty/doyle.html" title="Rob Doyle">Robert Doyle</a></li>
+<li><a href="http://nanoscale-materials-and-nanotechnolog.blogspot.com/" title="Rocky Rawstern">Rocky Rawstern</a></li>
+<li><a href="http://karensadoptionjourney.blogspot.com/">Sean Karin Teshale Kelly</a></li>
+<li><a href="http://creativecraftychemist.blogspot.com/" title="Sharon Rivera">Sharon Rivera</a></li>
+<li><a href="http://spencergroup.syr.edu/">spencer group</a></li>
+<li><a href="http://www.myspace.com/teaforjulie">tea for julie</a></li>
+<li><a href="http://www.qubits.com/">team qubits</a></li>
+<li><a href="http://chemistry.syr.edu/faculty/walnut.html" title="dr. walnut">Thomas Walnut</a></li>
+<li><a href="http://terahertz.syr.edu/">Tim Korter</a></li>
+<li><a href="http://machine-phase.blogspot.com" title="machine-phase.blogspot.com">Tom Moore</a></li>
+<li><a href="http://topherdrum.wordpress.com/">topherdrum</a></li>
+<li><a href="http://www.syracusestampclub.org/" title="Vince and Dianne">Vincent and Dianne Juchimek</a></li>
+<li><a href="http://wills-nanotech.blogspot.com/">Will Ware</a></li>
+
+	</ul>
+</li>
+ -->
+
+<h2>Feeds</h2>
+<ul><a href="http://www.somewhereville.com/?feed=rss">RSS Feed</a><br>
+<a href="http://www.somewhereville.com/?feed=rss2">RSS2 Feed</a><br>
+<a href="http://www.somewhereville.com/?feed=atom">Atom Feed</a></ul>
+
+<h2>Meta</h2>
+<ul><a href="http://www.somewhereville.com/wp-login.php">Log in</a><br>
+</ul>
+
+<!-- <ul><a href="http://validator.w3.org/check/referer" title="valid xhtml 1.1">xhtml 1.1</a></ul> -->
+<!-- <ul><a href="http://jigsaw.w3.org/css-validator/check/referer" title="valid css">valid css</a></ul> -->
+
+</div>
+
+<div id="sidebar2">
+<h2>Obligatory</h2>
+<li><a href="http://www.somewhereville.com/rescv/dgacv.pdf"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/29oct2009_behindthemic.jpg" border="0" width="100" height="100"></a></li>
+<h3>Ubuntu 4 Nano</h3>
+<li><a href="http://www.somewhereville.com/?cat=149"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/ubuntu_science_sidebar_28feb2009.jpg" border="0" width="100" height="100"></a></li>
+<h3>CNYO</h3>
+<li><a href="http://www.cnyo.org/"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/2013february5_cnyo.jpg" border="0" width="100" height="100"></a></li>
+<!-- <h3>Syracuse Astro</h3>
+<li><a href="http://www.syracuse-astro.org"><img src="http://www.somewhereville.com/blogimages/sas_sidebar.jpg" border="0" width="100" height="100"></a></li> -->
+<h3>NMT Review</h3>
+<li><a href="http://www.newmoontelescopes.com/customer-comments-ruby/"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/2012oct6_nmt_sidebar.jpg" border="0" width="100" height="100"></a></li>
+
+<h3>N-Fact. Collab.</h3>
+<li><a href="http://www.molecularassembler.com/Nanofactory/DMS.htm"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/nanofactory_collab_sidebar.jpg" border="0" width="100" height="100"></a></li>
+<!-- <br /><h3>Nanorex, Inc.</h3><a href="http://www.nanorex.com"><img src="http://www.somewhereville.com/blogimages/nanorex_logo_sb.jpg" border="0" width=100 height=100></a><br />
+<h3>Nanohive@home</h3><a href="http://www.nanohive-1.org/atHome/"><img src="http://www.somewhereville.com/blogimages/nhah_sidebar.jpg" border="0" width=100 height=100></a><br /> -->
+<h3>T R P Nanosys</h3>
+<li><a href="http://e-drexler.com/p/07/00/1204TechnologyRoadmap.html"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/nanosystem_roadmap_aug2007.jpg" border="0" width="100" height="100"></a></li>
+<h3>Nano Gallery</h3>
+<li><a href="http://www.somewhereville.com/?page_id=10"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/nanogallery_28_small.jpg" border="0" alt="nano gallery" width="100" height="100"></a></li>
+<!-- <li><a href="?page_id=10"><img src="http://www.somewhereville.com/blognano/nanogallery_27_small.jpg" border="0" alt="nano gallery" width="100" height="100"></a></li>
+<li><a href="?page_id=10"><img src="http://www.somewhereville.com/blognano/nanogallery_26_small.jpg" border="0" alt="nano gallery" width="100" height="100"></a></li>
+<li><a href="?page_id=10"><img src="http://www.somewhereville.com/blognano/nanogallery_25_small.jpg" border="0" alt="nano gallery" width="100" height="100"></a></li>
+<li><a href="?page_id=10"><img src="http://www.somewhereville.com/blognano/nanogallery_12_small.jpg" border="0" alt="nano gallery" width="100" height="100"></a></li>
+<li><a href="?page_id=10">more...</a></li> -->
+
+
+<h3>Aerial Photos</h3>
+<!-- Start of Flickr Badge -->
+<style type="text/css">
+#flickr_badge_source_txt {padding:0; font: 10px Arial, Helvetica, Sans serif; color:#666666;}
+#flickr_badge_icon {
+display:block !important;
+margin:0 !important;
+border: 1px solid rgb(0, 0, 0) !important;}
+#flickr_icon_td {padding:10px 10px 10px 10px !important;}
+.flickr_badge_image {
+text-align:right !important;}
+.flickr_badge_image img {
+border: 1px solid black !important;
+margin:5px 0px 5px 0px }
+#flickr_www {
+/* display:block; */
+font: 11px Arial, Helvetica, Sans serif !important; color:#3993ff !important;}
+#flickr_badge_wrapper {
+/* background-color:#ffffff; */
+border: solid 0px #000000
+}
+#flickr_badge_source {padding:0 !important; font: 11px Arial, Helvetica, Sans serif !important; color:#666666 !important;}
+</style>
+<span style="position:absolute;left:-999em;top:-999em;visibility:hidden" class="flickr_badge_beacon"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/p" width="0" height="0" alt=""></span><table cellpadding="0" cellspacing="0" border="0" id="flickr_badge_wrapper" width="100%">
+<script src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/quant.js" async="" type="text/javascript"></script><script type="text/javascript" src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/badge_code_v2.gne"></script><tbody><tr><td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image1"><a href="http://www.flickr.com/photos/somewhereville/5049814554/in/set-72157624965705221/"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/5049814554_f020e645c7_t.jpg" alt="Flickr 上的一張相片" title="aerial_IMG_1411" height="75" width="100"></a></td></tr><tr><td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image2"><a href="http://www.flickr.com/photos/somewhereville/5049196247/in/set-72157624965705221/"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/5049196247_56271655fd_t.jpg" alt="Flickr 上的一張相片" title="aerial_IMG_1599" height="75" width="100"></a></td></tr><tr><td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image3"><a href="http://www.flickr.com/photos/somewhereville/5049231231/in/set-72157624965705221/"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/5049231231_e5c239fe0f_t.jpg" alt="Flickr 上的一張相片" title="aerial_14_may_2010_2_g" height="75" width="100"></a></td></tr><tr><td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image4"><a href="http://www.flickr.com/photos/somewhereville/5049810068/in/set-72157624965705221/"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/5049810068_40df206f2c_t.jpg" alt="Flickr 上的一張相片" title="aerial_IMG_0963" height="75" width="100"></a></td></tr><tr><td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image5"><a href="http://www.flickr.com/photos/somewhereville/5049167723/in/set-72157624965705221/"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/5049167723_f401aaaf27_t.jpg" alt="Flickr 上的一張相片" title="aerial_IMG_2724_may_29_2007" height="75" width="100"></a></td></tr>
+</tbody></table>
+
+More @ <a href="http://www.flickr.com/photos/somewhereville/sets/72157624965705221/" id="flickr_www"><strong style="color:#3993ff">flick<span style="color:#ff1c92">r</span></strong>.com</a>
+
+<!-- End of Flickr Badge -->
+
+<!-- <h3>Aerial Photos</h3>
+<li><a href="?page_id=12"><img src="http://www.somewhereville.com/blogphotos/aerial_14_may_2010_3_sb.jpg" border="0" alt="aerial photos" width="100" height="76"></a></li>
+<li><a href="?page_id=12"><img src="http://www.somewhereville.com/blogphotos/aerial_14_may_2010_2_sb.jpg" border="0" alt="aerial photos" width="100" height="76"></a></li>
+<li><a href="?page_id=12"><img src="http://www.somewhereville.com/blogphotos/aerial_14_may_2010_1_sb.jpg" border="0" alt="aerial photos" width="100" height="76"></a></li>
+<li><a href="?page_id=12"><img src="http://www.somewhereville.com/blogphotos/aerial_12_september_2009_g_sb.jpg" border="0" alt="aerial photos" width="100" height="76"></a></li>
+<li><a href="?page_id=12"><img src="http://www.somewhereville.com/blogphotos/aerial_12_september_2009_f_sb.jpg" border="0" alt="aerial photos" width="100" height="76"></a></li>
+<li><a href="?page_id=12">more...</a></li> -->
+
+<h3>Syracuse Scenes</h3>
+<!-- Start of Flickr Badge -->
+<style type="text/css">
+#flickr_badge_source_txt {padding:0; font: 10px Arial, Helvetica, Sans serif; color:#666666;}
+#flickr_badge_icon {
+display:block !important;
+margin:0 !important;
+border: 1px solid rgb(0, 0, 0) !important;}
+#flickr_icon_td {padding:10px 10px 10px 10px !important;}
+.flickr_badge_image {
+text-align:right !important;}
+.flickr_badge_image img {
+border: 1px solid black !important;
+margin:5px 0px 5px 0px }
+#flickr_www {
+/* display:block; */
+font: 11px Arial, Helvetica, Sans serif !important; color:#3993ff !important;}
+#flickr_badge_wrapper {
+/* background-color:#ffffff; */
+border: solid 0px #000000
+}
+#flickr_badge_source {padding:0 !important; font: 11px Arial, Helvetica, Sans serif !important; color:#666666 !important;}
+</style>
+<span style="position:absolute;left:-999em;top:-999em;visibility:hidden" class="flickr_badge_beacon"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/p(1)" width="0" height="0" alt=""></span><table cellpadding="0" cellspacing="0" border="0" id="flickr_badge_wrapper" width="100%">
+<script type="text/javascript" src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/badge_code_v2(1).gne"></script><tbody><tr><td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image1"><a href="http://www.flickr.com/photos/somewhereville/5049785642/in/set-72157625090915762/"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/5049785642_296ac236a7_t.jpg" alt="Flickr 上的一張相片" title="syracuse_march132006" height="75" width="100"></a></td></tr><tr><td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image2"><a href="http://www.flickr.com/photos/somewhereville/5049815244/in/set-72157625090915762/"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/5049815244_972ace281a_t.jpg" alt="Flickr 上的一張相片" title="syracuse_may262007a" height="75" width="100"></a></td></tr><tr><td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image3"><a href="http://www.flickr.com/photos/somewhereville/5049189677/in/set-72157625090915762/"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/5049189677_b7e149cc2d_t.jpg" alt="Flickr 上的一張相片" title="syracuse_february122006" height="75" width="100"></a></td></tr><tr><td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image4"><a href="http://www.flickr.com/photos/somewhereville/5049200243/in/set-72157625090915762/"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/5049200243_32aa0195a4_t.jpg" alt="Flickr 上的一張相片" title="syracuse_january282006" height="75" width="100"></a></td></tr><tr><td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image5"><a href="http://www.flickr.com/photos/somewhereville/5049838946/in/set-72157625090915762/"><img src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/5049838946_e7c4e303b4_t.jpg" alt="Flickr 上的一張相片" title="syracuse_04january2009" height="100" width="75"></a></td></tr>
+</tbody></table>
+
+More @ <a href="http://www.flickr.com/photos/somewhereville/sets/72157625090915762/" id="flickr_www"><strong style="color:#3993ff">flick<span style="color:#ff1c92">r</span></strong>.com</a>
+
+<!-- End of Flickr Badge -->
+
+<!-- <h3>Syracuse Scenes</h3>
+<li><a href="?page_id=27"><img src="http://www.somewhereville.com/blogphotos/syracuse_7january2010_sb.jpg" border="0" alt="syracuse scenes" width="100" height="76"></a></li>
+<li><a href="?page_id=27"><img src="http://www.somewhereville.com/blogphotos/syracuse_2january2010_sb.jpg" border="0" alt="syracuse scenes" width="100" height="76"></a></li>
+<li><a href="?page_id=27"><img src="http://www.somewhereville.com/blogphotos/syracuse_31december2009_sb.jpg" border="0" alt="syracuse scenes" width="100" height="76"></a></li>
+<li><a href="?page_id=27"><img src="http://www.somewhereville.com/blogphotos/syracuse_28november2009_sb.jpg" border="0" alt="syracuse scenes" width="100" height="76"></a></li>
+-->
+
+<!-- <div id="footer">
+      <p>www.somewhereville.com is proudly powered by <a href="http://wordpress.org">WordPress</a>. <a href="http://www.somewhereville.com/?feed=rss2">Entries (RSS)</a> and <a href="http://www.somewhereville.com/?feed=comments-rss2">Comments (RSS)</a>.
+      29 queries. 1.114 seconds. &copy #8^(=)+<, ph.d.</p>
+</div> -->
+
+	
+	<script type="text/javascript">
+		WPCOM_sharing_counts = {"http:\/\/www.somewhereville.com\/?p=1196":1196}	</script>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-linkedin' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+		});
+		</script>
+			<div id="sharing_email" style="display: none;">
+		<form action="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version).htm" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input type="text" name="target_email" id="target_email" value="">
+
+			
+				<label for="source_name">Your Name</label>
+				<input type="text" name="source_name" id="source_name" value="">
+
+				<label for="source_email">Your Email Address</label>
+				<input type="text" name="source_email" id="source_email" value="">
+
+			
+			
+			<img style="float: right; display: none" class="loading" src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/loading.gif" alt="loading" width="16" height="16">
+			<input type="submit" value="Send Email" class="sharing_send">
+			<a href="http://www.somewhereville.com/?p=1196#cancel" class="sharing_cancel">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div>
+<script type="text/javascript" src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/devicepx-jetpack.js"></script>
+<script type="text/javascript" src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/jquery.js"></script>
+<script type="text/javascript" src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/jquery-migrate.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var recaptcha_options = {"lang":"en"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/sharing.js"></script>
+
+	<script src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/e-201349.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	st_go({v:'ext',j:'1:2.6.1',blog:'39119183',post:'1196',tz:'-5'});
+	var load_cmc = function(){linktracker_init(39119183,1196,2);};
+	if ( typeof addLoadEvent != 'undefined' ) addLoadEvent(load_cmc);
+	else load_cmc();
+	</script><img id="wpstats" src="./www.somewhereville.com » Blog Archive » Internet Connection Sharing – Ubuntu 10.04 NAT Gateway Setup (Abridged Version)_files/g.gif" alt="">
+
+
+</div></div></body></html>

@@ -1,0 +1,4 @@
+find-利用單純qmake編譯
+finddlg-把範例的類別放到KDevelop C/C++的Qt Make專案編譯
+qt1、qt2-把書上範例透過手動方式透過KDevelop C/C++的Qt Make專案編譯
+qt3-人機介面透過Qt Design，之後將設計結果透過放到KDevelop C/C++的Qt Make專案編譯

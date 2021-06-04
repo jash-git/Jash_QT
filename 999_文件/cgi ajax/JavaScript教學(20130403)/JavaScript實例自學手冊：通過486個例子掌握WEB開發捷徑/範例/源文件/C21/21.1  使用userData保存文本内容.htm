@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<STYLE>
+   .userData {behavior:url(#default#userdata);}
+</STYLE>
+<SCRIPT>
+function saveInput(){
+   var oPersist=Form1.myText;
+   oPersist.setAttribute("sPersist",oPersist.value);    //将oPersist.value存储为sPersist属性
+   oPersist.save("oXMLBranch");                         //存储在名为oXMLBranch的UserData存储区
+}
+function loadInput(){
+   var oPersist=Form1.myText;
+   oPersist.load("oXMLBranch");                         //载入在名为oXMLBranch的UserData存储区
+   oPersist.value=oPersist.getAttribute("sPersist");    //将sPersist属性赋值给oPersist.value
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+<FORM ID="Form1">
+<INPUT CLASS="userData" TYPE="text" ID="myText">
+<INPUT TYPE="button" VALUE="加载" onclick="loadInput()">
+<INPUT TYPE="button" VALUE="保存" onclick="saveInput()">
+</FORM>
+</BODY>
+</HTML>

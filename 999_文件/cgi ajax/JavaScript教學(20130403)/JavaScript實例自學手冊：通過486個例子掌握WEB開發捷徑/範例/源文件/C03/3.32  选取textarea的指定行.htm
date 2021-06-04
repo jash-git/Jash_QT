@@ -1,0 +1,59 @@
+<HTML>
+<HEAD>
+<SCRIPT language="javascript">
+function getTxtRow(num, mytxt)   //获取指定行的方法-第二个参数为文本框ID
+{
+                                 //获取文本框内当前光标的位置
+    var range = document.getElementById(mytxt).createTextRange();
+    var rect = range.getClientRects();//返回一个矩形
+    var left = rect[0].left;
+    if(num > rect.length - 1 || num < 0)
+        return;
+    if(num == 0)               //选择第一行的情况
+    {
+      //设置选择范围
+       var right = rect[0].right;
+       range.moveEnd("character",-range.text.length);   
+       while(range.offsetLeft + range.boundingWidth < right)
+       {
+           range.expand("character");
+       }
+       return range;
+    }
+    else
+    {
+       //设置选择范围
+        var right = rect[num].right;
+        var range = getTxtRow(num - 1, mytxt);
+        range.moveStart("character",range.text.length + 1);
+        while((range.offsetLeft + range.boundingWidth) < right)
+        {
+            range.expand("character");
+        }
+        if(range.offsetLeft > left)
+            range.moveStart("character",-1);
+        return range;
+    }
+}
+//选择指定行数的犯法
+function getText(num)
+{
+    var range = getTxtRow(num,"txt")//调用真正的获取行方法
+    if(range != null)                //如果指定的行内容不为空
+    {
+        alert(range.text);
+        range.select();              //选择指定的行
+    }
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+<textarea  cols="30" rows="6" id="txt">
+这是第一行
+这是第二行
+这是第三行
+</textarea ><p>
+<input type="button" onclick="getText(1)" value="选择第二行">
+</BODY>
+</HTML>
+

@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<BODY bgcolor="#ffffff" OnLoad="setVariables();checkLocation()">
+
+<script language="JavaScript">
+
+function setVariables() {
+if (navigator.appName == "Netscape") {//浏览器是netscape的情况
+    v=".top=";
+    dS="document.";
+    sD="";
+    y="window.pageYOffset";
+    }
+else {                                  //浏览器是ie的情况
+    v=".pixelTop=";
+    dS="";
+    sD=".style";
+    y="document.body.scrollTop";       //如果页面有滚动条，获取滚动条的顶端位置
+   }
+}
+function checkLocation() {
+    object="object1";                   //获取指定的div
+    yy=eval(y);
+    eval(dS+object+sD+v+yy);            //连接字符串，旨在让静态导航菜单一直在页面滚动条的上端
+    setTimeout("checkLocation()",10);
+}
+</script>
+<div id="object1"  style="position:absolute; visibility:show; left:0px; top:0px; z-index:5"> 
+  <table width=150 border=0 cellspacing=20 cellpadding=0 >
+    <tr> 
+      <td bgcolor="#EAEAEA">
+        <center>
+          静态导航菜单 
+        </center>
+      </td>
+    </tr>
+    <tr> 
+      <td bgcolor="#EAEAEA"><a href="http://www.microsoft.com" >微软网站</a></td>
+    </tr>
+    <tr> 
+      <td bgcolor="#EAEAEA"><a href="http://www.yahoo.com" >雅虎网站</a></td>
+    </tr>
+    <tr> 
+      <td bgcolor="#EAEAEA"><a href="http://www.baidu.com">百度搜索</a></td>
+    </tr>
+    <tr> 
+      <td bgcolor="#EAEAEA"><a href="http://mail.263.com" >263邮局</a></td>
+    </tr>
+  </table>
+  </div>
+</body>
+</html>

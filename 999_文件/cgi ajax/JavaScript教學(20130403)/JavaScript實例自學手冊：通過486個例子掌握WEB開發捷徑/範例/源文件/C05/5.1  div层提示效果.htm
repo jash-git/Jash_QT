@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+<script language=javascript>
+var div_x,div_y;
+function div6() 
+{
+    this.display=display; 
+}
+//实现层和表格的动态创建
+function display() 
+{
+  document.write("<table align=center><tr><td><button style='width:100px;height:30px;font-size:12px;border:1px solid #A4B3C8;background-color:green;' type=button onclick=document.getElementById('div1').style.display='block' onfocus=this.blur()>div留言</button></td></tr></table>");
+  document.write("<div  id='div1' style='font-size:12px;position:absolute;display:none;text-align:center;overflow:visible'>");
+  document.write("<div style='position:absolute;top:expression((body.clientHeight-300)/2);left:expression((body.clientWidth-200)/2);width:200px;height:180px;background-color:#dbdbdb;border:1px solid #cccccc;'>");
+  document.write("<table width=200 height=20 bgcolor=green onmousedown='div_x=event.x-parentNode.style.pixelLeft;div_y=event.y-parentNode.style.pixelTop;setCapture();' onmouseup='releaseCapture();' onmousemove='divMove(this.parentNode)' style='cursor:move;'>");
+  document.write("<tr align=center>");
+  document.write("<td align=left>提示:div6</td>");
+  document.write("</tr>");
+  document.write("</table>");
+  document.write("<span style= cursor:hand onclick=this.parentNode.parentNode.style.display='none';><br>发生了严重的错误...<br>[返回]</span>");
+  document.write("  </div>");
+  document.write("</div>");
+}
+//实现层的拖移
+function divMove(obj)  
+{
+  if(event.button==1)
+  {
+    var divX=obj.clientLeft;
+    var divY=obj.clientTop;
+    obj.style.pixelLeft=divX+(event.x-div_x);
+    obj.style.pixelTop=divY+(event.y-div_y);
+  }
+}
+//创建并显示层
+var mydiv=new div6();
+mydiv.display();
+</script>
+</body>
+
+</head>
+<body>
+</body>
+</html>

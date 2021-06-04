@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+function checkFields() 
+{
+    name = document.submitform.name.value;   //获取姓名
+    email = document.submitform.email.value; //获取邮箱
+    if ((name == "") && (email == "") ) {    //如果两者都为空
+      alert("请输入姓名和邮箱！");           
+      return false;
+    }
+   else 
+      return true;
+}
+</script>
+</head>
+<body>
+<form  name=submitform onSubmit="return checkFields()">
+    名字和邮箱只需要输入一个即可<br>
+    <br>
+<table border=0>
+<tr>
+<td align=center>名字</td><td> </td>
+<td align=center>Email</td></tr><tr>
+<td align=center><input type=text name=name value="" onFocus="document.submitform.email.value='';" size=10></td>
+<td align=center>或</td>
+<td align=center><input type=text name=email value="" onFocus="document.submitform.name.value='';" size=10></td>
+</tr>
+<tr>
+<td colspan=3 align=center><input type=submit value="提交"></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

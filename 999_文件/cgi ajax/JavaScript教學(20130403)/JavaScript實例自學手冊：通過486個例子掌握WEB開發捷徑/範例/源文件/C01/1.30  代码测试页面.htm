@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<script language="JavaScript">
+function clear(){
+   if (form1) {
+   clear = confirm("确定要关闭吗？",'');  //关闭窗口的提示
+   if(clear) {                            //清空桌面的内容
+   document.form1.reset();
+   document.form1.value = "";
+  }
+ }
+}	
+function test(){
+  {
+  temp = document.form1.mytxt.value;    //获取代码内容
+  testwin= open("", "testwin","status=no,menubar=yes,toolbar=no");//打开窗口
+  testwin.document.open();              
+  testwin.document.write(temp);     //在窗口内输入内容
+  testwin.document.close();         //关闭窗口
+ }
+}
+function about(){                   //“关于”按钮的提示
+ alert("可以直接在页面中显示输入的代码")
+ alert("http://www.google.com   E-mail:cguanjun168@tom.com")
+}
+function help(){                    //帮助按钮的效果
+ OpenWindow=window.open("", "newwin","height=420,width=470,toolbar=no,scrollbars="+scroll+",menubar=no");
+ OpenWindow.document.write("<body bgcolor='white' text='black' alink='blue'vlink='blue' link='blue'><TITLE>提示</TITLE>")
+ OpenWindow.document.write("<center>把要显示的代码放到上页的输入框中，按显示按钮就能显示你的页面内容</center><br>")
+ OpenWindow.document.write("<center><a href='mailto:cguanjun168@tom.com' target='main'>Email me</a></Center><br>")
+ OpenWindow.document.write("<center><a href='javaform1:close()'>关闭窗口</a></Center>")
+ OpenWindow.document.close()
+ self.name="main"
+}
+</script>
+<form name="form1">
+<textarea name="mytxt" rows="8" cols="50"
+wrap="off"></textarea>
+<br>
+<input type="button" value="显示" onClick="test()">  
+<input type="button" value="清除" onClick="clear()">  
+<input type="button" value="关于" onClick="about()">  
+<input type="button" value="帮助" onClick="help()">
+</form>
+</body>
+</html>

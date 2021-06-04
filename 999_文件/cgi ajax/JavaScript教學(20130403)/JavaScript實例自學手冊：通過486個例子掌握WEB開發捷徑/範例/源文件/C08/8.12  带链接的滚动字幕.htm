@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<script language="JavaScript1.2">
+var marqueewidth=400  //设置marquee的宽度 (in pixels)
+var marqueeheight=20  //设置marquee的高度 (in pixels, 该参数只适用于Netscape)
+var speed=4           //设置marquee滚动的速度(数值越大速度越快)
+//设置marquee显示内容，使用标准的HTML语法。
+var marqueecontents='<strong><big>欢迎支持中国搜索引擎 <a href="http://www.baidu.com">百度一下</a> 找到自己想找的 信息</big></strong></font>'
+if (document.all)
+document.write('<marquee scrollAmount='+speed+' style="width:'+marqueewidth+'">'+marqueecontents+'</marquee>')
+function regenerate(){
+    window.location.reload();                     //重新加载页面
+}
+function regenerate2(){
+    if (document.layers){
+    setTimeout("window.onresize=regenerate",450);//窗体改变大小时重载
+    intializemarquee();
+    }
+}
+function intializemarquee(){
+   //使用nobr控制显示的字符个数
+    document.cmarquee01.document.cmarquee02.document.write('<nobr>'+marqueecontents+'</nobr>');
+    document.cmarquee01.document.cmarquee02.document.close();
+    thelength=document.cmarquee01.document.cmarquee02.document.width;  //获取层的宽度
+    scrollit();                                                        //实现字体的滚动
+}
+function scrollit(){
+        if (document.cmarquee01.document.cmarquee02.left>=thelength*(-1)){
+        document.cmarquee01.document.cmarquee02.left-=speed;
+        setTimeout("scrollit()",100);                       //定时器实现不停的调用
+    }
+    else{
+        document.cmarquee01.document.cmarquee02.left=marqueewidth;
+        scrollit();
+    }
+}
+window.onload=regenerate2;
+</script>
+<ilayer width=&{marqueewidth}; height=&{marqueeheight}; name="cmarquee01"> 
+<layer name="cmarquee02"></layer>
+</ilayer>
+</body>
+</html>

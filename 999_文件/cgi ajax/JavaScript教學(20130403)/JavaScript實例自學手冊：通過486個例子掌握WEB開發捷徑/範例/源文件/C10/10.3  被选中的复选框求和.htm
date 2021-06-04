@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="javascript">
+function dataCal(){
+ var sum=0;
+ var obj=document.getElementsByName("items"); //取得页面所有的items复选框对象
+ for(var i=0;i<obj.length;i++)
+ {
+   if(!obj[i].checked)
+      continue;      //如果没有选中，则执行下一次
+   sum+=parseFloat(obj[i].value);   //如果被选中的话，则累加求和
+ }
+  alert("总和为:"+sum);
+}
+</script>
+</head>
+<body>
+<input type="checkbox" value="11" name="items">11<br/>
+<input type="checkbox" value="22" name="items">22<br/>
+<input type="checkbox" value="33" name="items">33<br/>
+<input type="checkbox" value="44" name="items">44<br/>
+<input type="button" value="求和" onclick="dataCal()"></body>
+</html>

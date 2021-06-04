@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="JavaScript">
+//设置显示速度等变量
+var speed = 10     //显示字与字的间隔
+var pause = 1500   //显示第二组的间隔
+var timerID = null
+var statusRun = false
+//设置要提示的文本数组
+var ar = new Array()
+ar[0] = "这是第一组"
+ar[1] = "这是第二组"
+ar[2] = "这是第三组"
+
+var message = 0
+var state = ""
+clearState()
+//停止显示-也可作初始化显示
+function stopStatus() {
+        if (statusRun)
+                clearTimeout(timerID)
+        statusRun = false
+}
+//开始显示
+function startStatus() {
+        stopStatus()
+        showStatus()
+}
+//初始化开始数据
+function clearState() {
+        state = ""
+        for (var i = 0; i < ar[message].length; ++i) {
+                state += "0"
+        }
+}
+//在状态栏显示信息
+function showStatus() {
+        //判断是否显示下一组
+        if (getString()) {
+                message++
+                if (ar.length <= message)
+                        message = 0
+                clearState()
+                timerID = setTimeout("showStatus()", pause)//间隔1500毫秒显示下一组
+                statusRun = true
+        } else {
+                var str = ""
+                for (var j = 0; j < state.length; ++j) {
+                        str += (state.charAt(j) == "1") ? ar[message].charAt(j) : "     "
+                }
+                window.status = str
+                timerID = setTimeout("showStatus()", speed) //间隔10毫秒显示下一字
+                statusRun = true
+        }
+}
+//用来判断显示组还是字的方法
+function getString() {
+        var full = true
+        //此循环判断是否当前组数据没有显示完成
+        for (var j = 0; j < state.length; ++j) {
+                if (state.charAt(j) == 0)  //初始时默认state都为0
+                        full = false
+        }
+        //full为真时，表示当前组数据显示完成
+        if (full)
+                return true
+        while (1) {
+                var num = getRandom(ar[message].length)
+                if (state.charAt(num) == "0")
+                        break
+        }
+        state = state.substring(0, num) + "1" + state.substring(num + 1, state.length)
+        return false
+}
+//随机数的读取
+function getRandom(max) {
+        return Math.round((max - 1) * Math.random())
+}
+</script>
+</head>
+<body onLoad="startStatus()">
+</body>
+</html>

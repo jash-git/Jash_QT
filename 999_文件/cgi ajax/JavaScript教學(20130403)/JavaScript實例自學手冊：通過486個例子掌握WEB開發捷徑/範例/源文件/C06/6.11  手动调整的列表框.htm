@@ -1,0 +1,84 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="javascript">
+function move(listItem,listObj) {                              //列表项添加的方法
+    var i = 0;
+    if(listItem.value != "") {                                 //如果列表项不为空
+        var newOp = new Option();                                 //创建一个列表项
+        newOp.value = listItem.value;                             //设置列表项的值
+        newOp.text = listItem.value;                              //设置列表项的文本
+        listObj.options[listObj.options.length] = newOp;          //添加新项到列表框中
+        listItem.value = "";
+       }
+}
+
+function remove(listObj) {                                        //列表框的删除方法
+    for(var i=0; i<listObj.options.length; i++) {
+        if(listObj.options[i].selected && listObj.options[i] != "") {
+            listObj.options[i].value = "";                        //清除选定项的值
+            listObj.options[i].text = "";                         //清除选定项的文本
+        }
+    }
+    delAfter(listObj);                                             //删除后的排序处理
+} 
+function delAfter(alistObj) {
+    for(var i = 0; i < alistObj.options.length; i++) {
+        if(alistObj.options[i].value == "")  {                   //值为空的会被清除
+            for(var j = i; j < alistObj.options.length - 1; j++)  {
+                alistObj.options[j].value = alistObj.options[j + 1].value; //重新排列顺序
+                alistObj.options[j].text = alistObj.options[j + 1].text;
+            }
+        var ln = i;
+        break;
+       }
+    }
+    if(ln < alistObj.options.length)  {
+        alistObj.options.length -= 1;
+        delAfter(alistObj);
+    }
+}
+function Moveup(listObj) {                                         //将列表项往上移动
+    for(var i = 0; i < listObj.options.length; i++) {              //遍历列表项
+        if (listObj.options[i].selected && listObj.options[i] != "" && listObj.options[i] != listObj.options[0]) {
+            var tmpval1 = listObj.options[i].value;                //获取当前项的值
+            var tmpval12 = listObj.options[i].text;                //获取当前项的文本
+            listObj.options[i].value = listObj.options[i - 1].value;  //获取上一项的值
+            listObj.options[i].text = listObj.options[i - 1].text     //获取上一项的文本
+            listObj.options[i-1].value = tmpval1;                  //实现上下值的互换
+            listObj.options[i-1].text = tmpval12;                  //实现上下文本的互换
+        }
+    }
+}
+function Movedown(listObj) {                                      //将列表项往下移动
+    for(var i = 0; i < listObj.options.length; i++) {
+        if (listObj.options[i].selected && listObj.options[i] != "" && listObj.options[i+1] != listObj.options[listObj.options.length]) {
+            var tmpval1 = listObj.options[i].value;                //获取当前项的值
+            var tmpval12 = listObj.options[i].text;                //获取当前项的文本
+            listObj.options[i].value = listObj.options[i+1].value; //获取下一项的值
+            listObj.options[i].text = listObj.options[i+1].text    //获取下一项的文本
+            listObj.options[i+1].value = tmpval1;                  //实现上下值的互换
+            listObj.options[i+1].text = tmpval12;                  //实现上下文本的互换
+         }
+    }
+}
+</script>
+</head>
+<body>
+<form>
+<input type="text" name="listItem1" value=""><br />
+<input type="button" value="添加" onclick="move(this.form.listItem1,this.form.listView1)" name="btnAdd">
+<input type="button" value="删除" onclick="remove(this.form.listView1)" name="btnDel">
+<input type="button" value="上移" onclick="Moveup(this.form.listView1)" name="btnUp">
+<input type="button" value="下移" onclick="Movedown(this.form.listView1)" name="btnDown"><br />
+    <select multiple size=10 name="listView1" style="width:120px">
+    <option value="one">第一</option>
+    <option value="two">第二</option>
+    <option value="three">第三</option>
+    <option value="four">第四</option>
+    <option value="five">第五</option>
+    <option value="six">第六</option>
+    </select>
+</form> 
+</body>
+</html>

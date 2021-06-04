@@ -1,0 +1,90 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT language="JavaScript">
+var scrollerwidth=90         //指定div的高度
+var scrollerheight=32        //指定div的宽度
+var scrollerbgcolor='white'
+var pausebetweenimages=3000   //图片的间隔时间，默认为3秒。
+//带链接的图片，存放在数组中
+var slideimages=new Array()
+slideimages[0]='<A href="http://www.baidu.com"  target=_blank><IMG alt=百度搜索 border=0 height=40 src=http://www.baidu.com/img/logo.gif width=100></A>'
+slideimages[1]='<A href=http://www.google.cn target=_blank><IMG alt=google搜索 border=0 height=40 src=http://www.google.cn/intl/zh-CN/images/logo_cn.gif width=100></A>'
+slideimages[2]='<A href=# target=_blank><IMG alt=广告位置为你准备 border=0 height=40 src="" width=100></A>'
+slideimages[3]='<A href=http://www.google.cn target=_blank><IMG alt=google搜索 border=0 height=40 src=http://www.google.cn/intl/zh-CN/images/logo_cn.gif width=100></A>'
+if (slideimages.length>1)
+i=2                         //初始化一个变量，用来做图片数组的索引
+else
+i=0
+function move1(mydiv)
+{
+    tdiv=eval(mydiv)                                    //获取div对象
+    if (tdiv.style.pixelTop>0&&tdiv.style.pixelTop<=4){ //判断div的y坐标
+        tdiv.style.pixelTop=0                           //指定div的y坐标
+        setTimeout("move1(tdiv)",pausebetweenimages)    //设置转换的时间间隔
+        setTimeout("move2(secondDiv)",pausebetweenimages)
+        return
+    }
+    if (tdiv.style.pixelTop>=tdiv.offsetHeight*-1){     
+        tdiv.style.pixelTop-=5                        //div开始往上滚动
+        setTimeout("move1(tdiv)",100)                 
+    }
+    else{
+        tdiv.style.pixelTop=scrollerheight          //指定div的高度
+        tdiv.innerHTML=slideimages[i]               //将图片显示在div中
+        if (i==slideimages.length-1 )               //如果已经循环到底，再从第一张开始循环
+          i=0
+        else
+          i++
+    }
+}
+function move2(mydiv)
+{
+    tdiv2=eval(mydiv)                                    //获取第二个div
+    if (tdiv2.style.pixelTop>0&&tdiv2.style.pixelTop<=4){//判断div的y坐标
+        tdiv2.style.pixelTop=0                           //指定div的y坐标
+        setTimeout("move2(tdiv2)",pausebetweenimages)    //设置转换的时间间隔
+        setTimeout("move1(firstDiv)",pausebetweenimages)
+        return
+    }
+    if (tdiv2.style.pixelTop>=tdiv2.offsetHeight*-1){
+        tdiv2.style.pixelTop-=5                   //第二个div开始向上滚动
+        setTimeout("move2(secondDiv)",100)
+    }
+    else{
+        tdiv2.style.pixelTop=scrollerheight       //指定第二个div的高度
+        tdiv2.innerHTML=slideimages[i]            //将图片显示在div中
+        if (i==slideimages.length -1)              //如果已经循环到底，再从第一张开始循环
+        i=0
+        else
+        i++
+    }
+}
+function startscroll()                     //调用实现div层移动的方法
+{
+    if (document.all){
+        move1(firstDiv)
+        secondDiv.style.top=scrollerheight//设置第二章图片的位置
+    }
+}
+
+window.onload=startscroll                 //窗体一架载，便开始显示图片
+</SCRIPT>
+</head>
+<body>
+<SCRIPT language="JavaScript">
+if (document.all){
+    document.writeln('<span id="main2" style="position:relative;width:'+scrollerwidth+';height:'+scrollerheight+';overflow:hiden;background-color:'+scrollerbgcolor+'">')
+    document.writeln('<div style="position:absolute;width:'+scrollerwidth+';height:'+scrollerheight+';clip:rect(0 '+scrollerwidth+' '+scrollerheight+' 0);left:0;top:0">')
+    document.writeln('<div id="firstDiv" style="position:absolute;width:'+scrollerwidth+';left:0;top:1;">')
+    document.write(slideimages[0])
+    document.writeln('</div>')
+    document.writeln('<div id="secondDiv" style="position:absolute;width:'+scrollerwidth+';left:0;top:0">')
+    document.write(slideimages[1])
+    document.writeln('</div>')
+    document.writeln('</div>')
+    document.writeln('</span>')
+}
+</SCRIPT>
+</body>
+</html>

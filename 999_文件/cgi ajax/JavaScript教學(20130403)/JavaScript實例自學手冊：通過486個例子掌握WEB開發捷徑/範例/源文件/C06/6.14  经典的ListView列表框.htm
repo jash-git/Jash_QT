@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>列表</title>
+<style>
+body     { font-size: 10px }
+table    { font-size: 12px }
+</style>
+<script language = 'javascript'>
+function InitList(theList, theTable, iEnd, iId, checkIt)    //初始化列表的方法
+{
+    var colWidth = (document.body.clientWidth - 200) / iEnd //设置列宽度
+    with(theList)
+    {
+         View = 3                                           //列表框的样式
+        BorderStyle = 0                                     //设置列表的边框
+        GridLines = true                                    //设置列表的表格线
+        Checkboxes = checkIt                                //设置列表的复选框
+        FullRowSelect = true                                //选择某单元格时，是否选中整行
+        for(var i = 0; i < iEnd; i ++)
+        {
+            //逐列添加表头
+            ColumnHeaders.Add(i + 1, 'Col' + i, theTable.rows[0].cells[i].innerText, colWidth)
+        }
+        for(var i = 1; i < theTable.rows.length; i ++)
+        {
+           //逐列添加列表项
+            myList.ListItems.Add( i, 'Key' + theTable.rows[i].cells[iId -1].innerText.replace(" ", ""), theTable.rows[i].cells[0].innerText.replace(" ", ""))
+            for(var j = 1; j < iEnd; j ++)
+            {
+              ListItems(i).SubItems(j) = theTable.rows[i].cells[j].innerText.replace(" ", "")
+            }
+        }
+    }
+}
+</script>
+<script language = 'javascript' for = 'myList' event = 'ItemClick(Item)'>
+   var theValue = ""                     //定义选择项变量
+   theValue = Item.Text + Item.Key       //设置选择项内容
+   for(i = 1; i <= Item.ListSubItems.Count; i ++) 
+   theValue = theValue + "\n" + Item.ListSubItems(i).Text  //当前列表项内容
+   myValue.value = theValue                                //在文本框中显示列表内容
+</script>
+</head>
+<body onload = 'InitList(myList, myTale, 4, 5, false)' scroll = 'no' bgcolor = 'buttonface' topmargin='0' leftmargin='0'>
+<table border='0' cellpadding='0' cellspacing='0' style='border-collapse: collapse' width='100%' height='100%'>
+<tr>
+<td nowrap>
+<script language = 'javascript'>
+document.write( "<object classid='clsid:BDD1F04B-858B-11D1-B16A-00C0F0283628' style = 'width:" + (document.body.clientWidth - 150) + ";height:" + document.body.clientHeight + "' id='myList'></object> ")
+</script>
+<table border = '1' id = 'myTale' style = 'display:none'>
+<tr id = 'tablehead'>
+<td id = 'mytd'>
+编号
+</td>
+<td id = 'Td1'>
+名称
+</td>
+<td id = 'Td2'>
+价格
+</td>
+<td id = 'Td3'>
+数量
+</td>
+<td id = 'Td4'>
+备注
+</td>
+</tr>
+<tr id = 'mytr'>
+<td id = 'Td5'>00001
+</td>
+<td id = 'Td6'>ajax学习
+</td>
+<td id = 'Td7'>13.00
+</td>
+<td id = 'Td8'>200
+</td>
+<td id = 'Td9'>新书第一批
+</td>
+</tr>
+
+</table>
+</td>
+<td nowrap width='150' align="center" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber1">
+<tr>
+<td>　</td>
+</tr>
+<tr>
+<td>&nbsp;内容：</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+<textarea rows="10" name="myValue" cols = '16'></textarea>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

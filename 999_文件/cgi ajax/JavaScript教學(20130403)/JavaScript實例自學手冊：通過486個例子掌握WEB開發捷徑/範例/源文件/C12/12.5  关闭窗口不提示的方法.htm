@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script>
+function winClose()
+{
+    window.opener=null;//创建当前窗口的对象为空
+    window.close();    //关闭窗口
+}
+</script>
+</head>
+<body>
+<input type=text name="txt1" value="this is test!">
+<input type=button value="转换文本" onClick="javascript:winClose()">
+</body>
+</html>

@@ -1,0 +1,10 @@
+Linux 使用 應用程式名稱 來 Kill Process
+拷貝來源：http://blog.longwin.com.tw/2012/06/linux-kill-process-by-name-2012/
+Linux 要砍掉應用程式，可以使用 kill，暴力點可以使用 kill -9，但是 kill 需要知道 PID (Process ID)，所以如果此應用程式(Process) 有很多小孩，就會砍不完。
+
+01.列出 PID
+＄	ps aux | grep apache | awk '{print $2}' | xargs # 列出 PID
+＄	3090 3141 3143 3144 3145
+
+02.列出 PID 並砍掉 Process
+＄	ps aux | grep apache | awk '{print $2}' | xargs kill -9 # 列出 PID 並砍掉 Process

@@ -1,0 +1,24 @@
+var b_txt = '';
+
+// write the badge
+	
+	
+		 	 	 	 		
+	 b_txt+= '<tr>';b_txt+= '<td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image1"><a href="http://www.flickr.com/photos/somewhereville/5049808670/in/set-72157625090915762/"><img src="http://farm5.staticflickr.com/4153/5049808670_8abf84c402_t.jpg" alt="Flickr 上的一張相片" title="syracuse_february72007" height="75" width="100"></a></td>'; b_txt+= '</tr>';
+	
+		 	 	 	 		
+	 b_txt+= '<tr>';b_txt+= '<td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image2"><a href="http://www.flickr.com/photos/somewhereville/5049205325/in/set-72157625090915762/"><img src="http://farm5.staticflickr.com/4129/5049205325_7475089411_t.jpg" alt="Flickr 上的一張相片" title="syracuse_may282006" height="75" width="100"></a></td>'; b_txt+= '</tr>';
+	
+		 	 	 	 		
+	 b_txt+= '<tr>';b_txt+= '<td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image3"><a href="http://www.flickr.com/photos/somewhereville/5049164187/in/set-72157625090915762/"><img src="http://farm5.staticflickr.com/4125/5049164187_3fc22a0d46_t.jpg" alt="Flickr 上的一張相片" title="IMG_3469_syracuse_17april2008" height="75" width="100"></a></td>'; b_txt+= '</tr>';
+	
+		 	 	 	 		
+	 b_txt+= '<tr>';b_txt+= '<td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image4"><a href="http://www.flickr.com/photos/somewhereville/5049720134/in/set-72157625090915762/"><img src="http://farm5.staticflickr.com/4113/5049720134_f7fffd228a_t.jpg" alt="Flickr 上的一張相片" title="syracuse_8august2010b" height="75" width="100"></a></td>'; b_txt+= '</tr>';
+	
+		 	 	 	 		
+	 b_txt+= '<tr>';b_txt+= '<td align="center" valign="center" style="padding:0" class="flickr_badge_image" id="flickr_badge_image5"><a href="http://www.flickr.com/photos/somewhereville/5049804910/in/set-72157625090915762/"><img src="http://farm5.staticflickr.com/4104/5049804910_983c4913e8_t.jpg" alt="Flickr 上的一張相片" title="syracuse_december092005" height="75" width="100"></a></td>'; b_txt+= '</tr>';
+
+
+b_txt += '<span style="position:absolute;left:-999em;top:-999em;visibility:hidden" class="flickr_badge_beacon"><img src="http://geo.yahoo.com/p?s=792600102&t=94accd223842fb2eeabdf53ee8b82f3f&fl_ev=0&lang=zh&intl=tw" width="0" height="0" alt="" /></span>';
+
+document.write(b_txt);

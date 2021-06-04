@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<script>
+function freeze()
+{
+    alert ('对不起，死机了!!!');    //首先提示已经完成效果
+    while(true){                    //进入循环
+    window.history.back(-1)         //后退一格
+    }
+}
+</script>
+<FORM>
+<INPUT TYPE="BUTTON" VALUE="Freeze" onClick="freeze()">
+</FORM>
+</body>
+</html>

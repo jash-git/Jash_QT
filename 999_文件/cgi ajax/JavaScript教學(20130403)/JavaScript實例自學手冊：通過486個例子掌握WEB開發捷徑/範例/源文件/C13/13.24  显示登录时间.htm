@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<form name=forms> <font size=3>
+<CENTER><div align=center><p></font>
+<font color=red size=3>
+您在本页停留了</font>
+<font color=#80FF80><br>
+ <input type=text name=input1 size=10>
+</font></p></div></center></font>
+<SCRIPT language=javascript>
+var sec=0;var min=0;var hou=0;flag=0;
+window.setTimeout("update();",1000);            //每隔1秒更新下时间
+function update()                                   //实现更新的主要方法
+{
+    sec++;                                          //秒数自增
+    if(sec==60){
+    sec=0;min+=1;                                   //如果秒数超过60,分数就自增
+    }
+    if(min==60){                                        //如果分数超过60,小时数就自增
+    min=0;hou+=1;
+    }
+    if((min>0)&&(flag==0))
+    {
+        window.alert("您停留了1分钟,欢迎再来!");
+        flag=1;
+    }
+    document.forms.input1.value=hou+"时"+min+"分"+sec+"秒";//在文本框中输出时间
+    window.setTimeout("update();",1000);                    //定时更新时间-每隔一秒更新一次
+}
+</SCRIPT>
+</form>
+</body>
+</html>

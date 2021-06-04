@@ -1,0 +1,110 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=big5">
+<title>新文档</title>
+<style type="text/css">
+input {
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #999999;
+	background-color: #FFFFE1;
+	border: 1px solid #999999;
+}
+</style>
+</head>
+<body>
+<div id="mydiv"></div>
+<table width="80%"  border="1" bordercolorlight="#CCCCCC" bordercolordark="#FFFFFF" onclick="setEdit(event)" onkeydown="checkAdd(event)">
+  <tr>
+    <td width="20%">343</td>
+    <td width="20%">sdf</td>
+    <td width="20%">asdf</td>
+    <td width="20%">asf</td>
+    <td width="20%">35r32</td>
+  </tr>
+  <tr>
+    <td>111</td>
+    <td>222</td>
+    <td>333</td>
+    <td>444</td>
+    <td>555</td>
+  </tr>
+  <tr>
+    <td>adfdsf</td>
+    <td>adfdsf</td>
+    <td>adfsdf  </td>
+    <td>   dafssda</td>
+    <td>  dafdsf</td>
+  </tr>
+  <tr>
+    <td>2342432</td>
+    <td>asdf</td>
+    <td> dfsasdfds</td>
+    <td>3243243</td>
+    <td>asdfasf</td>
+  </tr>
+  <tr>
+    <td>h</td>
+    <td>ghhhh</td>
+    <td>hhhh</td>
+    <td>ea</td>
+    <td>ghghhh</td>
+  </tr>
+</table>
+</body>
+</html>
+<script language="javascript">
+oldObj="";
+var newInput=document.createElement("input");            //动态创建输入框
+newInput.type="text";                                    //输入框类型
+function setEdit(e){                                    //设置编辑时的状态
+    var tdObj = e.srcElement? e.srcElement : (e.target ? e.target : e);//单击的对象
+	var obj;
+	if(tdObj.tagName && tdObj.tagName=="TD"){           //判断是否是单元格
+		if(oldObj!=""){
+            var tobj = document.getElementById('tmpText');//判断是否已经存在输入框
+			oldObj.removeChild(tobj);                       //移除已经存在的输入框
+			if(newInput.vlaue=="")                          //初始化输入框的值
+              oldObj.innerHTML="&nbsp;";
+			else 
+              oldObj.innerHTML=newInput.value;              //输入框的内容等于单元格的内容
+		}
+		
+		obj=tdObj;
+		oldObj=obj;
+		newInput.width=obj.offsetWidth;                     //输入框的高度和宽度
+		newInput.height=obj.offsetHeight;
+
+		newInput.id="tmpText";
+		newInput.value=obj.innerHTML;
+		obj.innerHTML="";
+		obj.appendChild(newInput);                          //将输入框添加到单元格内
+		newInput.focus();                                   //输入框获得焦点
+	}
+    tdObj = obj = tobj = null;
+}
+function checkAdd(e){
+    if(e && e.keyCode == 13){                               //
+       var obj = e.srcElement? e.srcElement : e.target;      //获得单击对象
+       var tbl = obj.parentNode.parentNode;                   //单击对象的祖父节点
+		if(oldObj!=""){
+            var tobj = document.getElementById('tmpText');  //获取输入框
+			oldObj.removeChild(tobj);                       //移除旧输入框
+			if(newInput.vlaue=="") 
+              oldObj.innerHTML="&nbsp;";            //单元格的初始值
+			else 
+              oldObj.innerHTML=newInput.value;      //单元格的内容等于输入框的内容
+            var oldObj2 = oldObj;
+            oldObj = '';
+		}
+       if(tbl.tagName && tbl.tagName == 'TR'){          //如果是单元行
+         t2 = tbl.cloneNode(true);                      //克隆表格
+         tbl.parentNode.insertBefore(t2,tbl);           //插入行
+       }
+       setEdit(oldObj2);                                  //开始编辑
+    }
+    obj = tbl = tobj = t2 = oldObj2 = null;
+}
+</script>
+</body>
+</html>

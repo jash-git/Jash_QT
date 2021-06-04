@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<script language="javascript">
+//随机显示TITLE
+var til = new Array(5);
+til[0] = '第一个标题'
+til[1] = '第二个标题'
+til[2] = '第三个标题'
+til[3] = '第四个标题'
+til[4] = '第五个标题'
+var indextitle = Math.floor(Math.random() * til.length);      //获取一个随机整数
+onload=function chaTitle() {
+    var curTitle=til[indextitle];                             //获取数组中的指定项
+    window.document.title+=" - "+curTitle;                  //更改当前页的标题
+}
+</script>
+</body>
+</html>

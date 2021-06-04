@@ -1,0 +1,385 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<HTML
+><HEAD
+><TITLE
+>Getting user input from the device</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.64
+"><LINK
+REL="HOME"
+TITLE="USB HID for Linux USB"
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"><LINK
+REL="UP"
+TITLE="The event interface"
+HREF="c193.html" tppabs="http://www.frogmouth.net/hid-doco/c193.html"><LINK
+REL="PREVIOUS"
+TITLE="Determining the device capabilities and features"
+HREF="x286.html" tppabs="http://www.frogmouth.net/hid-doco/x286.html"><LINK
+REL="NEXT"
+TITLE="Sending information to the device"
+HREF="x452.html" tppabs="http://www.frogmouth.net/hid-doco/x452.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>USB HID for Linux USB</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x286.html" tppabs="http://www.frogmouth.net/hid-doco/x286.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>The event interface</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x452.html" tppabs="http://www.frogmouth.net/hid-doco/x452.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN401"
+>Getting user input from the device</A
+></H1
+><P
+>So far, all of the discussion has been about what the device is
+capable of (eg whether the device has a trigger button). In this
+section, we will see how to actually get user input from the device
+(eg, whether the trigger button has been pressed by the user).</P
+><P
+>The event interface provides this information using a
+<TT
+CLASS="FUNCTION"
+>read</TT
+>  function call. The result of that
+<TT
+CLASS="FUNCTION"
+>read</TT
+> is one or more
+<SPAN
+CLASS="STRUCTNAME"
+>input_event</SPAN
+> structures, and the return value
+is the number of bytes read. </P
+><P
+>The <SPAN
+CLASS="STRUCTNAME"
+>input_event</SPAN
+> structure is defined as
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct input_event {
+        struct timeval time;
+        unsigned short type;
+        unsigned short code;
+        unsigned int value;
+};</PRE
+></TD
+></TR
+></TABLE
+></P
+><P
+>The <TT
+CLASS="STRUCTFIELD"
+><I
+>time</I
+></TT
+> element is a normal
+<SPAN
+CLASS="STRUCTNAME"
+>timeval</SPAN
+> structure, and contains the time that
+the event occurred. The <TT
+CLASS="STRUCTFIELD"
+><I
+>type</I
+></TT
+> element is the
+type of feature that is being reported (for example, <SPAN
+CLASS="SYMBOL"
+>EV_KEY</SPAN
+>,
+<SPAN
+CLASS="SYMBOL"
+>EV_REL</SPAN
+>, <SPAN
+CLASS="SYMBOL"
+>EV_ABS</SPAN
+> or
+<SPAN
+CLASS="SYMBOL"
+>EV_MSC</SPAN
+>). The <TT
+CLASS="STRUCTFIELD"
+><I
+>code</I
+></TT
+> element
+contains the particular feature that is being reported (for example,
+<SPAN
+CLASS="SYMBOL"
+>KEY_SPACE</SPAN
+>, <SPAN
+CLASS="SYMBOL"
+>KEY_F1</SPAN
+>,
+<SPAN
+CLASS="SYMBOL"
+>REL_WHEEL</SPAN
+> or <SPAN
+CLASS="SYMBOL"
+>ABS_X</SPAN
+>). The
+<TT
+CLASS="STRUCTFIELD"
+><I
+>value</I
+></TT
+> is the value of that particular
+feature (for example, <TT
+CLASS="LITERAL"
+>0</TT
+> or <TT
+CLASS="LITERAL"
+>1</TT
+>
+for a key, or some other integer value for a relative or absolute
+axis).</P
+><P
+>Let's look at an example of the <TT
+CLASS="FUNCTION"
+>read</TT
+>
+interface.</P
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="note.gif" tppabs="http://www.frogmouth.net/hid-doco/stylesheet-images/note.gif"
+HSPACE="5"
+ALT="Note"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>About this example</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This example is intentionally a code fragment, and is not complete, nor
+is it meant to show good programming style. </P
+><P
+>A complete form of this example (that will compile with
+<TT
+CLASS="USERINPUT"
+><B
+>gcc -Wall -W</B
+></TT
+>) is provided in the second part of
+this document.</P
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN434"
+></A
+><P
+><B
+>Example 7. <TT
+CLASS="FUNCTION"
+>read</TT
+> example</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>    struct input_event ev;
+&#8230;
+    while (1)
+	{
+	read(fd, &#38;ev, sizeof(struct input_event));
+
+	printf("Event: time %ld.%06ld, type %d, code %d, value %d\n",
+		       ev.time.tv_sec, ev.time.tv_usec, ev.type,
+		       ev.code, ev.value);
+	}</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>This example shows a busy loop over the particular event device. The
+<TT
+CLASS="FUNCTION"
+>read</TT
+> call waits for the event (assuming it was
+<TT
+CLASS="FUNCTION"
+>open</TT
+>ed with <SPAN
+CLASS="SYMBOL"
+>O_NONBLOCK</SPAN
+>), and
+then prints out the various values of the event.</P
+><P
+>Note that this <TT
+CLASS="FUNCTION"
+>read</TT
+> interface has all the normal
+characteristics of a character device. This means that you don't need
+to use a busy loop. You can just wait till your program needs some
+input from the device, and then perform the <TT
+CLASS="FUNCTION"
+>read</TT
+>
+call. In addition, if you are interested in the input from a number of
+devices, you can use the <TT
+CLASS="FUNCTION"
+>poll</TT
+> and
+<TT
+CLASS="FUNCTION"
+>select</TT
+> functions to wait on a number of open
+devices at the same time.</P
+><P
+>For more information on the <TT
+CLASS="FUNCTION"
+>read</TT
+>,
+<TT
+CLASS="FUNCTION"
+>open</TT
+>, <TT
+CLASS="FUNCTION"
+>select</TT
+> or
+<TT
+CLASS="FUNCTION"
+>poll</TT
+> functions, refer to the applicable man
+pages, or any good C programming book.</P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x286.html" tppabs="http://www.frogmouth.net/hid-doco/x286.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x452.html" tppabs="http://www.frogmouth.net/hid-doco/x452.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Determining the device capabilities and features</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="c193.html" tppabs="http://www.frogmouth.net/hid-doco/c193.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Sending information to the device</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

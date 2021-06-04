@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>单击表格的表头，测试排序</title>
+<script language="javascript">
+function sortTable(sortType)
+{
+    var tb=document.getElementsByTagName("table")[0];           //获取要排序的表格
+    var arr=[];                                                 //初始数组
+    for (var i=1;i<tb.rows.length;i++)                          //遍历表格中每一行
+        arr.push(tb.rows[i].cells[sortType].innerText);         //将列的数据添加到数组中
+    sortType==0 ? arr.sort(function (a,b) {return a-b}) : arr.sort();//数组排序
+    for (var j=1;j<tb.rows.length;j++) 
+    tb.rows[j].cells[sortType].innerText=arr[j-1];                  //输出排序后的结果
+}
+</script>
+</head>
+<body>
+<table border="1">
+    <tr><th onclick="sortTable(0);">按数字排序</th><th onclick="sortTable(1);">按字符串排序</th></tr>
+    <tr><td>563</td><td>张三</td></tr>
+    <tr><td>425</td><td>abc</td></tr>
+    <tr><td>452</td><td>历史</td></tr>
+    <tr><td>548</td><td>北京</td></tr>
+    <tr><td>42</td><td>xxx</td></tr>
+    <tr><td>137</td><td>无zhoi</td></tr>
+</table>
+</body>
+<html>

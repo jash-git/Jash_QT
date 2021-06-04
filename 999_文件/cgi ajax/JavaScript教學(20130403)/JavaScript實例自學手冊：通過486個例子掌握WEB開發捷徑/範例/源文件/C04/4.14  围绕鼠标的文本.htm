@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT language=javascript>
+var cx=0;
+var cy=0;
+var val=0;
+function location()
+{	cx=window.event.x;                      //获取鼠标的x坐标
+	cy=window.event.y;　　　　　　　　　　　//获取鼠标的y坐标
+}
+document.onmousemove=location;　　　　　　　//绑定鼠标的移动事件
+function follow(i)
+{	var x;
+	if(i<4)x=cx-50+i*10;                    //设置要显示的字符的x,y坐标
+	else x=cx-25+i*10;
+	var y=cy-20+Math.floor(Math.random()*40);//实现随机值的获取
+	w=eval("word"+i);                        //获取要显示的字符
+	with(w.style)
+	{
+	left=x.toString()+"px";                  //在指定的位置显示字符
+	top=y.toString()+"px";
+	}
+}
+function show(i)
+{	
+	var w=eval("word"+i);                   //获取要显示的字符
+	with(w.style)
+	{
+	visibility="visible";
+	s=parseInt(fontSize);                   //设置字符的字体-从达到小,从小到大
+	if(s>=200)s-=100;
+	else if(s>90&&s<=100)
+		{
+		s-=85;
+		clearInterval(val);
+		if(i<5)val=setInterval("show("+(i+1)+")",20);//循环的显示下一个字符
+		}	
+	fontSize=s;
+	}
+}
+function start()
+{	
+    for(i=1;i<=5;i++)
+	{
+	    val=setInterval("show(1)",20);　　　　　　　　　　　　　　　　//循环执行
+	    setInterval("follow("+i+")",100);　　　　　　　　　　　     　//循环执行　　
+	}
+}	
+</SCRIPT>
+<SCRIPT language=javascript>
+	var word=new Array(5);
+	word[1]="欢";word[2]="迎";word[3]="您";word[4]="光";word[5]="临";  //设置要围绕的字符数组
+	for(i=1;i<=5;i++)
+		document.write("<div id='word"+i+"' style='width:20px;height:20px;position:absolute;font-size:1000;visibility:hidden'><font face='Forte' color='#cc9966'>"+word[i]+"</font></div>");
+	start();                                                           //开始执行围绕操作
+	</SCRIPT>
+</head>
+<body>
+</body>
+</html>

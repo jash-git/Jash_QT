@@ -1,0 +1,32 @@
+<html>
+</head>
+    <title>分页的动态表格</title>
+    <style>div,table,td { text-align:center; }</style>
+</head>
+<body onload="ShowPage(1);">
+    <div id="divTable"></div>
+    <div id="divPages"></div>
+</body>
+</html>
+<script language="javascript">
+var strData='医疗保健及个人用品类价格同比上涨1.6%。其中西药价格下降1.4%，中药材及中成药价格上涨7.2%，医疗保健服务价格上涨2.2%。';
+    strData+='娱乐教育文化用品及服务类价格同比下降1.2%。其中，学杂托幼费价格下降0.7%.';//要显示的字符串
+var arrData=strData.match(/[\u4e00-\u9fa5]/ig);
+var numData=arrData.length;             //文本字符的长度
+var numPages=Math.ceil(numData/30);     //返回除以30的上线   
+function ShowPage(x)                    //显示指定页的内容
+{
+    strData="";
+    for (var i=(x-1)*30+1;i<=x*30;i++)
+    {
+         strData+="<tr><td>"+arrData[i]+"</td><td>"+arrData[++i]+"</td><td>"+arrData[++i]+"</td></tr>"//动态添加表格数据
+    }
+    strData='<table width="70%" border="5" cellpadding="0" cellspacing="0">'+strData+'</table>';
+    document.getElementById("divTable").innerHTML=strData.replace(/<td>undefined<\/td>/ig,"");    //在div内输出表格
+}
+for (var i=1;i<=numPages;i++)
+{
+    var str='<button onclick="ShowPage('+i+')">第'+i+'页</button>';  //动态输出翻页按钮
+    document.getElementById("divPages").innerHTML+=str;             //在div内输出按钮
+}
+</script>

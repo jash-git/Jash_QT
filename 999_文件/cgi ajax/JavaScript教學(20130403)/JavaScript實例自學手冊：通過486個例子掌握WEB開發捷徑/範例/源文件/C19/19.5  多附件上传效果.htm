@@ -1,0 +1,112 @@
+<html>
+<head>
+<style>
+a.addfile {
+background-image:url(http://p.mail.163.com/js31style/lib/0703131650/163blue/f1.gif);
+background-repeat:no-repeat;
+background-position:-823px -17px;
+display:block;
+float:left;
+height:20px;
+margin-top:-1px;
+position:relative;
+text-decoration:none;
+top:0pt;
+width:80px;
+}
+input.addfile {
+}
+input.addfile {
+cursor:pointer !important;
+height:18px;
+left:-13px;
+filter:alpha(opacity=0); 
+position:absolute;
+top:5px;
+width:1px;
+z-index: -1;
+}
+</style>
+<script language="javascript" >
+    var n=0;                 //初始化数组为0，之后随着变化
+    var fileCount=1;         //总共输入了多少个有值的File控件 ,初始化为1 
+    var tempRow=0;           //动态表格的临时行
+    var maxRows=0;           //动态表格的临时列
+    var num = 1;             //file 控件数组下标,从1开始,默认显示一个
+    var fileCount=1;         //整个操作中,总共用了多少个 File 控件
+    //添加文件的主要方法
+    function addFile()
+    { 
+        var str = '<a href=#? class="addfile" id="a' + num +'"><input type="file" size="50" class="addfile" onchange="addFile()" name="uploadFile[' + num + '].file" ' + '/>';//待插入的文件控件
+        var fileText;       //得到文件控件的值
+        var ary;            //分割文件,以'\'号
+        var fileTextValue;  //取出最后的文件名 
+        fileText = document.all("uploadFile[" + n + "].file").value;  //获取文件名称
+        ary = fileText.split("\\");                  
+        fileTextValue = ary[ary.length-1];
+        document.all("a" + n).style.display = "none";//将前一个 P 的子元素设为不可见
+           
+        //在前面一个 File 控件隐藏后,接着再在原来的位置上插入一个
+        document.getElementById('MyFile').insertAdjacentHTML("beforeEnd",str);
+        tempRow=fileTable.rows.length-1;    //fileTable   就是那个动态的   table 的 ID 了
+         maxRows=tempRow; 
+         tempRow=tempRow+1; 
+        var Rows=fileTable.rows;            //Rows 数组 
+        var newRow=fileTable.insertRow(fileTable.rows.length);    //插入新的一行 
+        var Cells=newRow.cells;                                   //Cells 数组 
+        for (i=0;i<3;i++)                                         //每行的2列数据,一列用来显示文件名,一列显示"删除"操作 
+        { 
+          var newCell=Rows(newRow.rowIndex).insertCell(Cells.length); 
+          newCell.align="center"; 
+          switch (i) 
+          { 
+            case 0 : newCell.innerHTML="<td width='40%' align='left'><span id='"+n+"'></span></td>";
+                   break; 
+            case 1 : newCell.innerHTML="<td width='20%' align='left'><a href='javascript:delTableFileRow(\"" +tempRow+ "\",\"" + n + "\")'>删除</a></TD>";
+                   break; 
+            case 2 : newCell.innerHTML="<td width='40%' align='left'>&nbsp;</TD>"; 
+                   break; 
+          } 
+        } 
+        maxRows+=1;
+        document.getElementById(n).insertAdjacentText("beforeBegin",fileTextValue);
+        n++;
+        num++;
+        fileCount++;
+    }
+  function delTableFileRow(rowNum,fileCount)
+  {   
+    if (fileTable.rows.length >rowNum){ 
+      fileTable.deleteRow(rowNum);                  //删除当前行
+    }else
+    fileTable.deleteRow(fileTable.rows.length-1);
+    document.all("MyFile").removeChild(document.all("a" + fileCount)); //从元素P上删除子结点 a 。（跟删除表格行同步）
+    fileCount--;    　　　　　　　　　　　　　　 　//总数 -1
+  }   
+</script>
+</head>
+<body>
+<form id="form1" >
+<table width="830" height="385" border="0" align="center"
+cellpadding="0" cellspacing="0" id='myTable'>
+  <tr> 
+<td height="27" align="center" bgcolor="#E2F0FE" class="time">附件</td>
+<td height="79" align="center" colSpan="3" bgcolor="#E2F0FE" class="time">
+<div align="left">
+    <P id="MyFile">
+<a href=#? class="addfile" id="a0">
+<input type="file" class="addfile" onchange="addFile()" size="1" name="uploadFile[0].file"  value=""/>
+</a>
+</P>
+<table width="100%" height="100%" border="0">
+<tr><td width="40%" align="left"></td><td width="60%"></td></tr>
+<tr>
+<td colspan="2">
+<table width="100%" border="0" id="fileTable" align="left"></table>
+</td>  
+</table>
+</div>
+</td>
+</tr>
+</table>
+</body></html>

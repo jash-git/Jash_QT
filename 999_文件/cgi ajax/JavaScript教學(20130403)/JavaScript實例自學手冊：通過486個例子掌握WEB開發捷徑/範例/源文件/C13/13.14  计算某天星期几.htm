@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<SCRIPT LANGUAGE="LiveScript">
+function checkNum(str, min, max) {    //检测输入的数值
+        if (str == "") {        
+                alert("请输入有效的值.");        
+                return false;    
+        }    
+        for (var i = 0; i < str.length; i++) {        
+                var ch = str.substring(i, i + 1);        
+                if (ch < "0" || ch > "9") {            
+                        alert("请输入数值.");            
+                        return false;        
+                }    
+        }    
+        var val = parseInt(str, 10);    
+        if ((val < min) || (val > max)) {        
+                alert("请输入数值从 1 到 "+max+".");        
+                return false;    
+        }    
+        return true;
+}
+function pushbutton(form){     
+        //检查年月日的有效性                           
+        if ((checkNum(form.day.value,1,31)) && (checkNum(form.month.value,1,12)) && (checkNum(form.year.value,0,2500))){
+                var cur_day = parseInt(form.day.value,10);      //获取日
+                var cur_month = parseInt(form.month.value,10);  //获取月
+                var cur_year = parseInt(form.year.value,10);    //获取年
+        }
+        getDayOfWeek(cur_year+"-"+cur_month+"-"+cur_day);               //调用判断星期几的方法
+}
+function getDayOfWeek(dayValue){ 
+    var day = new Date(Date.parse(dayValue.replace(/-/g, '/')));                             //将日期值格式化 
+    var today = new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");  //创建星期数组
+    alert( today[day.getDay()])                                                             //返一个星期中的某一天，其中0为星期日 
+} 
+</SCRIPT>
+<FORM NAME = "calDay">
+<PRE><B>日:</B>   
+<INPUT TYPE="num" name="day" onChange="if (!checkNum(this.value, 1, 31)){this.focus();this.select();} else {}" size=10 value="">        
+<B>月:</B> 
+<INPUT TYPE="num" name="month" onChange="if (!checkNum(this.value, 1, 12)){this.focus();this.select();} else {}" size=10 value="">
+<B>年:</B>  
+<INPUT TYPE="num" name="year" onChange="if (!checkNum(this.value, 0, 2500)){this.focus();this.select();} else {}" size=10 value="">        
+<INPUT TYPE="button" name="Find_Out" value="计算星期几" onclick="pushbutton(this.form)"></PRE>
+</FORM>
+</body>
+</html>

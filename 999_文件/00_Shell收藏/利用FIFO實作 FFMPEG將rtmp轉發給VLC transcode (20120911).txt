@@ -1,0 +1,7 @@
+mkfifo /tmp/fifo 
+ffmpeg -y -i "rtmp://61.67.112.36/live/ott_c17_normal live=1" -f mpegts -b 900k -threads 8  /tmp/fifo 
+cvlc -vvv /tmp/fifo --sout-keep --sout '#std{access=udp,mux=ts,dst=224.8.8.8:1233}'
+
+ffmpeg -y -i "rtmp://61.67.112.36/live/ott_c17_normal live=1" -f mpegts -b 900k -threads 8 - |  cvlc -vvv -  --sout-keep --sout '#std{acce
+
+ffmpeg -y -i ./abc.mp4 -f mpegts -s 640x480 -b 3000k - |  cvlc -vvv - --sout-ts-pid-video=69 --sout-ts-pid-audio=68 --sout-keep --sout '#transcode{fps=29.97,venc=x264{keyint=30},vcodec=h264,vb=3000,width=704,height=480,acodec=mp4a,alang=eng,ab=128,channels=2,samplerate=48000}:udp{mux=ts,dst=224.8.8.11:1235}'

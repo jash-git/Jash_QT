@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+    <script type="text/javascript">
+    var xmlhttp;
+    function getData()
+    {
+        //创建异步对象
+          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        //加载服务器-注意无参数
+          xmlhttp.Open("GET","XMLFile.xml",true)
+        //异步对象事件挂钩
+          xmlhttp.onreadystatechange=stateChange;
+       //发送请求-无参数
+          xmlhttp.Send(null);
+    }
+    function stateChange()
+    {
+       if(xmlhttp.readystate==4 && xmlhttp.status==200)
+       {
+          //获取所有返回的数据
+          var data=xmlhttp.ResponseText;
+          //显示结果
+          document.getElementById("divlist").innerHTML=data;
+       }
+    }
+    </script>
+</head>
+<body>
+        <table style=" text-align:center">
+            <tr>
+                <td style="text-align:center">
+                    显示从XML文件中获取的数据</td>
+            </tr>
+            <tr>
+                <td style="text-align:center">
+                    <input id="Button1" type="button" value="获取表格" onclick="getData()" /></td>
+            </tr>
+            <tr>
+                <td style="text-align:center">
+                    <div id="divlist">
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+</body>
+</html>

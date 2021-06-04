@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT language=JavaScript>
+function RunPaint(){
+  try{
+    var objShell = new ActiveXObject("wscript.shell");//创建wscript.shell对象
+    objShell.Run('mspaint');                          //打开操作系统的画板
+    objShell = null;                                  //释放资源
+  }
+  catch(e){
+    alert("找不到画板文件");                          //捕获错误
+  }
+}
+</SCRIPT>
+</head>
+<body>
+<input type=button value="打开画板" onclick="RunPaint()">
+</body>
+</html>

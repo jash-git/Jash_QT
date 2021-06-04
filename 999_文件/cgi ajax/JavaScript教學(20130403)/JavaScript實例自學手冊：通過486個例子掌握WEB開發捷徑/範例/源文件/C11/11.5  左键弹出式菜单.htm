@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+<style type="text/css">
+a.{ font: 9pt "宋体"; cursor: hand; font-size: 9pt ; color: #ffffff; text-decoration: none }
+a:active{ font: 9pt "宋体"; cursor: hand; color: #FF0033 }
+a.cc:hover{ font: 9pt "宋体"; cursor: hand; color: #FF0033}
+.box{ font: 10pt "宋体"; position: absolute;  background: #ccbbcc }
+</style>
+<script language="JavaScript">
+function popUp() 
+{
+newX = window.event.x + document.body.scrollLeft;
+newY = window.event.y + document.body.scrollTop;
+menu = document.all.menutable;
+if ( menu.style.display == "")
+{
+menu.style.display = "none" }
+else {
+menu.style.display = "";}
+menu.style.pixelLeft = newX - 50;
+menu.style.pixelTop = newY - 50;
+}
+</script>
+</head>
+<body onclick = popUp()>
+<table id="menutable" class="box" style="display:none;width=120">
+<tr>
+<td>弹出菜单</td>
+</tr>
+<tr>
+<td><a href="#" class="cc">本站搜索</a></td>
+</tr>
+<tr>
+<td><a href="#" class="cc">本站帮助</a></td>
+</tr>
+<tr>
+<td><a href="#" class="cc">当前更新</a></td>
+</tr>
+<tr>
+<td><a href="#" class="cc">联系版主</a></td>
+</tr>
+</table>
+</body>
+</html>

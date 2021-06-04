@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+</head>
+<body>
+<input type="button" name="Submit" onClick='toClipBoard()' value="复制网址，传给好友"> 
+<script language="javascript"> 
+function toClipBoard()
+{ 
+var clipBoardContent=""; 
+clipBoardContent+=document.title;     //获取页面标题
+clipBoardContent+="\n"; 
+clipBoardContent+=this.location.href; //获取页面地址 
+//将拷贝内容存放到剪贴板中
+window.clipboardData.setData("Text",clipBoardContent); 
+alert("复制成功，可以粘贴到你的QQ/MSN上，推荐给你的好友！"); 
+} 
+</script>
+</body>
+</html>

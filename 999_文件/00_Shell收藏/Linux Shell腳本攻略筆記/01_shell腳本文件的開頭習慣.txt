@@ -1,0 +1,9 @@
+shell腳本文件的開頭習慣
+
+ 
+
+#!/bin/bash
+
+ 
+
+參考出處:Linux Shell 腳本攻略 P2

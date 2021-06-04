@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>输出测试</title>
+<script language="javascript">
+    function cal()
+    {
+        var calTxtArr = [];              //创建数组
+        for (var i = 0, s = document.all.myContent.value; i < s.length; ++i)//遍历文本中所有元素
+        {
+            var c = s.charAt(i);                                            //获取指定元素
+            calTxtArr[c] = calTxtArr[c] == null ? 1 : calTxtArr[c] + 1;                    //判断是否已经开始计算
+        }
+        var bufferArr = [];
+        for (var c in calTxtArr)                                                 //如果已经存在
+        {
+            bufferArr.push(c + ": " + calTxtArr[c]);                                //添加到数组中
+        }
+        document.all.calTxt.value = bufferArr.join("\n");                      //显示在文本框内，并换行
+    }
+</script>
+</head>
+<body>
+输入内容：<br>
+<textarea rows= "5" cols = "40" name = "myContent"></textarea>
+<input type = "button" value = "开始计算" onclick = "cal()">
+<br><br>
+<textarea name = "calTxt" rows = "20" cols = "40" readonly>
+</textarea>
+</body>
+</html>

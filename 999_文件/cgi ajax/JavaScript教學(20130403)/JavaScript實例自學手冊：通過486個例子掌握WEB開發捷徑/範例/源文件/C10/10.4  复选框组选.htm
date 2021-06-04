@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language=javascript>
+function sts()
+{
+}
+</script>
+</head>
+<body>
+<script language="JavaScript">
+function selectGroup(obj)
+{
+  var chkObj = obj.id;              //获取对象的id
+  var chkValue=obj.checked;                //判断当前对象是否选中
+  var chkArr = mySpan.getElementsByTagName("input");//获取所有的复选框
+  for(var i=0; i<chkArr.length; i++)         //遍历所有的复选框
+    if(chkArr[i].id==chkObj)                   //判断ID是否相等
+      chkArr[i].checked=chkValue                      //如果相等则选中
+}
+</script>
+
+<span id="mySpan">
+<input type="checkbox" onclick="selectGroup(this)" name="ID[]" id="A001" value="1">A001
+<input type="checkbox" onclick="selectGroup(this)" name="ID[]" id="B001" value="3">>B001
+<input type="checkbox" onclick="selectGroup(this)" name="ID[]" id="A001" value="444">>A001<br />
+<input type="checkbox" onclick="selectGroup(this)" name="ID[]" id="B001" value="23">>B001
+<input type="checkbox" onclick="selectGroup(this)" name="ID[]" id="B001" value="11">>B001
+<input type="checkbox" onclick="selectGroup(this)" name="ID[]" id="C001" value="15">>C001<br />
+<input type="checkbox" onclick="selectGroup(this)" name="ID[]" id="C001" value="17">>C001
+<input type="checkbox" onclick="selectGroup(this)" name="ID[]" id="C001" value="10">>C001
+<input type="checkbox" onclick="selectGroup(this)" name="ID[]" id="C001" value="121">>C001
+</span>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<style type="text/css">
+.color1 { color:#000080; cursor:hand;font-weight: bold; }
+.color2 { color:#464646; display:none; }
+</style>
+<table onclick="divClick(this);">
+<tr class="color1"><td>1、在工作流不同阶段，加载不同的表单？</td></tr>
+<tr class="color2"><td>
+　　　　我现在已经把自定义表单实现了，加WWF以后，要做的东西就不多了<br>
+　　　　离可以作为工作流使用还有相当的开发工作量的</td></tr>
+
+<tr class="color1"><td>2、为什么一定要先交预付款？</td></tr>
+<tr class="color2"><td>
+　　请问这个是text/x-scriptlet 这是个什么东东插件搜索服务显示是未知插件. . 金箭. 
+<br>
+　　哪位有的下载啊我弄了半天也没弄好请高人帮帮忙啊~~谢谢`~~<br>
+　　款中扣除相应费用。同时，为保证您的用户购买域名、虚拟主机、FTP空间、数据库、企业邮局能实时开<br>
+　　2007年1月17日1:26 PM. 似乎是个IE下用的控件 。</td></tr>
+
+<tr class="color1"><td>3、为什么我司的域名比较便宜？</td></tr>
+<tr class="color2"><td>
+　　　审核就把delete from SMT_cp where SMT_id in(1,2,3)
+换成 update  SMT_cp set 审核字段=1 where SMT_id in(1,2,3)就可以<br>
+　　SQL语句可以直接delete from SMT_cp where SMT_id in(1,2,3)删除</td></tr>
+</table>
+
+<SCRIPT language="javascript">
+function divClick(tb)
+{
+	var n = event.srcElement.parentNode.rowIndex;              //获得父节点的行索引
+	if (n%2==0)                                                //判断是否是被2整除的行-所有标题行都可以                                         
+	{
+		with(tb.rows[n+1].style) display= display=="none" ? "block" : "none";//让标题行的下一行显示
+	}
+}
+</SCRIPT>
+</body>
+</html>

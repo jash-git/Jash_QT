@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+<script language=javascript>
+//判断浏览器类型
+ie = (document.all)? true:false
+if (ie)
+{
+function ctlent(eventobject)
+{
+   //获取用户输入的键值
+    if(event.ctrlKey && window.event.keyCode==13)
+    {this.document.form1.submit();}}
+}
+</script>
+</head>
+<body>
+ <form action="http://www.baidu.com" method="get" name="form1">
+    <textarea cols="50" name="Content" rows="10" wrap="virtual" onkeydown="ctlent()">
+     Ctrl+Enter提交内容
+</textarea>
+<input type=Submit value="Submit" name=Submit>
+</form>
+</body>
+</html>

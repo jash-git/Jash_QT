@@ -1,0 +1,34 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<div id="tblView" style="border:#D3D3D3 1px solid;PADDING-LEFT: 1px;PADDING-top: 1px;width:339px;height:276px;overflow-x:hidden;overflow-y:scroll"></DIV>
+</body>
+<script language="javascript">
+function bgChange(obj)
+{
+    for (var i=0; i<obj.parentElement.rows.length; i++)
+    obj.parentElement.rows[i].bgColor = obj.parentElement.rows[i] == obj ? '#EFE9E9' : 'white';//改变指定行的背景色
+    }
+    htm="<table width=100% border=0 align=center cellpadding=0 cellspacing=0>"
+    for(i=0;i<5;i++){    //动态输出5行表格
+    o=i+1
+    htm+="<tr id=td"+o+" height=10 style='CURSOR: hand;' onclick=bgChange(this);>"
+    htm+="    <td style='font-size:12px;color:#6666f6;border-bottom:#D3D3D3 1px solid;border-right:#D3D3D3 1px solid' width=17 height=10 align='center'>"+o+"</td>"
+    htm+="    <td style='border-bottom:#D3D3D3 1px solid;border-right:#D3D3D3 1px solid' width=218>&nbsp;</td>"
+    htm+="    <td style='border-bottom:#D3D3D3 1px solid' width=102>&nbsp;</td>"
+    htm+="</tr>"
+    }
+htm+="</TABLE>"
+tblView.innerHTML=htm;          //设置表格的内容
+b=0
+function setScroll(){    //调用表格滚动的方法
+    if (b==o){b=0}       //第一行
+    b++;
+    bgChange(document.getElementById("td"+b));//调用改变背景色的方法
+    setTimeout("setScroll()",2000);        //每隔2秒调用一次
+}
+setScroll();
+</script>
+</html>

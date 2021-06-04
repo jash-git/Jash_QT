@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language ="javascript">
+function toGlobal (varName) {
+   window.execScript(varName);          //定义varName为全局使用
+}
+toGlobal('window.varText = "全局变量";'); //设置全局变量的值
+alert(varText);                            //显示全局变量的值
+</script>
+</head>
+<body>
+</body>
+</html>

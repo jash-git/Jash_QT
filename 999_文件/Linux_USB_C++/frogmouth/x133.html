@@ -1,0 +1,312 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<HTML
+><HEAD
+><TITLE
+>Getting information about the HID device</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.64
+"><LINK
+REL="HOME"
+TITLE="USB HID for Linux USB"
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"><LINK
+REL="UP"
+TITLE="The HID device interface"
+HREF="c100.html" tppabs="http://www.frogmouth.net/hid-doco/c100.html"><LINK
+REL="PREVIOUS"
+TITLE="Getting the version of the hiddev interface"
+HREF="x112.html" tppabs="http://www.frogmouth.net/hid-doco/x112.html"><LINK
+REL="NEXT"
+TITLE="Determining which Applications a device uses"
+HREF="x164.html" tppabs="http://www.frogmouth.net/hid-doco/x164.html"></HEAD
+><BODY
+CLASS="SECT1"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>USB HID for Linux USB</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x112.html" tppabs="http://www.frogmouth.net/hid-doco/x112.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+>The HID device interface</TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x164.html" tppabs="http://www.frogmouth.net/hid-doco/x164.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN133"
+>Getting information about the HID device</A
+></H1
+><P
+>The hiddev interface supports getting information associated with
+the device using
+the <SPAN
+CLASS="SYMBOL"
+>HIDIOCGDEVINFO</SPAN
+> <TT
+CLASS="FUNCTION"
+>ioctl</TT
+>.
+The argument is a pointer to
+a <SPAN
+CLASS="STRUCTNAME"
+>hiddev_devinfo</SPAN
+> structure.</P
+><P
+>The <SPAN
+CLASS="STRUCTNAME"
+>hiddev_devinfo</SPAN
+> structure is defined as:
+<TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>struct hiddev_devinfo {
+        unsigned int bustype;
+        unsigned int busnum;
+        unsigned int devnum;
+        unsigned int ifnum;
+        short vendor;
+        short product;
+        short version;
+        unsigned num_applications;
+};</PRE
+></TD
+></TR
+></TABLE
+></P
+><P
+>Lets look at an example of the <SPAN
+CLASS="SYMBOL"
+>HIDIOCDEVINFO</SPAN
+>
+<TT
+CLASS="FUNCTION"
+>ioctl</TT
+> call.</P
+><DIV
+CLASS="NOTE"
+><P
+></P
+><TABLE
+CLASS="NOTE"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="note.gif" tppabs="http://www.frogmouth.net/hid-doco/stylesheet-images/note.gif"
+HSPACE="5"
+ALT="Note"></TD
+><TH
+ALIGN="LEFT"
+VALIGN="CENTER"
+><B
+>About this example</B
+></TH
+></TR
+><TR
+><TD
+>&nbsp;</TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+>This example is intentionally a code fragment, and is not complete,nor
+is it meant to show good programming style. </P
+><P
+>A complete form of this example (that will compile with
+<TT
+CLASS="USERINPUT"
+><B
+>gcc -Wall -W</B
+></TT
+>) is provided in the second part of
+this document.</P
+></TD
+></TR
+></TABLE
+></DIV
+><DIV
+CLASS="EXAMPLE"
+><A
+NAME="AEN150"
+></A
+><P
+><B
+>Example 2. <SPAN
+CLASS="SYMBOL"
+>HIDIOCDEVINFO</SPAN
+> example</B
+></P
+><TABLE
+BORDER="0"
+BGCOLOR="#E0E0E0"
+WIDTH="100%"
+><TR
+><TD
+><PRE
+CLASS="PROGRAMLISTING"
+>  /* suck out some device information */
+  ioctl(fd, HIDIOCGDEVINFO, &#38;device_info);
+
+  printf("vendor 0x%04hx product 0x%04hx version 0x%04hx ",
+          device_info.vendor, device_info.product, device_info.version);
+  printf("has %i application%s ", device_info.num_applications,
+         (device_info.num_applications==1?"":"s"));
+  printf("and is on bus: %d devnum: %d ifnum: %d\n",
+         device_info.busnum, device_info.devnum, device_info.ifnum);&#13;</PRE
+></TD
+></TR
+></TABLE
+></DIV
+><P
+>The <TT
+CLASS="STRUCTFIELD"
+><I
+>vendor</I
+></TT
+>, <TT
+CLASS="STRUCTFIELD"
+><I
+>product</I
+></TT
+> and <TT
+CLASS="STRUCTFIELD"
+><I
+>version</I
+></TT
+> fields
+ correspond to the vendor
+identification, product identification and BCD revision of the device.</P
+><P
+>The <TT
+CLASS="STRUCTFIELD"
+><I
+>busnum</I
+></TT
+>, <TT
+CLASS="STRUCTFIELD"
+><I
+>devnum</I
+></TT
+> and <TT
+CLASS="STRUCTFIELD"
+><I
+>ifnum</I
+></TT
+> fields
+correspond to the logical location of the device on the USB bus.</P
+><P
+>The <TT
+CLASS="STRUCTFIELD"
+><I
+>num_applications</I
+></TT
+>
+field is the number of applications in the HID descriptor. </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x112.html" tppabs="http://www.frogmouth.net/hid-doco/x112.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x164.html" tppabs="http://www.frogmouth.net/hid-doco/x164.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Getting the version of the hiddev interface</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="c100.html" tppabs="http://www.frogmouth.net/hid-doco/c100.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Determining which Applications a device uses</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

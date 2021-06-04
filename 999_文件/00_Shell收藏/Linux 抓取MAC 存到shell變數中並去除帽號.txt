@@ -1,0 +1,10 @@
+#!/bin/bash
+ifconfig |grep HW |awk '{print $5}' #列出所有網卡MAC
+echo 
+ifconfig |grep eth1 |awk '{print $5}'
+echo 
+value01=`ifconfig |grep eth1 |awk '{print $5}'`
+echo $value01
+value01=`ifconfig |grep eth1 |awk '{print $5}'| tr -d :`
+echo 
+echo $value01

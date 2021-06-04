@@ -1,0 +1,5 @@
+sudo apt-get install youtube-dl #安裝youtube-dl
+
+sudo youtube-dl -U #更新到最新版
+
+youtube-dl url

@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+ <form>   
+  <script   language="javascript">   
+    var   d   =   200;   
+    var   tmpTableStr=new   Array();   
+    var   tempArrayLength=0;   
+    tmpTableStr[tempArrayLength++]="<table   width=\"100%\"   border=\"1\"   id=aaaa>";   
+    for(i=1;i<d;i++)   
+    {   
+        tmpTableStr[tempArrayLength++]="<tr>";   
+        tmpTableStr[tempArrayLength++]="<td   id=\"td1\"   width=40%   >";   
+        tmpTableStr[tempArrayLength++]="<input   type=\"text\"   id=\"dgip\"   name=\"ip1\"   value=\"第一列姓名\">";   
+        tmpTableStr[tempArrayLength++]="<\/td>";   
+        tmpTableStr[tempArrayLength++]="<td   id=\"td2\"   width=40%   >";   
+        tmpTableStr[tempArrayLength++]="<input   type=\"text\"   id=\"dgip\"   name=\"ip2\"   value=\"第二列年龄\">";   
+        tmpTableStr[tempArrayLength++]="<\/td>";   
+        tmpTableStr[tempArrayLength++]="<td   id=\"td3\"   width=30%   >";   
+        tmpTableStr[tempArrayLength++]="<input   type=\"text\"   id=\"dgip\"   name=\"ip3\"   value=\"第三列地址\">";   
+        tmpTableStr[tempArrayLength++]="<\/td>";   
+        tmpTableStr[tempArrayLength++]="<\/tr>";   
+    }   
+    tmpTableStr[tempArrayLength++]="</table>"   
+    document.write(tmpTableStr.join(''));   
+  </script>
+
+  </form>   
+</body>
+</html>

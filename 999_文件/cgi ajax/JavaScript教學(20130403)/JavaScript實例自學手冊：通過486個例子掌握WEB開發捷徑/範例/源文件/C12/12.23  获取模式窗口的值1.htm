@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language=javascript>
+ function ReturnWin()
+ {
+     var returnData=new Object();     //创建变量
+    returnData.value=document.getElementById("Text1").value;        //设置变量的值
+    window.returnValue=returnData;   //窗体返回数据
+    window.close();                  //关闭窗口
+ }
+</script>
+</head>
+<body>
+    <input id="Text1" type="text" /><input id="Button1" type="button" value="返回" onclick="ReturnWin()" />
+</body>
+</html>

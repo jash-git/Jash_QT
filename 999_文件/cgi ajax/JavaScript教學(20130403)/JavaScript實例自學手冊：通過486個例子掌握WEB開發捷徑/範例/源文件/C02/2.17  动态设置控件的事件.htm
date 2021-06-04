@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language=javascript>
+//添加事件的参数，参数为控件的标识
+function addClick(obj)
+{
+    obj.onclick=function()       //绑定按钮的单击事件
+    {
+      alert('动态添加事件成功 ');//单击事件完成的功能－输出提示
+    }
+}
+</script>
+</head>
+<body>
+    <input id="Button2" type="button" value=" 测试" />
+    <br /><input id="Button1" type="button" value="为上面的按钮添加事件" onclick="addClick(Button2)" />
+</body>
+</html>

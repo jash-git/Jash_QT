@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+ <script language=javascript>
+var layers =document.layers;
+var style=document.all;
+var both=layers||style;
+var idme=908601;
+if(layers)
+{ layerRef='document.layers';styleRef ='';}
+if(style)
+{ layerRef='document.all';styleRef = '.style';}
+//开始参数的定义
+function writeOnText(obj,str)
+{
+if(layers)with(document[obj])
+{ document.open();document.write(str);document.close();}
+if(style)eval(obj+'.innerHTML=str');  
+}
+var dispStr=new Array("证监会称将严查利用内幕信息牟取不当利益行为!"); //要出现的文本
+var overMe=0;
+//逐字显示的方法
+function txtTyper(str,idx,objId,objStyle,color1,color2,delay,plysnd)
+{
+var mystr='',strchar='';
+var skip=200;
+if (both && idx<=str.length) {
+if (str.charAt(idx)=='<'){ while(str.charAt(idx)!='>') idx++;}
+if (str.charAt(idx)=='&'&&str.charAt(idx+1)!=' '){ while (str.charAt(idx)!= ';')idx++;}
+mystr = str.slice(0,idx);   //返回数组从开始到指定位置的字符串
+strchar = str.charAt(idx++);//当前地址的字符
+if (overMe==0 && plysnd==1)
+{
+//针对浏览器的不同，调用不同的显示方法
+if (navigator.plugins[0]){
+if(navigator.plugins["LiveAudio"][0].type=="audio/basic" && navigator.javaEnabled())
+{document.embeds[0].stop();
+setTimeout("document.embeds[0].play(false)",100);}
+} else if (document.all){
+ding.Stop();
+setTimeout("ding.Run()",100);}
+overMe=1;}else overMe=0;
+writeOnText(objId, "<span class="+objStyle+"><font color='"+color1+"'>"+mystr+"</font><font color='"+color2
++"'>"+strchar+"</font></span>");
+setTimeout("txtTyper('"+str+"', "+idx+", '"+objId+"', '"+objStyle+"', '"+color1+"', '"+color2+"', "+delay+" ,"+plysnd+")",delay);}}
+function init()
+{txtTyper(dispStr[0], 0, 'div1', 'style1', '#66CCBB', '#000000', 400, 0);}
+</script>
+<BODY onload=init()>
+<DIV class=style1 id=div1></DIV>
+</BODY>
+</html>

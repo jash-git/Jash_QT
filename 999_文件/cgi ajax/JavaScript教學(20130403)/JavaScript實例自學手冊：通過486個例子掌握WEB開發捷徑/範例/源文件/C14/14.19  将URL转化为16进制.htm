@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language=javascript>
+function ConvertUrl(str)
+{
+     var newStr = '';
+     for(var i=0; i < str.length; i++)
+     {
+      var ch = str.charAt(i);                  //显示当前位置的字母
+      var code = str.charCodeAt(i);            //显示当前位置的字母的键值
+       newStr += code.toString(16) ;//16进制显示
+     }
+     alert( newStr);
+ }
+</script>
+</head>
+<body>
+    <input id="Button1" type="button" value="转化" onclick="ConvertUrl('http://WWW.GOOGLE.COM')" />
+</body>
+</html>

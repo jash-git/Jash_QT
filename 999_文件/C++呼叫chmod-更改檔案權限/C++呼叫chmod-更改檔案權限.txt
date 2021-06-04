@@ -1,0 +1,34 @@
+之前
+-rw-------    1 root     root           19  7月  2 19:05 01.txt
+-rw-rw-rw-    1 root     root            0  7月  2 19:14 02.txt
+
+執行後
+-rwx------    1 root     root           19  7月  2 19:05 01.txt
+-rw-r--r--    1 root     root            0  7月  2 19:14 02.txt
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+int main(int argc, char *argv[])
+{
+    struct stat statbuf;
+   
+    // get 01.txt state
+    if (stat("01.txt", &statbuf) < 0)
+        printf("stat error for 01.txt\n");
+
+    //state and (000 001 000) or (001 000 000)
+    if (chmod("01.txt", (statbuf.st_mode & ~S_IXGRP) | S_IXUSR) < 0)
+        printf("chmod error for 01.txt\n");
+
+    // state set (110 100 100)
+    if (chmod("02.txt", S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH) < 0)
+        printf("chmod error for 02.txt\n")    ;
+       
+    exit(0);
+} 

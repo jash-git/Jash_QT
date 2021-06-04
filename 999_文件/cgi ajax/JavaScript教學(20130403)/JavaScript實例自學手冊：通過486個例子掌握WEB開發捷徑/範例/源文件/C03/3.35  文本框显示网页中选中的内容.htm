@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+var txt1 = "";
+function getSelect() { 
+    txt1 = (document.all) ? document.selection.createRange().text : document.getSelection();//获取当前选中的文本
+    document.form1.txt1.value = txt1;                                                       //显示选择内容
+    return true;
+}
+document.onmouseup = getSelect;                                                             //绑定鼠标事件
+if (!document.all) 
+    document.captureEvents(Event.MOUSEUP);                                                  //netscape下的鼠标事件捕获
+</script>
+</head>
+<body>
+<form name=form1>
+<strong> 被选中的文本:  <input type=text name=txt1 value=""></strong>  
+<div>
+泛型 
+该语言中添加了一些泛型类型，使得程序员能够实现程度很高的代码重用，获得更高的集合类性能。泛型类型只存在 arity 上的不同。也可以将参数强制为特定的类型。有关更多信息，请参见泛型类型参数。
+<br />
+迭代器 
+迭代器使得规定 foreach 循环将如何循环访问集合的内容变得更加容易。
+<br />
+分部类 
+分部类型定义允许将单个类型（比如某个类）拆分为多个文件。Visual Studio 设计器使用此功能将它生成的代码与用户代码分离。
+</div>
+</form>
+</body>
+</html>

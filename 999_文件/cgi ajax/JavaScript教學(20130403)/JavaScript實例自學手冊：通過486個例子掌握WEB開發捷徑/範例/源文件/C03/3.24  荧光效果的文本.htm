@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>无标题文档</title>
+
+</head>
+<body>
+<span id="theText" style="width:100%">
+<h1><font size="2">这是一段具有荧光效果的文本</font></h1>
+</span> 
+<script language="JavaScript">
+function SymError()
+{
+  return true;
+}
+window.onerror = SymError;
+var from = 1;
+var to = 4;
+var delay = 55;            //闪的速度
+var glowColor = "#FFCC00";//颜色
+var i = to;
+var j = 0;
+textPulseDown();
+//向上跳动的方法
+function textPulseUp()
+{
+    if (!document.all)
+    return
+    if (i < to)
+    {
+    theText.style.filter = "Glow(Color=" + glowColor + ", Strength=" + i + ")";
+    i++;
+    theTimeout = setTimeout('textPulseUp()',delay);
+    return 0;
+    }
+    if (i = to)
+    {
+    theTimeout = setTimeout('textPulseDown()',delay);
+    return 0;
+    }
+}
+//向下跳动的方法
+function textPulseDown()
+{
+    if (!document.all)
+    return
+    if (i > from)
+    {
+    theText.style.filter = "Glow(Color=" + glowColor + ", Strength=" + i + ")";//设置文本的滤镜效果
+    i--;
+    theTimeout = setTimeout('textPulseDown()',delay);  //设置定时器
+    return 0;
+    }
+    if (i = from)
+    {
+    theTimeout = setTimeout('textPulseUp()',delay);
+    return 0;
+    }
+}
+</script>
+</body>
+</html>

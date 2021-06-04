@@ -1,0 +1,38 @@
+<HTML>
+ <HEAD>
+<title>测试列表选择项 </title>
+ <script>
+ function butSelect(){
+   var selVal = document.getElementById("sel").value;
+   if(selVal == "1"){
+     document.getElementById("td").innerHTML = '<input type="button" value="按钮1" onclick="btnc1();">';
+   }else if(selVal == "2"){
+     document.getElementById("td").innerHTML = '<input type="button" value="按钮2" onclick="btnc2();">';
+   }else{
+     document.getElementById("td").innerHTML = '';
+   }
+ }
+ function btnc1(){
+   alert("单击了按钮1");
+ }
+
+ function btnc2(){
+   alert("单击了按钮2");
+ }
+ </script>
+ </HEAD>
+ <BODY>
+  <table>
+  <tr>
+<td>
+  <select onChange="butSelect();" id="sel">
+    <option value="" >
+<option value="1">but1
+<option value="2">but2
+  </select>
+</td>
+<td id="td"></td>
+  </tr>
+  </table>
+ </BODY>
+</HTML>

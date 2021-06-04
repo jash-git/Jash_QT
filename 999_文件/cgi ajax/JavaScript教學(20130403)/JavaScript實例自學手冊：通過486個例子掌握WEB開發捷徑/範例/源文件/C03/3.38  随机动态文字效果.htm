@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script>
+var s=new Array("LOVE","晚上","看","电影","9点","必须","秘密开始行动","如见","不到","请等待","10点","不见","赶紧闪人！")
+function txtFont(str){
+    var n=Math.floor(Math.random()*5);
+    var obj1=document.createElement("B");           //创建黑体标签
+    var obj2=document.createElement("font");        //创建字体标签
+    obj2.size=Math.floor(Math.random()*5+4);        //随机字体大小
+    obj2.innerText=str                             
+    if(n>4){
+	    obj2.size=20                                //设置字体大小
+	    obj1.appendChild(obj2);                     //添加字体标签到黑体标签内
+	    return obj1.outerHTML                       //输出
+    }else{
+	    return obj2.outerHTML
+    }
+}
+for(var i=0;i<10;i++)
+document.write(txtFont(s[i])+" ")                  //输出内容  
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<style>
+    .mydiv{
+    position:absolute;
+    left:0;
+    top:0;
+    layer-background-color:white;
+    background-color:white;
+    border:0.1px solid white
+    }
+</style>
+</head>
+<body bgcolor="#000000">
+<div id="div1" class="mydiv"></div>
+<script language="JavaScript">  
+var speed=5                                                      //变小的速度
+if (document.layers){                                           //ns浏览器的情况下
+    var reference=window.innerWidth/window.innerHeight
+    var temp=eval("document.div1.clip")
+    temp.left=temp.top=0
+    temp.right=window.innerWidth
+    temp.bottom=window.innerHeight
+}
+else if (document.all){                                         //ie浏览器的情况下
+    var reference=document.body.clientWidth/document.body.clientHeight
+    var rightclip,leftclip,topclip,bottomclip                   //代表裁减区域的上下左右4个位置
+    var temp=document.all.div1.style                            //div层的样式
+    topclip=leftclip=0                                          //设置上下左右4个位置的初始值
+    rightclip=temp.width=document.body.clientWidth
+    bottomclip=temp.height=document.body.clientHeight
+}
+function rectDiv(){
+window.scrollTo(0,0)                                           //窗体默认在开始(0,0)位置,左上角
+if (document.layers){                                          //ns浏览器的情况下
+    if (temp.left>window.innerWidth/2)
+     clearInterval(stopit)                                   //停止缩小 
+    temp.left+=reference*speed//动态设置裁减的上下左右4个位置
+    temp.top+=speed
+    temp.right-=reference*speed
+    temp.bottom-=speed
+    }
+else if (document.all){                                        //ie浏览器的情况下
+    if (leftclip>document.body.clientWidth/2)
+       clearInterval(stopit)                                    //停止缩小                                 
+    temp.clip="rect( "+topclip+" "+rightclip+" "+bottomclip+" "+leftclip+")" //裁减一个区域
+    leftclip+=reference*speed                                                //动态设置裁减的上下左右4个位置
+    topclip+=speed
+    rightclip-=reference*speed
+    bottomclip-=speed
+    }
+}
+stopit=setInterval("rectDiv()",100)
+</script>
+</body>
+</html>

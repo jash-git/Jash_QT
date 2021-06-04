@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+function initArray() {
+    for (var i = 0; i < initArray.arguments.length; i++) {
+        this[i] = initArray.arguments[i];
+    }
+    this.length = initArray.arguments.length;//获取初始化数组的参数个数
+}
+var colors = new initArray(                  //定义颜色数组
+    "#ffffcc",
+    "yellow",
+    "green",
+    "purple",
+    "black",
+    "tan",
+    "gray");
+delay = 0.6;                             //延迟时间  单位为秒
+link = 0;
+vlink = 2;
+function linkDance() {
+    link = (link+1)%colors.length;        //设置链接的默认颜色
+    vlink = (vlink+1)%colors.length;      //设置查看过的链接的默认颜色
+    document.linkColor = colors[link];    //改变链接的颜色
+    document.vlinkColor = colors[vlink];  //改变查看过的链接颜色
+    setTimeout("linkDance()",delay*1000); //设置定时器，实现颜色的定时变化
+}
+linkDance();
+</script>
+</head>
+<body>
+<a href="#" >这是一个跳舞的链接</a>
+</body>
+</html>

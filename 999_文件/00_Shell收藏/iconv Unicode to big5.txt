@@ -1,0 +1,2 @@
+iconv Unicode to big5
+iconv -f c99 -t big5  /tmp/chio_watch.txt >

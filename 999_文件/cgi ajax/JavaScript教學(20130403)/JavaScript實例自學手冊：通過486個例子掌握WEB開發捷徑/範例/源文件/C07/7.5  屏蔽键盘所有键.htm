@@ -1,0 +1,15 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script LANGUAGE="JavaScript">
+//重写文档的按键事件
+function document.onkeydown(){
+   event.keyCode = 0;          //忽略所有键
+   event.returnvalue = false;  //不执行按键操作
+}
+</script>
+</head>
+<body>
+<input type=text name="txt1" value="">
+</body>
+</html>

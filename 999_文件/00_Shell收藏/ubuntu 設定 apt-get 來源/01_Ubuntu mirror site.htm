@@ -1,0 +1,1216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0059)http://micloud.tw/wiki/Wiki.jsp?page=Ubuntu%20mirror%20site -->
+<html id="top" xmlns="http://www.w3.org/1999/xhtml" xmlns:jspwiki="http://www.jspwiki.org"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="http://jquery.bassistance.de/treeview/jquery.treeview.css">
+			<link rel="stylesheet" href="http://jquery.bassistance.de/treeview/demo/screen.css">
+				<script type="text/javascript" async="" src="./01_Ubuntu mirror site_files/ga.js"></script><script type="text/javascript" async="" src="./01_Ubuntu mirror site_files/cse.js"></script><script src="./01_Ubuntu mirror site_files/jquery.js" type="text/javascript"></script>
+				<script src="./01_Ubuntu mirror site_files/jquery.cookie.js" type="text/javascript"></script>
+				<script src="./01_Ubuntu mirror site_files/jquery.treeview.js" type="text/javascript"></script>
+				<script src="./01_Ubuntu mirror site_files/jquery.treeview.js" type="text/javascript"></script>
+				<link href="./01_Ubuntu mirror site_files/ui.dynatree.css" rel="stylesheet" type="text/css">
+				<script src="./01_Ubuntu mirror site_files/jquery.dynatree.js" type="text/javascript"></script>
+
+				<style type="text/css">
+										body {
+											background-color: #39414A;
+											color: white;
+											font-family: Helvetica, Arial, sans-serif;
+											font-size: smaller;
+											background-image: url("nav_bg.png");
+											background-repeat: repeat-x;
+										}
+										a {
+											color: white;
+											text-decoration: none;
+										}
+										a:hover {
+											text-decoration: underline;
+										}
+										div#tree {
+											position: absolute;
+											height: 95%;
+											width: 95%;
+											padding: 5px;
+											margin-right: 16px;
+										}
+										ul.dynatree-container {
+											height: 100%;
+											width: 100%;
+											background-color: transparent;
+										}
+										ul.dynatree-container a {
+											color: white;
+											border: 1px solid transparent;
+											background-color: transparent;
+										}
+										ul.dynatree-container a:hover {
+											background-color: transparent;
+										}
+										ul.dynatree-container a:focus, span.dynatree-focused a:link {
+											background-color: gray;
+										}
+				</style>
+
+<script>
+		jQuery(document).ready(function(){
+			jQuery(".leftmenu").treeview({
+				animated: "fast",
+				collapsed: true,
+				unique: true,
+				persist: "cookie"
+			});
+			jQuery('.tabmenu').hide();
+			
+
+		});
+  </script>
+	<script>
+		jQuery(function(){jQuery(".leftmenu").dynatree({
+			jQuery('.tabmenu').hide();
+			
+			title: "wiki.micloud.tw",
+			fx: { height: "toggle", duration: 200 },
+			autoFocus: false, 
+			initAjax: {
+				url: "sample-data3.json"
+			},
+			onActivate: function(node) {
+			  jQuery("#echoActive").text("" + node + " (" + node.getKeyPath()+ ")");
+			},
+			onLazyRead: function(node){
+				node.appendAjax({
+					url: "sample-data2.json",
+					debugLazyDelay: 750
+			  });
+		  }
+		});
+						animated: "fast",
+		        collapsed: true,
+		        unique: true,
+		        persist: "cookie"
+
+	</script>
+
+	<title>
+    Wiki: Ubuntu mirror site
+  </title>
+  
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" media="screen, projection, print" type="text/css" href="./01_Ubuntu mirror site_files/jspwiki.css">
+
+<link rel="stylesheet" type="text/css" media="print" href="./01_Ubuntu mirror site_files/jspwiki_print.css">
+<!-- INCLUDERESOURCES (stylesheet) -->
+
+<!-- INCLUDERESOURCES (inlinecss) -->
+
+
+
+<noscript>
+&lt;style type="text/css"&gt;
+#hiddenmorepopup { display:block; }
+&lt;/style&gt;
+</noscript>
+
+
+<script type="text/javascript" src="./01_Ubuntu mirror site_files/mootools.js"></script>
+<script type="text/javascript" src="./01_Ubuntu mirror site_files/prettify.js"></script>
+<script type="text/javascript" src="./01_Ubuntu mirror site_files/jspwiki-common.js"></script>
+<script type="text/javascript" src="./01_Ubuntu mirror site_files/jspwiki-commonstyles.js"></script>
+<!-- INCLUDERESOURCES (script) -->
+
+
+
+
+
+<meta name="wikiContext" content="view">
+<meta name="wikiBaseUrl" content="http://wiki.micloud.tw/wiki/">
+<meta name="wikiPageUrl" content="/wiki/Wiki.jsp?page=%23%24%25">
+<meta name="wikiEditUrl" content="/wiki/Edit.jsp?page=Ubuntu%20mirror%20site">
+<meta name="wikiJsonUrl" content="/wiki/JSON-RPC">
+<meta name="wikiPageName" content="Ubuntu mirror site">
+<meta name="wikiUserName" content="211.78.245.205">
+<meta name="wikiTemplateUrl" content="/wiki/templates/default/">
+<meta name="wikiApplicationName" content="Wiki">
+
+<script type="text/javascript">//<![CDATA[
+/* Localized javascript strings: LocalizedStrings[] */
+var LocalizedStrings = {
+"javascript.edit.allsections":"( All )",
+"javascript.slimbox.error":"<h2>Error</h2>There was a problem with your request.<br />Please try again",
+"javascript.slimbox.remoteRequest":"Remote Request {0} of {1}",
+"javascript.slimbox.close":"Close &#215;",
+"javascript.quick.edit":"[Edit]",
+"javascript.sort.descending":"Descending order. Click to reverse sort order",
+"javascript.expand":"Click to expand",
+"javascript.group.validName":"Please provide a valid name for the new Group",
+"javascript.slimbox.next":"Next&raquo;",
+"javascript.filter.all":"( All )",
+"javascript.edit.areyousure":"Without clicking the Save button, your changes will be lost. Are you sure you want to exit this page?",
+"javascript.quick.edit.title":"Edit section {0}...",
+"javascript.slimbox.directLink":"Direct Link to the target",
+"javascript.prefs.areyousure":"Without clicking the Save User Preferences button, your changes will be lost. Are you sure you want to exit this page?",
+"javascript.sbox.clone.suffix":"-New",
+"javascript.slimbox.info":"Image {0} of {1}",
+"javascript.tip.default.title":"More...",
+"javascript.edit.resize":"Drag to resize the text area",
+"javascript.edit.findandreplace.nomatch":"No match found!",
+"javascript.sort.ascending":"Ascending order. Click to reverse sort order",
+"javascript.slimbox.close.title":"Close [Esc]",
+"javascript.edit.toolbar.makeSelection":"Please make first a selection.",
+"javascript.favs.hide":"Click to hide Favorites",
+"javascript.sectionediting.label":"Section Overview",
+"javascript.slimbox.previous":"&laquo;Previous",
+"javascript.favs.show":"Click to show Favorites",
+"javascript.collapse":"Click to collapse",
+"javascript.category.title":"Click to show category [{0}] ...",
+"javascript.sort.click":"Click to sort",
+"javascript.edit.startOfPage":"( Start of page )"
+};
+
+
+/* INCLUDERESOURCES (jsfunction) */
+
+//]]></script>
+
+
+<link rel="search" href="http://micloud.tw/wiki/Wiki.jsp?page=FindPage" title="Search Wiki">
+<link rel="help" href="http://micloud.tw/wiki/Wiki.jsp?page=TextFormattingRules" title="Help">
+
+ <link rel="start" href="http://micloud.tw/wiki/Wiki.jsp?page=Main" title="Front page">
+<link rel="alternate stylesheet" type="text/css" href="./01_Ubuntu mirror site_files/jspwiki_print.css" title="Print friendly">
+<link rel="alternate stylesheet" type="text/css" href="./01_Ubuntu mirror site_files/jspwiki.css" title="Standard">
+<link rel="shortcut icon" type="image/x-icon" href="http://micloud.tw/wiki/images/favicon.ico">
+
+<link rel="icon" type="image/x-icon" href="http://micloud.tw/wiki/images/favicon.ico">
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+  
+  
+<script src="./01_Ubuntu mirror site_files/jsapi" type="text/javascript"></script><link type="text/css" href="./01_Ubuntu mirror site_files/default+zh_TW.css" rel="stylesheet"><link type="text/css" href="./01_Ubuntu mirror site_files/default.css" rel="stylesheet"><script type="text/javascript" src="./01_Ubuntu mirror site_files/default+zh_TW.I.js"></script><script type="text/javascript" src="./01_Ubuntu mirror site_files/search.I.js"></script><style type="text/css">
+.gsc-control-cse {
+font-family: Arial, sans-serif;
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-control-cse .gsc-table-result {
+font-family: Arial, sans-serif;
+}
+input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus {
+border-color: #D9D9D9;
+}
+input.gsc-search-button, input.gsc-search-button:hover, input.gsc-search-button:focus {
+border-color: #2F5BB7;
+background-color: #357AE8;
+background-image: none;
+filter: none;
+}
+.gsc-tabHeader.gsc-tabhInactive {
+border-color: #CCCCCC;
+background-color: #FFFFFF;
+}
+.gsc-tabHeader.gsc-tabhActive {
+border-color: #CCCCCC;
+border-bottom-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-tabsArea {
+border-color: #CCCCCC;
+}
+.gsc-webResult.gsc-result,
+.gsc-results .gsc-imageResult {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-webResult.gsc-result:hover,
+.gsc-imageResult:hover {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gs-webResult.gs-result a.gs-title:link,
+.gs-webResult.gs-result a.gs-title:link b,
+.gs-imageResult a.gs-title:link,
+.gs-imageResult a.gs-title:link b {
+color: #1155CC;
+}
+.gs-webResult.gs-result a.gs-title:visited,
+.gs-webResult.gs-result a.gs-title:visited b,
+.gs-imageResult a.gs-title:visited,
+.gs-imageResult a.gs-title:visited b {
+color: #1155CC;
+}
+.gs-webResult.gs-result a.gs-title:hover,
+.gs-webResult.gs-result a.gs-title:hover b,
+.gs-imageResult a.gs-title:hover,
+.gs-imageResult a.gs-title:hover b {
+color: #1155CC;
+}
+.gs-webResult.gs-result a.gs-title:active,
+.gs-webResult.gs-result a.gs-title:active b,
+.gs-imageResult a.gs-title:active,
+.gs-imageResult a.gs-title:active b {
+color: #1155CC;
+}
+.gsc-cursor-page {
+color: #1155CC;
+}
+a.gsc-trailing-more-results:link {
+color: #1155CC;
+}
+.gs-webResult .gs-snippet,
+.gs-imageResult .gs-snippet,
+.gs-fileFormatType {
+color: #333333;
+}
+.gs-webResult div.gs-visibleUrl,
+.gs-imageResult div.gs-visibleUrl {
+color: #009933;
+}
+.gs-webResult div.gs-visibleUrl-short {
+color: #009933;
+}
+.gs-webResult div.gs-visibleUrl-short {
+display: none;
+}
+.gs-webResult div.gs-visibleUrl-long {
+display: block;
+}
+.gs-promotion div.gs-visibleUrl-short {
+display: none;
+}
+.gs-promotion div.gs-visibleUrl-long {
+display: block;
+}
+.gsc-cursor-box {
+border-color: #FFFFFF;
+}
+.gsc-results .gsc-cursor-box .gsc-cursor-page {
+border-color: #CCCCCC;
+background-color: #FFFFFF;
+color: #1155CC;
+}
+.gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+border-color: #CCCCCC;
+background-color: #FFFFFF;
+color: #1155CC;
+}
+.gsc-webResult.gsc-result.gsc-promotion {
+border-color: #F6F6F6;
+background-color: #F6F6F6;
+}
+.gsc-completion-title {
+color: #1155CC;
+}
+.gsc-completion-snippet {
+color: #333333;
+}
+.gs-promotion a.gs-title:link,
+.gs-promotion a.gs-title:link *,
+.gs-promotion .gs-snippet a:link {
+color: #1155CC;
+}
+.gs-promotion a.gs-title:visited,
+.gs-promotion a.gs-title:visited *,
+.gs-promotion .gs-snippet a:visited {
+color: #1155CC;
+}
+.gs-promotion a.gs-title:hover,
+.gs-promotion a.gs-title:hover *,
+.gs-promotion .gs-snippet a:hover {
+color: #1155CC;
+}
+.gs-promotion a.gs-title:active,
+.gs-promotion a.gs-title:active *,
+.gs-promotion .gs-snippet a:active {
+color: #1155CC;
+}
+.gs-promotion .gs-snippet,
+.gs-promotion .gs-title .gs-promotion-title-right,
+.gs-promotion .gs-title .gs-promotion-title-right * {
+color: #333333;
+}
+.gs-promotion .gs-visibleUrl,
+.gs-promotion .gs-visibleUrl-short {
+color: #009933;
+}
+</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gscsep_a{display:none}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gsfe_a{border:1px solid #b9b9b9;border-top-color:#a0a0a0;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);}.gsfe_b{border:1px solid #4d90fe;outline:none;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);}.gssb_a{padding:0 9px}.gsib_a{padding-right:8px;padding-left:8px}.gsst_a{padding-top:3px}.gssb_e{border:0}.gssb_l{margin:5px 0}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style></head>
+
+<body class="view" style="background-color: #363636;">
+
+<div id="wikibody" class="fav-left" style="margin-left: 0px;margin-right: 0px;margin-top:0px;padding:0 0 0 0">
+ 
+  
+
+
+
+
+
+
+<div align="center" style="width:100%;height:120px;background-color: #363636;background-image:url(/Wiki/images/top_bg.jpg)">
+	<div class="titlebox"></div>
+
+   
+	 <table width="100%" style="">
+		 <tbody><tr>
+			 <td>&nbsp;</td>
+	
+			 <td style="width:960px">
+	 <table align="center" style="width:960px;text-align:left">
+		<tbody><tr>
+			<td>
+				<a href="http://micloud.tw/Wiki/Wiki.jsp?page=Main"><img src="./01_Ubuntu mirror site_files/logo.png"></a>
+				<!--
+				<a href="http://portal.micloud.tw"><img src="/Wiki/images/logo.png"/></a>
+				-->
+			</td>
+			<td>
+
+				<table>
+					<tbody><tr>
+						<td width="500"> &nbsp;
+				<!--
+				<div class="companylogo"></div>
+					
+					<div class="pagename">Ubuntu mirror site</div>
+					-->
+						</td>
+					</tr>
+					<tr>
+						<td>
+						</td>
+					</tr>
+				</tbody></table>
+
+			</td>
+
+			<td>
+		    
+
+
+
+
+
+
+
+			</td>
+		</tr>
+	</tbody></table>
+</td>
+
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td colspan="1"><div class="breadcrumbs">Your trail:&nbsp;</div></td>
+		<td></td>
+	</tr>
+	</tbody></table>
+</div>
+
+  <table width="100%" height="500px" cellpadding="0" cellspacing="0">
+  <tbody><tr>
+      <td style="background-color: darkgray; background: url(images/main-bg.gif)"></td>
+      <td style="background-color: white;width:1024px;vertical-align: top;padding:0 0 0 0">
+          <div id="content">
+            
+						<div id="page">
+							
+							<h2>Ubuntu mirror site</h2>
+							
+
+
+
+
+
+
+
+
+<div class="tabmenu" style="display: none;">
+
+  
+
+  
+
+  
+  
+  
+    
+  
+    
+  
+
+
+
+  <a class="activetab" id="menu-pagecontent" accesskey="v"><span class="accesskey">V</span>iew</a>
+
+  
+
+  
+  <a id="menu-attach" accesskey="a"><span class="accesskey">A</span>ttach (10)</a>
+  
+    
+  <a id="menu-info" href="http://micloud.tw/wiki/PageInfo.jsp?page=Ubuntu%20mirror%20site" accesskey="i"><span class="accesskey">I</span>nfo</a>
+    
+  
+
+</div>
+<div class="tabs">
+
+  <div id="pagecontent">
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<p></p><div class="toc">
+<div class="collapsebox">
+<h4 id="section-TOC" class="collapsetitle"><div class="collapseOpen" title="Click to collapse">-</div>Table of Contents</h4><div class="collapsebody" style="overflow: hidden;">
+<ul>
+<li class="toclevel-2"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Ubuntu%20mirror%20site#section-Ubuntu+mirror+site-_E8_AE_8A_E6_9B_B4_E5_A5_97_E4_BB_B6_E4_BE_86_E6_BA_90">變更套件來源</a></li>
+<li class="toclevel-3"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Ubuntu%20mirror%20site#section-Ubuntu+mirror+site-_E6_9B_B4_E5_A4_9AUbuntuMirrorSiteList">更多Ubuntu mirror site list</a></li>
+<li class="toclevel-2"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Ubuntu%20mirror%20site#section-Ubuntu+mirror+site-_E5_AE_89_E8_A3_9D_E9_9D_9E_E9_A0_90_E8_BC_89_E5_A5_97_E4_BB_B6">安裝非預載套件</a></li>
+</ul>
+</div></div>
+</div>
+<br>
+目前MiCloud提供的系統各自採用國外所提供的套件庫，主要是因為台灣的鏡像站點並不保證其服務的可靠度及可用率，但您也可以透過修改設定檔將套件庫來源指向台灣，其可靠度您必須自行評估，以保障您的虛擬主機。<br>
+Ubuntu採用APT套件管理，其套件庫的修改與設定相似，實際修改方式如下說明:<br>
+<br>
+<p></p><h3 id="section-Ubuntu+mirror+site-_E8_AE_8A_E6_9B_B4_E5_A5_97_E4_BB_B6_E4_BE_86_E6_BA_90">變更套件來源<a class="hashlink" href="http://micloud.tw/wiki/Wiki.jsp?page=Ubuntu%20mirror%20site#section-Ubuntu+mirror+site-_E8_AE_8A_E6_9B_B4_E5_A5_97_E4_BB_B6_E4_BE_86_E6_BA_90">#</a></h3>
+登入後，請先複製“sources.list”檔案，此檔案存放在“/etc/apt/”下，此複製動作針對改錯時，未來可以回復原來的檔案。將sources.list檔案複製一份，命名為sources.bak，指令如下<br>
+<pre>#cp /etc/apt/sources.list /etc/apt/sources.list.bak
+</pre>
+備份完成後請至/etc/apt下確認是否成功增加sources.list.bak檔，如下圖<br>
+<table border="0" class="imageplugin" style="margin-left: auto; margin-right: auto;">
+<tbody><tr><td><img src="./01_Ubuntu mirror site_files/ubcp.jpg" width="650"></td></tr>
+</tbody></table>
+ <br>
+<p>確認Ubuntu版本並編輯sorces.list，編輯指令如下<br>
+</p>
+<pre># vi /etc/apt/sources.list
+</pre>
+原來的套件庫參考網站為http://us.archive.ubuntu.com/ubuntu/，將其改為參考台灣鏡像站http://opensource.nchn.org.tw/ubuntu/，下圖紅色框框部分即是要修改的部分，Ubuntu有分多個模組，用戶可以自行選擇哪幾個要變更。
+<pre>deb http://opensource.nchc.org.tw/ubuntu/ lucid main restricted
+deb-src http://opensource.nchc.org.tw/ubuntu/ lucid main restricted
+</pre>
+修改完後儲存即可。
+   <table border="0" class="imageplugin" style="margin-left: auto; margin-right: auto;">
+<tbody><tr><td><img src="./01_Ubuntu mirror site_files/ubchange1.jpg" width="650"></td></tr>
+</tbody></table>
+ <br>
+請執行更改後的檔案，並確認是否更新，執行指令及畫面如下:<br>
+黃色框框部分即更改過後，系統於您更改的路徑中找尋到可更新套件。
+<pre>#apt-get update
+</pre>
+<table border="0" class="imageplugin" style="margin-left: auto; margin-right: auto;">
+<tbody><tr><td><img src="./01_Ubuntu mirror site_files/ubupdate1.jpg" width="650"></td></tr>
+</tbody></table>
+ 
+<h4 id="section-Ubuntu+mirror+site-_E6_9B_B4_E5_A4_9AUbuntuMirrorSiteList">更多Ubuntu mirror site list<a class="hashlink" href="http://micloud.tw/wiki/Wiki.jsp?page=Ubuntu%20mirror%20site#section-Ubuntu+mirror+site-_E6_9B_B4_E5_A4_9AUbuntuMirrorSiteList">#</a></h4>
+<ul><li>Ubuntu全球映射站
+</li></ul>https://launchpad.net/ubuntu/+archivemirrors<br>
+<ul><li>台灣鏡像站推薦使用
+</li></ul>http://opensource.nchc.org.tw/ubuntu/<br>
+http://ftp.nchc.org.tw/ubuntu/<br>
+http://free.nchc.org.tw/ubuntu/<br>
+http://ftp.twaren.net/ubuntu/<br>
+<hr>
+<h3 id="section-Ubuntu+mirror+site-_E5_AE_89_E8_A3_9D_E9_9D_9E_E9_A0_90_E8_BC_89_E5_A5_97_E4_BB_B6">安裝非預載套件<a class="hashlink" href="http://micloud.tw/wiki/Wiki.jsp?page=Ubuntu%20mirror%20site#section-Ubuntu+mirror+site-_E5_AE_89_E8_A3_9D_E9_9D_9E_E9_A0_90_E8_BC_89_E5_A5_97_E4_BB_B6">#</a></h3>
+使用apt指令安裝Ubuntu套件，相關指令如下:<br>
+先查詢可安裝的套件<br>
+<pre>#apt-cache pkgnames
+</pre>
+<table border="0" class="imageplugin" style="margin-left: auto; margin-right: auto;">
+<tbody><tr><td><img src="./01_Ubuntu mirror site_files/un_apt_cache.jpg" width="650"></td></tr>
+</tbody></table>
+ 
+   
+若找不到您需要的套件也可透過下面的指令來搜尋
+<pre>#apt-cache search [套件名稱/關鍵字]
+</pre>
+<table border="0" class="imageplugin" style="margin-left: auto; margin-right: auto;">
+<tbody><tr><td><img src="./01_Ubuntu mirror site_files/un_apt_cache_search.jpg" width="650"></td></tr>
+</tbody></table>
+ 
+<p>再執行安裝，指令如下
+</p>
+<pre>#apt-get install [套件名稱]
+</pre>
+<table border="0" class="imageplugin" style="margin-left: auto; margin-right: auto;">
+<tbody><tr><td><img src="./01_Ubuntu mirror site_files/un_apt_ install.png" width="650"></td></tr>
+</tbody></table>
+ 
+<p>檢查是否安裝成功，指令
+</p>
+<pre>#dpkg --get-selections | grep "套件名稱"
+</pre>
+<table border="0" class="imageplugin" style="margin-left: auto; margin-right: auto;">
+<tbody><tr><td><img src="./01_Ubuntu mirror site_files/un_selection.jpg" width="650"></td></tr>
+</tbody></table>
+ 
+<p>若想移除套件，指令如下
+</p>
+<pre>#apt-get remove [套件名稱]
+</pre>
+<table border="0" class="imageplugin" style="margin-left: auto; margin-right: auto;">
+<tbody><tr><td><img src="./01_Ubuntu mirror site_files/un_apt_ remove.jpg" width="650"></td></tr>
+</tbody></table>
+ 
+<p>若要更新己安裝的套件，指令如下:<br>
+(此指令可一次升級所有已安裝套件的版本，也可以單獨升級某指定套件。)
+</p>
+<pre>#apt-get upgrade
+</pre>
+<table border="0" class="imageplugin" style="margin-left: auto; margin-right: auto;">
+<tbody><tr><td><img src="./01_Ubuntu mirror site_files/un_aptupgrade.jpg" width="650"></td></tr>
+</tbody></table>
+ 
+<p>只更新某套件
+</p>
+<pre>#apt-get upgrade [套件名稱]
+</pre>
+<table border="0" class="imageplugin" style="margin-left: auto; margin-right: auto;">
+<tbody><tr><td><img src="./01_Ubuntu mirror site_files/un_aptupgrade1.jpg" width="650"></td></tr>
+</tbody></table>
+
+
+
+
+
+
+
+
+        
+  </div>
+
+
+  
+
+  
+  <div id="attach" class="hidetab">
+
+    
+
+
+
+
+
+
+
+
+
+
+<div id="addattachment">
+<h3>Add new attachment</h3>
+
+
+<div class="formhelp">Only authorized users are allowed to upload new attachments.</div>
+
+</div>
+
+
+
+<h3>List of attachments</h3>
+
+  
+
+  
+
+  <div class="zebra-table"><div class="slimbox-img sortable">
+  <table class="wikitable">
+    <tbody><tr>
+      <th class="sort" title="Click to sort">Kind</th>
+      <th class="sort" title="Click to sort">Attachment Name</th>
+      <th class="sort" title="Click to sort">Size</th>
+      <th class="sort" title="Click to sort">Version</th>
+      <th class="sort" title="Click to sort">Date Modified</th>
+      <th class="sort" title="Click to sort">Author</th>
+      
+      <th class="changenote sort" title="Click to sort">Change note</th>
+    </tr>
+
+    
+    
+    <tr class="">
+      <td><div id="attach-jpg" class="attachtype">jpg</div></td>
+      <td><a class="slimbox" href="./01_Ubuntu mirror site_files/ubchange1.jpg" rel="lightbox0 img" title="ubchange1.jpg">»</a><a class="attachment" href="./01_Ubuntu mirror site_files/ubchange1.jpg" accesskey="" title="ubchange1.jpg">ubchange1.jpg</a></td>
+      <td style="white-space:nowrap;text-align:right;">
+        47.0&nbsp;kB
+      </td>
+      <td style="text-align:center;">
+        <a href="http://micloud.tw/wiki/PageInfo.jsp?page=Ubuntu%20mirror%20site/ubchange1.jpg" title="Attachment info and version history">2</a>
+      </td>
+	  <td style="white-space:nowrap;" jspwiki:sortvalue="1342148580000">
+	  13-七月-2012 03:03
+	  </td>
+      <td>micloud</td>
+      
+      <td class="changenote">
+      
+      </td>
+    </tr>
+    
+    
+    <tr class="odd">
+      <td><div id="attach-jpg" class="attachtype">jpg</div></td>
+      <td><a class="slimbox" href="./01_Ubuntu mirror site_files/ubcp.jpg" rel="lightbox0 img" title="ubcp.jpg">»</a><a class="attachment" href="./01_Ubuntu mirror site_files/ubcp.jpg" accesskey="" title="ubcp.jpg">ubcp.jpg</a></td>
+      <td style="white-space:nowrap;text-align:right;">
+        117.7&nbsp;kB
+      </td>
+      <td style="text-align:center;">
+        <a href="http://micloud.tw/wiki/PageInfo.jsp?page=Ubuntu%20mirror%20site/ubcp.jpg" title="Attachment info and version history">2</a>
+      </td>
+	  <td style="white-space:nowrap;" jspwiki:sortvalue="1342148590000">
+	  13-七月-2012 03:03
+	  </td>
+      <td>micloud</td>
+      
+      <td class="changenote">
+      
+      </td>
+    </tr>
+    
+    
+    <tr class="">
+      <td><div id="attach-jpg" class="attachtype">jpg</div></td>
+      <td><a class="slimbox" href="./01_Ubuntu mirror site_files/ubupdate1.jpg" rel="lightbox0 img" title="ubupdate1.jpg">»</a><a class="attachment" href="./01_Ubuntu mirror site_files/ubupdate1.jpg" accesskey="" title="ubupdate1.jpg">ubupdate1.jpg</a></td>
+      <td style="white-space:nowrap;text-align:right;">
+        665.5&nbsp;kB
+      </td>
+      <td style="text-align:center;">
+        <a href="http://micloud.tw/wiki/PageInfo.jsp?page=Ubuntu%20mirror%20site/ubupdate1.jpg" title="Attachment info and version history">2</a>
+      </td>
+	  <td style="white-space:nowrap;" jspwiki:sortvalue="1342148587000">
+	  13-七月-2012 03:03
+	  </td>
+      <td>micloud</td>
+      
+      <td class="changenote">
+      
+      </td>
+    </tr>
+    
+    
+    <tr class="odd">
+      <td><div id="attach-png" class="attachtype">png</div></td>
+      <td><a class="slimbox" href="./01_Ubuntu mirror site_files/un_apt_ install.png" rel="lightbox0 img" title="un_apt_ install.png">»</a><a class="attachment" href="./01_Ubuntu mirror site_files/un_apt_ install.png" accesskey="" title="un_apt_ install.png">un_apt_ install.png</a></td>
+      <td style="white-space:nowrap;text-align:right;">
+        10.0&nbsp;kB
+      </td>
+      <td style="text-align:center;">
+        <a href="http://micloud.tw/wiki/PageInfo.jsp?page=Ubuntu%20mirror%20site/un_apt_%20install.png" title="Attachment info and version history">1</a>
+      </td>
+	  <td style="white-space:nowrap;" jspwiki:sortvalue="1344302724000">
+	  07-八月-2012 01:25
+	  </td>
+      <td>micloud</td>
+      
+      <td class="changenote">
+      
+      </td>
+    </tr>
+    
+    
+    <tr class="">
+      <td><div id="attach-jpg" class="attachtype">jpg</div></td>
+      <td><a class="slimbox" href="./01_Ubuntu mirror site_files/un_apt_ remove.jpg" rel="lightbox0 img" title="un_apt_ remove.jpg">»</a><a class="attachment" href="./01_Ubuntu mirror site_files/un_apt_ remove.jpg" accesskey="" title="un_apt_ remove.jpg">un_apt_ remove.jpg</a></td>
+      <td style="white-space:nowrap;text-align:right;">
+        84.7&nbsp;kB
+      </td>
+      <td style="text-align:center;">
+        <a href="http://micloud.tw/wiki/PageInfo.jsp?page=Ubuntu%20mirror%20site/un_apt_%20remove.jpg" title="Attachment info and version history">1</a>
+      </td>
+	  <td style="white-space:nowrap;" jspwiki:sortvalue="1344302753000">
+	  07-八月-2012 01:25
+	  </td>
+      <td>micloud</td>
+      
+      <td class="changenote">
+      
+      </td>
+    </tr>
+    
+    
+    <tr class="odd">
+      <td><div id="attach-jpg" class="attachtype">jpg</div></td>
+      <td><a class="slimbox" href="./01_Ubuntu mirror site_files/un_apt_cache.jpg" rel="lightbox0 img" title="un_apt_cache.jpg">»</a><a class="attachment" href="./01_Ubuntu mirror site_files/un_apt_cache.jpg" accesskey="" title="un_apt_cache.jpg">un_apt_cache.jpg</a></td>
+      <td style="white-space:nowrap;text-align:right;">
+        100.3&nbsp;kB
+      </td>
+      <td style="text-align:center;">
+        <a href="http://micloud.tw/wiki/PageInfo.jsp?page=Ubuntu%20mirror%20site/un_apt_cache.jpg" title="Attachment info and version history">1</a>
+      </td>
+	  <td style="white-space:nowrap;" jspwiki:sortvalue="1344302748000">
+	  07-八月-2012 01:25
+	  </td>
+      <td>micloud</td>
+      
+      <td class="changenote">
+      
+      </td>
+    </tr>
+    
+    
+    <tr class="">
+      <td><div id="attach-jpg" class="attachtype">jpg</div></td>
+      <td><a class="slimbox" href="./01_Ubuntu mirror site_files/un_apt_cache_search.jpg" rel="lightbox0 img" title="un_apt_cache_search.jpg">»</a><a class="attachment" href="./01_Ubuntu mirror site_files/un_apt_cache_search.jpg" accesskey="" title="un_apt_cache_search.jpg">un_apt_cache_search.jpg</a></td>
+      <td style="white-space:nowrap;text-align:right;">
+        250.4&nbsp;kB
+      </td>
+      <td style="text-align:center;">
+        <a href="http://micloud.tw/wiki/PageInfo.jsp?page=Ubuntu%20mirror%20site/un_apt_cache_search.jpg" title="Attachment info and version history">1</a>
+      </td>
+	  <td style="white-space:nowrap;" jspwiki:sortvalue="1344302734000">
+	  07-八月-2012 01:25
+	  </td>
+      <td>micloud</td>
+      
+      <td class="changenote">
+      
+      </td>
+    </tr>
+    
+    
+    <tr class="odd">
+      <td><div id="attach-jpg" class="attachtype">jpg</div></td>
+      <td><a class="slimbox" href="./01_Ubuntu mirror site_files/un_aptupgrade.jpg" rel="lightbox0 img" title="un_aptupgrade.jpg">»</a><a class="attachment" href="./01_Ubuntu mirror site_files/un_aptupgrade.jpg" accesskey="" title="un_aptupgrade.jpg">un_aptupgrade.jpg</a></td>
+      <td style="white-space:nowrap;text-align:right;">
+        265.8&nbsp;kB
+      </td>
+      <td style="text-align:center;">
+        <a href="http://micloud.tw/wiki/PageInfo.jsp?page=Ubuntu%20mirror%20site/un_aptupgrade.jpg" title="Attachment info and version history">1</a>
+      </td>
+	  <td style="white-space:nowrap;" jspwiki:sortvalue="1344304414000">
+	  07-八月-2012 01:53
+	  </td>
+      <td>micloud</td>
+      
+      <td class="changenote">
+      
+      </td>
+    </tr>
+    
+    
+    <tr class="">
+      <td><div id="attach-jpg" class="attachtype">jpg</div></td>
+      <td><a class="slimbox" href="./01_Ubuntu mirror site_files/un_aptupgrade1.jpg" rel="lightbox0 img" title="un_aptupgrade1.jpg">»</a><a class="attachment" href="./01_Ubuntu mirror site_files/un_aptupgrade1.jpg" accesskey="" title="un_aptupgrade1.jpg">un_aptupgrade1.jpg</a></td>
+      <td style="white-space:nowrap;text-align:right;">
+        246.3&nbsp;kB
+      </td>
+      <td style="text-align:center;">
+        <a href="http://micloud.tw/wiki/PageInfo.jsp?page=Ubuntu%20mirror%20site/un_aptupgrade1.jpg" title="Attachment info and version history">1</a>
+      </td>
+	  <td style="white-space:nowrap;" jspwiki:sortvalue="1344322199000">
+	  07-八月-2012 06:49
+	  </td>
+      <td>micloud</td>
+      
+      <td class="changenote">
+      
+      </td>
+    </tr>
+    
+    
+    <tr class="odd">
+      <td><div id="attach-jpg" class="attachtype">jpg</div></td>
+      <td><a class="slimbox" href="./01_Ubuntu mirror site_files/un_selection.jpg" rel="lightbox0 img" title="un_selection.jpg">»</a><a class="attachment" href="./01_Ubuntu mirror site_files/un_selection.jpg" accesskey="" title="un_selection.jpg">un_selection.jpg</a></td>
+      <td style="white-space:nowrap;text-align:right;">
+        14.9&nbsp;kB
+      </td>
+      <td style="text-align:center;">
+        <a href="http://micloud.tw/wiki/PageInfo.jsp?page=Ubuntu%20mirror%20site/un_selection.jpg" title="Attachment info and version history">1</a>
+      </td>
+	  <td style="white-space:nowrap;" jspwiki:sortvalue="1344303152000">
+	  07-八月-2012 01:32
+	  </td>
+      <td>micloud</td>
+      
+      <td class="changenote">
+      
+      </td>
+    </tr>
+    
+
+  </tbody></table>
+  </div></div>
+
+
+
+  </div>
+
+  
+    
+  <div id="info" class="hidetab">
+
+  </div>
+
+    
+  
+
+<div style="clear:both;"></div>
+</div>
+
+							
+            </div>
+        
+            
+
+
+
+
+
+
+<div id="favorites">
+  
+  
+  <div id="hiddenmorepopup">
+  <ul id="morepopup">
+     
+       	
+     
+       
+     
+    
+       
+     
+       <li>
+			 
+       <a class="action rawpage wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Ubuntu%20mirror%20site&skin=raw" title="View Page Source">View Page Source
+			 </a>
+       
+       
+       </li>
+      
+        
+  
+			
+      
+      
+
+      
+	  <li class="separator">
+        <div id="moremenu"></div>
+      </li>
+  </ul>
+  </div>
+	  
+  
+
+  
+
+  
+
+  
+  <div class="leftmenu treeview" style="width:100%;padding-left:0px;padding-top:0px">
+    <p></p><div id="main">
+    <ul id="browser" class="filetree treeview-famfamfam">
+        <ul>
+            <li class="closed expandable"><div class="hitarea closed-hitarea expandable-hitarea"></div><span class="folder">MiCloud資訊</span>
+                <ul style="display: none;">
+                    <li class="closed"><span class="file"><a class="external" href="http://micloud.tw/">MiCloud官方網站</a><img class="outlink" src="./01_Ubuntu mirror site_files/out.png" alt=""></span></li>
+                    <li class="closed"><span class="file"><a class="external" href="http://micloud.tw/ch/price/price">MiCloud產品規格</a><img class="outlink" src="./01_Ubuntu mirror site_files/out.png" alt=""></span></li>
+                    <li class="closed last"><span class="file"><a class="external" href="mailto:service@micloud.tw">MiCloud服務信箱</a><img class="outlink" src="./01_Ubuntu mirror site_files/out.png" alt=""></span></li>
+                 
+                </ul>
+            </li>
+            <li class="closed expandable"><div class="hitarea closed-hitarea expandable-hitarea"></div><span class="folder">MiCloud自助服務操作資訊</span>
+                <ul style="display: none;">
+                  <li class="closed expandable"><div class="hitarea closed-hitarea expandable-hitarea"></div><span class="folder">申請及訂購</span>
+                      <ul style="display: none;">
+                 
+                        <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Apply%20MiCloud%20Account%28new%29">申請帳號</a></span></li>
+                        <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Order%20a%20Machine">訂購主機</a></span></li>
+                       <li class="closed last"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Instruction%20for%202XS%20Machine">2XS 256MB主機使用說明</a></span></li>
+                       </ul>
+                   </li>
+                     <li class="closed expandable"><div class="hitarea closed-hitarea expandable-hitarea"></div><span class="folder">線上管理</span>
+                      <ul style="display: none;">
+                       <li class="closed expandable"><div class="hitarea closed-hitarea expandable-hitarea"></div><span class="folder">帳戶管理</span>
+                         <ul style="display: none;">
+                             <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=MiCloud%20Account%20Modify">帳戶資訊管理</a></span></li>
+                              <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=MiCloud%20SSH%20Key">SSH金鑰管理</a></span></li>
+                              <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Micloud%20Password">登入密碼管理</a></span></li>
+                             
+                              <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Pay%20way">付款方式</a></span></li>
+                                         
+                            <li class="closed last"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=MiCloud%20billing">帳單資料</a></span></li>
+                         
+                         </ul>
+                       </li>
+                        
+                        <li class="closed expandable lastExpandable"><div class="hitarea closed-hitarea expandable-hitarea lastExpandable-hitarea"></div><span class="folder">主機管理</span>
+                         <ul style="display: none;">
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Manage%20your%20Machines">主機清單</a></span></li>
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Snapshot%20recovery">使用系統快照備份及還原</a></span></li>
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=MiCloud%20Credential%20Description">預載軟件之預設密碼</a></span></li>
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Server%20Restart%20From%20Portal">重新啟動、關閉與刪除主機</a></span></li>
+                             <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Using%20Cloud%20Analytics">使用MiCloud分析工具-DTrace</a></span></li>
+                             <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Mounting%20the%20Data%20Volume%20on%20Windows">Windows主機掛載硬碟</a></span></li> 
+                             <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Connect%20windows">遠端連線Windows主機</a></span></li>
+                             <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Monitor%20System">系統監控</a></span></li>  
+                             <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Linux%20Update%20Timezone">時區設定</a></span></li>
+                              <li class="closed last"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=DNS%20Manage">DNS管理</a></span></li>
+                          
+                          </ul>
+                         </li> 
+                      </ul>
+                     </li>
+                        <li class="closed expandable"><div class="hitarea closed-hitarea expandable-hitarea"></div><span class="folder">更新主機套件庫來源及安裝軟體</span>
+                          <ul style="display: none;">
+                               <li class="closed"><span class="file"><a class="wikipage" href="./01_Ubuntu mirror site_files/01_Ubuntu mirror site.htm">變更套件庫來源及安裝軟體(Ubuntu)</a></span></li>
+                               <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Debian%20mirror%20site">變更套件庫來源及安裝軟體(Debian)</a></span></li>
+                               <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=CentOS%20mirror%20site">變更套件庫來源及安裝軟體(CentOS)</a></span></li>
+                               <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Fedora%20mirror%20site">變更套件庫來源及安裝軟體(Fedora)</a></span></li>
+                               <li class="closed last"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Install%20SmartOS%20Packages">更新套件庫及安裝軟體(SmartOS)</a></span></li>
+                       
+                          </ul>
+                      </li>
+          
+                    <li class="closed expandable"><div class="hitarea closed-hitarea expandable-hitarea"></div><span class="folder">金鑰相關使用教學</span>
+                        <ul style="display: none;">
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=SSH%20KeyGen%20%26%20Connect%20Tutorial%28Windows%29">金鑰產生與連線教學(Windows)</a></span></li>
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=SSH%20KeyGen%20%26%20Connect%20Tutorial%28Linux%20or%20Unix%29">金鑰產生與連線教學(Linux/Unix)</a></span></li>
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=SSH%20KeyGen%20%26%20Connect%20Tutorial%28MacOS%29">金鑰產生與連線教學(MacOS)</a></span></li>
+                            <li class="closed last"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Free%20machine%20%26%20Connect%20Tutorial">主機金鑰設置與連線教學</a></span></li>
+                        </ul>
+                    </li>
+                    <li class="closed expandable"><div class="hitarea closed-hitarea expandable-hitarea"></div><span class="folder">檔案上傳教學</span>
+                        <ul style="display: none;">
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=File%20Upload%20Tutorial%28PSCP%29">使用指令上傳檔案(Windows至Linux)</a></span></li>
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=File%20Upload%20Tutorial%28Linux%20or%20Unix%29">使用指令上傳檔案(Linux/Unix)</a></span></li>
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=File%20Upload%20Tutorial%28MacOS%29">使用指令上傳檔案(MacOS)</a></span></li>
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=File%20Upload%20Tutorial%28WinScp%29">使用軟體上傳檔案(WinScp)</a></span></li>
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=File%20Upload%20Tutorial%28FileZilla%29">使用軟體上傳檔案(FileZilla)</a></span></li>
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=File%20Upload%20Tutorial%28Windows%20to%20Windows%29">使用指令上傳檔案(Windows至Windows)</a></span></li>
+                              <li class="closed last"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=File%20Upload%20Tutorial%28Linux%20to%20Windows%29">使用指令上傳檔案(Linux至Windows)</a></span></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="closed expandable"><div class="hitarea closed-hitarea expandable-hitarea"></div><span class="folder">Hostname設定教學</span>
+                        <ul style="display: none;">
+                         <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Setting%20hostname%20on%20SmartOS">SmartOS Hostname設置</a></span></li>
+                         <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Setting%20hostname%20on%20Linux">Linux Hostname設置</a></span></li>
+                         <li class="closed last"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Setting%20hostname%20on%20Windows">Windows Hostname設置</a></span></li>
+                        </ul>
+                       </li> 
+                       
+                        <li class="closed expandable lastExpandable"><div class="hitarea closed-hitarea expandable-hitarea lastExpandable-hitarea"></div><span class="folder">常見之設定</span>
+                        <ul style="display: none;">
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=About%20Swap%20Adjust">swap設置</a></span></li>
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Setting%20IPFilter">設定IPFilter</a></span></li>
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Using%20Memcached">使用memcached</a></span></li>
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Enable%20SMTP%20on%20SmartOS%20Plus">啓動SmartOS Plus上之SMTP</a></span></li>
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Svcadm%20usage">使用svcadm來管理系統服務</a></span></li>
+                             <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Setting%20Nagios">建置Nagios網路監控主機</a></span></li> 
+                            <li class="closed last"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Setting%20SMF%20on%20SmartOS">在SmartOS上設置SMF</a></span></li> 
+                        </ul>
+                       </li> 
+                 
+               
+               
+                  </ul>
+                 </li>
+                    
+           
+           
+<p></p><p>            </p><li class="closed expandable"><div class="hitarea closed-hitarea expandable-hitarea"></div><span class="folder">MiCloud第三方服務主機</span>
+                <ul style="display: none;">
+                    <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Percona%20install">安裝Percona</a></span></li>
+                    <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Riak%20SmartMachine">安裝Riak</a></span></li>
+                    <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Stingray%20SmartMachine">Stingray 基本操作說明</a></span></li>
+                    <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=MongoDB%20SmartMachine">安裝MongoDB 與操作說明</a></span></li>
+                    
+                    <li class="closed expandable"><div class="hitarea closed-hitarea expandable-hitarea"></div><span class="folder">Node.js</span>
+                        <ul style="display: none;">
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Installing%20Node.js%20on%20a%20Joyent%20SmartOS%20SmartMachine">安裝Node.js</a></span></li> 
+                            <li class="closed last"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Npm%20usage">Npm安裝及操作</a></span></li> 
+                        </ul>
+                    </li>
+                    <li class="closed expandable"><div class="hitarea closed-hitarea expandable-hitarea"></div><span class="folder">MySQL</span>
+                        <ul style="display: none;">
+                       
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Install%20MySQL%20on%20SmartOS">SmartOS上安裝及設定</a></span></li>
+                            <li class="closed last"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Install%20MySQL%20on%20Linux">Linux上安裝及設定</a></span></li>
+                          
+                        </ul>
+                    </li>
+<p></p>
+<p>                    </p><li class="closed expandable lastExpandable"><div class="hitarea closed-hitarea expandable-hitarea lastExpandable-hitarea"></div><span class="folder">Virtualmin/Webmin操作</span>
+                        <ul style="display: none;">
+                          
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Disabling%20or%20Restarting%20Webmin">關閉或重啓Webmin</a></span></li>
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Managing%20SSL%20Certificates%20with%20Virtualmin">使用Virtuakmin管理SSL認證</a></span></li>
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Updating%20Webmin">更新Webmin</a></span></li>
+                            <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Recovering%20a%20Forgotten%20SmartMachine%20Password">使用Webmin回復SmartMachine密碼</a></span></li>
+                            <li class="closed last"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Setting%20Up%20a%20New%20Domain">設定新的Domain</a></span></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li class="closed expandable"><div class="hitarea closed-hitarea expandable-hitarea"></div><span class="folder">MiCloud實例及API</span>
+                <ul style="display: none;">
+                 <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=MiCloud%20Self-Service%20Portal">在MiCloud上建置我的雲端服務</a></span></li>
+                 <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Using%20DTrace%20on%20MySQL">使用DTrace分析MySQL</a></span></li>
+                <li class="closed expandable lastExpandable"><div class="hitarea closed-hitarea expandable-hitarea lastExpandable-hitarea"></div><span class="folder">MiCloud API案例說明</span>
+                   <ul style="display: none;">
+                   <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=MiCloud%20API">MiCloud API</a></span></li>
+                    <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=MiCloud%20API%20Implement%201">MiCloud API實做案例(一)</a></span></li>
+                    <li class="closed last"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=MiCloud%20API%20Implement%202">MiCloud API實做案例(二)</a></span></li>
+                     
+                    </ul>
+                </li>
+                </ul>
+            </li>
+           
+            <li class="closed expandable"><div class="hitarea closed-hitarea expandable-hitarea"></div><span class="folder">常見問題</span>
+                <ul style="display: none;">
+                <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=PuttyLoginErrorCannotAgreeAClientToServerCipher">PUTTY連線錯誤訊息：Cannot Agree  A Client To Server Cipher</a></span></li>
+                <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=SmartOS%20Install%20Oracle">SmartOS如何安裝Oracle</a></span></li>
+                
+                <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=What%20is%20Smart%20Machine">何謂Smart Machine?</a></span></li>
+                
+                <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Update%20Timezone">如何更新主機時區？</a></span></li>
+                <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=View%20Used%20Resources">如何檢視已使用的資源?</a></span></li>
+                <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=View%20network%20routing%20instructions">如何檢視網路路由?</a></span></li>
+              <li class="closed"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Used%20commmands">常用指令集有哪些?</a></span></li>
+              <li class="closed last"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Micloud%20Features">MiCloud的特點是什麼？</a></span></li>
+             </ul>
+           </li>
+           
+           <li class="closed expandable lastExpandable"><div class="hitarea closed-hitarea expandable-hitarea lastExpandable-hitarea"></div><span class="folder">Blog分享</span>
+                <ul style="display: none;">
+                    <li class="closed last"><span class="file"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Share%20by%20qrtt1">Micloud API</a></span></li> 
+                </ul>
+           </li>  
+           
+        </ul>
+    
+    <li class="closed"><span class="folder"><a class="wikipage" href="http://micloud.tw/wiki/Wiki.jsp?page=Main">回首頁</a></span></li><ul></ul></ul></div>
+<p></p>
+    
+			<!-- Put the following javascript before the closing </head> tag. -->
+		<script>
+			  (function() {
+				    var cx = '007134565229384796935:bklzx9qgawq';
+						    var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+								    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+										        '//www.google.com/cse/cse.js?cx=' + cx;
+														    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+																  })();
+																</script>
+
+																<!-- Place this tag where you want the search box to render -->
+																<div id="___gcse_0"><div class="gsc-control-searchbox-only gsc-control-searchbox-only-zh_TW" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" id="gs_id50" class="gstl_50 " style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="搜尋" id="gsc-i-id1" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; outline: none; background-image: url(http://www.google.com/cse/intl/zh_TW/images/google_custom_search_watermark.gif); background-color: rgb(255, 255, 255); background-position: 0% 50%; background-repeat: no-repeat no-repeat;" dir="ltr" spellcheck="false"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" style="display: none;"><span class="gscb_a" id="gs_cb50">×</span></a></div></td></tr></tbody></table></div></td><td class="gsc-search-button"><input type="image" src="./01_Ubuntu mirror site_files/search_box_icon.png" class="gsc-search-button gsc-search-button-v2" title="搜尋"></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="清除結果">&nbsp;</div></td></tr></tbody></table><table cellspacing="0" cellpadding="0" class="gsc-branding"><tbody><tr><td class="gsc-branding-user-defined"></td><td class="gsc-branding-text"><div class="gsc-branding-text">技術提供：</div></td><td class="gsc-branding-img"><img src="./01_Ubuntu mirror site_files/small-logo.png" class="gsc-branding-img"></td></tr></tbody></table></form></div></div>
+  </div>
+  
+  <div class="leftmenufooter">
+    <br>
+<br>
+<br>
+<hr>
+<div style="text-align:center">
+Powered by MiCloud
+</div>
+
+    
+  </div>
+
+  
+
+  
+  
+  <div class="wikiversion">JSPWiki v2.8.4
+  <span class="rssfeed">
+    
+  </span>
+  </div>  
+  
+</div>
+
+        
+        	<div class="clearbox"></div>
+				</div>
+				<!--
+				<div align="center" style="height:120px;background-image:url(images/rt_bottom_bg.jpg);">
+					<br />
+Copyright @ micloud.tw
+ 
+				</div>
+				-->
+      </td>
+      <td style="background-color: darkgray;background: url(images/main-bg.gif)"></td>
+  </tr>
+  </tbody></table>
+  
+  
+
+
+
+
+
+
+<div align="center" style="height:120px;width:100%;background-color: #363636;text-color:black;background-image:url(/Wiki/images/top_bg.jpg);">
+	
+	<div style="height:120px;width:960px">
+		<br>
+Copyright @ micloud.tw
+
+	</div>
+
+  <div class="rssfeed">
+    
+  </div>
+
+</div>
+
+  <script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-27141025-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+</script>
+
+
+</div>
+
+
+  
+
+
+<div id="lbOverlay" style="visibility: hidden; zoom: 1; opacity: 0;"></div><div id="lbCenter" style="width: 250px; height: 250px; margin-left: -125px; display: none;"><a id="lbCloseLink" href="http://micloud.tw/wiki/Wiki.jsp?page=Ubuntu%20mirror%20site#" title="Close [Esc]"></a><div id="lbImage"></div></div><div id="lbBottomContainer" style="display: none;"><div id="lbBottom"><div id="lbCaption"></div><div><a id="lbPrevLink" href="http://micloud.tw/wiki/Wiki.jsp?page=Ubuntu%20mirror%20site#" style="display: none;">«Previous</a><span id="lbNumber"></span><a id="lbNextLink" href="http://micloud.tw/wiki/Wiki.jsp?page=Ubuntu%20mirror%20site#" style="display: none;">Next»</a></div><div style="clear: both;"></div></div></div><table cellspacing="0" cellpadding="0" class="gstl_50 gssb_c" style="width: 148px; display: none; top: 5031px; position: absolute; left: 19px;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table></body></html>

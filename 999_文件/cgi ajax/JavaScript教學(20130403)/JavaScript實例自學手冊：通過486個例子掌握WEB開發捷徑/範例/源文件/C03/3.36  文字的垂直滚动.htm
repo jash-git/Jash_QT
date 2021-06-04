@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="JavaScript">
+done = 0;                                                    //判断是否滚动
+step = 4;                                                    //滚动的步长
+function anim(yp,yk)                                         //实现垂直滚动的方法
+{
+    if(document.layers) document.layers["divtxt"].top=yp;  //netscape浏览器下
+    else  document.all["divtxt"].style.top=yp;             //指定文本的y坐标
+    if(yp>yk) step = -4                                      //如果已经到底部,则开始向上移动
+    if(yp<60) step = 4                                       //如果已经到顶部,则开始向下移动
+    setTimeout('anim('+(yp+step)+','+yk+')', 35);            //循环执行滚动方法
+}
+function start()
+{
+    if(done) return
+    done = 1;
+    if(navigator.appName=="Netscape") {
+        document.divtxt.left=innerWidth/2 - 145;
+        anim(60,innerHeight - 60)
+    }
+    else 
+    {
+        divtxt.style.left=11;                           //设置文本的x坐标
+        anim(60,document.body.offsetHeight - 60)          //调用垂直滚动的方法
+    }
+}
+</script>
+<div id="divtxt" style="position: absolute;top: -50;color: #000000;font-family:宋体;font-size:9pt;">
+<p><font color=blue>文字垂直滚动的特效演示</font>
+</p></div>
+<script language="JavaScript">
+    setTimeout('start()',10);                             //循环执行start方法
+</script>
+
+</head>
+<body>
+</body>
+</html>

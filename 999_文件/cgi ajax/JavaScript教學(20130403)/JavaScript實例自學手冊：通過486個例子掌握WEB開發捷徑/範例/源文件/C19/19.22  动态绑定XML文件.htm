@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body> 
+<XML ID="xmlUser"> 
+    <?xml version="1.0" ?> 
+    <userinfo> 
+      <datacol userName="张三" userAge="20"/>  
+      <datacol userName="李四" userAge="21"/>  
+    </userinfo> 
+ </XML> 
+<div id=mydiv> 
+</div> 
+<script language="JavaScript"> 
+function xml2div(){ 
+ var oXML; 
+ oXML = xmlUser.selectNodes("userinfo/datacol");       //找到xml文件下的节点
+ for(var i=0; i<oXML.length;i++){ 
+  var oDiv = document.createElement("DIV");            //动态创建div
+  oDiv.setAttribute("userName",oXML[i].getAttribute("userName")); //为div绑定属性
+  oDiv.setAttribute("userAge",oXML[i].getAttribute("userAge"));   //绑定属性
+  oDiv.innerText = "Div: " + i;                                //设置div里面的内容
+  mydiv.appendChild(oDiv);                                      //将div添加到指定的div下
+ } 
+ alert(mydiv.innerHTML); 
+} 
+xml2div(); 
+</script> 
+</body> 
+</html>

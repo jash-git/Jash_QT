@@ -1,0 +1,2178 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)http://blog.lyhdev.com/2011/05/openssh-sftp.html -->
+<html class="v2 jf-loading" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="IE=EmulateIE7" http-equiv="X-UA-Compatible">
+<!--open graph-->
+<meta content="article" property="og:type">
+<meta content="深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案" property="og:title">
+<meta content="http://blog.lyhdev.com/2011/05/openssh-sftp.html" property="og:url">
+<meta content="玩物尚誌" property="og:site_name">
+<meta content="玩物尚誌是一個內容多元的部落格，分享閱讀、輕旅行及軟體創作的心得筆記。" property="og:description">
+<meta content="width=1100" name="viewport">
+
+<script async="" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/v2"></script><script async="" type="text/javascript" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/tc.js"></script><script src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/cb=gapi.loaded_1" async=""></script><script src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/cb=gapi.loaded_0" async=""></script><script async="" type="text/javascript" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/saved_resource"></script><script id="facebook-jssdk" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/all.js"></script><script type="text/javascript">(function() { var b=window,f="jstiming",g="tick";(function(){function d(a){this.t={};this.tick=function(a,d,c){var e=void 0!=c?c:(new Date).getTime();this.t[a]=[e,d];if(void 0==c)try{b.console.timeStamp("CSI/"+a)}catch(h){}};this[g]("start",null,a)}var a;b.performance&&(a=b.performance.timing);var m=a?new d(a.responseStart):new d;b.jstiming={Timer:d,load:m};if(a){var c=a.navigationStart,h=a.responseStart;0<c&&h>=c&&(b[f].srt=h-c)}if(a){var e=b[f].load;0<c&&h>=c&&(e[g]("_wtsrt",void 0,c),e[g]("wtsrt_","_wtsrt",h),e[g]("tbsd_","wtsrt_"))}try{a=null,
+b.chrome&&b.chrome.csi&&(a=Math.floor(b.chrome.csi().pageT),e&&0<c&&(e[g]("_tbnd",void 0,b.chrome.csi().startE),e[g]("tbnd_","_tbnd",c))),null==a&&b.gtbExternal&&(a=b.gtbExternal.pageT()),null==a&&b.external&&(a=b.external.pageT,e&&0<c&&(e[g]("_tbnd",void 0,b.external.startE),e[g]("tbnd_","_tbnd",c))),a&&(b[f].pt=a)}catch(n){}})();b.tickAboveFold=function(d){var a=0;if(d.offsetParent){do a+=d.offsetTop;while(d=d.offsetParent)}d=a;750>=d&&b[f].load[g]("aft")};var k=!1;function l(){k||(k=!0,b[f].load[g]("firstScrollTime"))}b.addEventListener?b.addEventListener("scroll",l,!1):b.attachEvent("onscroll",l);
+ })();</script>
+<meta content="blogger" name="generator">
+<link href="http://blog.lyhdev.com/favicon.ico" rel="icon" type="image/x-icon">
+<link href="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌.htm" rel="canonical">
+<link rel="alternate" type="application/atom+xml" title="玩物尚誌 - Atom" href="http://blog.lyhdev.com/feeds/posts/default">
+<link rel="alternate" type="application/rss+xml" title="玩物尚誌 - RSS" href="http://blog.lyhdev.com/feeds/posts/default?alt=rss">
+<link rel="service.post" type="application/atom+xml" title="玩物尚誌 - Atom" href="http://www.blogger.com/feeds/27624995/posts/default">
+
+<link rel="alternate" type="application/atom+xml" title="玩物尚誌 - Atom" href="http://blog.lyhdev.com/feeds/2707170848676004453/comments/default">
+<!--[if IE]><script type="text/javascript" src="https://www.blogger.com/static/v1/jsbin/629196723-ieretrofit.js"></script>
+<![endif]-->
+<link rel="image_src" href="http://4.bp.blogspot.com/-iWq2JWpN4XI/Td8YNCzmhuI/AAAAAAAAEkk/ILWM45ek2BM/s72-c/fz3_win_main-small.png">
+<link href="https://plus.google.com/104049001792470288939" rel="publisher">
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<title>深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌</title>
+<link type="text/css" rel="stylesheet" href="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/2356033831-widget_css_2_bundle.css">
+<link type="text/css" rel="stylesheet" href="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/authorization.css">
+<style id="page-skin-1" type="text/css"><!--
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Simple
+Designer: Josh Peterson
+URL:      www.noaesthetic.com
+----------------------------------------------- */
+/* Variable definitions
+====================
+<Variable name="keycolor" description="Main Color" type="color" default="#66bbdd"/>
+<Group description="Page Text" selector="body">
+<Variable name="body.font" description="Font" type="font"
+default="normal normal 12px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="body.text.color" description="Text Color" type="color" default="#222222"/>
+</Group>
+<Group description="Backgrounds" selector=".body-fauxcolumns-outer">
+<Variable name="body.background.color" description="Outer Background" type="color" default="#66bbdd"/>
+<Variable name="content.background.color" description="Main Background" type="color" default="#ffffff"/>
+<Variable name="header.background.color" description="Header Background" type="color" default="transparent"/>
+</Group>
+<Group description="Links" selector=".main-outer">
+<Variable name="link.color" description="Link Color" type="color" default="#2288bb"/>
+<Variable name="link.visited.color" description="Visited Color" type="color" default="#888888"/>
+<Variable name="link.hover.color" description="Hover Color" type="color" default="#33aaff"/>
+</Group>
+<Group description="Blog Title" selector=".header h1">
+<Variable name="header.font" description="Font" type="font"
+default="normal normal 60px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="header.text.color" description="Title Color" type="color" default="#3399bb" />
+</Group>
+<Group description="Blog Description" selector=".header .description">
+<Variable name="description.text.color" description="Description Color" type="color"
+default="#777777" />
+</Group>
+<Group description="Tabs Text" selector=".tabs-inner .widget li a">
+<Variable name="tabs.font" description="Font" type="font"
+default="normal normal 14px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="tabs.text.color" description="Text Color" type="color" default="#999999"/>
+<Variable name="tabs.selected.text.color" description="Selected Color" type="color" default="#000000"/>
+</Group>
+<Group description="Tabs Background" selector=".tabs-outer .PageList">
+<Variable name="tabs.background.color" description="Background Color" type="color" default="#f5f5f5"/>
+<Variable name="tabs.selected.background.color" description="Selected Color" type="color" default="#eeeeee"/>
+</Group>
+<Group description="Post Title" selector="h3.post-title, .comments h4">
+<Variable name="post.title.font" description="Font" type="font"
+default="normal normal 22px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+</Group>
+<Group description="Date Header" selector=".date-header">
+<Variable name="date.header.color" description="Text Color" type="color"
+default="#111111"/>
+<Variable name="date.header.background.color" description="Background Color" type="color"
+default="transparent"/>
+</Group>
+<Group description="Post Footer" selector=".post-footer">
+<Variable name="post.footer.text.color" description="Text Color" type="color" default="#666666"/>
+<Variable name="post.footer.background.color" description="Background Color" type="color"
+default="#f9f9f9"/>
+<Variable name="post.footer.border.color" description="Shadow Color" type="color" default="#eeeeee"/>
+</Group>
+<Group description="Gadgets" selector="h2">
+<Variable name="widget.title.font" description="Title Font" type="font"
+default="normal bold 11px Arial, Tahoma, Helvetica, FreeSans, sans-serif"/>
+<Variable name="widget.title.text.color" description="Title Color" type="color" default="#000000"/>
+<Variable name="widget.alternate.text.color" description="Alternate Color" type="color" default="#999999"/>
+</Group>
+<Group description="Images" selector=".main-inner">
+<Variable name="image.background.color" description="Background Color" type="color" default="#ffffff"/>
+<Variable name="image.border.color" description="Border Color" type="color" default="#eeeeee"/>
+<Variable name="image.text.color" description="Caption Text Color" type="color" default="#111111"/>
+</Group>
+<Group description="Accents" selector=".content-inner">
+<Variable name="body.rule.color" description="Separator Line Color" type="color" default="#eeeeee"/>
+<Variable name="tabs.border.color" description="Tabs Border Color" type="color" default="transparent"/>
+</Group>
+<Variable name="body.background" description="Body Background" type="background"
+color="#ffffff" default="$(color) none repeat scroll top left"/>
+<Variable name="body.background.override" description="Body Background Override" type="string" default=""/>
+<Variable name="body.background.gradient.cap" description="Body Gradient Cap" type="url"
+default="url(//www.blogblog.com/1kt/simple/gradients_light.png)"/>
+<Variable name="body.background.gradient.tile" description="Body Gradient Tile" type="url"
+default="url(//www.blogblog.com/1kt/simple/body_gradient_tile_light.png)"/>
+<Variable name="content.background.color.selector" description="Content Background Color Selector" type="string" default=".content-inner"/>
+<Variable name="content.padding" description="Content Padding" type="length" default="10px"/>
+<Variable name="content.padding.horizontal" description="Content Horizontal Padding" type="length" default="10px"/>
+<Variable name="content.shadow.spread" description="Content Shadow Spread" type="length" default="40px"/>
+<Variable name="content.shadow.spread.webkit" description="Content Shadow Spread (WebKit)" type="length" default="5px"/>
+<Variable name="content.shadow.spread.ie" description="Content Shadow Spread (IE)" type="length" default="10px"/>
+<Variable name="main.border.width" description="Main Border Width" type="length" default="0"/>
+<Variable name="header.background.gradient" description="Header Gradient" type="url" default="none"/>
+<Variable name="header.shadow.offset.left" description="Header Shadow Offset Left" type="length" default="-1px"/>
+<Variable name="header.shadow.offset.top" description="Header Shadow Offset Top" type="length" default="-1px"/>
+<Variable name="header.shadow.spread" description="Header Shadow Spread" type="length" default="1px"/>
+<Variable name="header.padding" description="Header Padding" type="length" default="30px"/>
+<Variable name="header.border.size" description="Header Border Size" type="length" default="1px"/>
+<Variable name="header.bottom.border.size" description="Header Bottom Border Size" type="length" default="1px"/>
+<Variable name="header.border.horizontalsize" description="Header Horizontal Border Size" type="length" default="0"/>
+<Variable name="description.text.size" description="Description Text Size" type="string" default="140%"/>
+<Variable name="tabs.margin.top" description="Tabs Margin Top" type="length" default="0" />
+<Variable name="tabs.margin.side" description="Tabs Side Margin" type="length" default="30px" />
+<Variable name="tabs.background.gradient" description="Tabs Background Gradient" type="url"
+default="url(//www.blogblog.com/1kt/simple/gradients_light.png)"/>
+<Variable name="tabs.border.width" description="Tabs Border Width" type="length" default="1px"/>
+<Variable name="tabs.bevel.border.width" description="Tabs Bevel Border Width" type="length" default="1px"/>
+<Variable name="date.header.padding" description="Date Header Padding" type="string" default="inherit"/>
+<Variable name="date.header.letterspacing" description="Date Header Letter Spacing" type="string" default="inherit"/>
+<Variable name="date.header.margin" description="Date Header Margin" type="string" default="inherit"/>
+<Variable name="post.margin.bottom" description="Post Bottom Margin" type="length" default="25px"/>
+<Variable name="image.border.small.size" description="Image Border Small Size" type="length" default="2px"/>
+<Variable name="image.border.large.size" description="Image Border Large Size" type="length" default="5px"/>
+<Variable name="page.width.selector" description="Page Width Selector" type="string" default=".region-inner"/>
+<Variable name="page.width" description="Page Width" type="string" default="auto"/>
+<Variable name="main.section.margin" description="Main Section Margin" type="length" default="15px"/>
+<Variable name="main.padding" description="Main Padding" type="length" default="15px"/>
+<Variable name="main.padding.top" description="Main Padding Top" type="length" default="30px"/>
+<Variable name="main.padding.bottom" description="Main Padding Bottom" type="length" default="30px"/>
+<Variable name="paging.background"
+color="#ffffff"
+description="Background of blog paging area" type="background"
+default="transparent none no-repeat scroll top center"/>
+<Variable name="footer.bevel" description="Bevel border length of footer" type="length" default="0"/>
+<Variable name="mobile.background.overlay" description="Mobile Background Overlay" type="string"
+default="transparent none repeat scroll top left"/>
+<Variable name="mobile.background.size" description="Mobile Background Size" type="string" default="auto"/>
+<Variable name="mobile.button.color" description="Mobile Button Color" type="color" default="#ffffff" />
+<Variable name="startSide" description="Side where text starts in blog language" type="automatic" default="left"/>
+<Variable name="endSide" description="Side where text ends in blog language" type="automatic" default="right"/>
+*/
+/* Content
+----------------------------------------------- */
+body {
+font: normal normal 15px 'Trebuchet MS', Trebuchet, Verdana, sans-serif;
+color: #111111;
+background: #ffffff none no-repeat scroll center center;
+padding: 0 0 0 0;
+}
+html body .region-inner {
+min-width: 0;
+max-width: 100%;
+width: auto;
+}
+a:link {
+text-decoration:none;
+color: #195073;
+}
+a:visited {
+text-decoration:none;
+color: #195073;
+}
+a:hover {
+text-decoration:underline;
+color: #ee913f;
+}
+.body-fauxcolumn-outer .fauxcolumn-inner {
+background: transparent none repeat scroll top left;
+_background-image: none;
+}
+.body-fauxcolumn-outer .cap-top {
+position: absolute;
+z-index: 1;
+height: 400px;
+width: 100%;
+background: #ffffff none no-repeat scroll center center;
+}
+.body-fauxcolumn-outer .cap-top .cap-left {
+width: 100%;
+background: transparent none repeat-x scroll top left;
+_background-image: none;
+}
+.content-outer {
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+-goog-ms-box-shadow: 0 0 0 #333333;
+box-shadow: 0 0 0 rgba(0, 0, 0, .15);
+margin-bottom: 1px;
+}
+.content-inner {
+padding: 10px 40px;
+}
+.content-inner {
+background-color: #ffffff;
+}
+/* Header
+----------------------------------------------- */
+.header-outer {
+background: transparent none repeat-x scroll 0 -400px;
+_background-image: none;
+}
+.Header h1 {
+font: normal bold 42px Arial, Tahoma, Helvetica, FreeSans, sans-serif;
+color: #000000;
+text-shadow: 0 0 0 rgba(0, 0, 0, .2);
+}
+.Header h1 a {
+color: #000000;
+}
+.Header .description {
+font-size: 18px;
+color: #454b6a;
+}
+.header-inner .Header .titlewrapper {
+padding: 22px 0;
+}
+.header-inner .Header .descriptionwrapper {
+padding: 0 0;
+}
+/* Tabs
+----------------------------------------------- */
+.tabs-inner .section:first-child {
+border-top: 0 solid #e4e4e4;
+}
+.tabs-inner .section:first-child ul {
+margin-top: -1px;
+border-top: 1px solid #e4e4e4;
+border-left: 1px solid #e4e4e4;
+border-right: 1px solid #e4e4e4;
+}
+.tabs-inner .widget ul {
+background: transparent none repeat-x scroll 0 -800px;
+_background-image: none;
+border-bottom: 1px solid #e4e4e4;
+margin-top: 0;
+margin-left: -30px;
+margin-right: -30px;
+}
+.tabs-inner .widget li a {
+display: inline-block;
+padding: .6em 1em;
+font: normal normal 15px 'Trebuchet MS', Trebuchet, Verdana, sans-serif;
+color: #ababab;
+border-left: 1px solid #ffffff;
+border-right: 1px solid #e4e4e4;
+}
+.tabs-inner .widget li:first-child a {
+border-left: none;
+}
+.tabs-inner .widget li.selected a, .tabs-inner .widget li a:hover {
+color: #000000;
+background-color: #e4e4e4;
+text-decoration: none;
+}
+/* Columns
+----------------------------------------------- */
+.main-outer {
+border-top: 0 solid transparent;
+}
+.fauxcolumn-left-outer .fauxcolumn-inner {
+border-right: 1px solid transparent;
+}
+.fauxcolumn-right-outer .fauxcolumn-inner {
+border-left: 1px solid transparent;
+}
+/* Headings
+----------------------------------------------- */
+h2 {
+margin: 0 0 1em 0;
+font: italic bold 11px Georgia, Utopia, 'Palatino Linotype', Palatino, serif;
+color: #ababab;
+}
+/* Widgets
+----------------------------------------------- */
+.widget .zippy {
+color: #ababab;
+text-shadow: 2px 2px 1px rgba(0, 0, 0, .1);
+}
+.widget .popular-posts ul {
+list-style: none;
+}
+/* Posts
+----------------------------------------------- */
+.date-header span {
+background-color: #ababab;
+color: #ffffff;
+padding: 0.4em;
+letter-spacing: 3px;
+margin: inherit;
+}
+.main-inner {
+padding-top: 35px;
+padding-bottom: 65px;
+}
+.main-inner .column-center-inner {
+padding: 0 0;
+}
+.main-inner .column-center-inner .section {
+margin: 0 1em;
+}
+.post {
+margin: 0 0 45px 0;
+}
+h3.post-title, .comments h4 {
+font: normal normal 24px 'Trebuchet MS', Trebuchet, sans-serif;
+margin: .75em 0 0;
+}
+.post-body {
+font-size: 110%;
+line-height: 1.4;
+position: relative;
+}
+.post-body img, .post-body .tr-caption-container, .Profile img, .Image img,
+.BlogList .item-thumbnail img {
+padding: 2px;
+background: #ffffff;
+border: 1px solid #e4e4e4;
+-moz-box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+-webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+box-shadow: 1px 1px 5px rgba(0, 0, 0, .1);
+}
+.post-body img, .post-body .tr-caption-container {
+padding: 5px;
+}
+.post-body .tr-caption-container {
+color: #666666;
+}
+.post-body .tr-caption-container img {
+padding: 0;
+background: transparent;
+border: none;
+-moz-box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+-webkit-box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+}
+.post-header {
+margin: 0 0 1.5em;
+line-height: 1.6;
+font-size: 90%;
+}
+.post-footer {
+margin: 20px -2px 0;
+padding: 5px 10px;
+color: #000000;
+background-color: #e4e4e4;
+border-bottom: 1px solid #e4e4e4;
+line-height: 1.6;
+font-size: 90%;
+}
+#comments .comment-author {
+padding-top: 1.5em;
+border-top: 1px solid transparent;
+background-position: 0 1.5em;
+}
+#comments .comment-author:first-child {
+padding-top: 0;
+border-top: none;
+}
+.avatar-image-container {
+margin: .2em 0 0;
+}
+#comments .avatar-image-container img {
+border: 1px solid #e4e4e4;
+}
+/* Comments
+----------------------------------------------- */
+.comments .comments-content .icon.blog-author {
+background-repeat: no-repeat;
+background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB9sLFwMeCjjhcOMAAAD+SURBVDjLtZSvTgNBEIe/WRRnm3U8RC1neQdsm1zSBIU9VVF1FkUguQQsD9ITmD7ECZIJSE4OZo9stoVjC/zc7ky+zH9hXwVwDpTAWWLrgS3QAe8AZgaAJI5zYAmc8r0G4AHYHQKVwII8PZrZFsBFkeRCABYiMh9BRUhnSkPTNCtVXYXURi1FpBDgArj8QU1eVXUzfnjv7yP7kwu1mYrkWlU33vs1QNu2qU8pwN0UpKoqokjWwCztrMuBhEhmh8bD5UDqur75asbcX0BGUB9/HAMB+r32hznJgXy2v0sGLBcyAJ1EK3LFcbo1s91JeLwAbwGYu7TP/3ZGfnXYPgAVNngtqatUNgAAAABJRU5ErkJggg==);
+}
+.comments .comments-content .loadmore a {
+border-top: 1px solid #ababab;
+border-bottom: 1px solid #ababab;
+}
+.comments .comment-thread.inline-thread {
+background-color: #e4e4e4;
+}
+.comments .continue {
+border-top: 2px solid #ababab;
+}
+/* Accents
+---------------------------------------------- */
+.section-columns td.columns-cell {
+border-left: 1px solid transparent;
+}
+.blog-pager {
+background: transparent url(http://www.blogblog.com/1kt/simple/paging_dot.png) repeat-x scroll top center;
+}
+.blog-pager-older-link, .home-link,
+.blog-pager-newer-link {
+background-color: #ffffff;
+padding: 5px;
+}
+.footer-outer {
+border-top: 1px dashed #bbbbbb;
+}
+/* Mobile
+----------------------------------------------- */
+body.mobile  {
+background-size: auto;
+}
+.mobile .body-fauxcolumn-outer {
+background: transparent none repeat scroll top left;
+}
+.mobile .body-fauxcolumn-outer .cap-top {
+background-size: 100% auto;
+}
+.mobile .content-outer {
+-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+box-shadow: 0 0 3px rgba(0, 0, 0, .15);
+}
+body.mobile .AdSense {
+margin: 0 -0;
+}
+.mobile .tabs-inner .widget ul {
+margin-left: 0;
+margin-right: 0;
+}
+.mobile .post {
+margin: 0;
+}
+.mobile .main-inner .column-center-inner .section {
+margin: 0;
+}
+.mobile .date-header span {
+padding: 0.1em 10px;
+margin: 0 -10px;
+}
+.mobile h3.post-title {
+margin: 0;
+}
+.mobile .blog-pager {
+background: transparent none no-repeat scroll top center;
+}
+.mobile .footer-outer {
+border-top: none;
+}
+.mobile .main-inner, .mobile .footer-inner {
+background-color: #ffffff;
+}
+.mobile-index-contents {
+color: #111111;
+}
+.mobile-link-button {
+background-color: #195073;
+}
+.mobile-link-button a:link, .mobile-link-button a:visited {
+color: #ffffff;
+}
+.mobile .tabs-inner .section:first-child {
+border-top: none;
+}
+.mobile .tabs-inner .PageList .widget-content {
+background-color: #e4e4e4;
+color: #000000;
+border-top: 1px solid #e4e4e4;
+border-bottom: 1px solid #e4e4e4;
+}
+.mobile .tabs-inner .PageList .widget-content .pagelist-arrow {
+border-left: 1px solid #e4e4e4;
+}
+.column-left-inner {
+font-size:.8125em;
+}
+.column-left-inner a {
+font-weight:bold;
+color:#333333;
+}
+.post-body, .entry-content {
+line-height:1.8em;
+letter-spacing:0.05em;
+font-size: 1em;
+}
+.post-title a, .entry-title a {
+font-weight:bold;
+}
+.embedPastebin {
+font-size:11px;
+line-height:1em;
+letter-spacing:0;
+}
+.embedPastebin ol {
+background-color:#ffffff;
+}
+pre {
+font-family:Courier, 'Courier New', monospace;
+color:#333333;
+background-color:#ffffdd;
+font-size:.8125em;
+line-height:1.2em;
+overflow:auto;
+padding:1em;
+margin:0;
+}
+blockquote {
+font-size:0.9375;
+margin:0;padding:1em;
+background:#dadada;
+color:#333333;
+}
+#header-inner .titlewrapper {
+float:left;
+}
+#header-inner .descriptionwrapper {
+text-align:right;
+float:right;
+padding: 0;
+}
+/*好友聯播&#12289;邦交連結字型調整*/
+#BlogList1, #LinkList3, #BlogArchive1 {
+font-size:0.875em;
+}
+.widget.LinkList ul, .widget.LinkList li {
+list-style:none;
+margin:0;
+padding:0;
+line-height:1.4em;
+}
+#AdSense1, #AdSense2 {
+text-align:center;
+}
+--></style>
+<style id="template-skin-1" type="text/css"><!--
+body {
+min-width: 1000px;
+}
+.content-outer, .content-fauxcolumn-outer, .region-inner {
+min-width: 1000px;
+max-width: 1000px;
+_width: 1000px;
+}
+.main-inner .columns {
+padding-left: 0px;
+padding-right: 240px;
+}
+.main-inner .fauxcolumn-center-outer {
+left: 0px;
+right: 240px;
+/* IE6 does not respect left and right together */
+_width: expression(this.parentNode.offsetWidth -
+parseInt("0px") -
+parseInt("240px") + 'px');
+}
+.main-inner .fauxcolumn-left-outer {
+width: 0px;
+}
+.main-inner .fauxcolumn-right-outer {
+width: 240px;
+}
+.main-inner .column-left-outer {
+width: 0px;
+right: 100%;
+margin-left: -0px;
+}
+.main-inner .column-right-outer {
+width: 240px;
+margin-right: -240px;
+}
+#layout {
+min-width: 0;
+}
+#layout .content-outer {
+min-width: 0;
+width: 800px;
+}
+#layout .region-inner {
+min-width: 0;
+width: auto;
+}
+--></style>
+<script type="text/javascript">var a="indexOf",b="&m=1",e="(^|&)m=",f="?",g="?m=1";function h(){var c=window.location.href,d=c.split(f);switch(d.length){case 1:return c+g;case 2:return 0<=d[1].search(e)?null:c+b;default:return null}}var k=navigator.userAgent;if(-1!=k[a]("Mobile")&&-1!=k[a]("WebKit")&&-1==k[a]("iPad")||-1!=k[a]("Opera Mini")||-1!=k[a]("IEMobile")){var l=h();l&&window.location.replace(l)};
+</script><script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('headEnd');
+</script><script type="text/javascript" async="" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/blogger_item.js"></script><script type="text/javascript" async="" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/blogger_index.js"></script><link rel="stylesheet" type="text/css" href="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/ba.css"><script type="text/javascript" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/ba.js" defer=""></script><script type="text/javascript" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/getads.aspx" defer=""></script><script type="text/javascript" async="" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/jquery.min.js"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
+.fb_invisible{display:none}
+.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
+.fb_reset > div{overflow:hidden}
+.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}
+.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}
+.fb_dialog_content{background:#fff;color:#333}
+.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px;top:8px\9;right:7px\9}
+.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}
+.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}
+.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:25px;padding:20px}
+.fb_dialog_top_left,
+.fb_dialog_top_right,
+.fb_dialog_bottom_left,
+.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}
+.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}
+.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}
+.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}
+.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right,
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right{width:10px;height:100%}
+.fb_dialog_vert_left{margin-left:-10px}
+.fb_dialog_vert_right{right:0;margin-right:-10px}
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{width:100%;height:10px}
+.fb_dialog_horiz_top{margin-top:-10px}
+.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}
+.fb_dialog_iframe{line-height:0}
+.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:15px;font-weight:bold;margin:0}
+.fb_dialog_content .dialog_title > span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif)
+no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}
+body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}
+.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif)
+white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}
+.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}
+#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}
+#fb-root #fb_dialog_ipad_overlay.hidden{display:none}
+.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}
+.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}
+.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%
+}
+.fb_dialog_content .dialog_header td.header_left{font-size:13px;padding-left:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .dialog_header td.header_right{font-size:13px;padding-right:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6),
+color-stop(0.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset,
+rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}
+.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:17px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}
+.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}
+.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}
+#fb_dialog_loader_close{float:left}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}
+.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}
+.fb_iframe_widget iframe{position:absolute}
+.fb_iframe_widget_lift{z-index:1}
+.fb_hide_iframes iframe{position:relative;left:-10000px}
+.fb_iframe_widget_loader{position:relative;display:inline-block}
+.fb_iframe_widget_fluid{display:inline}
+.fb_iframe_widget_fluid span{width:100%}
+.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}
+.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_connect_bar_container div,
+.fb_connect_bar_container span,
+.fb_connect_bar_container a,
+.fb_connect_bar_container img,
+.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}
+.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}
+.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}
+.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size:14px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}
+.fb_connect_bar a:hover{color:#fff}
+.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}
+.fb_connect_bar div a,
+.fb_connect_bar span,
+.fb_connect_bar span a{color:#bac6da;font-size:12px;text-decoration:none}
+.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fb_edge_widget_with_comment{position:relative;*z-index:1000}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget{position:absolute}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget{z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget .FB_Loader{left:0;top:1px;margin-top:6px;margin-left:0;background-position:50% 50%;background-color:#fff;height:150px;width:394px;border:1px #666 solid;border-bottom:2px solid #283e6c;z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.dark .FB_Loader{background-color:#000;border-bottom:2px solid #ccc}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.siderender
+.FB_Loader{margin-top:0}
+.fbpluginrecommendationsbarleft,
+.fbpluginrecommendationsbarright{position:fixed !important;bottom:0;z-index:999}
+.fbpluginrecommendationsbarleft{left:10px}
+.fbpluginrecommendationsbarright{right:10px}</style><script async="" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/embed.js"></script><script async="" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/count.js"></script><script async="" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/count-data.js"></script></head>
+<body class="">
+<div class="navbar section" id="navbar">
+</div>
+<!--Facebook SDK-->
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tab-index="-1" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/xd_arbiter.htm" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tab-index="-1" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/xd_arbiter(1).htm" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="f294c6e6ac" frameborder="0" allowtransparency="true" scrolling="no" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/ping.htm" style="display: none;"></iframe></div></div></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=157909484277045";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="body-fauxcolumns">
+<div class="fauxcolumn-outer body-fauxcolumn-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<div class="content">
+<div class="content-fauxcolumns">
+<div class="fauxcolumn-outer content-fauxcolumn-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<div class="content-outer">
+<div class="content-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left content-fauxborder-left">
+<div class="fauxborder-right content-fauxborder-right"></div>
+<div class="content-inner">
+<header>
+<div class="header-outer">
+<div class="header-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left header-fauxborder-left">
+<div class="fauxborder-right header-fauxborder-right"></div>
+<div class="region-inner header-inner">
+<div class="header section" id="header"><div class="widget Header" id="Header1">
+<div id="header-inner">
+<a href="http://blog.lyhdev.com/" style="display: block">
+<img alt="玩物尚誌" height="120px; " id="Header1_headerimg" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/lyhdev-blog-title.png" style="display: block" width="980px; ">
+</a>
+</div>
+</div></div>
+</div>
+</div>
+<div class="header-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</header>
+<div class="tabs-outer">
+<div class="tabs-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left tabs-fauxborder-left">
+<div class="fauxborder-right tabs-fauxborder-right"></div>
+<div class="region-inner tabs-inner">
+<div class="tabs section" id="crosscol"><div class="widget PageList" id="PageList1">
+<h2>網頁</h2>
+<div class="widget-content">
+<ul>
+<li><a href="http://blog.lyhdev.com/">首頁</a></li>
+<li><a href="http://blog.lyhdev.com/p/blog-page_25.html">授權</a></li>
+<li><a href="http://blog.lyhdev.com/p/blog-page_28.html">合作</a></li>
+<li><a href="http://blog.lyhdev.com/p/nodejs-taiwan.html">Node.js Taiwan</a></li>
+<li><a href="http://blog.lyhdev.com/p/by-lyhcode.html">by lyhcode</a></li>
+</ul>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=27624995&widgetType=PageList&widgetId=PageList1&action=editWidget&sectionId=crosscol" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;PageList1&quot;));" target="configPageList1" title="編輯">
+<img alt="" height="18" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div></div>
+<div class="tabs section" id="crosscol-overflow"></div>
+</div>
+</div>
+<div class="tabs-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="main-outer">
+<div class="main-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left main-fauxborder-left">
+<div class="fauxborder-right main-fauxborder-right"></div>
+<div class="region-inner main-inner">
+<div class="columns fauxcolumns">
+<div class="fauxcolumn-outer fauxcolumn-center-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="fauxcolumn-outer fauxcolumn-left-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<div class="fauxcolumn-outer fauxcolumn-right-outer">
+<div class="cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left">
+<div class="fauxborder-right"></div>
+<div class="fauxcolumn-inner">
+</div>
+</div>
+<div class="cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<!-- corrects IE6 width calculation -->
+<div class="columns-inner">
+<div class="column-center-outer">
+<div class="column-center-inner">
+<div class="main section" id="main"><div class="widget AdSense" id="AdSense1">
+<div class="widget-content">
+<script type="text/javascript"><!--
+google_ad_client="pub-0839975967683137";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text_image";
+google_ad_host_channel="0001+S0012+L0004";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="EE913F";
+google_color_url="195073";
+google_color_text="555555";
+//--></script>
+<script type="text/javascript" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px;background-color:transparent"><iframe width="468" height="60" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=27624995&widgetType=AdSense&widgetId=AdSense1&action=editWidget&sectionId=main" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;AdSense1&quot;));" target="configAdSense1" title="編輯">
+<img alt="" height="18" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget Blog" id="Blog1">
+<div class="blog-posts hfeed">
+<!-- google_ad_section_start(name=default) -->
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>2011/5/27</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry">
+<a name="2707170848676004453"></a>
+<h3 class="post-title entry-title">
+深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"></div>
+</div>
+<script type="text/javascript">
+document.write('<iframe src="http://www.facebook.com/plugins/like.php?href=http://blog.lyhdev.com/2011/05/openssh-sftp.html&layout=standard&show_faces=false&width=450&action=like&font=verdana&colorscheme=light&height=35" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:450px; height:35px"></iframe>');
+</script><iframe src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/like.htm" scrolling="no" frameborder="0" allowtransparency="true" style="border:none; overflow:hidden; width:450px; height:35px"></iframe>
+<div class="post-body entry-content" id="post-body-2707170848676004453">
+<a href="http://blog.lyhdev.com/2011/05/openssh-ssh.html">上一篇文章</a>說明ssh如何安裝及設定，本文則是分享如何用sftp取代ftp作為檔案伺服器。<br>
+<br>
+FTP(<b>F</b>ile <b>T</b>ransfer <b>P</b>rotocol)檔案傳輸協定，過去是網路使用者交換檔案很常用的一種方式，許多網友會架設自己的私人FTP站台、當站長，並且在BBS或News Group徵求其他站長交換帳號。但現在已經很少人會這麼做，因為通常想找的檔案，都可以在論壇找到BT種子、ED2K連結，或利用eMule等其他P2P軟體內建搜尋功能，而Web化的檔案分享服務，以較方便的HTTP協定，就能提供檔案上傳、管理、下載等功能，絕大多數的人電腦都有安裝瀏覽器，但不一定安裝FTP軟體；即使瀏覽器內建FTP功能，但大多相當難用。<br>
+<br>
+儘管FTP已不常用於大眾的檔案交換分享，但是對於伺服器、遠端工作站的使用者來說，還是經常需要透過FTP傳輸檔案，因為傳輸效率高、穩定、容易續傳。<br>
+<br>
+對於Ubuntu Linux的使用者，只要安裝好openssh-server(如未安裝請參考<a href="http://blog.lyhdev.com/2011/05/openssh-ssh.html">此篇</a>)，啟用ssh服務後，其實就已經內建一組檔案傳輸服務，不需要再加裝其他FTP服務。<br>
+<br>
+SFTP(<b>S</b>SH <b>F</b>ile <b>T</b>ransfer <b>P</b>rotocol)是ssh內建的檔案傳輸服務，同樣提供加密的安全傳輸服務，不像一般未加密FTP(FTP也有可加密版本)在傳輸過程採用明碼(帳號密碼及檔案內容可能遭到攔截)，所以具有更好的安全性。雖然效能部分不如未加密的FTP，但是對於日常工作需要的檔案傳輸，其實也算足夠了。<br>
+<br>
+在Linux及Mac OS X系統下，可以使用sftp指令建立連線。(yourname：你的帳號；servername：主機IP或HOSTNAME)<br>
+<pre><code>sftp yourname@servername</code></pre><br>
+之後的操作指令與ftp類似，例如ls、cd、get、put、rm、mkdir、rmdir、quit等，可以<a href="http://linux.about.com/od/commands/l/blcmdl1_sftp.htm">參考sftp指令說明</a>。<br>
+<br>
+當然在Linux下有加強版的lftp指令，還沒裝lftp可以先用apt-get裝上。<br>
+<pre><code>sudo apt-get install lftp</code></pre><br>
+接著就可以用lftp連線到遠端sftp服務。<br>
+<pre><code>lftp sftp://yourname@servername/</code></pre><br>
+lftp比起sftp或ftp指令加強了許多功能，例如mirror(複製整個資料夾)、queue(傳輸任務佇列)、限制頻寬用量等，可以<a href="http://linux.about.com/od/commands/l/blcmdl1_lftp.htm">參考lftp指令說明</a>。<br>
+<br>
+圖形化介面的檔案傳輸工具軟體<a href="http://filezilla-project.org/download.php?type=client">FileZilla</a>，跨平台支援Windows、Linux及Mac OS X，也是相當不錯的選擇。<br>
+<div class="separator" style="clear: both; text-align: center;"><a href="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/fz3_win_main-small.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/fz3_win_main-small.png"></a></div><br>
+FileZilla同樣支援sftp功能，只需要在主機欄位輸入 sftp://yourname@servername/ 格式的位址。<br>
+<br>
+ssh的sftp用途不僅如此，在Linux系統下，我們可以透過sshfs指令，將遠端ssh伺服器的資料夾「掛載」到本地主機的磁碟路徑下，不管是編輯、建立、搬移、複製檔案，雖然檔案實際儲存在遠端，但操作起來就像是在本地端的磁碟一樣方便。<br>
+<br>
+安裝sshfs同樣只要一行指令！一行！<br>
+<pre><code>sudo apt-get install sshfs</code></pre><br>
+接著建立一個新的remote資料夾，並且用sshfs掛載遠端sftp資料夾。(yourname：使用者帳號；servername：伺服器IP或HOSTNAME；/為遠端資料夾路徑，此為根目錄)<br>
+<pre><code>mkdir ~/remote
+sshfs yourname@servername:/ ~/remote</code></pre><br>
+之後就可以直接操作遠端資料夾，就像在本地端的磁碟一樣。<br>
+<pre><code>cd ~/remote
+ls</code></pre><br>
+請小心！這是直接對遠端的檔案系統操作，就像以sftp連線登入後一樣，並非複製，所以刪除檔案會真的把遠端的檔案也刪除。<br>
+<br>
+如果不再繼續使用，則可以用umount指令卸載。<br>
+<pre><code>umount ~/remote</code></pre><br>
+這樣做有什麼好處呢？<br>
+<br>
+假設有一項Web專案，在工作站A開發，完成的檔案需要同時發佈到伺服器B、伺服器C、伺服器D三台主機，因為要利用三台伺服器進行平衡負載。<br>
+<br>
+這種需求利用sshfs就可以非常非常輕鬆達到。<br>
+<br>
+例如工作站A已經建好以下三個資料夾，並且都利用sshfs掛載B、C、D三台伺服器的遠端資料夾。<br>
+~/server_b<br>
+~/server_c<br>
+~/server_d<br>
+<br>
+我們要只需要將專案完成的檔案，用一般的cp指令就能完成發佈和部署工作。<br>
+<pre><code>cp -rf ~/project/* ~/server_b/project
+cp -rf ~/project/* ~/server_c/project
+cp -rf ~/project/* ~/server_d/project</code></pre><br>
+把這些指令寫成一個deploy.sh的腳本檔案，以後只要執行一道指令，就可以自動完成部署的任務。<br>
+<pre><code>./deploy.sh</code></pre><br>
+由於遠端伺服器的資料夾，操作起來就跟本地端磁碟一模一樣，所以除了用cp複製檔案外，還可以結合其他工具如sed、awk等，很方便地進行自動化的設定調整(針對不同伺服器做設定調整)、維護(例如清除不再用到的暫存資料)，或是以本地端的圖形化開發工具(如Eclipse)直接編輯檔案位於遠端伺服器的專案。<br>
+<br>
+這對於P2P的牧場狂熱者，也有很不錯的應用方式，例如在A、B、C三地分別建置不同的Ubuntu Linux動物機，分別使用不同網路頻寬下載檔案，在檔案倉庫的主機，可以用sshfs掛載每一台動物機的資料夾，再配合crontab排程，利用凌晨不影響其他人網路使用的時段，自動將下載完成的檔案搬移到檔案倉庫。
+<div style="clear: both;"></div>
+</div>
+<script type="text/javascript">
+document.write('<iframe src="http://www.facebook.com/plugins/like.php?href=http://blog.lyhdev.com/2011/05/openssh-sftp.html&layout=standard&show_faces=true&width=450&action=like&font=verdana&colorscheme=light" scrolling="no" frameborder="0" allowTransparency="true" style="border:none; overflow:hidden; width:450px; height:80px; margin-top:20px"></iframe>');
+</script><iframe src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/like(1).htm" scrolling="no" frameborder="0" allowtransparency="true" style="border:none; overflow:hidden; width:450px; height:80px; margin-top:20px"></iframe>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1"><span class="post-labels">
+關鍵字:
+<a href="http://blog.lyhdev.com/search/label/Linux" rel="tag">Linux</a>,
+<a href="http://blog.lyhdev.com/search/label/Mac%20OS%20X" rel="tag">Mac OS X</a>,
+<a href="http://blog.lyhdev.com/search/label/Ubuntu" rel="tag">Ubuntu</a>,
+<a href="http://blog.lyhdev.com/search/label/Windows" rel="tag">Windows</a>
+</span>
+<div class="post-share-buttons goog-inline-block">
+<a class="goog-inline-block share-button sb-email" href="http://www.blogger.com/share-post.g?blogID=27624995&postID=2707170848676004453&target=email" target="_blank" title="以電子郵件傳送這篇文章"><span class="share-button-link-text">以電子郵件傳送這篇文章</span></a><a class="goog-inline-block share-button sb-blog" href="http://www.blogger.com/share-post.g?blogID=27624995&postID=2707170848676004453&target=blog" onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=270,width=475&quot;); return false;" target="_blank" title="BlogThis！"><span class="share-button-link-text">BlogThis！</span></a><a class="goog-inline-block share-button sb-twitter" href="http://www.blogger.com/share-post.g?blogID=27624995&postID=2707170848676004453&target=twitter" target="_blank" title="分享至 Twitter"><span class="share-button-link-text">分享至 Twitter</span></a><a class="goog-inline-block share-button sb-facebook" href="http://www.blogger.com/share-post.g?blogID=27624995&postID=2707170848676004453&target=facebook" onclick="window.open(this.href, &quot;_blank&quot;, &quot;height=430,width=640&quot;); return false;" target="_blank" title="分享至 Facebook"><span class="share-button-link-text">分享至 Facebook</span></a><div class="goog-inline-block dummy-container"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 300px; height: 20px; background-position: initial initial; background-repeat: initial initial;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 300px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1386479664444" name="I0_1386479664444" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/fastbutton.htm" data-gapiattached="true" title="+1"></iframe></div></div>
+</div>
+</div>
+<div class="post-footer-line post-footer-line-2"><span class="post-timestamp">
+時間
+<a class="timestamp-link" href="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌.htm" rel="bookmark" title="permanent link"><abbr class="published" title="2011-05-27T11:49:00+08:00">11:49</abbr></a>
+</span>
+<span class="post-comment-link" style="visibility: visible;"></span>
+<span class="post-icons">
+<span class="item-control blog-admin pid-53496666">
+<a href="http://www.blogger.com/post-edit.g?blogID=27624995&postID=2707170848676004453&from=pencil" title="編輯文章">
+<img alt="" class="icon-action" height="18" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/icon18_edit_allbkg.gif" width="18">
+</a>
+</span>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3"><span class="post-backlinks post-comment-link" style="visibility: visible;"><a class="comment-link disqus-blogger-comment-link" href="http://blog.lyhdev.com/2011/05/openssh-sftp.html#disqus_thread">1 Comment</a></span>
+</div>
+</div>
+</div>
+<div class="comments" id="comments" style="display: block;"><div id="disqus_thread"><iframe id="dsq-2" data-disqus-uid="2" allowtransparency="true" frameborder="0" role="complementary" width="100%" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/saved_resource.htm" style="width: 100% !important; border: none !important; overflow: hidden !important; height: 640px !important;" scrolling="no" horizontalscrolling="no" verticalscrolling="no"></iframe></div></div>
+</div>
+
+        </div></div>
+      
+<!-- google_ad_section_end -->
+</div>
+<div class="blog-pager" id="blog-pager">
+<span id="blog-pager-newer-link">
+<a class="blog-pager-newer-link" href="http://blog.lyhdev.com/2011/05/nginxphp5-fpmubuntu-1104.html" id="Blog1_blog-pager-newer-link" title="較新的文章">較新的文章</a>
+</span>
+<span id="blog-pager-older-link">
+<a class="blog-pager-older-link" href="http://blog.lyhdev.com/2011/05/openssh-ssh.html" id="Blog1_blog-pager-older-link" title="較舊的文章">較舊的文章</a>
+</span>
+<a class="home-link" href="http://blog.lyhdev.com/">首頁</a>
+</div>
+<div class="clear"></div>
+<div class="post-feeds">
+<div class="feed-links">
+訂閱：
+<a class="feed-link" href="http://blog.lyhdev.com/feeds/2707170848676004453/comments/default" target="_blank" type="application/atom+xml">張貼留言 (Atom)</a>
+</div>
+</div>
+<script type="text/javascript">window.___gcfg = {'lang': 'zh_TW'};</script>
+</div><div class="widget HTML" id="HTML3">
+<script type="text/javascript">
+                var disqus_shortname = 'lyhcode';
+                var disqus_blogger_current_url = "http://blog.lyhdev.com/2011/05/openssh-sftp.html";
+                if (!disqus_blogger_current_url.length) {
+                    disqus_blogger_current_url = "http://blog.lyhdev.com/2011/05/openssh-sftp.html";
+                }
+                var disqus_blogger_homepage_url = "http://blog.lyhdev.com/";
+                var disqus_blogger_canonical_homepage_url = "http://blog.lyhdev.com/";
+            </script>
+<style type="text/css">
+                    #comments {display:none;}
+                </style>
+<script type="text/javascript">
+                    (function() {
+                        var bloggerjs = document.createElement('script');
+                        bloggerjs.type = 'text/javascript';
+                        bloggerjs.async = true;
+                        bloggerjs.src = 'http://'+disqus_shortname+'.disqus.com/blogger_item.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(bloggerjs);
+                    })();
+                </script>
+<style type="text/css">
+                    .post-comment-link { visibility: hidden; }
+                </style>
+<script type="text/javascript">
+                (function() {
+                    var bloggerjs = document.createElement('script');
+                    bloggerjs.type = 'text/javascript';
+                    bloggerjs.async = true;
+                    bloggerjs.src = 'http://'+disqus_shortname+'.disqus.com/blogger_index.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(bloggerjs);
+                })();
+                </script>
+</div><div class="widget HTML" id="HTML4">
+<div class="widget-content">
+<!--by lyhcode-->
+<div>
+<a href="http://lyhcode.info/"><img src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/c83481c6f88b956dcffcaaf1220e2921.jpg" alt="lyhcode" border="0" style="float:left;padding:5px"></a> by <a href="http://lyhcode.info/">lyhcode</a><br>歡迎轉載，請務必註明出處！
+</div>
+<div style="clear:both"></div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=27624995&widgetType=HTML&widgetId=HTML4&action=editWidget&sectionId=main" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML4&quot;));" target="configHTML4" title="編輯">
+<img alt="" height="18" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget AdSense" id="AdSense2">
+<div class="widget-content">
+<script type="text/javascript"><!--
+google_ad_client="pub-0839975967683137";
+google_ad_host="pub-1556223355139109";
+google_ad_width=468;
+google_ad_height=60;
+google_ad_format="468x60_as";
+google_ad_type="text_image";
+google_ad_host_channel="0001";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="0000FF";
+google_color_url="008000";
+google_color_text="000000";
+//--></script>
+<script type="text/javascript" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:60px;margin:0;padding:0;position:relative;visibility:visible;width:468px;background-color:transparent"><iframe width="468" height="60" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=27624995&widgetType=AdSense&widgetId=AdSense2&action=editWidget&sectionId=main" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;AdSense2&quot;));" target="configAdSense2" title="編輯">
+<img alt="" height="18" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget BlogArchive" id="BlogArchive1">
+<div class="widget-content">
+<div class="ltr" id="ArchiveList">
+<div id="BlogArchive1_ArchiveList">
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/search?updated-min=2013-01-01T00:00:00%2B08:00&updated-max=2014-01-01T00:00:00%2B08:00&max-results=50">2013</a>
+<span class="post-count" dir="ltr">(127)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2013_11_01_archive.html">十一月</a>
+<span class="post-count" dir="ltr">(9)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2013_10_01_archive.html">十月</a>
+<span class="post-count" dir="ltr">(13)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2013_09_01_archive.html">九月</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2013_08_01_archive.html">八月</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2013_07_01_archive.html">七月</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2013_04_01_archive.html">四月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2013_03_01_archive.html">三月</a>
+<span class="post-count" dir="ltr">(12)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2013_02_01_archive.html">二月</a>
+<span class="post-count" dir="ltr">(29)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2013_01_01_archive.html">一月</a>
+<span class="post-count" dir="ltr">(50)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/search?updated-min=2012-01-01T00:00:00%2B08:00&updated-max=2013-01-01T00:00:00%2B08:00&max-results=50">2012</a>
+<span class="post-count" dir="ltr">(181)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2012_12_01_archive.html">十二月</a>
+<span class="post-count" dir="ltr">(26)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2012_11_01_archive.html">十一月</a>
+<span class="post-count" dir="ltr">(9)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2012_10_01_archive.html">十月</a>
+<span class="post-count" dir="ltr">(9)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2012_09_01_archive.html">九月</a>
+<span class="post-count" dir="ltr">(24)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2012_08_01_archive.html">八月</a>
+<span class="post-count" dir="ltr">(9)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2012_07_01_archive.html">七月</a>
+<span class="post-count" dir="ltr">(6)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2012_06_01_archive.html">六月</a>
+<span class="post-count" dir="ltr">(21)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2012_05_01_archive.html">五月</a>
+<span class="post-count" dir="ltr">(16)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2012_04_01_archive.html">四月</a>
+<span class="post-count" dir="ltr">(10)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2012_03_01_archive.html">三月</a>
+<span class="post-count" dir="ltr">(19)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2012_02_01_archive.html">二月</a>
+<span class="post-count" dir="ltr">(15)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2012_01_01_archive.html">一月</a>
+<span class="post-count" dir="ltr">(17)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate expanded">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/search?updated-min=2011-01-01T00:00:00%2B08:00&updated-max=2012-01-01T00:00:00%2B08:00&max-results=50">2011</a>
+<span class="post-count" dir="ltr">(197)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2011_12_01_archive.html">十二月</a>
+<span class="post-count" dir="ltr">(17)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2011_11_01_archive.html">十一月</a>
+<span class="post-count" dir="ltr">(19)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2011_10_01_archive.html">十月</a>
+<span class="post-count" dir="ltr">(20)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2011_09_01_archive.html">九月</a>
+<span class="post-count" dir="ltr">(7)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2011_08_01_archive.html">八月</a>
+<span class="post-count" dir="ltr">(16)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2011_07_01_archive.html">七月</a>
+<span class="post-count" dir="ltr">(15)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2011_06_01_archive.html">六月</a>
+<span class="post-count" dir="ltr">(27)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate expanded">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2011_05_01_archive.html">五月</a>
+<span class="post-count" dir="ltr">(33)</span>
+<ul class="posts">
+<li><a href="http://blog.lyhdev.com/2011/05/blog-post_997.html">「正」字新解</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/blog-post_289.html">風行網播放器網路流量頻寬限制設定</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/blog-post_30.html">歌手阿福(鄧福如)首張專輯發表：原來如此 ...</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/blog-post_29.html">塑化劑風波愈演愈烈，揭發假食物的閱讀清單</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/nginxphp5-fpmubuntu-1104.html">三分鐘快速安裝nginx+php5-fpm，以Ubuntu 11.04為例</a></li>
+<li><a href="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌.htm">深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/openssh-ssh.html">深入淺出OpenSSH於日常工作的應用(一) 安裝與使用ssh</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/groovy-taiwan.html">新成立Groovy Taiwan臉書粉絲團</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/ecfa.html">ECFA如何影響我們工作的未來？</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/blog-post_23.html">達成工作與生活平衡的訣竅？</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/phonegap.html">PhoneGap 跨平台的行動應用程式開發框架</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/dokuwiki-disqus.html">DokuWiki + Disqus 讓協作平台也有留言回應功能</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/blog-blogger.html">選擇那個 Blog 平台？我喜歡與不喜歡 Blogger 的原因</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/mac-os-x-svn-git.html">Mac OS X 開發環境的 SVN 及 GIT 圖形介面工具</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/linuxlynxgrepless.html">在linux下運用lynx+grep+less指令快速閱讀網頁</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/ppsppstream.html">比PPS更讚的「風行網」網路電視！ ppstream、funshion</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/blog-post_17.html">單車的夢想與實現</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/blog-post_16.html">一則關於挨踢人篸的小故事</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/fotoxxhdr-linux.html">用fotoxx玩HDR - 開放源碼免費照片修圖軟體 Linux專用版</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/blog-post_11.html">台灣沒有軟體人才？看看蘭奇怎麼說！</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/eclipse.html">效能設定微調改善 Eclipse 開發工具的執行速度</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/blog-post_09.html">未來網路書店的現在進行式？</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/miro-player.html">免費的網路影音播放器 Miro Player</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/carols-as-i-remember.html">Carol's As I Remember..</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/windowsubuntu-unity.html">幫Windows換上Ubuntu Unity的外皮</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/ubuntuati.html">Ubuntu打包ATI顯示卡驅動程式</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/ubuntu-1104-natty.html">升級Ubuntu 11.04 Natty之後...</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/disqus.html">留言板的進化，DISQUS獲一千萬美金投資</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/carols-bootleg.html">私藏發燒好聲音 Carol's Bootleg</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/minix-3.html">用MINIX 3認識「作業系統」</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/copad.html">CoPad - 免費的線上程式碼編輯平台</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/javascriptqbasic.html">用JavaScript執行QBASIC貪食蛇程式</a></li>
+<li><a href="http://blog.lyhdev.com/2011/05/blog-post.html">簡易的標籤雲演算法</a></li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2011_04_01_archive.html">四月</a>
+<span class="post-count" dir="ltr">(30)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2011_03_01_archive.html">三月</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2011_02_01_archive.html">二月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2011_01_01_archive.html">一月</a>
+<span class="post-count" dir="ltr">(8)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/search?updated-min=2010-01-01T00:00:00%2B08:00&updated-max=2011-01-01T00:00:00%2B08:00&max-results=50">2010</a>
+<span class="post-count" dir="ltr">(72)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2010_12_01_archive.html">十二月</a>
+<span class="post-count" dir="ltr">(22)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2010_11_01_archive.html">十一月</a>
+<span class="post-count" dir="ltr">(7)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2010_10_01_archive.html">十月</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2010_09_01_archive.html">九月</a>
+<span class="post-count" dir="ltr">(12)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2010_08_01_archive.html">八月</a>
+<span class="post-count" dir="ltr">(15)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2010_07_01_archive.html">七月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2010_06_01_archive.html">六月</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2010_02_01_archive.html">二月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2010_01_01_archive.html">一月</a>
+<span class="post-count" dir="ltr">(7)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/search?updated-min=2009-01-01T00:00:00%2B08:00&updated-max=2010-01-01T00:00:00%2B08:00&max-results=50">2009</a>
+<span class="post-count" dir="ltr">(111)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2009_12_01_archive.html">十二月</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2009_11_01_archive.html">十一月</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2009_09_01_archive.html">九月</a>
+<span class="post-count" dir="ltr">(5)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2009_07_01_archive.html">七月</a>
+<span class="post-count" dir="ltr">(8)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2009_06_01_archive.html">六月</a>
+<span class="post-count" dir="ltr">(15)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2009_05_01_archive.html">五月</a>
+<span class="post-count" dir="ltr">(9)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2009_04_01_archive.html">四月</a>
+<span class="post-count" dir="ltr">(12)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2009_03_01_archive.html">三月</a>
+<span class="post-count" dir="ltr">(15)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2009_02_01_archive.html">二月</a>
+<span class="post-count" dir="ltr">(10)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2009_01_01_archive.html">一月</a>
+<span class="post-count" dir="ltr">(30)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/search?updated-min=2008-01-01T00:00:00%2B08:00&updated-max=2009-01-01T00:00:00%2B08:00&max-results=50">2008</a>
+<span class="post-count" dir="ltr">(241)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2008_12_01_archive.html">十二月</a>
+<span class="post-count" dir="ltr">(30)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2008_11_01_archive.html">十一月</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2008_10_01_archive.html">十月</a>
+<span class="post-count" dir="ltr">(7)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2008_09_01_archive.html">九月</a>
+<span class="post-count" dir="ltr">(29)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2008_08_01_archive.html">八月</a>
+<span class="post-count" dir="ltr">(55)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2008_07_01_archive.html">七月</a>
+<span class="post-count" dir="ltr">(29)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2008_06_01_archive.html">六月</a>
+<span class="post-count" dir="ltr">(9)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2008_05_01_archive.html">五月</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2008_04_01_archive.html">四月</a>
+<span class="post-count" dir="ltr">(23)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2008_03_01_archive.html">三月</a>
+<span class="post-count" dir="ltr">(21)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2008_02_01_archive.html">二月</a>
+<span class="post-count" dir="ltr">(25)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2008_01_01_archive.html">一月</a>
+<span class="post-count" dir="ltr">(6)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/search?updated-min=2007-01-01T00:00:00%2B08:00&updated-max=2008-01-01T00:00:00%2B08:00&max-results=27">2007</a>
+<span class="post-count" dir="ltr">(27)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2007_12_01_archive.html">十二月</a>
+<span class="post-count" dir="ltr">(8)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2007_11_01_archive.html">十一月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2007_10_01_archive.html">十月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2007_08_01_archive.html">八月</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2007_07_01_archive.html">七月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2007_06_01_archive.html">六月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2007_05_01_archive.html">五月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2007_04_01_archive.html">四月</a>
+<span class="post-count" dir="ltr">(7)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/search?updated-min=2006-01-01T00:00:00%2B08:00&updated-max=2007-01-01T00:00:00%2B08:00&max-results=8">2006</a>
+<span class="post-count" dir="ltr">(8)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2006_12_01_archive.html">十二月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2006_08_01_archive.html">八月</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2006_07_01_archive.html">七月</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle">
+<span class="zippy"></span>
+</a>
+<a class="post-count-link" href="http://blog.lyhdev.com/2006_05_01_archive.html">五月</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=27624995&widgetType=BlogArchive&widgetId=BlogArchive1&action=editWidget&sectionId=main" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;BlogArchive1&quot;));" target="configBlogArchive1" title="編輯">
+<img alt="" height="18" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="column-left-outer">
+<div class="column-left-inner">
+<aside>
+</aside>
+</div>
+</div>
+<div class="column-right-outer">
+<div class="column-right-inner">
+<aside>
+<div class="sidebar section" id="sidebar-right-1"><div class="widget HTML" id="HTML2">
+<div class="widget-content">
+<div id="bloggerads">
+<script type="text/javascript" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/showads.aspx"></script><ins id="BA_AD" onclick="return false;" align="left"><ins onmouseover="b16854520.hO()" onmouseout="b16854520.hC()" class="ba_title" onclick="window.open(&#39;http://js1.bloggerads.net/h_click.aspx?b=20080816000410&#39;)">BloggerAds 廣告</ins><ins class="ba_ad_panel"><ins class="ba_ad_area" id="ba_ad_0" onmouseover="b16854520.aC(this, 0, &#39;i&#39;)" onmouseout="b16854520.aC(this, 0, &#39;o&#39;)"><ins class="ba_ad_title" onclick="b16854520.aC(this, 0, &#39;ck&#39;)">異國風味超值省</ins><ins class="ba_ad_picture" id="ba_ad_020956237544305623" onclick="b16854520.aC(this, 0, &#39;ck&#39;)" style="height:120px"><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.adobe.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="145" height="120" align="middle"><param name="allowScriptAccess" value="always"><param name="movie" value="http://piccdn.bloggerads.net/BloggerAds/2013/Q4/BA_145_120_131114_fubon_restaurant.swf"><param name="quality" value="high"><param name="wmode" value="transparent"><param name="flashvars" value="getlink=http%3A%2F%2Fjs1.bloggerads.net%2F1731633936.XE5IXmRG%2F20080816000410%2F20130913000004%2F1%2F63522105206%2F11768%2Fclick.aspx%3Futm_source%3Dads%26utm_medium%3D20130913000004%26utm_campaign%3D11768"><embed src="http://piccdn.bloggerads.net/BloggerAds/2013/Q4/BA_145_120_131114_fubon_restaurant.swf" flashvars="getlink=http%3A%2F%2Fjs1.bloggerads.net%2F1731633936.XE5IXmRG%2F20080816000410%2F20130913000004%2F1%2F63522105206%2F11768%2Fclick.aspx%3Futm_source%3Dads%26utm_medium%3D20130913000004%26utm_campaign%3D11768" width="145" height="120" wmode="transparent" quality="high" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash" pluginspage="http://adobe.com/go/getflashplayer"></object></ins><ins class="ba_ad_body" onclick="b16854520.aC(this, 0, &#39;ck&#39;)">好氛圍聚餐超盡興，刷富邦信用卡，只要85折起</ins><ins class="ba_ad_more" onclick="b16854520.aC(this, 0, &#39;ck&#39;)">更多訊息..</ins></ins></ins><ins class="ba_foot" onclick="window.open(&#39;http://js1.bloggerads.net/h_click.aspx?b=20080816000410&#39;)"></ins></ins>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=27624995&widgetType=HTML&widgetId=HTML2&action=editWidget&sectionId=sidebar-right-1" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML2&quot;));" target="configHTML2" title="編輯">
+<img alt="" height="18" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget HTML" id="HTML5">
+<div class="widget-content">
+<iframe src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/likebox.htm" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:62px;" allowtransparency="true"></iframe>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=27624995&widgetType=HTML&widgetId=HTML5&action=editWidget&sectionId=sidebar-right-1" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML5&quot;));" target="configHTML5" title="編輯">
+<img alt="" height="18" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget HTML" id="HTML1">
+<div class="widget-content">
+<span style="color:red">推薦！</span><br>
+
+<a href="http://blog.lyhdev.com/2012/11/titan.html" target="_blank">選購專業<font color="red">自行車襪</font>...</a><br>
+
+--<br>
+
+<a href="http://db.tt/Uk0r0J3d" target="_blank" style="color:blue;font-weight:bold">Dropbox 免費雲端硬碟</a>
+<a href="http://db.tt/Uk0r0J3d"><img src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/Dropbox-Logo.png" height="49" width="144"></a>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=27624995&widgetType=HTML&widgetId=HTML1&action=editWidget&sectionId=sidebar-right-1" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML1&quot;));" target="configHTML1" title="編輯">
+<img alt="" height="18" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div><div class="widget AdSense" id="AdSense3">
+<div class="widget-content">
+<script type="text/javascript"><!--
+google_ad_client="pub-0839975967683137";
+google_ad_host="pub-1556223355139109";
+google_ad_width=200;
+google_ad_height=200;
+google_ad_format="200x200_as";
+google_ad_type="text_image";
+google_ad_host_channel="0001";
+google_color_border="FFFFFF";
+google_color_bg="FFFFFF";
+google_color_link="0000FF";
+google_color_url="4D4D4D";
+google_color_text="000000";
+//--></script>
+<script type="text/javascript" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/show_ads.js">
+</script><ins style="display:inline-table;border:none;height:200px;margin:0;padding:0;position:relative;visibility:visible;width:200px;background-color:transparent"><ins id="aswift_2_anchor" style="display:block;border:none;height:200px;margin:0;padding:0;position:relative;visibility:visible;width:200px;background-color:transparent"><iframe width="200" height="200" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;"></iframe></ins></ins>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=27624995&widgetType=AdSense&widgetId=AdSense3&action=editWidget&sectionId=sidebar-right-1" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;AdSense3&quot;));" target="configAdSense3" title="編輯">
+<img alt="" height="18" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget LinkList" id="LinkList3">
+<div class="widget-content">
+<ul>
+<li><a href="http://www.vixual.net/">Vixual 網路視野</a></li>
+<li><a href="http://www.choafree.com/">超free手札</a></li>
+<li><a href="http://www.allaregame.com/">寶島遊戲王</a></li>
+<li><a href="http://agricloud.cc/">雲端農場</a></li>
+<li><a href="http://eros.ek21.com/">Eros戀語</a></li>
+<li><a href="http://i17.tw/">生活工場家</a></li>
+<li><a href="http://momma.tw/">媽咪寶貝大小事</a></li>
+<li><a href="http://moonlit.tw/">月光下的嘆息!</a></li>
+<li><a href="http://moonpoet.com/">免費軟體下載</a></li>
+<li><a href="http://www.wowgood.org/">挖股誌~WOW Good</a></li>
+<li><a href="http://contpub.org/">看吧！製作電子書</a></li>
+<li><a href="http://wiiind.com/">風揚名@Blog</a></li>
+<li><a href="http://clonn.blogspot.com/">熱血漢誌</a></li>
+<li><a href="http://blueapple48.pixnet.net/blog">blueappleの伽藍之洞</a></li>
+<li><a href="http://hack.sslab.co/">Hack × StrongSoft</a></li>
+<li><a href="http://sslab.co/">思創軟體</a></li>
+<li><a href="http://fly3c.tw/">台北台中二手收購</a></li>
+<li><a href="http://tw.myblog.yahoo.com/k0930723959">桃園八德鼎烽二手家具行</a></li>
+<li><a href="http://yingchi-dent.blogspot.com/">彰化英棋牙醫</a></li>
+<li><a href="http://www.xn--pzyx4de7lp5a.tw/">茶葉禮盒 | 台灣小農 - 產地直營</a></li>
+<li><a href="http://www.twkate.com/">凱特打結該該叫</a></li>
+<li><a href="http://i58.tw/">藍色小站</a></li>
+<li><a href="http://0915520799.com/">好朋友二手家具</a></li>
+<li><a href="http://tw.myblog.yahoo.com/a0915520799/">好朋友二手家具(雅虎)</a></li>
+<li><a href="http://job.achi.idv.tw/">工作達人</a></li>
+<li><a href="http://jimmyyen.blogspot.com/">zog: zeng's opinion blog</a></li>
+<li><a href="http://tw.myblog.yahoo.com/pandora-house">花蓮民宿‧潘朵拉&amp;美人魚</a></li>
+<li><a href="http://www.countrygrange.com.tw/">宜蘭民宿．庄腳所在</a></li>
+<li><a href="http://www.rank-ad.com/blog/">seo優化排名, seo搜索引擎</a></li>
+<li><a href="http://enochng.mysinablog.com/">! 程式設計員的創業生涯 !</a></li>
+<li><a href="http://inote.tw/">海芋小站</a></li>
+</ul>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=27624995&widgetType=LinkList&widgetId=LinkList3&action=editWidget&sectionId=sidebar-right-1" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;LinkList3&quot;));" target="configLinkList3" title="編輯">
+<img alt="" height="18" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget HTML" id="HTML12">
+<div class="widget-content">
+<div><a href="http://www.top-bloggers.com/"><img src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/saved_resource(1)" title="網誌排行 top-bloggers.com"></a></div>
+
+<div><a href="http://feeds2.feedburner.com/lyhdev"><img width="88" style="border:0" alt="" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/lyhdev" height="26"></a></div>
+
+<div><script src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/classic.js" type="text/javascript"></script><div title="Click to see what&#39;s popular on this site!" style="position: relative; display: inline-block; background-image: url(data:image/gif;base64,R0lGODlhUgA8APf5AEZGRj09PQwMDDU1NcEnLQgICDAwMAUFBUVFRTg4OAICAi0tLVFRUV1dXVtbW0JCQnh4eOjo6NLS0o2NjcnJyePj45CQkOfn5+Tk5K2trWBgYLm5uUBAQGpqamtra3BwcHp6epOTk+np6a6urpKSkru7u2dnZ1lZWc/Pz46OjsjIyKysrKampstLUMxNUqqqqqioqOrq6nR0dGFhYctJTpWVlcpFStBcYOLi4tbW1s1RVs5VWcc8Qry8vH19fbe3t3d3d8fHx6KiotPT08hARlhYWGRkZMHBwYSEhICAgNTU1NDQ0L6+vqWlpcbGxnZ2dmhoaL+/vz8/P5mZmXJycmZmZjk5OTo6OkxMTNHR0aI3PKCgoFdXVzExMYiIiEdHR0NDQ3JcXaIlKrcnLZomK1NTU5UhJmVlZY9cXmxBQ2JiYisrK0lJSVRUVBsbG4uLi21tbaSkpE9PT19fX4pWVygfHz4+PkUoKUojJRgYGC4uLmNjY1VVVVBQUJ9RVWxWVpsnLC8vL79ARhYWFhISEiwsLFMZG4tJTIAgJFM4OUY9PbBFSYJKS7NLTzIyMmtLTH4nK6dRVU4nKQoKCnlcXSYmJqU8QUo4OWseITklJjIfIGZOT75RVX83OzMzMxsREpcjKGVWVlgeIatJTeHh4SAgIF4aHZdFSIg3O1shJKJJTAkJCYkgJLcmLCQkJBUVFTkcHW5ubjonKL9VWatLT2gkJ30nKhEREbYmK3slKDIoKF5eXlJKSqQnKx8fH9BcYU5GRqNLTowjJywiI7tJTY1NULYmLCQaGk4oKaRcX69ARXMdIF9GRoVARIhSVB8VFpJVWE1NTTsoKVpaWnJKS6QnLJM8QHxLTQYGBmAmKK0mLB0dHcXFxVZOTsFFSoNLTTw8PK4nLEpBQSYTFFc9PponKz0gIbdVWX5OUEFBQSIiIktLS05OTiUlJScnJ0pKShAQEFZWVlJSUh4eHlxcXBkZGRQUFCgoKP///////wAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAPkALAAAAABSADwAAAj/APMJ7ADBhIYG9BIqXMiwocOHECNG3KUBjoMOAjPm62CH3Yl4DEKKHEmypMmTKFOqLBNvGpt0GDN2SGeETwI9C3Lq3Mmzp8+fQIMKXRDIzow5UmJ2eGDii4GnUKNKnUq1qtWrWKnSm/MAY6w2JwaIHUu2rNmzaNOqXZsWzjsH+fYYSZegrt1LnbTo1YIqkd2/gAMLHky4MOEyGqrkg7IngGPHiqzxmEx5siVyjzNr3sy5s+fPnN8ZgQtFTbrT6cQpI8KaiKA0zVq/Rk27tu3buHPrto3lDNwOZwAIB7bIhnHjp4Qft+GNmfDn0KNLn069uvXnfarA9WBi3bt3qmiI/xc/ihG1Q+PFE+P1vb379/Djy59P/3sbKL+hyGG3yYV//+iwI2A3//1XjIAIJqjgggw26OCDAhahXT4zqMGHPH7ooKEOkcjjjDwgZrihDpyAaOKJKKao4oostghiAw3AFY8c8XAxyw447kDHH3TEEw80oZyTI45/+GjkkUgmqeSSTDZ5AhfRwCUPGFZw8csNWN4QBhph0BPGDWjQk0yWN1Ai0ZlopqlQA/JY8QVcfUhxTwIt1FnnN8Gss841ddLSiJ0tPKLnoIQWauihiCaKKBZsdBEIGHCxA8499xBg6aWAUHrHGJd2igyloIYq6qiklmrqqffowQFcWFhBaTidEv+QKSS6bBorAdKgquuuvIq6QABwvTOAO+7Ycqs75YwhiySxVkPss9BGK+201FZrLbFrXAHXF120004msfbSDhkEkDFup9l4q+667Lbr7rvwxuvtPQPABUAh6uSbS6e1DHMpHnhcqk2+BBds8MEIJ6zwwgS3YwBcYLQzz8R1iHGpJqlcKkbFBLRizsQghyzyyCSXbPLJIJeyBlzp+FLPy/UcA4qloghzqzGwwKzzzjz37PPPQPPshitwSZGHPUgnjQkutxKAyDNJRy311FRXbfXVVL8yD1wPEALP12DD84khy5hhBiumjBP22my37fbbcMcNzy1uKAZFHgLkrffefPf/7fffgAcuuOCVkOZIAYgnrvjijDfu+OOQRw65AEkN5A42B2Su+eacd+7556CHLrrnk3gS00BWDLKKAqy37vrrsMcu++y01966ANtUrtFGDpyAwO/ABy/88MQXb/zxyAM/w0UaobYFCh+c5gUKKPwQfTpeXKD99lvUtkURtaGw/QU/2FYE+OmIP/4F0KdTxA/iW4/a+9Sj4IVtADSwBD74CAHABvhYwgYu0D8AyGADCBxgAKEjBHw0ADoyCGAC/cdAfLxBOEJIIAIJ+IYGEBCB/JOBAfknwA9GRwMRiMAE8BGHFU6gPSXAhwbekwV8AME9EcjCe4BgQ/nE8IXyWeE7/+KADyCiMALvyEIEZvidGDLxOyyIgBHYgQ8WgEACCQIBPkCQIBbgwwJd3CI7LDBFdmiRiwvqgRgdJIEesKMHEUiQGtkRATci6IwJOhE+YJAiEuDDBCby4xBQJIJBygMfJACRD/DBBBiQwAeBRGSLFglJJojgRJY8JB9NZAJJmuhI+HgBkjwQyiNFgX9RMFIN8JGEeJCyBj4iJf/4pwRX4qOWTYqCCHy0SlHGIwn4SGUpjfTKIy0EHxlgSAxy0JAPTGGZCYEmPT6Ajyk0MwPVxGYMjnCEDHygmchUSAz4N058IIEe4VQINa2pEELhowmEKkEEZoCoJuADAim4p55mgP+PFKwDC4aKQAkkwL8U8s+fhLInBPQEAf5JQJ79XMc7CcVPhOopVPgIAaga2gBTcZQCFADVA+5ZKpBiwIGUegAF8CEqDGAAVCt9AEzxMVKNipSkpMoopRqA01KN4KX4oACMGtDQEXRUVDXFxwhCxdOj3oOnNr2HUpnqQJ3eFAKhglZG3fEADIzAWg2FgDtOOsuyPiBaMd3qs5r6rJg+S63Eaipc3cHWBzTAHetCZDtUUIF4+fEJ6lqVAwaLSA6sywEVwIcD9tpXdWHTsO3gAD5UsC6+Qnav+OAAX9f12CfwjwQF+2IEK2CB0pbWMSewQAUqcIKEBQAfMshXAGSwAnz/BCEA+ToBPkhrgSDgYwUEs8AXC/baCqxAtbBVh25561vgCte2IcMBFfJZVv7F4wX4cAIVUIaDeEwMB9ndbsji4QT+4SAFIUsBDq4gsitgN7venRh5wXtekGH3BUHLr373y1/+4mAAWAuwgAdM4AGzgAX2kJuCF8zgBrttHaT42nc0cMN3AGECTNTABDY8gQpP2D0cBiJ8QrzhCW/4iRrGcHsorOL3uA9+1bteRtjhRSlKIAIEZQGNJcBjfMRRQCD48RjxwWMJlJHGduxBkQkKAi32GIxaxHEVzehjgtoRQRGUIAH9lxEYiMDLMDBkJwEJok5CEkRD2KQ8SGBITA6B/8wn6qQ8mMAEEHlZHl9W5B/TXOY/nkiJT3RiRmrggSSIwAMeMNKhYykCX/5ylzWAZQ2UgGgjvQCXSXpBKpUAS1vGAx+J9pEIgBnqeIwalDq+4xYzkhAkxGAhGWBmQrCZg2/SIwfJ7CY9pjDLWiMBH7ZuSAzOeQRZF5seMUgmPX5NzWAP+5hqlgclM8LQCAwKAvOkaBOsjW09laAEFH1oDAcKT0KlwNrraOgs/ZnPHuNDovTUUwQWOiglLNpHSmBlRnb60nt01akYbcAIbDqCpTKVAi4NAQRAGioKEBwDMGK4vyGw8JDSFFQQD9Wv8cHNcn5g30/tNwWwOqqRShUCMPoquExBFYKVOvXi/oZ5ximF0pRiAKswv8fMKZXugd7Yx+vISFwx4I4QfFVaXRUrwl3KPwqstapnJRbEiTUCpxPLgW+9K1cpcHSsX/2sFHcHUnWaEW8h1gGK5YDa1fWECgCWXRnIgLc4kIEKLFYFKnAAB0jQ2Hbo1VsZyDvdKduOtssd8CpQe90jyz8HiCqm98iIbI1b3QCswLi4PVhp1ZHYFWTe8vwLQmvVEYAKZD5fyPW8OmQgeuJe3rajr+0JoDWCexIrIyjLve53z/uJXcEJ85i7CvDx9nZkpL/IT35/uSGPeqhDuKwtWEYKTP3qF7gLSIuHdEeWkYAAADs=); width: 81px; height: 29px; padding: 0px; overflow: hidden; cursor: pointer; direction: ltr;"><div style="position: absolute; top: 7px; padding: 0px; margin: 0px; overflow: visible; left: 41px;"><div style="background-image: url(data:image/gif;base64,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); background-attachment: scroll; position: absolute; width: 9px; height: 17px; left: 0px; line-height: 17px; overflow: hidden; padding: 0px; margin: 0px; background-position: -51px -29px; background-repeat: no-repeat no-repeat;"></div></div></div><script type="text/javascript">WAU_classic('ntppy8wup39s')</script></div>
+
+<div><a href="http://pagerank.easylife.tw/" target="_blank" title="Google PageRank查詢"><img src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/pagerank.php" border="0" alt="Google PageRank查詢" onerror="this.style.display=&#39;none&#39;;"></a></div>
+
+<a target="_blank" href="http://sitetag.us/profile/lyhcode/5172aadcfc1342c5b39c677dad27a172"><img src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/img_track.png" alt="Sitetag"></a><script type="text/javascript" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/tracking.js"></script>
+
+<div><img src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/cc-by-nc-sa-88x31.png" alt="姓名標示─非商業性─相同方式分享" border="0"></div>
+
+<!--鐵人賽小貼紙-->
+<!--<script src="http://ithelp.ithome.com.tw/ironman5/sticker/tech/20006680"></script>
+<script src="http://ithelp.ithome.com.tw/ironman5/sticker/life/20006680"></script>-->
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=27624995&widgetType=HTML&widgetId=HTML12&action=editWidget&sectionId=sidebar-right-1" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;HTML12&quot;));" target="configHTML12" title="編輯">
+<img alt="" height="18" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div></div>
+</aside>
+</div>
+</div>
+</div>
+<div style="clear: both"></div>
+<!-- columns -->
+</div>
+<!-- main -->
+</div>
+</div>
+<div class="main-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+<footer>
+<div class="footer-outer">
+<div class="footer-cap-top cap-top">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+<div class="fauxborder-left footer-fauxborder-left">
+<div class="fauxborder-right footer-fauxborder-right"></div>
+<div class="region-inner footer-inner">
+<div class="foot section" id="footer-1"></div>
+<table border="0" cellpadding="0" cellspacing="0" class="section-columns columns-2">
+<tbody>
+<tr>
+<td class="first columns-cell">
+<div class="foot section" id="footer-2-1"></div>
+</td>
+<td class="columns-cell">
+<div class="foot section" id="footer-2-2"></div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- outside of the include in order to lock Attribution widget -->
+<div class="foot section" id="footer-3"><div class="widget Attribution" id="Attribution1">
+<div class="widget-content" style="text-align: center;">
+Copyright © <a href="http://sslab.co/">StrongSoft 思創軟體</a>. 內容轉載請註明出處. 引述圖文由原作者所有. Simple範本. 由 <a href="http://www.blogger.com/" target="_blank">Blogger</a> 技術提供.
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=27624995&widgetType=Attribution&widgetId=Attribution1&action=editWidget&sectionId=footer-3" onclick="return _WidgetManager._PopupConfig(document.getElementById(&quot;Attribution1&quot;));" target="configAttribution1" title="編輯">
+<img alt="" height="18" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/icon18_wrench_allbkg.png" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div></div>
+</div>
+</div>
+<div class="footer-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</footer>
+<!-- content -->
+</div>
+</div>
+<div class="content-cap-bottom cap-bottom">
+<div class="cap-left"></div>
+<div class="cap-right"></div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+    window.setTimeout(function() {
+        document.body.className = document.body.className.replace('loading', '');
+      }, 10);
+  </script>
+<!--justfont-->
+<script src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/04a33145MnLiu8AI4KNCkfQQX18d_e3RX0f8GVpfG1diW5LYhaoiIuChsq61MXXmmv1-DTv5O0x8Q-M6wDVACDJxtEeI-_zEH2erPVBnvn_O0rNYUxTAysJ7bMYsPVRNRtxxKcR7LU_kpdARwG4Q_xXHkyz.js" type="text/javascript"></script>
+<script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('widgetJsBefore');
+</script><script type="text/javascript" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/911077727-widgets.js"></script>
+<script type="text/javascript" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/plusone.js" gapi_processed="true"></script>
+<script type="text/javascript">
+if (typeof(BLOG_attachCsiOnload) != 'undefined' && BLOG_attachCsiOnload != null) { window['blogger_templates_experiment_id'] = "templatesV2";window['blogger_blog_id'] = '27624995';BLOG_attachCsiOnload('item_'); }_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d27624995','//blog.lyhdev.com/2011/05/openssh-sftp.html','27624995');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '27624995', 'bloggerUrl': 'http://www.blogger.com', 'title': '玩物尚誌', 'pageType': 'item', 'url': 'http://blog.lyhdev.com/2011/05/openssh-sftp.html', 'canonicalUrl': 'http://blog.lyhdev.com/2011/05/openssh-sftp.html', 'canonicalHomepageUrl': 'http://blog.lyhdev.com/', 'homepageUrl': 'http://blog.lyhdev.com/', 'blogspotFaviconUrl': 'http://blog.lyhdev.com/favicon.ico', 'enabledCommentProfileImages': true, 'adultContent': false, 'disableAdSenseWidget': false, 'analyticsAccountNumber': 'UA-298440-3', 'searchLabel': '', 'searchQuery': '', 'pageName': '深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案', 'pageTitle': '玩物尚誌: 深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案', 'encoding': 'UTF-8', 'locale': 'zh_TW', 'localeUnderscoreDelimited': 'zh_tw', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'languageDirection': 'ltr', 'feedLinks': '\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42玩物尚誌 - Atom\42 href\75\42http://blog.lyhdev.com/feeds/posts/default\42 /\76\n\74link rel\75\42alternate\42 type\75\42application/rss+xml\42 title\75\42玩物尚誌 - RSS\42 href\75\42http://blog.lyhdev.com/feeds/posts/default?alt\75rss\42 /\76\n\74link rel\75\42service.post\42 type\75\42application/atom+xml\42 title\75\42玩物尚誌 - Atom\42 href\75\42http://www.blogger.com/feeds/27624995/posts/default\42 /\76\n\n\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42玩物尚誌 - Atom\42 href\75\42http://blog.lyhdev.com/feeds/2707170848676004453/comments/default\42 /\76\n', 'meTag': '', 'openIdOpTag': '', 'googleProfileUrl': 'https://plus.google.com/104049001792470288939', 'postImageThumbnailUrl': 'http://4.bp.blogspot.com/-iWq2JWpN4XI/Td8YNCzmhuI/AAAAAAAAEkk/ILWM45ek2BM/s72-c/fz3_win_main-small.png', 'imageSrcTag': '\74link rel\75\42image_src\42 href\75\42http://4.bp.blogspot.com/-iWq2JWpN4XI/Td8YNCzmhuI/AAAAAAAAEkk/ILWM45ek2BM/s72-c/fz3_win_main-small.png\42 /\76\n', 'latencyHeadScript': '\74script type\75\42text/javascript\42\76(function() { var b\75window,f\75\42jstiming\42,g\75\42tick\42;(function(){function d(a){this.t\75{};this.tick\75function(a,d,c){var e\75void 0!\75c?c:(new Date).getTime();this.t[a]\75[e,d];if(void 0\75\75c)try{b.console.timeStamp(\42CSI/\42+a)}catch(h){}};this[g](\42start\42,null,a)}var a;b.performance\46\46(a\75b.performance.timing);var m\75a?new d(a.responseStart):new d;b.jstiming\75{Timer:d,load:m};if(a){var c\75a.navigationStart,h\75a.responseStart;0\74c\46\46h\76\75c\46\46(b[f].srt\75h-c)}if(a){var e\75b[f].load;0\74c\46\46h\76\75c\46\46(e[g](\42_wtsrt\42,void 0,c),e[g](\42wtsrt_\42,\42_wtsrt\42,h),e[g](\42tbsd_\42,\42wtsrt_\42))}try{a\75null,\nb.chrome\46\46b.chrome.csi\46\46(a\75Math.floor(b.chrome.csi().pageT),e\46\0460\74c\46\46(e[g](\42_tbnd\42,void 0,b.chrome.csi().startE),e[g](\42tbnd_\42,\42_tbnd\42,c))),null\75\75a\46\46b.gtbExternal\46\46(a\75b.gtbExternal.pageT()),null\75\75a\46\46b.external\46\46(a\75b.external.pageT,e\46\0460\74c\46\46(e[g](\42_tbnd\42,void 0,b.external.startE),e[g](\42tbnd_\42,\42_tbnd\42,c))),a\46\46(b[f].pt\75a)}catch(n){}})();b.tickAboveFold\75function(d){var a\0750;if(d.offsetParent){do a+\75d.offsetTop;while(d\75d.offsetParent)}d\75a;750\76\75d\46\46b[f].load[g](\42aft\42)};var k\75!1;function l(){k||(k\75!0,b[f].load[g](\42firstScrollTime\42))}b.addEventListener?b.addEventListener(\42scroll\42,l,!1):b.attachEvent(\42onscroll\42,l);\n })();\74/script\076', 'mobileHeadScript': '', 'adsenseClientId': 'pub-0839975967683137', 'ieCssRetrofitLinks': '\74!--[if IE]\76\74script type\75\42text/javascript\42 src\75\42https://www.blogger.com/static/v1/jsbin/629196723-ieretrofit.js\42\76\74/script\76\n\74![endif]--\076', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/d6f37bb30c327165', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js', 'testHtml5CssSrc': 'https://www.blogger.com/static/v1/widgets/2412321170-css_bundle_html5.css', 'sf': 'n', 'tf': ''}}, {'name': 'skin', 'data': {'vars': {'content_padding': '10px', 'paging_background': 'transparent url(http://www.blogblog.com/1kt/simple/paging_dot.png) repeat-x scroll top center', 'image_border_small_size': '2px', 'body_background_gradient_cap': 'none', 'tabs_selected_background_color': '#e4e4e4', 'body_rule_color': 'transparent', 'header_shadow_spread': '0', 'header_shadow_offset_left': '0', 'header_padding': '0', 'link_visited_color': '#195073', 'mobile_background_size': 'auto', 'post_title_font': 'normal normal 24px \47Trebuchet MS\47, Trebuchet, sans-serif', 'tabs_text_color': '#ababab', 'date_header_margin': 'inherit', 'header_background_gradient': 'none', 'content_shadow_spread_webkit': '0', 'header_bottom_border_size': '0', 'header_shadow_offset_top': '0', 'mobile_button_color': '#ffffff', 'widget_title_font': 'italic bold 11px Georgia, Utopia, \47Palatino Linotype\47, Palatino, serif', 'main_section_margin': '1em', 'keycolor': '#212c6a', 'content_shadow_spread': '0', 'image_background_color': '#ffffff', 'header_font': 'normal bold 42px Arial, Tahoma, Helvetica, FreeSans, sans-serif', 'header_background_color': 'transparent', 'main_border_width': '0', 'main_padding': '0', 'tabs_border_color': '#e4e4e4', 'image_text_color': '#666666', 'description_text_size': '18px', 'post_footer_background_color': '#e4e4e4', 'body_background_gradient_tile': 'none', 'page_width': 'auto', 'tabs_background_gradient': 'none', 'mobile_background_overlay': 'transparent none repeat scroll top left', 'main_padding_bottom': '65px', 'tabs_background_color': 'transparent', 'image_border_large_size': '5px', 'post_margin_bottom': '45px', 'body_background_override': '', 'tabs_margin_side': '30px', 'link_hover_color': '#ee913f', 'description_text_color': '#454b6a', 'body_text_color': '#111111', 'content_padding_horizontal': '40px', 'endSide': 'right', 'page_width_selector': '.region-inner', 'date_header_padding': '0.4em', 'post_footer_text_color': '#000000', 'startSide': 'left', 'date_header_color': '#ffffff', 'tabs_font': 'normal normal 15px \47Trebuchet MS\47, Trebuchet, Verdana, sans-serif', 'post_footer_border_color': '#e4e4e4', 'body_font': 'normal normal 15px \47Trebuchet MS\47, Trebuchet, Verdana, sans-serif', 'footer_bevel': '1px', 'tabs_bevel_border_width': '1px', 'date_header_background_color': '#ababab', 'content_shadow_spread_ie': '0', 'widget_title_text_color': '#ababab', 'header_border_horizontalsize': '1px', 'image_border_color': '#e4e4e4', 'tabs_border_width': '1px', 'content_background_color': '#ffffff', 'link_color': '#195073', 'header_text_color': '#000000', 'date_header_letterspacing': '3px', 'tabs_margin_top': '0', 'main_padding_top': '35px', 'header_border_size': '1px', 'tabs_selected_text_color': '#000000', 'content_background_color_selector': '.content-inner', 'body_background_color': '#ffffff', 'widget_alternate_text_color': '#ababab'}, 'override': '.column-left-inner {\nfont-size:.8125em;\n}\n\n.column-left-inner a {\nfont-weight:bold;\ncolor:#333333;\n}\n\n.post-body, .entry-content {\nline-height:1.8em;\nletter-spacing:0.05em;\nfont-size: 1em;\n}\n\n.post-title a, .entry-title a {\nfont-weight:bold;\n}\n\n.embedPastebin {\nfont-size:11px;\nline-height:1em;\nletter-spacing:0;\n}\n\n.embedPastebin ol {\nbackground-color:#ffffff;\n}\n\npre {\nfont-family:Courier, \47Courier New\47, monospace;\ncolor:#333333;\nbackground-color:#ffffdd;\nfont-size:.8125em;\nline-height:1.2em;\noverflow:auto;\npadding:1em;\nmargin:0;\n}\n\nblockquote {\nfont-size:0.9375;\nmargin:0;padding:1em;\nbackground:#dadada;\ncolor:#333333;\n}\n\n#header-inner .titlewrapper {\nfloat:left;\n}\n\n#header-inner .descriptionwrapper {\ntext-align:right;\nfloat:right;\npadding: 0;\n}\n\n/*好友聯播&#12289;邦交連結字型調整*/\n#BlogList1, #LinkList3, #BlogArchive1 {\nfont-size:0.875em;\n}\n\n.widget.LinkList ul, .widget.LinkList li {\nlist-style:none;\nmargin:0;\npadding:0;\nline-height:1.4em;\n}\n\n#AdSense1, #AdSense2 {\ntext-align:center;\n}'}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '/?view\75classic'}, 'flipcard': {'name': 'flipcard', 'url': '/?view\75flipcard'}, 'magazine': {'name': 'magazine', 'url': '/?view\75magazine'}, 'mosaic': {'name': 'mosaic', 'url': '/?view\75mosaic'}, 'sidebar': {'name': 'sidebar', 'url': '/?view\75sidebar'}, 'snapshot': {'name': 'snapshot', 'url': '/?view\75snapshot'}, 'timeslide': {'name': 'timeslide', 'url': '/?view\75timeslide'}}}]);
+_WidgetManager._RegisterWidget('_PageListView', new _WidgetInfo('PageList1', 'crosscol', null, document.getElementById('PageList1'), {'title': '網頁', 'links': [{'href': 'http://blog.lyhdev.com/', 'title': '首頁', 'isCurrentPage': false}, {'href': 'http://blog.lyhdev.com/p/blog-page_25.html', 'title': '授權', 'isCurrentPage': false}, {'href': 'http://blog.lyhdev.com/p/blog-page_28.html', 'title': '合作', 'isCurrentPage': false}, {'href': 'http://blog.lyhdev.com/p/nodejs-taiwan.html', 'title': 'Node.js Taiwan', 'isCurrentPage': false}, {'href': 'http://blog.lyhdev.com/p/by-lyhcode.html', 'title': 'by lyhcode', 'isCurrentPage': false}], 'mobile': false}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML2', 'sidebar-right-1', null, document.getElementById('HTML2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML5', 'sidebar-right-1', null, document.getElementById('HTML5'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML1', 'sidebar-right-1', null, document.getElementById('HTML1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AdSenseView', new _WidgetInfo('AdSense3', 'sidebar-right-1', null, document.getElementById('AdSense3'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList3', 'sidebar-right-1', null, document.getElementById('LinkList3'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML12', 'sidebar-right-1', null, document.getElementById('HTML12'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AttributionView', new _WidgetInfo('Attribution1', 'footer-3', null, document.getElementById('Attribution1'), {'attribution': 'Copyright &#169; \74a href\75\42http://sslab.co/\42\76StrongSoft 思創軟體\74/a\76. 內容轉載請註明出處. 引述圖文由原作者所有. Simple範本. 由 \74a href\75\47http://www.blogger.com\47 target\75\47_blank\47\76Blogger\74/a\76 技術提供.'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header', null, document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AdSenseView', new _WidgetInfo('AdSense1', 'main', null, document.getElementById('AdSense1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', null, document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'showBacklinks': true, 'postId': '2707170848676004453', 'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/2464548884-lbx__zh_tw.js', 'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/4138445517-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML3', 'main', null, document.getElementById('HTML3'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML4', 'main', null, document.getElementById('HTML4'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AdSenseView', new _WidgetInfo('AdSense2', 'main', null, document.getElementById('AdSense2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'main', null, document.getElementById('BlogArchive1'), {'languageDirection': 'ltr'}, 'displayModeFull'));
+</script>
+
+<iframe name="oauth2relay908511706" id="oauth2relay908511706" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/postmessageRelay.htm" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><link type="text/css" rel="stylesheet" href="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/4138445517-lightbox_bundle.css"><script type="text/javascript" src="./深入淺出OpenSSH於日常工作的應用(二) 使用sftp傳輸檔案 - 玩物尚誌_files/2464548884-lbx__zh_tw.js"></script></body></html>

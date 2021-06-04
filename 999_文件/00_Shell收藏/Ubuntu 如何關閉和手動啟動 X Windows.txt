@@ -1,0 +1,20 @@
+Ubuntu 如何關閉和手動啟動 X Windows
+
+阿舍記得早期的 Linux 並不是一開機就自動啟動 X Windows 的，而是和 Windows 3.1 有點像，先進入文字模式後，再由使用者自己下指令進入圖型界面的，這樣子的好處是開機的速度很快，不用載入一大堆的程式，時至今日，除了 Server 版本的 Linux  之外，現在大部份的 Linux 發現版本都會自動載入 X Windows 的，這樣子做的原因，當然是為了提高親和度和可用性囉 !
+
+阿舍現在用的 Ubuntu 也不例外，不過，阿舍偶爾也想和以前一樣可以自己開關 X Windows，所以，就去查了一下要怎麼做哩 ! 結果，很簡單，只要用二個指令就可以操縱  X Windows 的生死哩 ! 呵呵 !
+
+
+1.首先，可以先用下面這一行指令來讓 X Window 在開機後不會自動載入，執行完成後請重新啟動 Ubuntu。
+
+sudo update-rc.d -f gdm remove
+
+
+2.然後，重開之後，如果要啟動 X Windows，就可以用下面的指令來啟動。
+
+sudo /etc/init.d/gdm start
+
+
+3.如果要離開 X Windows，請用下面這一行指令，仔細看，和啟用的指令只差在 stop 和 start 而已，不過，執行指令後，畫面並不會直接進入文字模式，而是要按 Ctrl+Alt+ F1 才會切到純文字的 Console 畫面。
+
+sudo /etc/init.d/gdm stop

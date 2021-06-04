@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script LANGUAGE="JavaScript">
+function check(inputStr) {
+   if (typeof(inputStr) != "string") { return inputStr; } //判断是否是字符串类型
+   var tmpValue = inputStr;
+    //以下搜索字符串中的特殊字符，如果存在，则替换成""
+    while (tmpValue.indexOf(';') > -1) {tmpValue = tmpValue.replace(';',''); }
+    while (tmpValue.indexOf('<') > -1) {tmpValue = tmpValue.replace('<',''); }
+    while (tmpValue.indexOf('>') > -1) {tmpValue = tmpValue.replace('>',''); }
+    while (tmpValue.indexOf('--') > -1) {tmpValue = tmpValue.replace('--',''); }
+   while (tmpValue.indexOf(",") > -1) {tmpValue = tmpValue.replace(",",""); }
+   while (tmpValue.indexOf("'") > -1) {tmpValue = tmpValue.replace("'",""); }
+   while (tmpValue.indexOf("?") > -1) {tmpValue = tmpValue.replace("?",""); }
+   document.getElementById("txt1").value = tmpValue;  //重新显示更改后的变量
+}
+</script>
+</head>
+<body>
+<input type=text id="txt1" value="select * from userinfo where username=zhang' and passwrod=2" style="width: 392px">
+<input type=button value="提交" onClick="check(txt1.value)">
+</body>
+</html>

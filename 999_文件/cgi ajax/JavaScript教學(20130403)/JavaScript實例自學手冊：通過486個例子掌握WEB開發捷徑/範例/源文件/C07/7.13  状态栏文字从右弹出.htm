@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="JavaScript">
+   var MESSAGE="支持北京奥运会，支持上海世博会 "; //状态栏显示的文本
+//弹出文本的主要方法
+function snapIn(jumpSpaces,position) 
+{
+  var msg = MESSAGE;
+  var out = "";
+  //循环读取文本信息
+  for (var i=0; i<position; i++) 
+    {out += msg.charAt(i);}
+  //生成100个空格
+  for (i=1;i<jumpSpaces;i++) 
+    {out += " ";}
+  //依次读取文本信息
+  out += msg.charAt(position);
+  //在状态栏显示文本信息
+  window.status = out;
+  //实现从右边弹出文本的方法
+  if (jumpSpaces <= 1) {
+    position++;
+    if (msg.charAt(position) == ' ') 
+      {position++; }
+    jumpSpaces = 100-position;
+  } 
+  else if (jumpSpaces >  3)
+     {jumpSpaces *= .75;}
+  else
+    {jumpSpaces--;}
+  if (position != msg.length) {
+    var cmd = "snapIn(" + jumpSpaces + "," + position + ")";
+    scrollID = window.setTimeout(cmd,scroll.delay);//根据定时器，循环弹出文本
+  } else {    
+    window.status="";    
+    jumpSpaces=0;
+    position=0;
+    cmd = "snapIn(" + jumpSpaces + "," + position + ")";
+    scrollID = window.setTimeout(cmd,scroll.delay);
+    return false; }
+  return true;
+}
+snapIn(100,0);
+</script>
+</head>
+<body>
+</body>
+</html>

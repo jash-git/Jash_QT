@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<HTML
+><HEAD
+><TITLE
+>Configuring Linux HID support</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.64
+"><LINK
+REL="HOME"
+TITLE="USB HID for Linux USB"
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"><LINK
+REL="UP"
+TITLE="How Linux handles USB HID devices"
+HREF="p13.html" tppabs="http://www.frogmouth.net/hid-doco/p13.html"><LINK
+REL="PREVIOUS"
+TITLE="USB Device Drivers"
+HREF="x78.html" tppabs="http://www.frogmouth.net/hid-doco/x78.html"><LINK
+REL="NEXT"
+TITLE="Input subsystem"
+HREF="x97.html" tppabs="http://www.frogmouth.net/hid-doco/x97.html"></HEAD
+><BODY
+CLASS="CHAPTER"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>USB HID for Linux USB</TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x78.html" tppabs="http://www.frogmouth.net/hid-doco/x78.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x97.html" tppabs="http://www.frogmouth.net/hid-doco/x97.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="CHAPTER"
+><H1
+><A
+NAME="AEN81"
+>Configuring Linux HID support</A
+></H1
+><P
+>This chapter provides a brief overview of which kernel options
+are relevant for Linux HID support.</P
+><P
+>This chapter is currently just a stub for more information that will
+be provided in a later version.</P
+><DIV
+CLASS="SECT1"
+><H1
+CLASS="SECT1"
+><A
+NAME="AEN85"
+>USB subsystem</A
+></H1
+><P
+>Refer to the Linux USB Guide for more information on configuring
+USB. If you are trying to use some of the examples in the hiddev
+chapter, you should turn the <TT
+CLASS="LITERAL"
+>HID input layer
+support</TT
+>(<SPAN
+CLASS="SYMBOL"
+>CONFIG_USB_HIDINPUT</SPAN
+>) off, and turn
+the <TT
+CLASS="LITERAL"
+>/dev/hiddev raw HID device
+support</TT
+>(<SPAN
+CLASS="SYMBOL"
+>CONFIG_USB_HIDDEV</SPAN
+>) on.</P
+><P
+>If you are trying to use some of the examples in the event
+chapter, you must turn the <TT
+CLASS="LITERAL"
+>HID input layer
+support</TT
+>(<SPAN
+CLASS="SYMBOL"
+>CONFIG_USB_HIDINPUT</SPAN
+>) on. You can
+have the <TT
+CLASS="LITERAL"
+>/dev/hiddev raw HID device
+support</TT
+>(<SPAN
+CLASS="SYMBOL"
+>CONFIG_USB_HIDDEV</SPAN
+>) on or off - it
+won't make any difference.</P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x78.html" tppabs="http://www.frogmouth.net/hid-doco/x78.html"
+>&#60;&#60;&#60; Previous</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="linux-hid.html" tppabs="http://www.frogmouth.net/hid-doco/linux-hid.html"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x97.html" tppabs="http://www.frogmouth.net/hid-doco/x97.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>USB Device Drivers</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="p13.html" tppabs="http://www.frogmouth.net/hid-doco/p13.html"
+>Up</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Input subsystem</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

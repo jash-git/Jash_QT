@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<SCRIPT LANGUAGE="JavaScript">
+function makeArray(q){
+for(i=1 ; i < q ; i++){this[i]=0}}  //设置从1开始的数组
+w=1;
+howmanysites=4; // 显示导航的内容个数
+
+Sites = new makeArray(howmanysites);//设置导航数组
+
+Sites[1] = "http://www.google.com|全球的搜索引擎!";  //以“|”间隔站点和描述
+Sites[2] = "http://www.baidu.com|中国的搜索引擎!";
+Sites[3] = "http://www.yahoo.com|还有一个搜索引擎!";
+function showSites() {
+    if (w > howmanysites) { w=1; };                //如果导航到结尾，则从头开始
+    var string=Sites[w] + "";
+    var split=string.indexOf("|");                 //通过间隔符分组
+    var url=string.substring(0,split);
+    var word=string.substring(split + 1,string.length);//获取链接的描述
+    document.form.url.value=url;                       //获取链接的Url地址
+    document.form.word.value=word;
+    w+=1;
+    window.setTimeout('showSites()',5000);             //每隔5秒钟改变一下链接
+}
+function visitSite() {
+    window.location=document.form.url.value;  //导航到指定位置
+}
+</SCRIPT>
+<center>
+<form name=form>
+<table><tr><td align=center>
+<input type=hidden name=url value="">
+<input type=text name=word value="" onFocus="visitSite()" size=40>
+</td></tr></table>
+</form>
+</center>
+<script>
+showSites();
+</script>
+</body>
+</html>

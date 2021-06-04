@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<style>
+      .userData {behavior:url(#default#userdata);}
+</style>
+</head>
+<body>
+<input type=checkbox id=myChk class=userData>这是使用了UserData的复选框
+    <script language="javascript">
+    var obj=document.all.myChk;             //获取复选框
+    obj.attachEvent('onclick',saveChecked)  //为复选框绑定单击事件
+    function saveChecked(){
+        obj.setAttribute("bCheckedValue",obj.checked);//单击后保存复选框的选中状态
+        obj.save("oChkValue");                        //保存在指定名称的存储区域
+    }
+    window.attachEvent('onload',loadChecked)        //绑定加载事件
+    function loadChecked(){
+        obj.load("oChkValue");                          //找到指定名称的存储区域
+        var chk=(obj.getAttribute("bCheckedValue")=="true")?true:false;//根据变量值，设置chkbox的选中状态
+        obj.checked=chk;
+    }
+    </script>
+    <br /><input type=checkbox id=Checkbox1>这是没使用UserData的复选框
+</body>
+</html>

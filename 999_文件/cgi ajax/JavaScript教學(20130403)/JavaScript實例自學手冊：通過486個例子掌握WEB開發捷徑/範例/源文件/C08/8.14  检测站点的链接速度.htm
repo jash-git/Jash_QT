@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<script>
+indexArr=0                      //连接网站的时间
+setInterval("indexArr++",100)   //设置循环的定时器
+b=1
+var autourl=new Array()         //设置一个链接数组
+autourl[1]="mail.163.com"
+autourl[2]="www.263.net"
+autourl[3]="www.sina.com.cn"
+autourl[4]="www.baidu.com"
+autourl[5]="www.cctv.com"
+
+function writeBtn(){
+    document.write("<form name=autof>") //输出一个提交窗体
+    for(var i=1;i<autourl.length;i++)
+    document.write("<input type=text name=txt"+i+" size=12 value=测试中……> =》<input type=text name=url"+i+" size=40> =》<input type=button value=GO onclick=window.open(this.form.url"+i+".value)><br>")
+    document.write("<input type=submit value=刷新></form>")//输出一个提交按钮
+}
+writeBtn()
+function auto(url){
+    document.forms[0]["url"+b].value=url
+    if(indexArr>200)
+    {document.forms[0]["txt"+b].value="链接超时"}               //如果超时，则提示此信息
+    else
+    {document.forms[0]["txt"+b].value="时间"+indexArr/100+"毫秒"}  //显示链接站点的时间
+    b++
+}
+function run(){
+    for(var i=1;i<autourl.length;i++)                           //循环测试链接站点的时间
+    document.write("<img src=http://"+autourl[i]+"/"+Math.random()+" width=1 height=1 onerror=auto('http://"+autourl[i]+"')>")
+}
+run()
+</script>
+</body>
+</html>

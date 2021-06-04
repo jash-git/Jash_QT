@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+<script language="JavaScript">
+var deadline= new Date("08/08/2008");
+var symbol="2008年8月8日";
+var now = new Date();
+var leave =deadline.getTime() - now.getTime();
+var day = Math.floor(leave / (1000 * 60 * 60 * 24));
+if (day > 0)
+   document.write("今天离"+ symbol+"还有"+day +"天")
+else if (day == 0)
+     document.write("只剩最后一天")
+else
+    document.write("已经超过了所定时间");
+</script>
+</head>
+<body>
+</body>
+</html>

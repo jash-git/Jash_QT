@@ -1,0 +1,56 @@
+<HTML> 
+<HEAD> 
+<META http-equiv="Content-Type" content="text/html; charset=gb2312"> 
+<SCRIPT language="javascript"> 
+function getRange(num, areaId)      //行号，文本区域的ID
+{ 
+    var txtRange = document.all(areaId).createTextRange(); //获取鼠标
+    var rect = txtRange.getClientRects();                  //选择范围
+    var left = rect[0].left;                            //左侧位置
+    if(num > rect.length - 1)                           //超出行范围
+        return; 
+    if(num == 0)                                        //如果是第一行
+    { 
+       var right = rect[0].right; 
+       txtRange.moveEnd("character",-txtRange.text.length); //移动到结尾
+       while(txtRange.offsetLeft + txtRange.boundingWidth < right) //没有到结尾
+       { 
+           txtRange.expand("character");                            //扩展宽度到结尾
+       } 
+       return txtRange;                                             //返回选择区域
+    } 
+    else 
+    { 
+        var right = rect[num].right;                                //右侧范围
+        var txtRange = getRange(num - 1, areaId);                   //获取选择域
+        txtRange.moveStart("character",txtRange.text.length + 1); //移动到开始位置
+        while(txtRange.offsetLeft + txtRange.boundingWidth < right) //如果没有到结尾
+        { 
+            txtRange.expand("character");                           //扩展到结尾
+        } 
+    if(txtRange.offsetLeft > left) 
+            txtRange.moveStart("character",-1);                 //开始位置前
+        return txtRange; 
+    } 
+} 
+function getText(num)               //根据行号，返回选择
+{ 
+    var txtRange = getRange(num,"mytxt") 
+    if(txtRange != null) 
+    { 
+        txtRange.select();             //如果不为空，则选择
+    } 
+} 
+</SCRIPT> 
+</HEAD> 
+<BODY> 
+<TEXTAREA cols="40" rows="10" id="mytxt">
+第一行
+第二行
+第三行
+</TEXTAREA><p> 
+<input type="button" onClick="getText(0)" value="选第一行"> 
+<input type="button" onClick="getText(1)" value="选第二行"> 
+<input type="button" onClick="getText(2)" value="选第三行"> 
+</BODY> 
+</HTML> 

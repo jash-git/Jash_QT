@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+     function isCardNo(num)
+      {
+        if (isNaN(num)) {alert("输入的不全是数字！"); return false;}
+        var len = num.length, re; 
+        if (len == 15)       //15位身份证的判断
+          re = new RegExp(/^(\d{6})()?(\d{2})(\d{2})(\d{2})(\d{3})$/);
+        else if (len == 18)  //18位身份证的判断
+          re = new RegExp(/^(\d{6})()?(\d{4})(\d{2})(\d{2})(\d{3})(\d)$/);
+        else {alert("输入的数字位数不对！"); return false;}
+        var a = num.match(re);//判断是否有符合条件的表达式
+        if (a != null)
+        {
+          if (len==15)
+          {                  //对15位身份证中日期的判断
+            var D = new Date("19"+a[3]+"/"+a[4]+"/"+a[5]);
+            var B = D.getYear()==a[3]&&(D.getMonth()+1)==a[4]&&D.getDate()==a[5];
+          }
+          else
+          {                  //对18位身份证中日期的判断
+            var D = new Date(a[3]+"/"+a[4]+"/"+a[5]);
+            var B = D.getFullYear()==a[3]&&(D.getMonth()+1)==a[4]&&D.getDate()==a[5];
+          }
+          if (!B) {alert("输入的身份证号 "+ a[0] +" 里出生日期不对！"); return false;}
+        }
+        return true;
+      }
+</script>
+</head>
+<body>
+<input type=text name="txt1" value="1110120780423003">
+<input type=button value="判断身份证号" onClick="javascript:alert(isCardNo(txt1.value))">
+</body>
+</html>

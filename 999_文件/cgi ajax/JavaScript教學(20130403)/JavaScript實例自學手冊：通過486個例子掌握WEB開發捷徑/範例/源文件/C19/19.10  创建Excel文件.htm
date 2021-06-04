@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="javascript">
+function createExcel()
+{
+    var ExcelSheet;
+    ExcelApp = new ActiveXObject("Excel.Application");  //创建Excel对象
+    ExcelSheet = new ActiveXObject("Excel.Sheet");      //创建Excel中的一张工作簿
+    ExcelSheet.Application.Visible = true;              //Excel可见
+    ExcelSheet.ActiveSheet.Cells(1,1).Value = "这是第一行第一列"; //设置第一行第一列的内容
+    ExcelSheet.SaveAs("C:\\mytest.xls");                          //保存Excel文件（有危险性）
+    ExcelSheet.Application.Quit();                                //退出Excel的应用程序
+}
+</script>
+</head>
+<body onload="createExcel()" > 
+</body>
+</html>

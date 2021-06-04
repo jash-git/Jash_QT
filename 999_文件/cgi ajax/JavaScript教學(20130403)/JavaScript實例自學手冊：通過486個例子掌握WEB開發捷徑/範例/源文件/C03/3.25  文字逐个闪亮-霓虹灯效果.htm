@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="JavaScript">
+text = "欢迎光临我们的俱乐部";   //显示的文字
+color1 = "gray";                 //文字的颜色
+color2 = "blue";                  //转换的颜色
+fontsize = "6";                  //字体大小
+speed = 100;                     //转换速度 (毫秒) 
+i = 0;
+if (navigator.appName == "Netscape") {//浏览器不同，输出的标签不同
+    document.write("<layer id=myDiv visibility=show></layer><br><br><br>");
+}
+else {
+    document.write("<div id=myDiv></div>");
+}
+function changeCharColor() 
+{
+    if (navigator.appName == "Netscape") {          //Netscape浏览器的情况下
+        document.myDiv.document.write("<center><font face=arial size =" + fontsize + "><font color=" + color1 + ">");
+        for (var j = 0; j < text.length; j++) {
+        if(j == i) {
+            document.myDiv.document.write("<font face=arial color=" + color2 + ">" + Text.charAt(i) + "</font>");
+             }
+            else {
+            document.myDiv.document.write(text.charAt(j));
+            }
+        }
+        document.myDiv.document.write('</font></font></center>');
+        document.myDiv.document.close();
+    }
+    if (navigator.appName == "Microsoft Internet Explorer") //IE浏览器的情况下
+    {
+        str = "<center><font face=arial size=" + fontsize + "><font color=" + color1 + ">";
+        for (var j = 0; j < text.length; j++) {         //循环输出指定字体大小和颜色的文本
+            if( j == i) {
+            str += "<font face=arial color=" + color2 + ">" + text.charAt(i) + "</font>";
+            }
+            else {
+            str += text.charAt(j);
+            }
+        }
+        str += "</font></font></center>";
+        myDiv.innerHTML = str;                          //在div中显示文本
+    }
+    (i == text.length) ? i=0 : i++;                 //如果i的值不大于文本的长度，则自增
+}
+setInterval("changeCharColor()", speed);             //通过定时器，实现不断的循环
+</script>
+</head>
+<body>
+</body>
+</html>
+

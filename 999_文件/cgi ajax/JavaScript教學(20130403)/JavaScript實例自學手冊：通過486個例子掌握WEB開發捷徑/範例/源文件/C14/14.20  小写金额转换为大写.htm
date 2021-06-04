@@ -1,0 +1,68 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<script language="JavaScript">
+function daxie()
+{                                       //定义大写数组
+  this.values = ["零", "壹", "贰", "叁", "肆", "伍", "陆", "柒", "捌", "玖"];
+  this.digits = ["", "拾", "佰", "仟"];
+}
+
+function daxie.prototype.getDaXie(money)
+{
+  if(isNaN(money)) return "";                 //如果不是数值型，直接返回空
+  var number = Math.round(money*100)/100;     //取数值的整数
+  number = number.toString(10).split('.');  //整数和小数分开
+  var moneyInt = number[0];                  //整数部分
+  var len = moneyInt.length;                 //整数的长度
+  if (len > 12)                             //长度如果超出范围
+    return "数值超出范围！支持的最大数为 999999999999.99!";
+  var returnValue = this.millonTrans(moneyInt.slice(-4));
+  if (len > 4)                                          //多于万位
+    returnValue = this.millonTrans(moneyInt.slice(-8,-4)) + (moneyInt.slice(-8,-4)!="0000"?"万":"") + returnValue;
+  if (len > 8)                                          //多于亿位
+    returnValue = this.millonTrans(moneyInt.slice(-12,-8)) + "亿" + returnValue;
+  if(returnValue!="")
+    returnValue += "圆";                                //添加最后一个字符
+  if(number.length==2)                                  //是否是带小数的金额
+  {
+    var cok = number[1].split('');
+    if(returnValue!="" || cok[0]!="0")
+      returnValue += this.values[parseInt(cok[0])] + (cok[0]!="0"?"角":"");//十位数显示角
+    if(cok.length>=2)
+      returnValue += this.values[parseInt(cok[1])] + "分";                  //个位数显示分
+  }
+  if(returnValue!="" && !/分$/.test(returnValue))           //使用正则判断是否有小数
+    returnValue += "整";
+  return returnValue;
+}
+
+function daxie.prototype.millonTrans(strTemp)
+{
+  var money = strTemp.split('');                                //将金额转换为数组
+  var mLength = money.length-1;                                 //金额的长度
+  var returnValue = "";
+  for (var i=0; i<=mLength; i++)                                //遍历每个元素
+    returnValue += this.values[parseInt(money[i])] + (money[i]!='0'?this.digits[mLength-i]:"");
+  returnValue = returnValue.replace(/零+$/, "").replace(/零{2,}/, "零");//返回转换后的数值
+  return returnValue;
+}
+
+var stmp = "";
+var daXieM = new daxie();
+function strTrans(strT)
+{
+  if(strT.value==stmp) return;
+  var ms = strT.value.replace(/[^\d\.]/g,"").replace(/(\.\d{2}).+$/,"$1");//验证用户的输入
+  var txt = ms.split(".");                                                  //分割成数组
+  while(/\d{4}(,|$)/.test(txt[0]))
+    txt[0] = txt[0].replace(/(\d)(\d{3}(,|$))/,"$1,$2");            //科学计数法表示形式
+  strT.value = stmp = txt[0]+(txt.length>1?"."+txt[1]:"");
+  daxieTxt.value = daXieM.getDaXie(parseFloat(ms));                //显示大写
+}
+</script>
+小写金额：<input type="text" name="xiaoxieTxt" onkeyup="strTrans(this)"><br>
+大写金额：<input type="text" name="daxieTxt" size=60 readonly></body>
+</html>

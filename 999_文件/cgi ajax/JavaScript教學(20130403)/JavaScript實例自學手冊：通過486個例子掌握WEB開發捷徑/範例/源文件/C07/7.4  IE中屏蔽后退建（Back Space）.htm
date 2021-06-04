@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<script language="javascript"> 
+document.onkeydown = function() //用户的按键事件
+{     
+    if(event.keyCode == 8)      //如果按下的是退格键
+    { 
+        if(event.srcElement.tagName.toLowerCase() != "input" 
+           && event.srcElement.tagName.toLowerCase() != "textarea") //如果是在textarea内
+            event.returnValue = false;                              //不执行任何操作
+    } 
+} 
+</script> 
+<input type=text><p> 
+<textarea cols=80 rows=10></textarea> 
+</body>
+</html>

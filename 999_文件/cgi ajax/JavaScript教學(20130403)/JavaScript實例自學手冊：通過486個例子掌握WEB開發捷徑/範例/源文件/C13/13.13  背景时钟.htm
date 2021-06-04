@@ -1,0 +1,38 @@
+<html>
+<head>
+<TITLE>背景时钟</TITLE> 
+<script language=javaScript>
+function clockView() 
+{
+thistime= new Date(); //获取时间
+//分别获取当前时间的小时、分和秒。
+var hours=thistime.getHours();
+var minutes=thistime.getMinutes();
+var seconds=thistime.getSeconds();
+//设置时间的显示格式
+if (eval(hours) <10) {hours="0"+hours;}
+if (eval(minutes) < 10) {minutes="0"+minutes;}
+if (seconds < 10) {seconds="0"+seconds;}
+//得到最终应该显示的时间
+thistime = hours+":"+minutes+":"+seconds;
+//根据浏览器的不同设置
+if(document.all) {
+bgclocknoshade.innerHTML=thistime;
+bgclockshade.innerHTML=thistime;
+}
+if(document.layers) {
+document.bgclockshade.document.write('<div id="bgclockshade" style="position:absolute;visibility:visible;font-family:Verdana;color:FFAAAAA;font-size:120px;top:10px;left:152px">'+thistime+'</div>');
+document.bgclocknoshade.document.write('<div id="bgclocknoshade" style="position:absolute;visibility:visible;font-family:Verdana;color:DDDDDD;font-size:120px;top:10px;left:150px">'+thistime+'</div>');
+document.close();
+}
+var timer=setTimeout("clockView()",1000);
+}
+</script>
+</head>
+<body onLoad="clockView()">
+<div id="bgclockshade" style="position:absolute;visibility:visible;font-family:Arial;color:FF8888;font-size:120px;top:102px;left:152px"></div>
+<div id="bgclocknoshade" style="position:absolute;visibility:visible;font-family:Arial;color:dffdff;font-size:120px;top:100px;left:150px"></div>
+<div id="mainbody" style="position:absolute; visibility:visible">
+</div>
+</body>
+</html>

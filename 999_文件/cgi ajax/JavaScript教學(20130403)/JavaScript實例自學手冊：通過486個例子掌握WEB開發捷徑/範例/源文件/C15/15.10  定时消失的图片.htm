@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script LANGUAGE="JavaScript">
+function view(cDays, cDate)
+{
+    var oldDate = new Date(cDate);        //将指定的日期转换为标准日期型
+    var newDate = new Date();               //获取今天的日期
+    var maxtime = cDays*24*60*60*1000; //将指定日期换算为毫秒
+    var psj=0;
+    if ((newDate.getTime()-oldDate.getTime()) <= maxtime) //判断日期是否还在指定时间内
+    {
+       //动态显示指定的图片
+        document.write("<img src='http://www.google.cn/intl/zh-CN/images/logo_cn.gif' width=400 height=100 ALIGN=MIDDLE Alt='myimg'>");
+    }
+}
+view(7,"05/31/2008")                 //调用图片定时消失的方法
+</script>
+</head>
+<body>
+</body>
+</html>

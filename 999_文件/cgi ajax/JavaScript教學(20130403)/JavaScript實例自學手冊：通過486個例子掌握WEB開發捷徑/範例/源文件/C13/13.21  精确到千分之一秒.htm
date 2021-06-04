@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+var ms = 0;
+var state = 0;
+function startstop() 
+{
+    if (state == 0) {                     //开始走秒
+        state = 1;
+        then = new Date();               //获取当前时间
+        then.setTime(then.getTime() - ms);
+    } 
+    else {                               //结束走秒
+        state = 0;
+        now = new Date();
+        ms = now.getTime() - then.getTime();
+        document.form1.time.value = ms;
+   }
+}
+function timeReset()                     //重置时间的方法
+{
+    state = 0;
+    ms = 0;
+    document.form1.time.value = ms;
+}
+function display()                         //开始显示时间
+{
+    setTimeout("display();", 1);          //设置定时器
+    if (state == 1)  {now = new Date();    //获取当前的新时间
+    ms = now.getTime() - then.getTime();   //通过时间差计算豪秒
+    document.form1.time.value = ms;        //显示毫秒
+    }
+}
+</SCRIPT>
+</head>
+<body onLoad="display()"> 
+    <form name="form1">
+        本例的时间可以准确到千分之一秒<br>
+        计时:
+        <INPUT TYPE="text" Name="time" /><br />
+        <INPUT TYPE="BUTTON" Name="btnSet" VALUE="开始/停止" onClick="startstop()" />
+        <INPUT TYPE="BUTTON" NAME="reset" VALUE="重置" onClick="timeReset()" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language=javascript>
+//移动鼠标的方法
+function move(e){
+if (document.layers) { var x=e.pageX; var y=e.pageY;}
+if (document.all) { var x=event.x; 
+var y=event.y+document.body.scrollTop;}
+status="x:"+x+" y:"+y;   //组合鼠标的x,y坐标
+}
+document.onmousemove = move;    //鼠标移动时绑定move方法
+if (document.layers) document.captureEvents(Event.MOUSEMOVE);
+</script>
+</head>
+<body>
+</body>
+</html>

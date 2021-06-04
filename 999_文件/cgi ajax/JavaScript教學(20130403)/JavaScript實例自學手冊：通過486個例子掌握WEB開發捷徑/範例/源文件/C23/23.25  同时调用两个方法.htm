@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="javascript">
+function test1()            //第一个方法
+{
+  alert("第一个方法");
+}
+function test2()            //第二个方法
+{
+  alert("第二个方法");
+}
+function together()         //同时调用的方法
+{ 
+test1();
+test2();
+} 
+</script>
+</head>
+<body onload="together()">
+同时调用2个方法实例
+</body>
+</html>

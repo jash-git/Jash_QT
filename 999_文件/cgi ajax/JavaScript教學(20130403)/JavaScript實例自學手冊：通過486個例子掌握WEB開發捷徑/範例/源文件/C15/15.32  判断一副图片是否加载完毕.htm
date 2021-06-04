@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<body> 
+<input onclick='prn()' type=button value=print_Iframe><br> 
+<iframe id=myframe src="http://www.baidu.com"></iframe> 
+<script> 
+function prn() 
+{ 
+var win=window.open("about:blank")       //打开一个空页面
+win.moveTo(100,100)                      //移动到指定位置
+win.location=document.all.myframe.src    //指定页面的内容
+win.print()                              //打印页面
+} 
+</script> 
+</body> 
+</html>

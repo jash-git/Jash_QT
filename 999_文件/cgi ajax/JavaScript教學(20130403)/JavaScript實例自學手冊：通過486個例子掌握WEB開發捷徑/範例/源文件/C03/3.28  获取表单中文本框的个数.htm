@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="javascript">
+function checkform()
+{
+    var icount=0;
+    var frm=document.getElementById("form1").getElementsByTagName("input"); //获取窗体中所有的input元素
+    for(var i=0;i<frm.length;i++){                                          //遍历每一个input元素
+    if(frm[i].type=="text"){                                                //判断input元素的类型
+     icount++;                                                              //是则给统计变量+1
+       }
+    }
+     alert("总共有"+icount+"个文本框");
+}
+</script>
+</head>
+<body>
+<form action="" name="dd" method="get" id="form1">
+<input name="" type="text">
+<input name="" type="text">
+<input name="" type="text">
+<input name="提交" value="提交" type="submit" onclick="checkform()">
+</form>
+</body>
+</html>

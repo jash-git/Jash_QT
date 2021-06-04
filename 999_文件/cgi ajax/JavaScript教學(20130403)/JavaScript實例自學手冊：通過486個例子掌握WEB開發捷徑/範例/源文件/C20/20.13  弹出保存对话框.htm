@@ -1,0 +1,16 @@
+<html>
+<iframe src="" width="0" height="0" id="myIframe" name="myIframe"></iframe>
+<textarea id="content" rows="6" cols="50"></textarea>
+<P>
+<button onclick="javascript:saveFile()">保存</button>
+<script language="javascript">
+function saveFile(){
+var obj = window.frames("myIframe");                                 //找到窗体上的iframe
+    obj.document.open();                                             //打开iframe
+    obj.document.write (document.getElementById("content").value);  //获取文档的内容
+    obj.document.close();                                           //关闭iframe
+    obj.document.execCommand("SaveAs");                             //调用保存对话框
+}
+</script>
+</html>
+

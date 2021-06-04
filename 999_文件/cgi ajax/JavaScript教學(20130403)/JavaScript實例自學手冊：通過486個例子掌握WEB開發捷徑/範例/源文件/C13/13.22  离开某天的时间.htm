@@ -1,0 +1,95 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body bgcolor="#fef4d9" onLoad="startclock()">
+<SCRIPT LANGUAGE="JavaScript">
+//基本变量的定义
+var timerID;
+var timerRunning = false;
+var today = new Date();
+var startday = new Date();
+var secPerDay = 0;
+var minPerDay = 0;
+var hourPerDay = 0;
+var secsLeft = 0;
+var secsRound = 0;
+var secsRemain = 0;
+var minLeft = 0;
+var minRound = 0;
+var minRemain = 0;
+var timeRemain = 0;
+
+//停止定时器的方法
+function stopclock()
+{
+        if(timerRunning)
+                clearTimeout(timerID);
+
+        timerRunning = false;
+}
+//开始定时器的方法
+function startclock()
+{
+        stopclock();
+        showtime1();
+}
+//计算时间的方法
+function showtime1()
+{
+        startday = new Date("Oct 20, 1949 00:00 EDT");  //创建初始时间
+        startday.setYear("1949");           //设置年份
+        today = new Date();                 //获取当前时间
+        secsPerDay = 1000 ;                 //最终转换为毫秒
+        minPerDay = 60 * 1000 ;             //每分钟的毫秒
+        hoursPerDay = 60 * 60 * 1000;       //每小时的毫秒
+        PerDay = 24 * 60 * 60 * 1000;       //每天的毫秒
+
+        /* Seconds */
+        secsLeft = (today.getTime() - startday.getTime()) / minPerDay;      //距今天的分钟数
+        secsRound = Math.round(secsLeft);                                   //四舍五入
+        secsRemain = secsLeft - secsRound;
+        secsRemain = (secsRemain < 0) ? secsRemain = 60 - ((secsRound - secsLeft) * 60) : secsRemain = (secsLeft - secsRound) * 60;
+        secsRemain = Math.round(secsRemain);                                //计算取分钟后剩余的秒数
+
+        /* 分钟*/
+        minLeft = ((today.getTime() - startday.getTime()) / hoursPerDay);   //距今天的小时数
+        minRound = Math.round(minLeft);                                     //四舍五入
+        minRemain = minLeft - minRound;
+        minRemain = (minRemain < 0) ? minRemain = 60 - ((minRound - minLeft) * 60) : minRemain = ((minLeft - minRound) * 60);
+        minRemain = Math.round(minRemain - 0.495);                          //计算取小时后剩余的分钟数
+
+        /* 小时 */
+        hoursLeft = ((today.getTime() - startday.getTime()) / PerDay);      //距今天的天数
+        hoursRound = Math.round(hoursLeft);                                 //四舍五入
+        hoursRemain = hoursLeft - hoursRound;
+        hoursRemain = (hoursRemain < 0) ? hoursRemain = 24 - ((hoursRound - hoursLeft) * 24)  : hoursRemain = ((hoursLeft - hoursRound) * 24);
+        hoursRemain = Math.round(hoursRemain - 0.5);                        //计算取天数后剩余的小时数
+
+        /* 天 */
+        daysLeft = ((today.getTime() - startday.getTime()) / PerDay);       //距今天的天数
+        daysLeft = (daysLeft - 0.5);
+        daysRound = Math.round(daysLeft);                                  //四舍五入     
+        daysRemain = daysRound;
+
+        /* Time */
+        day_rem = " 天, "
+        hour_rem = " 小时, "
+        min_rem = " 分, "
+        sec_rem = " 秒"
+        timeRemain = daysRemain + day_rem + hoursRemain + hour_rem + minRemain + min_rem + secsRemain + sec_rem;
+        document.up.myTxt.value = timeRemain;                  //使用文本框输出内容
+        timerID = setTimeout("showtime1()",1000);                   //每隔1秒更新下时间
+        timerRunning = true;
+}
+
+</SCRIPT>
+<FORM NAME="up">
+<INPUT TYPE="text" NAME="myTxt" SIZE="47" VALUE="">
+</FORM>
+<P>
+<FONT SIZE=+1 FACE="Arial">
+距离建国已经
+</FONT>
+</body>
+</html>

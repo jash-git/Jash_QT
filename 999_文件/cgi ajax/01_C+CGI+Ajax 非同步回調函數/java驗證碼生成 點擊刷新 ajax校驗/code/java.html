@@ -1,0 +1,89 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<base href="<%=basePath%>">
+
+		<title>My JSP 'index.jsp' starting page</title>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="This is my page">
+		<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+
+		<script type="text/javascript">
+	//liubo
+
+	var req;
+	function validate() {
+		//獲取表單提交的內容  
+		var idField = document.getElementById("code");
+		//訪問validate.do這個servlet，同時把獲取的表單內容idField加入url字串，以便傳遞給validate.do  
+		var url = "CheckServlet?code=" + escape(idField.value);
+		//創建一個XMLHttpRequest物件req  
+		if (window.XMLHttpRequest) {
+			//IE7, Firefox, Opera支持  
+			req = new XMLHttpRequest();
+		} else if (window.ActiveXObject) {
+			//IE5,IE6支持  
+			req = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		/* 
+		 open(String method,String url, boolean )函數有3個參數 
+		 method參數指定向servlet發送請求所使用的方法，有GET,POST等 
+		 boolean值指定是否非同步，true為使用，false為不使用。 
+		 我們使用非同步才能體會到Ajax強大的非同步功能。 
+		 */
+		req.open("GET", url, true);
+		//onreadystatechange屬性存有處理伺服器回應的函數,有5個取值分別代表不同狀態  
+		req.onreadystatechange = callback;
+		//send函數發送請求  
+		req.send(null);
+	}
+	//回調函數
+	function callback() {
+		if (req.readyState == 4 && req.status == 200) {
+			var check = req.responseText;
+			show(check);
+		}
+	}
+	//在頁面顯示是否驗證碼正確提示
+	function show(str) {
+		if (str == "OK") {
+			var show = "<img src='image/ok.png'/>";
+			document.getElementById("info").innerHTML = show;
+		} else if (str == "NO") {
+			var show = "<font color='red'>請重新輸入！</font>";
+			document.getElementById("info").innerHTML = show;
+		}
+	}
+</script>
+<!--  點擊更換驗證碼 -->
+		<script type="text/javascript">
+	function change() {
+		var img = document.getElementById("code1");
+		img.src = "CheckCodeServlet?service" + Math.random();
+	}
+</script>
+	</head>
+
+	<body>
+		<form>
+			<img id="code1" src="CheckCodeServlet">
+			<a href="javascript:" onclick="change()">看不清刷新</a>
+			<input type="text" id="code" name="code" onblur="validate()">
+			<span id="info"></span>
+		</form>
+
+	</body>
+</html>

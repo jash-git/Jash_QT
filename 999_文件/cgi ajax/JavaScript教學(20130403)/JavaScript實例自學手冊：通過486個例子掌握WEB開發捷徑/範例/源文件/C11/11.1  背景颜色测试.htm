@@ -1,0 +1,30 @@
+ <html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+    <SCRIPT language=javascript>
+    
+    function makeArray(q)
+    {
+        for(i=1;i<=q;i++){this[i]=0} //初始化数组
+    }
+    Colors=new makeArray(7);
+        Colors[1]="00";Colors[2]="33";Colors[3]="66";
+        Colors[4]="99";Colors[5]="CC";Colors[6]="FF";
+    </SCRIPT>
+</head>
+<body>
+ <center>
+<table cellspacing="0" cellpadding="0">
+<SCRIPT language=javascript>
+//使用循环实现颜色的分段显示
+for(i=1;i<=6;i++){
+   for(j=1;j<=6;j++){
+      for(k=1;k<=6;k++){
+           var thiscolor=Colors[i]+Colors[j]+Colors[k];
+           document.writeln("<tr><td height=20 bgcolor =\"#" + thiscolor + "\" align = right><a href = ");
+           document.writeln("\'\' onMouseOver = \"document.bgColor=\'"+thiscolor+"\'\">"
+        +thiscolor+"</a></td></tr>");}}}
+</SCRIPT>
+</table></center>
+</body>
+</html>s

@@ -1,0 +1,56 @@
+<HTML>
+<HEAD>
+<TITLE>图像的渐隐播放效果</TITLE>
+<script language=javaScript>
+var strngth=1
+var index_image=0
+var imageSrc = new Array()
+imageSrc[0] ="logo1.gif"
+imageSrc[1] ="logo2.gif"
+imageSrc[2] ="logo1.gif"
+function showimage()   //显示图像
+{ 
+    if(document.all) {
+    //创建一个带滤镜样式的img图像-注意显示的图像并不固定
+    if (strngth <=110) {
+    imagediv.innerHTML="<img style='filter:alpha(opacity="+strngth+")' src="+imageSrc[index_image]+" border=0>";
+    strngth=strngth+10
+    var timer=setTimeout("showimage()",100)    //每隔100豪秒就显示图像
+    }
+    else {
+    clearTimeout(timer)
+    var timer=setTimeout("hideimage()",1000)   //每隔1000豪秒就隐藏图像
+    }
+    }
+    //是Netscape浏览器时的特效实现方法
+    if(document.layers) {
+    clearTimeout(timer)
+    document.imagediv.document.write("<img src="+imageSrc[index_image]+" border=0>")
+    document.close()
+    index_image++
+    if (index_image >= imageSrc.length) {index_image=0} 
+    var timer=setTimeout("showimage()",2000)
+    } 
+}
+function hideimage()  //隐藏图像
+{ 
+    if (strngth >=-10) {
+    //设置图像逐渐消隐的滤镜效果-注意图像并不固定
+    imagediv.innerHTML="<img style='filter:alpha(opacity="+strngth+")' src="+imageSrc[index_image]+" border=0>";
+    strngth=strngth-10
+    var timer=setTimeout("hideimage()",100)  //每隔100豪秒就隐藏图像
+    } 
+    else {
+    clearTimeout(timer)
+    index_image++
+    if (index_image >= imageSrc.length) {index_image=0}
+    strngth=1
+    var timer=setTimeout("showimage()",500) //每隔500豪秒就显示图像
+    }
+}
+</script>
+</HEAD>
+<body  onLoad="showimage()">
+<div id="imagediv"  style="position:absolute;"></div>
+</body>
+</HTML>

@@ -1,0 +1,29 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="javascript">
+function chk()
+{
+    var txtValue = document.getElementById("txtValue");//获取文本框的值
+    var sel = document.getElementById("sel");          //找到下拉框
+    for (var i=0; i<sel.length; i++)                    //遍历下拉框中的所有数据
+    {
+        if (txtValue.value==sel.options[i].text){       //如果输入的值等于下拉框中的值
+            alert("该值已经存在");
+        }
+    }
+}
+</script>
+</head>
+<body>
+<div id="mydiv">
+<select id="sel" name="sel">
+<option>China</option>
+<option>England</option>
+<option>German</option>
+</select>
+<input type="text" name="txtValue" id="txtValue"><br/>
+<input type="button" value="检测是否存在" onclick="chk();">
+</div>
+</body>
+</html>

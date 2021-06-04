@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>无标题文档</title>
+</head>
+<body>
+<div id="mydiv">
+  <table width="100%" border="0" cellpadding="2" cellspacing="1" bgcolor="#CCCCCC">
+    <tr>
+      <td bgcolor="#FFFFFF">1</td>
+    </tr>
+    <tr>
+      <td bgcolor="#FFFFFF">2</td>
+    </tr>
+    <tr>
+      <td bgcolor="#FFFFFF">3</td>
+    </tr>
+    <tr>
+      <td bgcolor="#FFFFFF">4</td>
+    </tr>
+    <tr>
+      <td bgcolor="#FFFFFF">5</td>
+    </tr>
+    <tr>
+      <td bgcolor="#FFFFFF">6</td>
+    </tr>
+    <tr>
+      <td bgcolor="#FFFFFF">7</td>
+    </tr>
+    <tr>
+      <td bgcolor="#FFFFFF">8</td>
+    </tr>
+    <tr>
+      <td bgcolor="#FFFFFF">9</td>
+    </tr>
+    <tr>
+      <td bgcolor="#FFFFFF">10</td>
+    </tr>
+    <tr>
+      <td bgcolor="#FFFFFF">11</td>
+    </tr>
+    <tr>
+      <td bgcolor="#FFFFFF">12</td>
+    </tr>
+  </table>
+</div>
+<script type="text/javascript">
+    marque(320,196,"icefable1","box1left")
+    var scrollElem;
+    var stopscroll;
+    var stoptime;
+    var preTop;
+    var leftElem;
+    var currentTop;
+    var marqueesHeight;
+//为表格添加事件
+function marque(width,height,marqueName,marqueCName)
+{
+	try{
+	  marqueesHeight = height;
+	  stopscroll     = false;
+
+	  scrollElem = document.getElementById("mydiv");
+	  with(scrollElem){
+		style.width     = width;
+		style.height    = marqueesHeight;
+		style.overflow  = 'hidden';
+		noWrap          = true;
+	  }
+	  scrollElem.onmouseover = new Function('stopscroll = true');
+	  scrollElem.onmouseout  = new Function('stopscroll = false');
+	  preTop     = 0; 
+	  currentTop = 0; 
+	  stoptime   = 0;
+	  leftElem = document.getElementById("mydiv");
+	  scrollElem.appendChild(leftElem.cloneNode(true));
+	  init_srolltext();
+	}catch(e) {}
+}
+//表格滚动的初始化
+function init_srolltext()
+{
+  scrollElem.scrollTop = 0;
+  setInterval('scrollUp()', 18);
+}
+//向上滚动的方法
+function scrollUp()
+{
+  if(stopscroll) return;
+  currentTop += 1;
+  if(currentTop == marqueesHeight+1) {
+    stoptime += 1;
+    currentTop -= 1;
+    if(stoptime == (marqueesHeight)*1) {   //停顿时间
+      currentTop = 0;
+      stoptime = 0;
+    }
+  }else{
+    preTop = scrollElem.scrollTop;
+    scrollElem.scrollTop += 1;
+    if(preTop == scrollElem.scrollTop){
+      scrollElem.scrollTop = marqueesHeight;
+      scrollElem.scrollTop += 1;
+    }
+  }
+}
+</Script>
+</body>
+</html>

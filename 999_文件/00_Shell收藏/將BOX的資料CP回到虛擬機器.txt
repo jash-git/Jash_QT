@@ -1,0 +1,28 @@
+
+///////////////////////////////////////////////////////////////////////////////////
+
+將BOX的資料CP回到虛擬機器
+cd /
+mount -o remount,rw /flash
+killall switch.sh
+killall test_main
+killall MainBOX
+killall hp_dsp
+
+udhcpc
+mkdir /mnt1
+mount -t nfs -o nolock -o tcp 192.168.1.36:/Project /mnt1/
+cp /tmp/5TV/*.txt /mnt1/data_ok/     或者	cp /tmp/5TV/*.txt /mnt1/data_ng/
+
+
+mount -o remount,ro /flash
+mount |grep /flash
+
+reboot
+///////////////////////////////////////////////////////////////////////////////////
+
+改變複製回來檔案權限
+sudo chmod 777 /Project/data_ng/*
+sudo chmod 777 /Project/data_ok/*
+
+ 

@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>标题页</title>
+
+<script language="javascript">
+var popwindow;           //弹出窗口的ID
+var popwindowwidth=300;  // 弹出窗体的宽度
+var popwindowheight=300  // 弹出窗体的长度
+var popwindowtop=20 ;     // 窗体距离屏幕顶端的距离
+var popwindowURL="实用计算器.htm"; // 弹出窗体的名称
+var waitingtime=4;  // 窗体的停留时间
+// 配置弹出窗口的速度
+var pause=20;
+var step=40;
+var popwindowleft=-popwindowwidth-50;
+var marginright;
+var pagecenter;
+var timer;
+waitingtime= waitingtime*1000;
+//显示窗口
+function showWindow() 
+{
+popwindow = window.open(popwindowURL, "popwindow", "toolbar=no,width="+popwindowwidth+",height="+popwindowheight+",top="+popwindowtop+",left="+(popwindowwidth)+"");
+marginright = screen.width+50;
+pagecenter=Math.floor(marginright/2)-Math.floor(popwindowwidth/2);
+movewindow();
+}
+//移动窗口
+function movewindow()
+ {
+if (popwindowleft<=pagecenter) {
+popwindow.moveTo(popwindowleft,popwindowtop);
+popwindowleft+=step;
+timer= setTimeout("movewindow()",pause);
+}
+else {
+clearTimeout(timer);
+timer= setTimeout("movewindow2()",waitingtime);
+}
+}
+//移动窗口
+function movewindow2()
+ {
+if (popwindowleft<=marginright) {
+popwindow.moveTo(popwindowleft,popwindowtop);
+popwindowleft+=step;
+timer= setTimeout("movewindow2()",pause);
+}
+else {
+clearTimeout(timer);
+popwindow.close();}
+}
+</script>
+</head>
+<body bgcolor="#FFFFFF" >
+<input type="button" id="btn1" value="打开窗口" onclick="showWindow()" />
+</body>
+</html>

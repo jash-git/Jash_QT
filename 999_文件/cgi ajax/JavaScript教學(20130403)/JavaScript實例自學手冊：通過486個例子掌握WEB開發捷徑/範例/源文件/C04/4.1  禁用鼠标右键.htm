@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+<script language="javascript">
+ function click() 
+ {
+    if (event.button==2)      //单击的鼠标键
+    {
+        alert('本网站禁用右键');
+    }
+ }
+ document.onmousedown=click;  //绑定事件
+</script>
+</head>
+<body  >
+<div>这是一个不能使用右键的案例</div>
+</body>
+</html>

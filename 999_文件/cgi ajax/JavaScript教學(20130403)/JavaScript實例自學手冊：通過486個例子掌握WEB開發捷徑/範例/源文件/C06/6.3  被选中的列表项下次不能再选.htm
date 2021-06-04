@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script languange="javascript">
+function selChange(sel)   //选择后触发的事件
+{
+  sel.disabled = true;   //某项不能使用
+}
+</script>
+</head>
+<body>
+<select onchange="selChange(this)">
+    <option>--请选择--</option>
+    <option>第一项</option>
+    <option>第二项</option>
+    <option>第三项</option>
+</select>
+</body>
+</html>

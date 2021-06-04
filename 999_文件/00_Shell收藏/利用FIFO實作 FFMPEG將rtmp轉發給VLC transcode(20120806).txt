@@ -1,0 +1,5 @@
+mkfifo /tmp/fifo 
+ffmpeg -y -i "rtmp://61.67.112.36/live/ott_c17_normal live=1" -f mpegts -b 900k -threads 8  /tmp/fifo 
+cvlc -vvv /tmp/fifo --sout-keep --sout '#std{access=udp,mux=ts,dst=224.8.8.8:1233}'
+
+ffmpeg -y -i "rtmp://61.67.112.36/live/ott_c17_normal live=1" -f mpegts -b 900k -threads 8 - |  cvlc -vvv -  --sout-keep --sout '#std{acce

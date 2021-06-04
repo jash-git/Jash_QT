@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<script LANGUAGE="JavaScript">
+    myDate = new Date();         //创建日期对象，获取当前日期
+                                //获取日期中的月、日、年
+    document.write('<font size="2" face="Arial"><B>' + (myDate.getMonth() + 1) +"/"+myDate.getDate()+ "/"+myDate.getYear() + '</B></font><BR>');
+    var Hours;
+    var Mins;
+    var Time;
+    Hours = myDate.getHours();  //获取小时
+    if (Hours >= 12) {
+    Time = " P.M.";             //如果时间已经是下午（大于12点）则显示p.m.
+    }
+    else {
+    Time = " A.M.";             //如果时间小于12点，则显示a.m.
+    }
+    if (Hours > 12) {           //如果小时数大于12，则减12，主要是为了显示上午和下午
+    Hours -= 12;
+    }
+    if (Hours == 0) {           //0点时显示12点
+    Hours = 12;
+    }
+    Mins = myDate.getMinutes(); //获取当前的分钟数
+    if (Mins < 10) {
+    Mins = "0" + Mins;          //如果分钟数小于10，则前面补0
+    }    
+    document.write('<font size="2" face="Arial"><B>' + Hours + ":" + Mins + Time + '</B></font>');
+</script>
+</body>
+</html>

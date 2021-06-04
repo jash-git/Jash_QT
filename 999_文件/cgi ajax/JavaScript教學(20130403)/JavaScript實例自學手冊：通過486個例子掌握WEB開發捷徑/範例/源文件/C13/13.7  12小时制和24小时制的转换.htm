@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+function timeType() {
+    if (document.form.showTimeType[0].checked) { //判断选择的是哪个类型-24小时就返回true
+    return true;
+}
+return false;
+}
+function showTheHours(theHour) {
+    if (timeType() || (theHour > 0 && theHour < 13)) {//如果时间在12小时内
+    return (theHour);
+    }
+    if (theHour == 0) {                              //如果时间等于0
+        return (12);
+    }
+    return (theHour-12);                             //如果时间大于12，需要减去12-针对12小时制
+}
+function showZeroFilled(inValue) {
+    if (inValue > 9) {                              //设置分钟数的两位数显示，不足两位补0
+    return "" + inValue;
+    }
+    return "0" + inValue;
+    }
+    function showAmPm() {                          //显示上午或下午的方法
+    if (timeType()) {
+    return ("");
+    }
+    if (now.getHours() < 12) {  //判断日期，显示12小时制的中文提示
+    return (" 上午");
+    }
+    return (" 下午");
+}
+function showTheTime() {    //显示时间的方法
+    now = new Date          //获取当前时间
+    document.form.showTime.value = showTheHours(now.getHours()) + ":" + showZeroFilled(now.getMinutes()) + ":" + showZeroFilled(now.getSeconds()) + showAmPm()
+    setTimeout("showTheTime()",1000)  //每隔1秒更新时间
+}
+</script>
+</head>
+<BODY onLoad="showTheTime()">
+<center><form name=form>
+<input type=text name=showTime size=11><p>
+<input type=radio name=showTimeType checked>24小时<br>
+<input type=radio name=showTimeType>12小时<br>
+</form></center></body>
+</html>

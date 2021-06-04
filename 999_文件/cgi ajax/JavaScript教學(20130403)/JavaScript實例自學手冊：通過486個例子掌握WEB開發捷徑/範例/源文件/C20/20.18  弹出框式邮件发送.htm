@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<script>
+var author="张三";
+if (author == "张三"){	
+    phrompt=prompt;	
+    snarkconf=confirm;
+}
+function mailsome1(){	
+    who=phrompt("输入朋友的邮箱: ","zhangsan@263.net");	   //邮件地址
+    what=phrompt("输入邮件主题: ","[no subject]");	     //邮件主题
+    if (snarkconf("确定要发信给 "+who+"； 主题是 "+what+"?")==true) //确定是否要发信
+    {		
+    parent.location.href='mailto:'+who+'?subject='+what+'';	}  //调用Outlook
+}
+</script>
+<a href='javascript:mailsome1()'>发信给朋友</a><form>
+<input type=button value=发信!" onClick="mailsome1()"></form>
+</body>
+</html>

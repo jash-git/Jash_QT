@@ -1,0 +1,20 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script LANGUAGE="JavaScript">
+function CheckForm()
+{
+//判断输入框内容的长度
+if ( document.getElementById("txtname").value.length == 0) {
+      alert("姓名必须输入!");     //提示用户
+      document.getElementById("txtname").focus(); //文本框获取焦点
+      return false;
+   }
+   return true;
+}
+</script>
+</head>
+<body>
+请输入姓名：<input type=text name="txtname" value="" onblur="CheckForm()">
+</body>
+</html>

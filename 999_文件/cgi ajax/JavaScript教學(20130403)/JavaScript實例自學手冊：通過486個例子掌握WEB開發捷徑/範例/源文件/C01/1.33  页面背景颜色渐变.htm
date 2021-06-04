@@ -1,0 +1,22 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT Language="JavaScript">
+    function BgColor()
+    {
+        var x = 0, step = 1             //初始化颜色和步长
+        while( x <= 0xffffff)
+        {
+            document.bgColor = x       //设置窗体背景色
+            x += step                   //重新设置颜色
+            step <<= 8                  //位的左移-实现颜色的
+            if( step >= 0x1000000)      //颜色已经超出范围
+                step = 1                //重新设置步长
+        }
+    }
+    
+</Script>
+</head>
+<body bgcolor="#000000" onLoad="BgColor()">
+</body>
+</html>

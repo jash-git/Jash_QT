@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT language=javascript>
+function out()
+{
+//判断鼠标是否移动到当前菜单或菜单中的项-第一个菜单的判断
+if(window.event.toElement.id!="menuOne"        &&       window.event.toElement.id!="link")
+  menuOne.style.visibility="hidden";  //如果不是，则隐藏菜单
+}
+function out1()
+{
+//判断鼠标是否移动到当前菜单或菜单中的项-第二个菜单的判断
+if(window.event.toElement.id!="menuTwo"        &&       window.event.toElement.id!="linkTwo")
+  menuTwo.style.visibility="hidden";  //如果不是，则隐藏菜单
+}
+</SCRIPT>
+</head>
+<body>
+<div id="back" onmouseout="out()"style="position:absolute;top:180;left:310;width:160;height:40;z-index:1;visibility:visible;">
+<span id="menubar"  onmouseover="menuOne.style.visibility='visible'">
+<font  color=red size=2>本站导航</span>
+<div border=1  id="menuOne" style="position:absolute;top:15;left:0;width:70;height:10;z-index:2;visibility:hidden;">
+<a id="link" href="#">软件下载</a>
+<a id="A1" href="#">工具下载</a>
+<a id="A2" href="#">书籍介绍</a>
+<a id="A3" href="#">代码题库</a>
+<a id="A4" href="#">先进技术</a>
+<a id="A5" href="#">技术人物</a>
+</div>
+</div>
+<div id="Div1" onmouseout="out1()"style="position:absolute;top:181px;left:399px;width:160;height:40;z-index:3;visibility:visible;">
+<span id="Span1"  onmouseover="menuTwo.style.visibility='visible'">
+<font  color=red size=2>服务导航</span>
+<div border=1  id="menuTwo" style="position:absolute;top:15;left:0;width:70;height:10;z-index:4;visibility:hidden;">
+<a id="linkTwo" href="#">软件下载</a>
+<a id="A7" href="#">工具下载</a>
+<a id="A8" href="#">书籍介绍</a>
+<a id="A9" href="#">代码题库</a>
+<a id="A10" href="#">先进技术</a>
+<a id="A11" href="#">技术人物</a>
+</div>
+</div>
+</body>
+</html>

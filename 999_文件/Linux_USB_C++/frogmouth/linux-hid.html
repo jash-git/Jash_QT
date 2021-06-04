@@ -1,0 +1,332 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<HTML
+><HEAD
+><TITLE
+>USB HID for Linux USB</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.64
+"><LINK
+REL="NEXT"
+TITLE="How Linux handles USB HID devices"
+HREF="p13.html" tppabs="http://www.frogmouth.net/hid-doco/p13.html"></HEAD
+><BODY
+CLASS="BOOK"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="BOOK"
+><A
+NAME="LINUX-HID"
+></A
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="TITLE"
+><A
+NAME="AEN2"
+>USB HID for Linux USB</A
+></H1
+><H3
+CLASS="AUTHOR"
+><A
+NAME="AEN5"
+>Brad Hards</A
+></H3
+><DIV
+CLASS="AFFILIATION"
+><SPAN
+CLASS="ORGNAME"
+>Sigma Bravo Pty Ltd.<BR></SPAN
+></DIV
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>I. <A
+HREF="p13.html" tppabs="http://www.frogmouth.net/hid-doco/p13.html"
+>How Linux handles USB HID devices</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c15.html" tppabs="http://www.frogmouth.net/hid-doco/c15.html"
+>Introduction</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c15.html#AEN18" tppabs="http://www.frogmouth.net/hid-doco/c15.html#AEN18"
+>The Universal Serial Bus</A
+></DT
+><DT
+><A
+HREF="x30.html" tppabs="http://www.frogmouth.net/hid-doco/x30.html"
+>Host Controllers</A
+></DT
+><DT
+><A
+HREF="x34.html" tppabs="http://www.frogmouth.net/hid-doco/x34.html"
+>USB Devices and Transfer Characteristics</A
+></DT
+><DT
+><A
+HREF="x78.html" tppabs="http://www.frogmouth.net/hid-doco/x78.html"
+>USB Device Drivers</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c81.html" tppabs="http://www.frogmouth.net/hid-doco/c81.html"
+>Configuring Linux HID support</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c81.html#AEN85" tppabs="http://www.frogmouth.net/hid-doco/c81.html#AEN85"
+>USB subsystem</A
+></DT
+><DT
+><A
+HREF="x97.html" tppabs="http://www.frogmouth.net/hid-doco/x97.html"
+>Input subsystem</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c100.html" tppabs="http://www.frogmouth.net/hid-doco/c100.html"
+>The HID device interface</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c100.html#AEN103" tppabs="http://www.frogmouth.net/hid-doco/c100.html#AEN103"
+>What is the hiddev interface</A
+></DT
+><DT
+><A
+HREF="x106.html" tppabs="http://www.frogmouth.net/hid-doco/x106.html"
+>How HID devices relate to the hiddev interface</A
+></DT
+><DT
+><A
+HREF="x112.html" tppabs="http://www.frogmouth.net/hid-doco/x112.html"
+>Getting the version of the hiddev interface</A
+></DT
+><DT
+><A
+HREF="x133.html" tppabs="http://www.frogmouth.net/hid-doco/x133.html"
+>Getting information about the HID device</A
+></DT
+><DT
+><A
+HREF="x164.html" tppabs="http://www.frogmouth.net/hid-doco/x164.html"
+>Determining which Applications a device uses</A
+></DT
+><DT
+><A
+HREF="x190.html" tppabs="http://www.frogmouth.net/hid-doco/x190.html"
+>Reading from the HID device interface</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c193.html" tppabs="http://www.frogmouth.net/hid-doco/c193.html"
+>The event interface</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c193.html#AEN196" tppabs="http://www.frogmouth.net/hid-doco/c193.html#AEN196"
+>How HID relates to the event interface</A
+></DT
+><DT
+><A
+HREF="x200.html" tppabs="http://www.frogmouth.net/hid-doco/x200.html"
+>Getting the version of the evdev interface</A
+></DT
+><DT
+><A
+HREF="x225.html" tppabs="http://www.frogmouth.net/hid-doco/x225.html"
+>Getting information about the HID device identity</A
+></DT
+><DT
+><A
+HREF="x286.html" tppabs="http://www.frogmouth.net/hid-doco/x286.html"
+>Determining the device capabilities and features</A
+></DT
+><DT
+><A
+HREF="x401.html" tppabs="http://www.frogmouth.net/hid-doco/x401.html"
+>Getting user input from the device</A
+></DT
+><DT
+><A
+HREF="x452.html" tppabs="http://www.frogmouth.net/hid-doco/x452.html"
+>Sending information to the device</A
+></DT
+><DT
+><A
+HREF="x481.html" tppabs="http://www.frogmouth.net/hid-doco/x481.html"
+>Modifying key repeat settings</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c487.html" tppabs="http://www.frogmouth.net/hid-doco/c487.html"
+>Other approaches to Linux HID support</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c487.html#AEN490" tppabs="http://www.frogmouth.net/hid-doco/c487.html#AEN490"
+>The keyboard interface</A
+></DT
+><DT
+><A
+HREF="x493.html" tppabs="http://www.frogmouth.net/hid-doco/x493.html"
+>The mouse interface</A
+></DT
+><DT
+><A
+HREF="x496.html" tppabs="http://www.frogmouth.net/hid-doco/x496.html"
+>The joystick interface</A
+></DT
+><DT
+><A
+HREF="x508.html" tppabs="http://www.frogmouth.net/hid-doco/x508.html"
+>A new kernel interface</A
+></DT
+></DL
+></DD
+></DL
+></DD
+><DT
+>II. <A
+HREF="p512.html" tppabs="http://www.frogmouth.net/hid-doco/p512.html"
+>Examples</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c514.html" tppabs="http://www.frogmouth.net/hid-doco/c514.html"
+>HIDDEV examples</A
+></DT
+><DT
+><A
+HREF="c537.html" tppabs="http://www.frogmouth.net/hid-doco/c537.html"
+>EVDEV examples</A
+></DT
+></DL
+></DD
+><DT
+>III. <A
+HREF="p594.html" tppabs="http://www.frogmouth.net/hid-doco/p594.html"
+>About this Guide</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c596.html" tppabs="http://www.frogmouth.net/hid-doco/c596.html"
+>Contributors</A
+></DT
+><DT
+><A
+HREF="c599.html" tppabs="http://www.frogmouth.net/hid-doco/c599.html"
+>Availability and licensing</A
+></DT
+><DD
+><DL
+><DT
+><A
+HREF="c599.html#AEN601" tppabs="http://www.frogmouth.net/hid-doco/c599.html#AEN601"
+>Obtaining updates and translations</A
+></DT
+><DT
+><A
+HREF="x608.html" tppabs="http://www.frogmouth.net/hid-doco/x608.html"
+>License</A
+></DT
+></DL
+></DD
+><DT
+><A
+HREF="c613.html" tppabs="http://www.frogmouth.net/hid-doco/c613.html"
+>Corrections</A
+></DT
+></DL
+></DD
+></DL
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="p13.html" tppabs="http://www.frogmouth.net/hid-doco/p13.html"
+>Next &#62;&#62;&#62;</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>How Linux handles USB HID devices</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

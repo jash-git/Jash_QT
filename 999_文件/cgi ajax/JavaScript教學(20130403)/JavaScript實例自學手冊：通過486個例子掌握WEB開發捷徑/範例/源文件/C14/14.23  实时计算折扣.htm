@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script type="text/javascript">
+var arr = new Array("","","");            //创建数组
+function price(myPrice){                  //用数组存储价格信息
+	arr[0] = myPrice;
+	count();                              //计算结果
+}
+function Tcount(myCount){
+
+	arr[1] = myCount;                     //用数组保存数量信息
+	count();                              //计算结果
+}
+function off(myOff){
+	arr[2] = myOff;                       //保存折扣信息
+	count();                              //计算结果
+}
+function count(){
+
+	myResult.value =arr[0]*arr[1]*arr[2]; //返回计算结果
+}
+</script>
+</head>
+<body>
+单价：<input type="text" name="PriceObj" onkeyup="price(this.value)"><br><br>
+数量：<input type="text" name="CountObj" onkeyup="Tcount(this.value)"><br><br>
+折扣：<input type="text" name="OffObj" onkeyup="off(this.value)"><br><br><br>
+计算公式：单价*数量*折扣<br><br>
+金额：<input type="text" name="myResult"><br><br>
+</body>
+</html>

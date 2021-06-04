@@ -1,0 +1,106 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+<script Language="javascript"> 
+//内部变量定义
+tPopWait=50; 
+tPopShow=4000;
+showPopStep=15; 
+popOpacity=80; 
+sPop=null; 
+curShow=null; 
+tFadeOut=null; 
+tFadeIn=null; 
+tFadeWaiting=null; 
+//动态显示提示信息，注意此处定义了样式和层
+document.write("<style type='text/css'id='defaultPopStyle'>"); 
+document.write(".cPopText {  background-color: #F8F8F5;color:#000000; border: 1px #000000 solid;font-color: font-size: 12px; padding-right: 4px; padding-left: 4px; height: 20px; padding-top: 2px; padding-bottom: 2px; filter: Alpha(Opacity=0)}"); 
+document.write("</style>"); 
+document.write("<div id='dypopLayer' style='position:absolute;z-index:1000;' class='cPopText'></div>"); 
+
+//显示提示信息的方法
+function showPopupText()
+{ 
+    var o=event.srcElement; //获取鼠标指向的链接或按钮
+    MouseX=event.x; 
+    MouseY=event.y; 
+    if(o.alt!=null && o.alt!="")
+    {o.dypop=o.alt;o.alt=""}; 
+    if(o.title!=null && o.title!="")
+    {o.dypop=o.title;o.title=""}; 
+    if(o.dypop!=sPop)
+    { 
+        sPop=o.dypop;   //设置提示信息的内容-从控件的title属性获得
+        clearTimeout(curShow); 
+        clearTimeout(tFadeOut); 
+        clearTimeout(tFadeIn); 
+        clearTimeout(tFadeWaiting); 
+        if(sPop==null || sPop=="") 
+        { 
+            dypopLayer.innerHTML=""; 
+            dypopLayer.style.filter="Alpha()"; 
+            dypopLayer.filters.Alpha.opacity=0; 
+        } 
+        else 
+        { 
+            if(o.dyclass!=null)
+            popStyle=o.dyclass  
+            else popStyle="cPopText"; 
+            curShow=setTimeout("showIt()",tPopWait); 
+        } 
+   } 
+} 
+//定义显示的位置
+function showIt()
+{ 
+    dypopLayer.className=popStyle; 
+    dypopLayer.innerHTML=sPop; 
+    popWidth=dypopLayer.clientWidth; 
+    popHeight=dypopLayer.clientHeight; 
+    if(MouseX+12+popWidth>document.body.clientWidth) popLeftAdjust=-popWidth-24 
+    else popLeftAdjust=0; 
+    if(MouseY+12+popHeight>document.body.clientHeight) popTopAdjust=-popHeight-24 
+    else popTopAdjust=0; 
+    dypopLayer.style.left=MouseX+12+document.body.scrollLeft+popLeftAdjust; 
+    dypopLayer.style.top=MouseY+12+document.body.scrollTop+popTopAdjust; 
+    dypopLayer.style.filter="Alpha(Opacity=0)"; 
+    fadeOut(); 
+} 
+//定义显示或隐藏提示层
+function fadeOut()
+{ 
+    if(dypopLayer.filters.Alpha.opacity<popOpacity)
+    { 
+        dypopLayer.filters.Alpha.opacity+=showPopStep; 
+        tFadeOut=setTimeout("fadeOut()",1); 
+    } 
+    else
+    { 
+        dypopLayer.filters.Alpha.opacity=popOpacity; 
+        tFadeWaiting=setTimeout("fadeIn()",tPopShow); 
+    } 
+} 
+function fadeIn()
+{ 
+    if(dypopLayer.filters.Alpha.opacity>0) 
+    { 
+        dypopLayer.filters.Alpha.opacity -= 1; 
+        tFadeIn=setTimeout("fadeIn()",1); 
+    } 
+} 
+document.onmouseover=showPopupText; 
+</script>
+</head>
+<body>
+       <p>
+        调试其他进程的能力赋予您极广泛的权力，这是无法通过其他途经获得的，
+在进行远程调试时更是如此。恶意的调试器可能对正在调试的计算机造成大范围的损害。因此，对可能进行调试的人要有所限制。有关更多信息，请参见
+           远程调试权限。</p>
+    <p>
+        但是，许多开发人员没有意识到安全威胁也可以从相反的方向产生。
+调试对象进程中的恶意代码可能危害调试计算机的安全：有许多必须防范的不道德的安全利用。</p>
+<br />
+<a href="http://www.google.com" title="我最喜爱的搜索">搜索</a>
+
+</body>
+</html>

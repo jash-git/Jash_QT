@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>划词搜索</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+</head>
+<body>
+<SCRIPT language=Javascript>
+document.body.onload=adddiv;            //页面加载时动态创建div
+document.onmousedown=recordobj;         //鼠标按下时触发的事件
+document.ondblclick=dbclick;            //窗体双击时触发的事件
+document.onmouseup=showselect;          //鼠标弹起时触发的事件
+var eventObj;
+var isDouble=false;
+var allow=true;                        //是否启用划词搜索
+
+function isallow()
+{
+    if(allow){
+    allow=false;
+    alert('已经关闭');
+    }
+    else{
+    allow=true;
+    alert('已经打开');
+    }
+}
+
+function dbclick()                      //双击事件
+{
+    isDouble=true;
+}
+function recordobj()                    //当前操作对象
+{
+    eventObj=event.srcElement;
+}
+function showselect() {
+    var str="";
+    if(event.srcElement.tagName!="A"&&event.srcElement.tagName!="INPUT"&&event.srcElement==eventObj&&!isDouble&&allow)
+    {
+        var oText=document.selection.createRange();//获取选择文本
+        if(oText.text.length>0)                    //如果文本存在
+        {
+            str=oText.text;
+            oText.text="begin"+oText.text+"end";        //包装被选中的文本
+        }
+        oText.select();                                 //实现选择
+                                                        //设置选中文本的样式-带下划线-变颜色
+        event.srcElement.innerHTML=event.srcElement.innerHTML.replace("begin","<u style='FONT-WEIGHT: bold;COLOR: #ff3366'>").replace("end","</u>");
+    }
+    googleDiv(str)                                      //实现选定文本的搜索
+    isDouble=false;
+}
+
+function googleDiv(str)
+{
+    var obj=document.getElementById("googleDiv");//获取动态添加的div
+    if(str.length>0)                                
+    {
+        obj.style.display="block";                  //显示div
+        obj.style.position="absolute";              //设置div绝对位置
+        obj.style.zindex=999;
+        obj.style.posTop=document.body.scrollTop+event.y-25;//div的Y坐标
+        obj.style.posLeft=document.body.scrollLeft+event.x+5;//div的X坐标
+        obj.style.widht=80;                                  //div的宽度
+        obj.innerHTML="<a target=_blank href=http://www.google.com/search?ie=UTF-8&oe=UTF-8&q="+str+" style='BORDER-RIGHT: royalblue thin solid; BORDER-TOP: royalblue thin solid; FONT-WEIGHT: bold; BORDER-LEFT: royalblue thin solid; CLIP: rect(auto auto auto auto); COLOR: #ffffff; BORDER-BOTTOM: royalblue thin solid; BACKGROUND-COLOR: inactivecaption; TEXT-DECORATION: none'>搜索</a>";
+    }
+    else
+    {
+      obj.style.display="none";
+    }
+}
+
+function adddiv()//动态添加div标签
+{
+    var mobj = document.createElement("div");   //创建div标签
+    mobj.id="googleDiv";                        //设置div标签的id
+    document.body.appendChild(mobj);            //将div添加到窗体中
+}
+</SCRIPT>
+<INPUT type="button" onclick="isallow()" value="关闭/打开划词功能">
+<p>This is Test ,please Select,it's will google</p>
+</body>
+</html>

@@ -1,0 +1,44 @@
+替 Linux 新增硬碟（磁碟分割、格式化與掛載）
+
+資料來源:http://www.gtwang.org/2012/02/linux.html
+
+
+01.先用 df 來看一下目前系統硬碟的使用情形：
+df -h
+
+02.而我門剛剛裝上去的新硬碟在這裡是看不到的，因為我們都還沒開始分割，接著在看看 /dev 下面所有的硬碟情況，
+ls /dev/[sh]d*
+
+03.這樣一比較就知道新的硬碟是 /dev/sdc 這顆，再用 fdisk 確認一下：
+fdisk -l /dev/sdc
+
+04.看起來沒問題，沒有任何磁碟分割表的資訊，接著開始分割，首先進入 fdisk：
+fdisk /dev/sdc
+首先我們要新增一個分割區，步驟如下
+新增分割區，輸入 n 按 Enter。
+選擇要建立 extended 還是 primary partition，因為我的硬碟全部只要一個分割區，所以我選 primary，輸入 p 按 Enter。
+選擇 Partition number，primary 分割區最多可以有四個，隨便選都可以，不過建議選 1，免得以後看起來很奇怪，輸入 1 按 Enter。
+輸入開始的 cylinder，用預設值就可以了，直接按 Enter。
+輸入結束的 cylinder，若是要用最大的容量，就直接按 Enter，若是要指定分割區的大小，就用 +size{K,M,G} 的形式指定，例如指定為 100G 的大小就輸入 +100G 再按 Enter。
+最後將分割表寫入硬碟，輸入 w 再按 Enter。
+若是要離開 fdisk 就輸入 q 按 Enter 就可以了。
+
+05.接著再用 fdisk 確認分割區：
+fdisk -l /dev/sdc
+
+06.Linux 下格式化就用 mkfs 這個指令就可以了：
+mkfs -t ext4 /dev/sdc1
+其中 -t 選項可以指定檔案系統，若是 Ext3 的話就指定為 -t ext3。等他跑完，硬碟的格式化就完成了，其輸出大約會像這樣：
+
+07.就是利用 blkid 這個指令，它可以列出所有磁碟的 UUID：
+sudo blkid
+
+08.所以現在就是依樣畫葫蘆，把新的硬碟資訊寫進 /etc/fstab 中，在 /etc/fstab 加入下面這行：
+
+UUID=146d3bb3-e351-45c8-ac84-42534ce51d29 /data2          ext4    defaults        0      
+ 
+09.這樣就大功告成了，下次重開機時，系統就會把新的硬碟掛載至 /data2，若要馬上測試掛載硬碟設定是否正確，可以使用 mount：
+mount /data2
+
+10.再用 df -h 看一下，就知道有沒有問題了。
+使用 UUID 掛載硬碟，只要設定一次，以後就不用煩惱掛載的問題了，真方便！

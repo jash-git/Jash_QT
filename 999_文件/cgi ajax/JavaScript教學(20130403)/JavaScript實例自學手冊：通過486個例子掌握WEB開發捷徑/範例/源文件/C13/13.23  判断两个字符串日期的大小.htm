@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script LANGUAGE="JavaScript">
+function Judge()
+{
+  if(document.getElementById("beginTime").value<=document.getElementById("endTime").value)
+    alert("开始日期小于结束日期");
+  else
+    alert("开始日期大于结束日期")
+}
+</script>
+</head>
+<body>
+开始日期：<input type="text" id="beginTime"> <br/>
+结束日期：<input type="text" id="endTime">
+<input type="button" value="判断" onclick="Judge()" />
+</body>
+</html>

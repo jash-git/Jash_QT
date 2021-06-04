@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script LANGUAGE="JavaScript">
+function changeCase(frmObj)
+{
+
+}
+</script>
+</head>
+<body>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<table width="100%" border="1" align="center" cellpadding="0" cellspacing="0">
+ <script language="javascript">
+    for(var i=0;i<30;i++)       //实现数值的遍历
+    {
+        if(i%3==0)              //是否能被3整除-固定列数的关键
+             document.write(((i!=0)?"<\/tr>":"")+"<tr>");    //动态输出单元行
+        document.write('<td align="center" bgcolor="#FFFFFF">第'+(i+1)+'个单元格<\/td>')//输出单元格及内容
+    }
+    document.write("<\/tr>")
+</script>
+</table>
+</body>
+</html>

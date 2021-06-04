@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+var messages = new Array(6);        //显示的信息数组
+messages[0] = "";
+messages[1] = "这里查询所有的健康咨询，学习如何保护自己的身体，如何正确饮食！";
+messages[2] = "是刚注册的用户吗？还不知道如何浏览本站吧，从这里进入即可！";	   
+messages[3] = "要下载常用软件吗/本站的某些页面打不开吗?从这里进去看看!";
+messages[4] = "不管你有什么想说的,都可以来这里发泄! ";
+messages[5] = "这里有所有资深会员的经验之谈,近来看看吧!";
+function messageReveal() 
+{
+    var messageindex = document.messageForm.messagePick.selectedIndex  //获取用户选择的列表索引
+    document.messageForm.messageField.value = messages[messageindex];  //显示指定的信息
+}
+</SCRIPT>
+</head>
+<body>
+<form name="messageForm">
+<select name="messagePick" OnChange="messageReveal()">
+<option value="0">网站导航条
+<option>健康杂谈
+<option>新用户帮助
+<option>下载软件
+<option>灌水论坛
+<option>老手经验
+</select>
+<br><p>
+<textarea name="messageField" rows=6 cols=50 wrap=virtual></textarea>
+</form>
+</body>
+</html>

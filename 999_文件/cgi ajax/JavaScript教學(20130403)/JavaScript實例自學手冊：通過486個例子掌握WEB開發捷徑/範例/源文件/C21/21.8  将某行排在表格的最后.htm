@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="JavaScript">
+function moveToLast(tr)
+{
+        var tb =document.getElementById(tr).parentElement.parentElement//获取表格对象
+        tb.moveRow(document.getElementById(tr).rowIndex, -1);          //移动表格中的行到指定位置
+}
+</script>
+</head>
+<body>
+<table border="1">
+<tr id="tr1"><td>第一行</td></tr>
+<tr id="tr2"><td>第二行</td></tr>
+<tr id="tr3"><td>第三行</td></tr>
+</table>
+</br>
+<input type="button" value="把第一行排到最后" onclick="moveToLast('tr1')" />
+</body>
+</html>

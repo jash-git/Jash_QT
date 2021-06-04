@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+var bForbidden = false;
+var ch;
+var strForbidden = new Array("<",">",".");          //罗列所有被禁止的方法字符
+function chk(str)
+{
+    for (var i=0;i<strForbidden.length;i++){        //遍历用户输入的数据
+	    for (var j=0;j<str.length;j++)
+	    {
+		    ch=str.substr(j,1);
+		    if (ch==strForbidden[i])                //如果包含非法字符
+		    {
+			    bForbidden = true;                  //设置此变量为true
+		    }
+	    }    
+    }
+    if (bForbidden){
+       alert("包含特殊字符,已经被禁止!");   
+    }
+} 
+</SCRIPT>
+</head>
+<body>
+<input type=text name="txt1" value="this is test!">
+<input type=button value="测试文本" onClick="javascript:chk(txt1.value)">
+</body>
+</html>

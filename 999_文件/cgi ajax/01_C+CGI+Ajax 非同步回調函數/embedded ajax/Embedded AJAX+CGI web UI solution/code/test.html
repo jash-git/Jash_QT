@@ -1,0 +1,68 @@
+<html>
+ 
+<head>
+ 
+<title></title>
+<script>
+var myxml
+function createXMLHttpRequest() {
+    var xmlHttp;
+    if (window.XMLHttpRequest) { //if we can get XMLHttpRequest
+        xmlHttp = new XMLHttpRequest();  // Mozilla¡BFirefox¡BSafari
+    }
+    else if (window.ActiveXObject) { //if we can get ActiveXObject
+        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP"); // Internet Explorer
+    }
+    return xmlHttp
+}
+ 
+function handleGetStateChange() {
+   if (myxml.readyState == 4) { 
+     if (myxml.status == 200) { 
+          //alert("Server Response" + myxml.responseText);
+      document.GetVal.t1.value=myxml.responseText  
+     }
+   }
+}
+function handleSetStateChange() {
+   if (myxml.readyState == 4) {
+     if (myxml.status == 200) {
+         // alert("Server Response" + myxml.responseText);
+          document.SetVal.t2.value=myxml.responseText
+     }
+   }
+}
+ 
+function startGetRequest() 
+{
+    
+    myxml=createXMLHttpRequest(); 
+    if (!myxml) alert("ajax not supported")
+    myxml.onreadystatechange = handleGetStateChange; 
+    myxml.open("GET", "http://192.168.15.5/cgi-bin/cpe.cgi?freq&username",true); 
+    myxml.send("");  
+}
+function startSetRequest()
+{
+ 
+    myxml=createXMLHttpRequest();
+    if (!myxml) alert("ajax not supported")
+    myxml.onreadystatechange = handleSetStateChange;
+    myxml.open("POST", "http://192.168.15.5/cgi-bin/cpe.cgi",true);
+    myxml.send("freq=123&username=jim");
+}
+ 
+</script>
+</head>
+ 
+<body>
+<form name="GetVal">
+<INPUT type="button" value="Get Value" onclick="startGetRequest()"> 
+<INPUT type="text" name="t1">
+</form>
+<form name="SetVal">
+<INPUT type="button" value="Set Value" onclick="startSetRequest()">
+<INPUT type="text" name="t2">
+</form>
+</body>
+</html>

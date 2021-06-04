@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="javascript">
+function textcontrol(content) 
+{ 
+   if (txt.length > 200) // 如果文本框的长度大于200
+       document.txt.value=document.txt.value.substring(0, 200); //截取前200字符
+}
+
+</script>
+</head>
+<body>
+<textarea name="txt" cols="50" rows="10" onPropertyChange="textcontrol(txt.value)">
+</textarea>
+</body>
+</html>

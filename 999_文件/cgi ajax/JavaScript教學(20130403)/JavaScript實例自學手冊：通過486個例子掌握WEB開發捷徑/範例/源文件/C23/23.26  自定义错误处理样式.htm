@@ -1,0 +1,24 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="JavaScript">
+function errorbox(){
+ errorwindow=window.open("","test","width=300,height=200");  //再打开一个窗口
+ //设置在窗口中显示的错误
+ errorwindow.document.write('<title>脚本错误报告</title><center>该页面运行过程中发现错误，请通知网站管理人员。<Br><form><input type="button" value="关闭窗口" onClick="window.close()"></form></center>')
+ errorwindow.document.close();            //关闭窗口
+ errorwindow.document.bgColor="#eeeb7f";  //设置窗口的背景色
+ return true;
+}
+window.onerror=errorbox;                 //绑定自定义的错误方法
+function btnClick()                      //触发错误的事件
+{
+   document.getElementById("txt").value="长三";
+}
+</script>
+
+</head>
+<body>
+<input type=button value="触发错误" onclick="btnClick()" />
+</body>
+</html>

@@ -1,0 +1,34 @@
+<html> 
+<head> 
+<title>表格显示数据表记录</title> 
+</head> 
+<body> 
+<textarea id=myTxt style="overflow:hidden" width="20" height="20">
+测试数据
+测试数据
+测试数据
+测试数据
+阿斗司法司法
+测试数据
+测试数据
+测试数据
+测试数据
+测试数据
+测试数据如肺炎
+</textarea> 
+<button onmouseup=stop() onmousedown=up()>上翻</button><button onmousedown=down() onmouseup=stop()>下翻</button> 
+<script> 
+var Timer=null; 
+function up() 
+ {myTxt.doScroll("scrollBardown") //调用滚动条，实现上翻
+  Timer=setTimeout("up()",100) 
+ } 
+function down() 
+{myTxt.doScroll("scrollBarUp") //调用滚动条，实现下翻
+  Timer=setTimeout("down()",100) 
+ } 
+function stop() 
+{clearTimeout(Timer)} //清空定时器
+</script> 
+</body> 
+</html> 

@@ -1,0 +1,15 @@
+<html>
+<head>
+<title> 动态添加框架 </title>
+<script language="JavaScript">
+window.onload = function()
+{
+var iframe = document.createElement('iframe'); //动态创建框架
+iframe.src="http://www.google.com";            //框架中加载的页面
+document.body.appendChild(iframe);             //将框架添加到当前窗体
+}
+</script>
+</head>
+<body>
+</body>
+</html>

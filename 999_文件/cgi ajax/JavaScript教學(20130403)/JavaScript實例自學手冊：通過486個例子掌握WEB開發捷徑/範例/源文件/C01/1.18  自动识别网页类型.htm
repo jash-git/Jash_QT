@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<SCRIPT LANGUAGE="JavaScript">
+    URL = window.location.href;            //获取网页当前URL地址
+    ishtm = (URL.indexOf('.htm') > -1);    //判断地址中包含的字符串
+    ishtml = (URL.indexOf('.html') > -1);
+    isshtml = (URL.indexOf('.shtml') > -1);
+    isphtml = (URL.indexOf('.phtml') > -1);
+    isaspx = (URL.indexOf('.aspx') > -1);
+</script>
+</head>
+<body>
+<SCRIPT LANGUAGE="JavaScript">
+//一个全局变量，用来判断网页类型
+if (isphtml)
+   document.write("这是一个.phtml 文件!");
+else if (isshtml)
+    document.write("这是一个.shtml 文件!");
+else if (ishtml)
+    document.write("这是一个.html 文件!");
+else if (ishtm) 
+    document.write("这是一个.htm 文件!"); 
+else if (aspx) 
+    document.write("这是一个.aspx文件!");
+else { 
+document.write("无法识别该类型文件.");
+}
+</script>
+</body>
+</html>

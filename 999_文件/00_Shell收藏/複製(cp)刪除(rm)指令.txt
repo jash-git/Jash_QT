@@ -1,0 +1,10 @@
+#複製整個目錄把20130125整個目錄複製到jash下，而且會建立20130125目錄 所以不用使用mkdir
+cp -r /media/sf_mintLinux/20130125/ /home/jash/
+
+#刪除整個目錄
+rm -r /media/sf_mintLinux/20130125/
+
+#刪除目錄下類似檔案[Screenshot.png、Screenshot-1.png、Screenshot-2.png、Screenshot-3.png]
+rm /media/sf_mintLinux/Screenshot*
+
+

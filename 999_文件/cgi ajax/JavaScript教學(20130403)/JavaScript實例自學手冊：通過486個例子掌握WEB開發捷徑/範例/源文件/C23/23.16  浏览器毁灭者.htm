@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language="JavaScript">
+function pop(){
+  for(i=1;i<=3;i++)   //循环打开3个
+  {
+    //指定打开窗口的样式
+    window.open('http://www.google.com','','width=50,height=50','status=off','location=off','toolbar=off','scrollbars=off')
+ }
+}
+</script>
+</head>
+<body>
+<form name="form">
+        <p> 
+      <input type="button" value="测试:单击就打开3个50*50的小窗口" onClick="pop()" name="button" >
+    </p>
+</form>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+<script language=javascript>
+function calTime()
+{
+var time1 = new Date().setHours(12,25,30);  //三个参数分别是小时、分、秒
+var time2 = new Date().setHours(20,12,10);  //创建另一个时间
+var timediff = time2 - time1;               //获取两个时间差，结果为毫秒
+timediff = timediff/(60*60*1000);           //毫秒换算成小时
+return timediff;
+}
+</script>
+</head>
+<body>
+<input type=button value="计算" onClick="alert (calTime())">
+</body>
+</html>

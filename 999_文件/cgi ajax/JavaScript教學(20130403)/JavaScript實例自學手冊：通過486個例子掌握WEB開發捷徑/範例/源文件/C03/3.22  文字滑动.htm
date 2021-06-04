@@ -1,0 +1,61 @@
+<html>
+<head>
+<script type="text/javascript">
+function $(id) {
+return document.getElementById(id);             //获取控件的ID
+}
+function marquee(time, oDiv, oLtd, oRtd)        //制作一个marquee类
+{
+    /*
+    time 值越大速度越慢
+    oDiv最外层div
+    oLtd左边的td
+    oRtd右边的td
+    */
+    var timer, width = oLtd.offsetWidth;
+    function move() {
+        if (oDiv.scrollLeft >= width)           //当滚动条移动到最后时，重新开始
+        oDiv.scrollLeft = 0;
+        else
+        oDiv.scrollLeft ++;                     //一直滚动
+    }
+
+    oRtd.innerHTML = oLtd.innerHTML;           //左侧内容转移动到右侧
+    oDiv.style.overflow = "hidden";             //隐藏最外层div
+    oRtd.style.width = oLtd.offsetWidth;        //右侧td的宽度
+    oDiv.onmouseover = function () {            //鼠标移动过来的事件
+        window.clearInterval(timer);            //清空定时器-停止滚动
+    };
+oDiv.onmouseout = function () {
+    timer = window.setInterval(move, time);     //鼠标移走便开始滚动
+    };
+    timer = window.setInterval(move, time);     //开始滚动
+};
+
+window.onload = function () {
+new marquee(25, $("myDiv"), $("myTd1"), $("myTd2"));
+}
+</script>
+</head>
+<body>
+<div id="myDiv" style="border:#CCCCCC 1px dashed; width:300px;"><!--设置显示的宽度-->
+  <table cellspacing="0" cellpadding="0">
+    <tbody>
+      <tr>
+        <td id="myTd1">
+          <table width="342" cellpadding="0" cellspacing="0"><!--注意这里的宽度必须设置，并且要设置为具体值-->
+            <tr align="center">
+              <td>左边</td>
+              <td>右边</td>
+              <td>左边</td>
+              <td>右边</td>
+            </tr>
+          </table>
+        </td>
+        <td id="myTd2"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

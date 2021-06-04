@@ -1,0 +1,63 @@
+ <html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>无标题页</title>
+<script language="JavaScript"> 
+    var caution = false;
+    //将用户的访问信息保存在cookie中
+    function setCookie(name, value, expires, path, domain, secure) 
+    { 
+    var curCookie = name + "=" + escape(value) + 
+    ((expires) ? "; expires=" + expires.toGMTString() : "") + 
+    ((path) ? "; path=" + path : "") + 
+    ((domain) ? "; domain=" + domain : "") + 
+    ((secure) ? "; secure" : "") 
+    if (!caution || (name + "=" + escape(value)).length <= 4000) 
+       document.cookie = curCookie 
+    else 
+    if (confirm("COOKIE超过4kb的部分将会丢失!")) 
+        document.cookie = curCookie 
+    } 
+    //根据COOKIE名获取保存在cookie中的数据
+    function getCookie(name) 
+    { 
+    var prefix = name + "=" 
+    var cookieStartIndex = document.cookie.indexOf(prefix) 
+    if (cookieStartIndex ==-1) 
+       return null 
+    var cookieEndIndex = document.cookie.indexOf(";", cookieStartIndex + prefix.length) 
+    if (cookieEndIndex == -1) 
+      cookieEndIndex = document.cookie.length 
+    return unescape(document.cookie.substring(cookieStartIndex + prefix.length, cookieEndIndex)) 
+    } 
+    //删除cookie信息
+    function deleteCookie(name, path, domain)
+    { 
+    if (getCookie(name)) { 
+    document.cookie = name + "=" + 
+    ((path) ? "; path=" + path : "") + 
+    ((domain) ? "; domain=" + domain : "") + 
+    "; expires=Thu, 01-Jan-70 00:00:01 GMT" } 
+    } 
+    //计算并显示访问次数
+    function fixDate(date) 
+    { 
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0) 
+    date.setTime(date.getTime() - skew) 
+    } 
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    var accesses= getCookie("counter");
+    if (!accesses)
+     accesses=1 ;
+    else 
+       accesses= parseInt(accesses) + 1;
+    setCookie("counter", accesses, now) ;
+    document.write("您好,谢谢您的您的第" + accesses+ "次光临！") ;
+    </script> 
+</head>
+<body>
+</body>
+</html>

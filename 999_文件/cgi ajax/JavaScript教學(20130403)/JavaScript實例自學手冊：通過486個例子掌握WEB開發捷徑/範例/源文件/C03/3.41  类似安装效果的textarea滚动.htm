@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<title>标题页</title>
+</head>
+<body>
+<textarea id="install" cols=20 rows=10 style="background-color:Black; color:White;"></textarea>
+<script>
+var tmpStr = "";
+for(var i = 0;i< 26;i++)
+{
+	for(var j=0;j<=i;j++)                           //遍历26个英文字母
+	{
+		tmpStr += String.fromCharCode(65+i);//连接要显示的字符串
+	}
+	tmpStr += "......\r\n";                                 //行结束符号
+}
+var arr = tmpStr.split("\r\n");                         //将字符串切割成数组
+function addLine(line)                                    
+{
+	if(line >= arr.length)
+		return;
+	var txtOb = document.getElementById("install");     //获取TextArea控件
+	txtOb.value += arr[line] + "\r\n";                  //每局输出后都要求换行
+	if(txtOb.clientHeight <= txtOb.scrollHeight)
+		txtOb.scrollTop = txtOb.scrollHeight - txtOb.clientHeight;
+	setTimeout("addLine(" + (line+1) + ")",500);
+}
+setTimeout("addLine(0)",1);
+</script></body>
+</html>
