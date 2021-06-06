@@ -1,0 +1,3 @@
+VLC_mpeg_ºI¹Ï
+
+vlc -V image --start-time 0 --stop-time 1 --image-out-format jpg --image-out-ratio 24 --image-out-prefix snap test.mpg vlc:quit

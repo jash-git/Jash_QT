@@ -1,0 +1,4 @@
+QDesktopWidget
+QProcess
+
+http://doc.qt.nokia.com/4.6/qprocess.html#details

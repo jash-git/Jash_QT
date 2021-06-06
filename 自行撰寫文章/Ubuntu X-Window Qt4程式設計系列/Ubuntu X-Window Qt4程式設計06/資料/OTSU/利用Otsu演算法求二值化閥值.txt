@@ -1,0 +1,91 @@
+把他想成是一根會動的分界線T在直方圖中由左至右移動
+每次比較兩群新分割 群組之變異數
+便可得到最佳的T值
+
+
+-------------------------------------------------------------------
+函數說明：利用Otsu演算法求二值化閥值
+參數傳入：TBitmap 物件指標（其PixelFormat = pf8bit）
+參數傳回：int 最佳閥值
+-------------------------------------------------------------------
+
+// Otsu法求最佳閥檻值（256灰階） FUNCTION
+int __fastcall TFormMain::OtsuAlgorithm(Graphics::TBitmap *pRefBitmap)
+{
+    // **** 變數說明 ****
+    // N        影像的尺寸（總像素數）
+    // n[i]        影像中灰階值為i的像素數
+    // P[i]        影像中灰階值為i的像素所出現的機率
+    // 當閥檻值為i時
+    // Sum_Pi[i]        影像中第一群像素(C1)所佔的比率 =W1
+    // W2        影像中第二群像素(C2)所佔的比率 =1-W1
+    // Sum_Pi_i[i]    SUM(T=0 to i,P[i]*i)
+    // U1        C1的期望值 =Sum_Pi_i[i]/W1
+    // U2        C2的期望值 =(Sum_Pi_i[255]-Sum_Pi_i[i])/W2
+    // Sigma_1_square C1的變異數
+    // Sigma_2_square C2的變異數
+    // Sigma_w_square C1和C2的變異數和
+
+    int    row, col;
+    int    i, T;
+    double N, n[256], P[256], Sum_Pi[256] ,Sum_Pi_i[256];
+    double W1, W2, U1, U2;
+    double Sigma_1_square, Sigma_2_square, Sigma_w_square;
+    double MinVariance = (double)(1.7e+308);
+    Byte *ptr;
+    int    T_optimal = 0;
+
+    // 計算影像的總像素數
+    N = (double)pRefBitmap->Width * pRefBitmap->Height;
+
+    // 統計影像中灰階值為i的像素數
+    for(i = 0; i < 256 ; i++)
+            n[i] = 0;
+    for(row = 0; row < pRefBitmap->Height; row++)
+    {
+            ptr = (Byte *)pRefBitmap->ScanLine[row];
+        for(col = 0; col < pRefBitmap->Width; col++)
+        n[ ptr[col] ]++;
+    }
+    // 計算影像中灰階值為i的像素所出現的機率
+    for(i = 0; i < 256; i++)
+            P[i] = n[i] / N;
+    // 分別計算閥檻值為T時，Sum_Pi和Sum_Pi_i
+    Sum_Pi[0]    = P[0];
+    Sum_Pi_i[0] = 0;
+    for(i = 1; i < 256; i++)
+    {
+        Sum_Pi[i] = Sum_Pi[i-1] + P[i];
+        Sum_Pi_i[i] = Sum_Pi_i[i-1] + P[i] * i;
+    }
+    // 檢查所有的灰階值，使C1和C2的變異數和為最小時，即為所求的最佳閥檻值
+    for(T = 1; T <= 254; T++)
+    {
+        W1 = Sum_Pi[T];
+    // 加上最小值檢查，避免除數為零
+    if(fabs(W1) < 1e-9)
+        W1 = 1e-9;
+    W2 = 1 - W1;
+    // 加上最小值檢查，避免除數為零
+    if(fabs(W2) < 1e-9)
+            W2 = 1e-9;
+    U1 = Sum_Pi_i[T] / W1;
+    U2 = (Sum_Pi_i[255] - Sum_Pi_i[T]) / W2;
+    Sigma_1_square = 0;
+    for(i = 0; i <= T; i++)
+            Sigma_1_square += ((double)i - U1) * ((double)i - U1) * P[i];
+    Sigma_1_square = Sigma_1_square / W1;
+    Sigma_2_square = 0;
+    for(i = T+1; i <= 255; i++)
+            Sigma_2_square += ((double)i - U2) * ((double)i - U2) * P[i];
+    Sigma_2_square = Sigma_2_square / W2;
+    Sigma_w_square = W1 * Sigma_1_square + W2 * Sigma_2_square;
+    if(Sigma_w_square < MinVariance)
+    {
+            MinVariance = Sigma_w_square;
+        T_optimal = T;
+            }
+    }
+    // 回傳最佳閥檻值
+    return T_optimal;
+}

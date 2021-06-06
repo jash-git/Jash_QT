@@ -1,0 +1,3 @@
+cd C:\mplayer
+mplayer.exe -ss 1 -noframedrop -nosound -vo jpeg -frames 2 mms://61.67.123.85/cln
+mplayer.exe  -dumpstream -dumpfile rec_file.mp3 mms://61.67.123.85/cln

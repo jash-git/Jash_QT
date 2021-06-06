@@ -1,0 +1,49 @@
+001	#ifndef DIALOGIMPL_H	
+002	#define DIALOGIMPL_H	
+003	//	
+004	#include <QDialog>//GUI	
+005	#include <QPixmap>//圖片存檔	
+006	#include <QDesktopWidget>//桌面擷取	
+007	#include <QTimer>//計時器	
+008	#include <QString>//字串	
+009	#include <QWidget>//GUI	
+010	#include <QDir>//目前所在位置//建立或刪除資料夾	
+011	#include <QFileInfoList>	
+012	#include <QStringList>	
+013	#include <QList>	
+014	#include <QFile>	
+015	#include <QByteArray>	
+016	#include <QProcess>	
+017	#include <QTime>	
+018	#include <QDate>	
+019	#include <sys/types.h>	
+020	#include <sys/stat.h>	
+021	#include <fcntl.h>	
+022	#include <unistd.h>	
+023	#include <stdio.h>	
+024	#include <stdlib.h>	
+025	#include "ui_MainUI.h"	
+026	//	
+027	class DialogImpl : public QWidget, public Ui::MainForm	
+028	{	
+029	Q_OBJECT	
+030	public:	
+031		DialogImpl( QWidget * parent = 0, Qt::WFlags f = 0 );
+032		QPixmap Pixmap_saveimage;
+033		QTimer *timer01;
+034		int m_intTimerSwitch;
+035		int m_intImageCount;
+036		QPushButton *mapButVideo;
+037		QString m_StrFileName;
+038		bool m_blnclick;
+039		QProcess *m_cmd;
+040		QString m_StrCurrentPath;
+041		bool DeleteDirectory(QString StrPath);
+042		bool CopyDirectory(const QString source, const QString destination, const bool override);
+043		void CreateRunBash();
+044	private slots:	
+045		void slotCapture01();
+046		void slotTimer();
+047		void slotVideo();
+048	};	
+049	#endif	

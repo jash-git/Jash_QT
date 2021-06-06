@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>598</width>
+    <height>388</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>598</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>檔案</string>
+    </property>
+    <addaction name="OpenFile"/>
+    <addaction name="SaveFile"/>
+    <addaction name="Close"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>基礎運算</string>
+    </property>
+    <addaction name="Source"/>
+    <addaction name="Gray"/>
+    <addaction name="Histogram"/>
+    <addaction name="FixedThreshold"/>
+    <addaction name="OTSUThreshold"/>
+    <addaction name="separator"/>
+    <addaction name="Equalize_Gray"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>幾何運算</string>
+    </property>
+    <addaction name="Translation"/>
+    <addaction name="HorMirror"/>
+    <addaction name="VerMirror"/>
+    <addaction name="Transpose"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="OpenFile">
+   <property name="text">
+    <string>開啟舊檔</string>
+   </property>
+  </action>
+  <action name="Close">
+   <property name="text">
+    <string>關閉程式</string>
+   </property>
+  </action>
+  <action name="Gray">
+   <property name="text">
+    <string>灰階轉換</string>
+   </property>
+  </action>
+  <action name="Source">
+   <property name="text">
+    <string>顯示原圖</string>
+   </property>
+  </action>
+  <action name="FixedThreshold">
+   <property name="text">
+    <string>二值化（固定門閥值）</string>
+   </property>
+  </action>
+  <action name="OTSUThreshold">
+   <property name="text">
+    <string>二值化（OTSU）</string>
+   </property>
+  </action>
+  <action name="Histogram">
+   <property name="text">
+    <string>直方圖</string>
+   </property>
+  </action>
+  <action name="Equalize_Gray">
+   <property name="text">
+    <string>灰階均化</string>
+   </property>
+  </action>
+  <action name="SaveFile">
+   <property name="text">
+    <string>儲存檔案</string>
+   </property>
+  </action>
+  <action name="Translation">
+   <property name="text">
+    <string>圖形移動</string>
+   </property>
+  </action>
+  <action name="HorMirror">
+   <property name="text">
+    <string>水平翻轉</string>
+   </property>
+  </action>
+  <action name="VerMirror">
+   <property name="text">
+    <string>上下翻轉</string>
+   </property>
+  </action>
+  <action name="Transpose">
+   <property name="text">
+    <string>圖形轉置</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>OpenFile</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotOpenFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Close</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotClose()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Gray</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotGray()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Source</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotSource()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>FixedThreshold</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotFixedThreshold()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>OTSUThreshold</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotOTSUThreshold()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Histogram</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotHistogram()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Equalize_Gray</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotEqualize()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>SaveFile</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotSaveFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Translation</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotTranslation()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>HorMirror</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotHorMirror()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>VerMirror</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotVerMirror()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Transpose</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotTranspose()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slotClose()</slot>
+  <slot>slotOpenFile()</slot>
+  <slot>slotGray()</slot>
+  <slot>slotSource()</slot>
+  <slot>slotFixedThreshold()</slot>
+  <slot>slotOTSUThreshold()</slot>
+  <slot>slotHistogram()</slot>
+  <slot>slotEqualize()</slot>
+  <slot>slotSaveFile()</slot>
+  <slot>slotTranslation()</slot>
+  <slot>slotHorMirror()</slot>
+  <slot>slotVerMirror()</slot>
+  <slot>slotTranspose()</slot>
+ </slots>
+</ui>

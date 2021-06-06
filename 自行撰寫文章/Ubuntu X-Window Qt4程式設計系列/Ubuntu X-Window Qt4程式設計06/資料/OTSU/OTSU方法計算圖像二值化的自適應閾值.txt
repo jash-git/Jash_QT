@@ -1,0 +1,87 @@
+OTSU方法計算圖像二值化的自適應閾值    
+/*  
+OTSU 演算法可以說是自適應計算單閾值（用來轉換灰度圖像為二值圖像）的簡單高效方法。下面的代碼最早由 Ryan Dibble提供，此後經過多人Joerg.Schulenburg, R.Z.Liu 等修改，補正。  
+  
+轉自：http://forum.assuredigit.com/display_topic_threads.asp?ForumID=8&TopicID=3480  
+  
+演算法對輸入的灰度圖像的直方圖進行分析，將直方圖分成兩個部分，使得兩部分之間的距離最大。劃分點就是求得的閾值。  
+  
+parameter:   *image         --- buffer for image  
+              rows, cols     --- size of image  
+              x0, y0, dx, dy   --- region of vector used for computing threshold  
+              vvv             --- debug option, is 0, no debug information outputed  
+*/   
+/*======================================================================*/   
+/*   OTSU global thresholding routine                                 */   
+/*   takes a 2D unsigned char array pointer, number of rows, and     */   
+/*   number of cols in the array. returns the value of the threshold     */   
+/*======================================================================*/   
+int otsu (unsigned char *image, int rows, int cols, int x0, int y0, int dx, int dy, int vvv)   
+{   
+   
+unsigned char *np;     // 圖像指標    
+int thresholdValue=1; // 閾值    
+int ihist[256];         // 圖像直方圖，256個點    
+   
+int i, j, k;       // various counters    
+int n, n1, n2, gmin, gmax;   
+double m1, m2, sum, csum, fmax, sb;   
+   
+// 對直方圖置零...    
+memset(ihist, 0, sizeof(ihist));   
+   
+gmin=255; gmax=0;   
+// 生成直方圖    
+for (i = y0 + 1; i < y0 + dy - 1; i++) {   
+  np = &image[i*cols+x0+1];   
+  for (j = x0 + 1; j < x0 + dx - 1; j++) {   
+    ihist[*np]++;   
+    if(*np > gmax) gmax=*np;   
+    if(*np < gmin) gmin=*np;   
+    np++; /* next pixel */   
+  }   
+}   
+   
+// set up everything    
+sum = csum = 0.0;   
+n = 0;   
+   
+for (k = 0; k <= 255; k++) {   
+  sum += (double) k * (double) ihist[k];   /* x*f(x) 品質矩*/   
+  n   += ihist[k];                           /* f(x)   品質   */   
+}   
+   
+if (!n) {   
+  // if n has no value, there is problems...    
+  fprintf (stderr, "NOT NORMAL thresholdValue = 160\n");   
+  return (160);   
+}   
+   
+// do the otsu global thresholding method    
+fmax = -1.0;   
+n1 = 0;   
+for (k = 0; k < 255; k++) {   
+  n1 += ihist[k];   
+  if (!n1) { continue; }   
+  n2 = n - n1;   
+  if (n2 == 0) { break; }   
+  csum += (double) k *ihist[k];   
+  m1 = csum / n1;   
+  m2 = (sum - csum) / n2;   
+  sb = (double) n1 *(double) n2 *(m1 - m2) * (m1 - m2);   
+  /* bbg: note: can be optimized. */   
+  if (sb > fmax) {   
+    fmax = sb;   
+    thresholdValue = k;   
+  }   
+}   
+   
+// at this point we have our thresholding value    
+   
+// debug code to display thresholding values    
+if ( vvv & 1 )   
+fprintf(stderr,"# OTSU: thresholdValue = %d gmin=%d gmax=%d\n",   
+  thresholdValue, gmin, gmax);   
+   
+return(thresholdValue);   
+}

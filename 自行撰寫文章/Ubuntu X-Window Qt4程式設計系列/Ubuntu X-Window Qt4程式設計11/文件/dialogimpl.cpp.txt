@@ -1,0 +1,207 @@
+001	#include "dialogimpl.h"				
+002	//				
+003	DialogImpl::DialogImpl( QWidget * parent, Qt::WFlags f) 				
+004		: QWidget(parent, f)			
+005	{				
+006		setupUi(this);			
+007		mapButVideo=ButVideo;			
+008		m_intTimerSwitch=0;			
+009		m_intImageCount=-1;			
+010		m_StrFileName="";			
+011		m_blnclick=false;			
+012		timer01=new QTimer(this);			
+013		m_StrCurrentPath=QDir::currentPath();			
+014					
+015		QString Strpath;			
+016		Strpath=m_StrCurrentPath+"/png";			
+017		DeleteDirectory(Strpath);			
+018					
+019		QDir Dirmkr(Strpath);			
+020		Dirmkr.mkpath(Strpath);			
+021		connect(timer01,SIGNAL(timeout()),this,SLOT(slotTimer()));			
+022	}				
+023	void DialogImpl::slotCapture01()				
+024	{				
+025		this->setWindowState(Qt::WindowMinimized);			
+026		m_intTimerSwitch=1;			
+027		timer01->start(1000);			
+028	}				
+029	void DialogImpl::slotVideo()				
+030	{				
+031		if(!m_blnclick)			
+032		{			
+033			QString Strpath;		
+034			Strpath=m_StrCurrentPath+"/png";		
+035			DeleteDirectory(Strpath);		
+036					
+037			QDir Dirmkr(Strpath);		
+038			Dirmkr.mkpath(Strpath);		
+039					
+040			m_intTimerSwitch=2;		
+041			this->setWindowState(Qt::WindowMinimized);		
+042			mapButVideo->setText("Stop Video");		
+043			m_intImageCount=-1;		
+044			timer01->start(3);		
+045		}			
+046		else			
+047		{			
+048			mapButVideo->setEnabled(false);		
+049			m_intTimerSwitch=3;		
+050			timer01->stop();		
+051			CreateRunBash();		
+052			mapButVideo->setText("Waiting...");		
+053		}			
+054		m_blnclick=!m_blnclick;			
+055	}				
+056	bool DialogImpl::CopyDirectory(const QString source, const QString destination, const bool override) 				
+057	{				
+058	 				
+059		QDir directory(source);			
+060		bool error = false;			
+061	 				
+062		if (!directory.exists()) 			
+063		{			
+064			return false;		
+065		}			
+066	 				
+067	 				
+068		QStringList files = directory.entryList(QDir::AllEntries | QDir::NoDotAndDotDot | QDir::Hidden);			
+069	 				
+070	 				
+071		QList<QString>::iterator f = files.begin();			
+072	 				
+073	 				
+074		for (; f != files.end(); ++f) 			
+075		{			
+076			QString filePath = QDir::convertSeparators(directory.path() + '/' + (*f));		
+077			QString dPath = destination + "/" + directory.relativeFilePath(filePath);		
+078			QFileInfo fi(filePath);		
+079			if (fi.isFile() || fi.isSymLink())		
+080			{		
+081				if (override)	
+082				{	
+083					QFile::setPermissions(dPath, QFile::WriteOwner);
+084				}	
+085				QFile::copy(filePath, dPath);	
+086	 				
+087	 				
+088			}		
+089			else if (fi.isDir())		
+090			{		
+091	 				
+092				QDir ddir(dPath);	
+093				ddir.mkpath(dPath);	
+094				if (!CopyDirectory(filePath, dPath, override))	
+095				{	
+096					error = true;
+097				}	
+098			}		
+099	 				
+100	 				
+101		}			
+102	 				
+103	 				
+104		return !error;			
+105	}				
+106	bool DialogImpl::DeleteDirectory(QString StrPath)				
+107	{				
+108		QDir directory(StrPath);			
+109	 				
+110		if (!directory.exists()) 			
+111		{			
+112			return true;		
+113		}			
+114		QStringList files = directory.entryList(QDir::AllEntries | QDir::NoDotAndDotDot | QDir::Hidden);			
+115		QList<QString>::iterator f = files.begin();			
+116		bool error = false; 			
+117		for (; f != files.end(); ++f) 			
+118		{			
+119			QString filePath = QDir::convertSeparators(directory.path() + '/' + (*f));		
+120			QFileInfo fi(filePath);		
+121			if (fi.isFile() || fi.isSymLink())		
+122			{		
+123				QFile::setPermissions(filePath, QFile::WriteOwner);	
+124				if (!QFile::remove(filePath)) 	
+125				{	
+126					error = true;
+127				}	
+128			}		
+129			else if (fi.isDir())		
+130			{		
+131				if (!DeleteDirectory(filePath));	
+132				{	
+133					error = true;
+134				}	
+135			}		
+136		}			
+137		if(!directory.rmdir(QDir::convertSeparators(directory.path()))) 			
+138		{			
+139					
+140			error = true;		
+141		} 			
+142		return !error;			
+143	}				
+144	void DialogImpl::CreateRunBash()				
+145	{				
+146		QString Str01;			
+147		QString StrFileName;			
+148		QDate date=QDate::currentDate();			
+149		QTime time = QTime::currentTime();			
+150		QString StrBuf;			
+151		StrFileName=m_StrCurrentPath+"/callffmpeg.sh";			
+152		QFile destFile(StrFileName);			
+153		StrBuf="/"+date.toString("yyyyMMdd")+time.toString("hhmmss");			
+154		StrBuf+=".avi";			
+155		//Str01="ffmpeg -r 3 -f image2 -i /path/to/image/directory/prefix%d.jpg /path/to/destination.avi"			
+156		Str01="ffmpeg -r 3 -f image2 -i ";			
+157		Str01+=m_StrCurrentPath+"/png/";			
+158		Str01+="%d.png ";			
+159		Str01+=m_StrCurrentPath;			
+160		Str01+=StrBuf;			
+161		QByteArray byte = Str01.toAscii();			
+162		if (destFile.open(QIODevice::WriteOnly))			
+163		{			
+164			struct stat statbuf;		
+165			destFile.write(byte);		
+166			destFile.close();		
+167			stat(StrFileName.toAscii(), &statbuf);		
+168			chmod(StrFileName.toAscii(),(((statbuf.st_mode | S_IXUSR)|S_IXGRP)|S_IXOTH));		
+169		}			
+170		m_cmd=new QProcess();			
+171		m_cmd->start(StrFileName);			
+172		timer01->start(1000);			
+173	}				
+174	void DialogImpl::slotTimer()				
+175	{				
+176		m_StrFileName=m_StrCurrentPath+"/png/";			
+177		QString StrNumBuf;			
+178		switch(m_intTimerSwitch)			
+179		{			
+180			case 1:		
+181				timer01->stop();	
+182				m_StrFileName=m_StrFileName+"0.png";	
+183				Pixmap_saveimage= QPixmap::grabWindow(QApplication::desktop()->winId());	
+184				Pixmap_saveimage.save(m_StrFileName, "PNG");	
+185				this->setWindowState(Qt::WindowActive);	
+186				break;	
+187			case 2:		
+188				//timer01->stop();	
+189				m_intImageCount++;	
+190				m_StrFileName=m_StrFileName+StrNumBuf.setNum(m_intImageCount);	
+191				m_StrFileName=m_StrFileName+".png";	
+192				Pixmap_saveimage= QPixmap::grabWindow(QApplication::desktop()->winId());	
+193				Pixmap_saveimage.save(m_StrFileName, "PNG");	
+194				//timer01->start(3);	
+195				break;	
+196			case 3:		
+197				if(m_cmd->waitForFinished())	
+198				{	
+199					timer01->stop();
+200					delete m_cmd;
+201					mapButVideo->setText("Start Video");
+202					mapButVideo->setEnabled(true);
+203				}	
+204				break;	
+205		}			
+206	}				
+207	//				

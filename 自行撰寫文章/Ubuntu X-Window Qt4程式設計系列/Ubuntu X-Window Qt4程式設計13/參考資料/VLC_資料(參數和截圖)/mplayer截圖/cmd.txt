@@ -1,0 +1,2 @@
+cd C:\ffmpeg\bin\
+mplayer.exe -ss 1 -noframedrop -nosound -vo jpeg -frames 2 mms://61.67.123.85/playlist-test

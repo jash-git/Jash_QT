@@ -1,0 +1,1 @@
+ffmpeg -r 3 -f image2 -i /home/jash/Qt_project/Qt_Capture_Movie04/bin/png/%d.png /home/jash/Qt_project/Qt_Capture_Movie04/bin/20120226164056.avi

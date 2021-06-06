@@ -1,0 +1,11 @@
+001	#include <QApplication>	
+002	#include "dialogimpl.h"	
+003	//	
+004	int main(int argc, char ** argv)	
+005	{	
+006		QApplication app( argc, argv );
+007		DialogImpl win;
+008		win.show(); 
+009		app.connect( &app, SIGNAL( lastWindowClosed() ), &app, SLOT( quit() ) );
+010		return app.exec();
+011	}	

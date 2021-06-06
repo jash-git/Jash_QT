@@ -1,0 +1,20 @@
+-i : 指輸入的檔案名稱		OK
+-vcodec libx264,影像編碼器	OK
+-acodec libfaac,聲音編碼器	OK
+-b 400k,指定影像的bitrate	OK
+-r 29.97,每秒張數		OK
+-s 400x300,畫面的解析度		OK
+-ar 44100,指定聲音的取樣頻率	OK
+-ab 40k,指定聲音的bitrate	OK
+-threads 2,允許使用CPU的核心數	OK
+
+15.擷取圖片命令
+ffmpeg -y -i input.3gp -f image2 -t 0.001 -ss 3 -s 176x144 output.jpg 
+
+16.取得影片長度
+ffmpeg -i 11.mp4 2>&1 | grep Duration | cut -d, -f1 | cut -d: -f2- >Duration.txt
+
+影片資訊 
+ffmpeg -i 11.mp4 2>&1 | grep Stream >stream.txt
+
+PS [ 2>&1	(重新導向) ]

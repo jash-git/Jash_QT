@@ -1,0 +1,9 @@
+currentPath:	/home/jash/Qt_project/20120912/Multicast_Playlist17/bin/
+PlayListUrl	http://xpe5tv.tw-airnet.net/_admin/module/film_schedule_edit_v2_model.php?channel=livebase&action=get_xml
+LiveMulticastUrl	udp://@235.1.1.55:1233
+MulticastPar01	--sout-ffmpeg-interlace --sout-keep --sout '#transcode{fps=29.97,venc=ffmpeg{keyint=3},vcodec=mp2v,vb=4000,width=704,height=480,acodec=mp2a,alang=eng,ab=128,channels=2,samplerate=48000}:udp{mux=ts,dst=127.0.0.1:1239}'
+MulticastPar02	vlc udp://@127.0.0.1:1239 --sout-keep --sout '#udp{mux=ts,dst=224.8.8.3:1239}'
+BaseUrl	http://192.168.0.234:8383
+LivePar	--sout-keep --sout '#udp{mux=ts,dst=224.8.8.3:1239}'
+LiveProcess	ffmpeg
+MultiProcess	vlc

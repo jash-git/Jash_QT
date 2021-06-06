@@ -1,0 +1,45 @@
+Windows
+C:\Program Files (x86)\VideoLAN\VLC>vlc -V dummy --intf=dummy --dummy-quiet http://61.67.123.72:9090/udp/235.1.1.167:1232 --rate=1 --run-time=5 --video-filter=scene --vout=dummy --scene-format=png --scene-prefix=snap --scene-replace --scene-path=C:\ vlc://quit
+C:\Program Files (x86)\VideoLAN\VLC>vlc --no-video --audio-visual=visual --effect-list=spectrum http://61.67.123.72:9090/udp/235.1.1.167:1232 --rate=1 --run-time=5 --video-filter=scene --vout=dummy --scene-format=png --scene-prefix=snap --scene-replace --scene-path=C:\ vlc://quit
+Linux
+cvlc -V dummy http://61.67.123.72:9090/udp/235.1.1.167:1232 --rate=1 --run-time=5 --video-filter=scene --vout=dummy --scene-format=png --scene-prefix=snap --scene-replace --scene-path=c:\ vlc://quit1
+cvlc --no-video --audio-visual=visual --effect-list=spectrum http://61.67.123.72:9090/udp/235.1.1.167:1232 --rate=1 --run-time=5 --video-filter=scene --vout=dummy --scene-format=png --scene-prefix=snap --scene-replace --scene-path=C:\ vlc://quit
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+--no-video 無影像
+--audio-visual=visual    音頻視覺化
+--effect-list=spectrum 效果列表=光譜
+--rate=1 速率=1
+--run-time=5 
+--video-filter=scene 視頻濾鏡模組=（場景）
+--vout=dummy 視頻輸出濾鏡模組=（虛設）	-V, --vout <字串型> 視頻輸出模組
+--scene-format=png 場景格式
+--scene-prefix=snap 場景前綴
+//////////////////////////////////////////////////////////////////////////////////////////////////
+Send your video to picture files
+      --scene-format=<string>    Image format
+          Format of the output images (png, jpeg, ...).
+      --scene-width=<integer [-2147483648 .. 2147483647]>
+                                 Image width
+          You can enforce the image width. By default (-1) VLC will adapt to
+          the video characteristics.
+      --scene-height=<integer [-2147483648 .. 2147483647]>
+                                 Image height
+          You can enforce the image height. By default (-1) VLC will adapt to
+          the video characteristics.
+      --scene-prefix=<string>    Filename prefix
+          Prefix of the output images filenames. Output filenames will have the
+          "prefixNUMBER.format" form if replace is not true.
+      --scene-path=<string>      Directory path prefix
+          Directory path where images files should be saved.If not set, then
+          images will be automatically saved in users homedir.
+      --scene-replace, --no-scene-replace
+                                 Always write to the same file (default
+                                 disabled)
+          Always write to the same file instead of creating one file per image.
+          In this case, the number is not appended to the filename. (default
+          disabled)
+      --scene-ratio=<integer [-2147483648 .. 2147483647]>
+                                 Recording ratio
+          Ratio of images to record. 3 means that one image out of three is
+          recorded.

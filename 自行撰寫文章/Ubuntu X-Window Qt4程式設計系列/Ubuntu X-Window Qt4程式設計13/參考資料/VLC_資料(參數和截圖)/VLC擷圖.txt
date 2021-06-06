@@ -1,0 +1,6 @@
+Windows
+C:\Program Files (x86)\VideoLAN\VLC>vlc -V dummy --intf=dummy --dummy-quiet http://61.67.123.72:9090/udp/235.1.1.167:1232 --rate=1 --run-time=5 --video-filter=scene --vout=dummy --scene-format=png --scene-prefix=snap --scene-replace --scene-path=C:\ vlc://quit
+C:\Program Files (x86)\VideoLAN\VLC>vlc --no-video --audio-visual=visual --effect-list=spectrum http://61.67.123.72:9090/udp/235.1.1.167:1232 --rate=1 --run-time=5 --video-filter=scene --vout=dummy --scene-format=png --scene-prefix=snap --scene-replace --scene-path=C:\ vlc://quit
+Linux
+cvlc -V dummy http://61.67.123.72:9090/udp/235.1.1.167:1232 --rate=1 --run-time=5 --video-filter=scene --vout=dummy --scene-format=png --scene-prefix=snap --scene-replace --scene-path=c:\ vlc://quit1
+cvlc --no-video --audio-visual=visual --effect-list=spectrum http://61.67.123.72:9090/udp/235.1.1.167:1232 --rate=1 --run-time=5 --video-filter=scene --vout=dummy --scene-format=png --scene-prefix=snap --scene-replace --scene-path=C:\ vlc://quit

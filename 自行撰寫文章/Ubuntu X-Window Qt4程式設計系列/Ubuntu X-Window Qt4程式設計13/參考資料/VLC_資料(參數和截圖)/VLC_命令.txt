@@ -1,0 +1,232 @@
+VLC播放器可以通過命令行方式啟動，並通過參數控制各項設置。這項功能在windows環境下聽起來
+好像沒什麼意思。確實，如果你只是使用VLC做為普通播放器確實沒什麼意義，但是如果你使用VLC做
+二次開發就很有意義了？什麼沒懂？看後面的文檔，沒准我會說的...
+    使用VLC.exe -h或者 VLC.exe -H可以將幫助內容倒出到檔中，兩個的區別是-H 倒出的內容多些。
+這裏我們直接將內容貼上.
+Usage: vlc [options] [stream] ...
+You can specify multiple streams on the commandline. They will be enqueued in the playlist.
+The first item specified will be played first.
+Options-styles:
+--option A global option that is set for the duration of the program.
+   -option A single letter version of a global --option.
+   :option An option that only applies to the stream directly before it
+            and that overrides previous settings.
+Stream MRL syntax:
+[[access][/demux]://]URL[@[title][:chapter][-[title][:chapter]]] [:option=value ...]
+Many of the global --options can also be used as MRL specific :options.
+Multiple :option=value pairs can be specified.
+URL syntax:
+[file://]filename              Plain media file
+http://ip:port/file            HTTP URL
+ftp://ip:port/file             FTP URL
+mms://ip:port/file             MMS URL
+screen://                      Screen capture
+[dvd://][device][@raw_device] DVD device
+[vcd://][device]               VCD device
+[cdda://][device]              Audio CD device
+udp://[[<source address>]@[<bind address>][:<bind port>]]
+                                 UDP stream sent by a streaming server
+vlc://pause:<seconds>          Special item to pause the playlist for a certain time
+vlc://quit                     Special item to quit VLC
+音頻
+      --audio, --no-audio        開啟音頻 (默認開啟)
+      --volume=<整數 [0 .. 1024]>
+                                 默認音頻音量
+      --spdif, --no-spdif        在可能時使用 S/PDIF (默認關閉)
+      --force-dolby-surround={0 (自動), 1 (開), 2 (關)}
+                                 強制檢測杜比環繞聲
+      --audio-replay-gain-mode={none,track,album}
+                                 重播增益模式
+      --audio-replay-gain-preamp=<浮點>
+                                 重播預放大
+      --audio-replay-gain-default=<浮點>
+                                 默認重播增益
+      --audio-filter=<字串>    音頻濾鏡
+      --audio-visual=<字串>    音頻視覺化
+視頻
+-f, --fullscreen, --no-fullscreen
+                                 全螢幕視頻輸出 (默認關閉)
+      --overlay, --no-overlay    覆蓋視頻輸出 (默認開啟)
+      --video-on-top, --no-video-on-top
+                                 總在最前 (默認關閉)
+      --video-title-show, --no-video-title-show
+                                 在視頻上顯示媒體標題 (默認開啟)
+      --video-title-timeout=<整數>
+                                 顯示視頻標題 x 毫秒
+      --video-title-position={0 (居中), 1 (左), 2 (右), 4 (上), 8 (下), 5 (左上), 6 (右上), 9 (左下), 10 (右下)}
+                                 視頻標題的位置
+      --mouse-hide-timeout=<整數>
+                                 在 x 毫秒後隱藏游標和全屏控制器
+   截圖:
+      --snapshot-path=<字串>   視頻截圖目錄 (或檔案名)
+      --snapshot-prefix=<字串> 視頻截圖檔首碼
+      --snapshot-format={png,jpg}
+                                 視頻截圖格式
+      --snapshot-preview, --no-snapshot-preview
+                                 顯示視頻截圖預覽 (默認開啟)
+      --snapshot-sequential, --no-snapshot-sequential
+                                 使用順序編號代替時間戳
+                                 (默認關閉)
+   視窗屬性:
+      --crop=<字串>            視頻裁剪
+      --custom-crop-ratios=<字串>
+                                 自定義裁剪比列表
+      --aspect-ratio=<字串>    源高寬比
+      --custom-aspect-ratios=<字串>
+                                 自定義高寬比列表
+      --video-filter=<字串>    視頻濾鏡模組
+      --vout-filter=<字串>     視頻輸出濾鏡模組
+子畫面
+   螢幕顯示:
+      --osd, --no-osd            螢幕顯示 (默認開啟)
+   字幕:
+      --sub-file=<字串>        使用字幕檔
+      --sub-autodetect-file, --no-sub-autodetect-file
+                                 自動檢測字幕文件 (默認開啟)
+   覆蓋:
+      --sub-filter=<字串>      子畫面濾鏡模組
+   軌道設置:
+      --audio-language=<字串> 音頻語言
+      --sub-language=<字串>    字幕語言
+   播放控制:
+      --input-repeat=<整數>    輸入重複
+   默認設備:
+      --dvd=<字串>             DVD 設備
+      --vcd=<字串>             VCD 設備
+      --cd-audio=<字串>        音頻 CD 設備
+   網路設置:
+      --server-port=<整數>     UDP 埠
+-6, --ipv6, --no-ipv6          強制 IPv6 (默認關閉)
+-4, --ipv4, --no-ipv4          強制 IPv4 (默認關閉)
+輸入
+   高級:
+      --access-filter=<字串>   訪問濾鏡模組
+      --prefer-system-codecs, --no-prefer-system-codecs
+                                 首選系統插件替代 VLC (默認關閉)
+   性能選項:
+      --high-priority, --no-high-priority
+                                 增加進程的優先順序 (默認關閉)
+播放列表
+-Z, --random, --no-random      永遠隨機播放檔 (默認關閉)
+-L, --loop, --no-loop          全部重複 (默認關閉)
+-R, --repeat, --no-repeat      重複當前的專案 (默認關閉)
+      --play-and-exit, --no-play-and-exit
+                                 播放並退出 (默認關閉)
+      --play-and-stop, --no-play-and-stop
+                                 播放與停止 (默認關閉)
+      --media-library, --no-media-library
+                                 使用媒體庫 (默認開啟)
+      --playlist-tree, --no-playlist-tree
+                                 顯示播放列表樹 (默認關閉)
+      --open=<字串>            默認流
+      --auto-preparse, --no-auto-preparse
+                                 自動預分析檔 (默認開啟)
+      --album-art={0 (僅手動下載), 1 (在軌道開始播放時), 2 (在軌道被添加後)}
+                                 專輯封面策略
+-S, --services-discovery=<字串>
+                                 服務發現模組
+-v, --verbose=<整數>         提示程度 (0,1,2)
+      --language={auto,en,ar,bn,pt_BR,en_GB,bg,ca,zh_TW,cs,da,nl,fi,fr,gl,ka,de,he,hu,id,it,ja,ko,ms,oc,fa,pl,pt_PT,pa,ro,ru,zh_CN,sr,sk,sl,es,sv,tr,uk}
+                                 語言
+      --advanced, --no-advanced 顯示高級選項 (默認關閉)
+      --interact, --no-interact 介面交互 (默認開啟)
+      --show-intf, --no-show-intf
+                                 使用滑鼠顯示介面 (默認關閉)
+-I, --intf=<字串>            介面模組
+      --extraintf=<字串>       擴展介面模組
+      --control=<字串>         控制介面
+熱鍵
+      --key-toggle-fullscreen=<整數>
+                                 全螢幕
+      --key-leave-fullscreen=<整數>
+                                 離開全螢幕
+      --key-play-pause=<整數> 播放/暫停
+      --key-faster=<整數>      較快
+      --key-slower=<整數>      較慢
+      --key-next=<整數>        下一個
+      --key-prev=<整數>        上一個
+      --key-stop=<整數>        停止
+      --key-jump-extrashort=<整數>
+                                 非常短的向後跳轉
+      --key-jump+extrashort=<整數>
+                                 非常短的向前跳轉
+      --key-jump-short=<整數> 短向後跳轉
+      --key-jump+short=<整數> 短向前跳轉
+      --key-jump-medium=<整數> 中向後跳轉
+      --key-jump+medium=<整數> 中向前跳轉
+      --key-jump-long=<整數>   長向後跳轉
+      --key-jump+long=<整數>   長向前跳轉
+      --key-quit=<整數>        退出
+      --key-vol-up=<整數>      音量上
+      --key-vol-down=<整數>    音量下
+      --key-vol-mute=<整數>    靜音
+      --key-audio-track=<整數> 切換音軌
+      --key-audiodevice-cycle=<整數>
+                                 在音頻設備之間切換
+      --key-subtitle-track=<整數>
+                                 切換字幕軌道
+      --key-aspect-ratio=<整數>
+                                 切換源高寬比
+      --key-crop=<整數>        切換視頻剪輯
+      --key-deinterlace=<整數> 切換反交錯模式
+      --key-wallpaper=<整數>   在視頻輸出模式中切換壁紙輸出
+      --key-random=<整數>      隨機
+      --key-loop=<整數>        普通/重複/迴圈
+   縮放:
+      --key-zoom-quarter=<整數>
+                                 1:4 四分之一
+      --key-zoom-half=<整數>   1:2 二分之一
+      --key-zoom-original=<整數>
+                                 1:1 原始
+      --key-zoom-double=<整數> 2:1 雙倍
+   跳躍大小:
+      --extrashort-jump-size=<整數>
+                                 非常短的跳轉長度
+      --short-jump-size=<整數> 短跳轉長度
+      --medium-jump-size=<整數>
+                                 中跳轉長度
+      --long-jump-size=<整數> 長跳轉長度
+      --bookmark1=<字串>       播放列表書簽 1
+      --bookmark2=<字串>       播放列表書簽 2
+      --bookmark3=<字串>       播放列表書簽 3
+      --bookmark4=<字串>       播放列表書簽 4
+      --bookmark5=<字串>       播放列表書簽 5
+      --bookmark6=<字串>       播放列表書簽 6
+      --bookmark7=<字串>       播放列表書簽 7
+      --bookmark8=<字串>       播放列表書簽 8
+      --bookmark9=<字串>       播放列表書簽 9
+      --bookmark10=<字串>      播放列表書簽 10
+-h, --help, --no-help          列印 VLC 幫助 (可以和 --advanced 和
+                                 --help-verbose 一起使用) (默認開啟)
+-H, --full-help, --no-full-help
+                                 VLC 和它模組的全面幫助 (默認關閉)
+      --longhelp, --no-longhelp 列印 VLC 和它全部模組的幫助
+                                 (可以和 --advanced 和 --help-verbose
+                                 一起使用) (默認關閉)
+      --help-verbose, --no-help-verbose
+                                 在顯示幫助時詢問是否顯示額外的
+                                 釋 (默認關閉)
+-l, --list, --no-list          列印一份可用模組的列表
+                                 (默認關閉)
+-l, --list-verbose, --no-list-verbose
+                                 列印一份帶詳細資訊的可用模組列
+                                  (默認關閉)
+-p, --module=<字串>          列印指定模組的幫助 (可以和
+                                 --advanced 和 --help-verbose 一起使用)
+      --ignore-config, --no-ignore-config
+                                 沒有設置選項將會被載入或被保存
+                                 設置文件中 (默認關閉)
+      --save-config, --no-save-config
+                                 保存當前的命令行選項到設置中
+                                 (默認關閉)
+      --reset-config, --no-reset-config
+                                 重置當前的設置為預設值
+                                 (默認關閉)
+      --reset-plugins-cache, --no-reset-plugins-cache
+                                 重置當前插件的緩存 (默認關閉)
+      --version, --no-version    列印版本資訊 (默認關閉)
+      --config=<字串>          使用可替換的設置檔
+      --version, --no-version    列印版本資訊 (默認關閉)
+說明: add -- 查看您命令行的高級選項。
+要獲取全面的幫助, 請使用 '-H'。
+

@@ -1,0 +1,5 @@
+Ubuntu X-Window Qt4程式設計<三>
+├類別介紹(QEdit、QString)
+├QDevelop/QDesigner介紹 
+├建立簡易加減乘除介面
+├撰寫簡易加減乘除程式與說明

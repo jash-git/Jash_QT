@@ -1,0 +1,4 @@
+X264:http://zh.wikipedia.org/wiki/X264%E7%B7%A8%E7%A2%BC%E5%99%A8
+H.264/MPEG-4 AVC:http://zh.wikipedia.org/wiki/H.264	http://baike.soso.com/v638783.htm
+MPEG-4:http://zh.wikipedia.org/wiki/MPEG-4
+ffmpeg:http://ffmpeg.org/ffmpeg.html

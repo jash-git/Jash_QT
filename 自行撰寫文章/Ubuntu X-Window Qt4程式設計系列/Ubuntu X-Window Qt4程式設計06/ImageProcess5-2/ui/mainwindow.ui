@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>598</width>
+    <height>388</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>598</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>檔案</string>
+    </property>
+    <addaction name="OpenFile"/>
+    <addaction name="Close"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>基礎運算</string>
+    </property>
+    <addaction name="Source"/>
+    <addaction name="Gray"/>
+    <addaction name="FixedThreshold"/>
+    <addaction name="OTSUThreshold"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="OpenFile">
+   <property name="text">
+    <string>開啟舊檔</string>
+   </property>
+  </action>
+  <action name="Close">
+   <property name="text">
+    <string>關閉程式</string>
+   </property>
+  </action>
+  <action name="Gray">
+   <property name="text">
+    <string>灰階轉換</string>
+   </property>
+  </action>
+  <action name="Source">
+   <property name="text">
+    <string>顯示原圖</string>
+   </property>
+  </action>
+  <action name="FixedThreshold">
+   <property name="text">
+    <string>二值化（固定門閥值）</string>
+   </property>
+  </action>
+  <action name="OTSUThreshold">
+   <property name="text">
+    <string>二值化（OTSU）</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>OpenFile</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotOpenFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Close</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotClose()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Gray</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotGray()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Source</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotSource()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>FixedThreshold</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotFixedThreshold()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>OTSUThreshold</sender>
+   <signal>activated()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>slotOTSUThreshold()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>298</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>slotClose()</slot>
+  <slot>slotOpenFile()</slot>
+  <slot>slotGray()</slot>
+  <slot>slotSource()</slot>
+  <slot>slotFixedThreshold()</slot>
+  <slot>slotOTSUThreshold()</slot>
+ </slots>
+</ui>
